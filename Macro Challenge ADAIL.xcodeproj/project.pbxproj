@@ -13,6 +13,15 @@
 		BDD3F9DE2722FD2A00B2AF7F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BDD3F9DC2722FD2A00B2AF7F /* Main.storyboard */; };
 		BDD3F9E02722FD2B00B2AF7F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BDD3F9DF2722FD2B00B2AF7F /* Assets.xcassets */; };
 		BDD3F9E32722FD2B00B2AF7F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BDD3F9E12722FD2B00B2AF7F /* LaunchScreen.storyboard */; };
+		BDD3F9F1272302CE00B2AF7F /* HomeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD3F9F0272302CE00B2AF7F /* HomeInteractor.swift */; };
+		BDD3F9F3272302DD00B2AF7F /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD3F9F2272302DD00B2AF7F /* HomePresenter.swift */; };
+		BDD3F9F52723031800B2AF7F /* HomeProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD3F9F42723031800B2AF7F /* HomeProtocol.swift */; };
+		BDD3F9F72723032300B2AF7F /* HomeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD3F9F62723032300B2AF7F /* HomeRouter.swift */; };
+		BDD3F9F92723034B00B2AF7F /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD3F9F82723034B00B2AF7F /* HomeVC.swift */; };
+		BDD3F9FF27231C6100B2AF7F /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD3F9FE27231C6100B2AF7F /* TabBarViewController.swift */; };
+		BDD3FA012723489900B2AF7F /* TabBarProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD3FA002723489900B2AF7F /* TabBarProtocol.swift */; };
+		BDD3FA03272349FF00B2AF7F /* TabBarRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD3FA02272349FF00B2AF7F /* TabBarRouter.swift */; };
+		BDD3FA0527234A7400B2AF7F /* TapBarPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD3FA0427234A7400B2AF7F /* TapBarPresenter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +33,15 @@
 		BDD3F9DF2722FD2B00B2AF7F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BDD3F9E22722FD2B00B2AF7F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BDD3F9E42722FD2B00B2AF7F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BDD3F9F0272302CE00B2AF7F /* HomeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInteractor.swift; sourceTree = "<group>"; };
+		BDD3F9F2272302DD00B2AF7F /* HomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
+		BDD3F9F42723031800B2AF7F /* HomeProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeProtocol.swift; sourceTree = "<group>"; };
+		BDD3F9F62723032300B2AF7F /* HomeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRouter.swift; sourceTree = "<group>"; };
+		BDD3F9F82723034B00B2AF7F /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
+		BDD3F9FE27231C6100B2AF7F /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
+		BDD3FA002723489900B2AF7F /* TabBarProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarProtocol.swift; sourceTree = "<group>"; };
+		BDD3FA02272349FF00B2AF7F /* TabBarRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarRouter.swift; sourceTree = "<group>"; };
+		BDD3FA0427234A7400B2AF7F /* TapBarPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapBarPresenter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +74,7 @@
 		BDD3F9D52722FD2A00B2AF7F /* Macro Challenge ADAIL */ = {
 			isa = PBXGroup;
 			children = (
+				BDD3F9EA2723027600B2AF7F /* Modules */,
 				BDD3F9D62722FD2A00B2AF7F /* AppDelegate.swift */,
 				BDD3F9D82722FD2A00B2AF7F /* SceneDelegate.swift */,
 				BDD3F9DA2722FD2A00B2AF7F /* ViewController.swift */,
@@ -65,6 +84,46 @@
 				BDD3F9E42722FD2B00B2AF7F /* Info.plist */,
 			);
 			path = "Macro Challenge ADAIL";
+			sourceTree = "<group>";
+		};
+		BDD3F9EA2723027600B2AF7F /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				BDD3F9FB27231BEE00B2AF7F /* TapBar */,
+				BDD3F9ED272302B000B2AF7F /* Home */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		BDD3F9ED272302B000B2AF7F /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				BDD3F9FA2723034F00B2AF7F /* Entity */,
+				BDD3F9F0272302CE00B2AF7F /* HomeInteractor.swift */,
+				BDD3F9F2272302DD00B2AF7F /* HomePresenter.swift */,
+				BDD3F9F42723031800B2AF7F /* HomeProtocol.swift */,
+				BDD3F9F62723032300B2AF7F /* HomeRouter.swift */,
+				BDD3F9F82723034B00B2AF7F /* HomeVC.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		BDD3F9FA2723034F00B2AF7F /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		BDD3F9FB27231BEE00B2AF7F /* TapBar */ = {
+			isa = PBXGroup;
+			children = (
+				BDD3F9FE27231C6100B2AF7F /* TabBarViewController.swift */,
+				BDD3FA002723489900B2AF7F /* TabBarProtocol.swift */,
+				BDD3FA02272349FF00B2AF7F /* TabBarRouter.swift */,
+				BDD3FA0427234A7400B2AF7F /* TapBarPresenter.swift */,
+			);
+			path = TapBar;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,9 +197,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BDD3F9F52723031800B2AF7F /* HomeProtocol.swift in Sources */,
+				BDD3F9F92723034B00B2AF7F /* HomeVC.swift in Sources */,
 				BDD3F9DB2722FD2A00B2AF7F /* ViewController.swift in Sources */,
 				BDD3F9D72722FD2A00B2AF7F /* AppDelegate.swift in Sources */,
 				BDD3F9D92722FD2A00B2AF7F /* SceneDelegate.swift in Sources */,
+				BDD3FA012723489900B2AF7F /* TabBarProtocol.swift in Sources */,
+				BDD3F9F3272302DD00B2AF7F /* HomePresenter.swift in Sources */,
+				BDD3F9F72723032300B2AF7F /* HomeRouter.swift in Sources */,
+				BDD3FA03272349FF00B2AF7F /* TabBarRouter.swift in Sources */,
+				BDD3F9F1272302CE00B2AF7F /* HomeInteractor.swift in Sources */,
+				BDD3FA0527234A7400B2AF7F /* TapBarPresenter.swift in Sources */,
+				BDD3F9FF27231C6100B2AF7F /* TabBarViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -294,7 +362,6 @@
 				INFOPLIST_FILE = "Macro Challenge ADAIL/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -322,7 +389,6 @@
 				INFOPLIST_FILE = "Macro Challenge ADAIL/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
