@@ -24,8 +24,8 @@ class TabBarVC: UITabBarController {
     func setupVCs() {
         viewControllers = [
             createNavController(for: HomeRouter().createModule(), title: NSLocalizedString(C.tab1Title, comment: ""), image: UIImage(systemName: C.tab1Icon)!),
-            createNavController(for: ProfileRouter().createModule(), title: NSLocalizedString(C.tab2Title, comment: ""), image: UIImage(systemName: C.tab2Icon)!),
-            createNavController(for: ViewController(), title: NSLocalizedString(C.tab3Title, comment: ""), image: UIImage(systemName: C.tab3Icon)!)
+            createNavController(for: ViewController(), title: NSLocalizedString(C.tab2Title, comment: ""), image: UIImage(systemName: C.tab2Icon)!),
+            createNavController(for: ProfileRouter().createModule(), title: NSLocalizedString(C.tab3Title, comment: ""), image: UIImage(systemName: C.tab3Icon)!)
         ]
     }
     

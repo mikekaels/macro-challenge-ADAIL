@@ -12,7 +12,7 @@ class ProfileVC: UIViewController {
     
     let textLabel: UILabel = {
         let label = UILabel()
-        label.text = Constants().tab2Title
+        label.text = Constants().tab3Title
         label.textAlignment = .center
         label.textColor = .black
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -22,7 +22,7 @@ class ProfileVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .systemBackground
-        self.title = Constants().tab2Title
+        self.title = Constants().tab3Title
         self.view.addSubview(textLabel)
         textLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
         textLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
