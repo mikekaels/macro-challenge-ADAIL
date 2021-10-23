@@ -11,7 +11,7 @@ class HomeRouter: HomePresenterToRouterProtocol {
     
     public static let shared = HomeRouter()
     
-    public func initialize() -> HomeVC{
+    public func initialize() -> HomeVC {
         return createModule()
     }
     

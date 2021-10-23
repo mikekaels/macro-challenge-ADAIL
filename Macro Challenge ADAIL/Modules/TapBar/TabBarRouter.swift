@@ -12,12 +12,12 @@ class TabBarRouter: TabBarPresenterToRouterProtocol {
     
     public static let shared = TabBarRouter()
     
-    public func initialize() -> TabBarViewController{
+    public func initialize() -> TabBarVC{
         return createModule()
     }
     
-    func createModule() -> TabBarViewController {
-        let view = TabBarViewController()
+    func createModule() -> TabBarVC {
+        let view = TabBarVC()
         
         let presenter: TabBarViewToPresenterProtocol = TabBarPresenter()
         let router: TabBarPresenterToRouterProtocol = TabBarRouter()

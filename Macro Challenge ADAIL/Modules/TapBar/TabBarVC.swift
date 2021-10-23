@@ -1,29 +1,31 @@
 //
-//  TabBarViewController.swift
+//  TabBarVC.swift
 //  Macro Challenge ADAIL
 //
-//  Created by Santo Michael Sihombing on 22/10/21.
+//  Created by Santo Michael Sihombing on 23/10/21.
 //
 
 import UIKit
 
-class TabBarViewController: UITabBarController {
+class TabBarVC: UITabBarController {
     var presentor: TabBarViewToPresenterProtocol?
+    
+    let C = Constants()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         delegate = self
         view.backgroundColor = .systemBackground
         UITabBar.appearance().barTintColor = .systemBackground
-        tabBar.tintColor = .label
+        tabBar.tintColor = .systemBlue
         setupVCs()
     }
     
     func setupVCs() {
         viewControllers = [
-            createNavController(for: HomeVC(), title: NSLocalizedString("Home", comment: ""), image: UIImage(systemName: "house")!),
-            createNavController(for: ViewController(), title: NSLocalizedString("Records", comment: ""), image: UIImage(systemName: "doc.text.below.ecg")!),
-            createNavController(for: ViewController(), title: NSLocalizedString("Profile", comment: ""), image: UIImage(systemName: "person")!)
+            createNavController(for: HomeRouter().createModule(), title: NSLocalizedString(C.tab1Title, comment: ""), image: UIImage(systemName: C.tab1Icon)!),
+            createNavController(for: ProfileRouter().createModule(), title: NSLocalizedString(C.tab2Title, comment: ""), image: UIImage(systemName: C.tab2Icon)!),
+            createNavController(for: ViewController(), title: NSLocalizedString(C.tab3Title, comment: ""), image: UIImage(systemName: C.tab3Icon)!)
         ]
     }
     
@@ -40,14 +42,15 @@ class TabBarViewController: UITabBarController {
     }
 }
 
-extension TabBarViewController: UITabBarControllerDelegate{
+extension TabBarVC: UITabBarControllerDelegate{
     func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
         print("Should select viewController: \(viewController.title ?? "") ?")
         return true;
     }
 }
 
-extension TabBarViewController: TabBarPresenterToViewProtocol {
+extension TabBarVC: TabBarPresenterToViewProtocol {
     
 }
+
 

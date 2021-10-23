@@ -7,10 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BD474FA327240E15005BF154 /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD474FA227240E15005BF154 /* ProfileVC.swift */; };
+		BD474FA527240E2E005BF154 /* ProfileRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD474FA427240E2E005BF154 /* ProfileRouter.swift */; };
+		BD474FA727240E41005BF154 /* ProfileProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD474FA627240E41005BF154 /* ProfileProtocol.swift */; };
+		BD474FA927240E4E005BF154 /* ProfilePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD474FA827240E4E005BF154 /* ProfilePresenter.swift */; };
+		BD474FAB27240E5D005BF154 /* ProfileInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD474FAA27240E5D005BF154 /* ProfileInteractor.swift */; };
+		BD474FAE27240EC0005BF154 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD474FAD27240EC0005BF154 /* Constants.swift */; };
+		BD474FB027240FDC005BF154 /* TabBarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD474FAF27240FDC005BF154 /* TabBarVC.swift */; };
 		BDD3F9D72722FD2A00B2AF7F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD3F9D62722FD2A00B2AF7F /* AppDelegate.swift */; };
 		BDD3F9D92722FD2A00B2AF7F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD3F9D82722FD2A00B2AF7F /* SceneDelegate.swift */; };
 		BDD3F9DB2722FD2A00B2AF7F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD3F9DA2722FD2A00B2AF7F /* ViewController.swift */; };
-		BDD3F9DE2722FD2A00B2AF7F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BDD3F9DC2722FD2A00B2AF7F /* Main.storyboard */; };
 		BDD3F9E02722FD2B00B2AF7F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BDD3F9DF2722FD2B00B2AF7F /* Assets.xcassets */; };
 		BDD3F9E32722FD2B00B2AF7F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BDD3F9E12722FD2B00B2AF7F /* LaunchScreen.storyboard */; };
 		BDD3F9F1272302CE00B2AF7F /* HomeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD3F9F0272302CE00B2AF7F /* HomeInteractor.swift */; };
@@ -18,18 +24,23 @@
 		BDD3F9F52723031800B2AF7F /* HomeProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD3F9F42723031800B2AF7F /* HomeProtocol.swift */; };
 		BDD3F9F72723032300B2AF7F /* HomeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD3F9F62723032300B2AF7F /* HomeRouter.swift */; };
 		BDD3F9F92723034B00B2AF7F /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD3F9F82723034B00B2AF7F /* HomeVC.swift */; };
-		BDD3F9FF27231C6100B2AF7F /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD3F9FE27231C6100B2AF7F /* TabBarViewController.swift */; };
 		BDD3FA012723489900B2AF7F /* TabBarProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD3FA002723489900B2AF7F /* TabBarProtocol.swift */; };
 		BDD3FA03272349FF00B2AF7F /* TabBarRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD3FA02272349FF00B2AF7F /* TabBarRouter.swift */; };
 		BDD3FA0527234A7400B2AF7F /* TapBarPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD3FA0427234A7400B2AF7F /* TapBarPresenter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BD474FA227240E15005BF154 /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
+		BD474FA427240E2E005BF154 /* ProfileRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileRouter.swift; sourceTree = "<group>"; };
+		BD474FA627240E41005BF154 /* ProfileProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileProtocol.swift; sourceTree = "<group>"; };
+		BD474FA827240E4E005BF154 /* ProfilePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePresenter.swift; sourceTree = "<group>"; };
+		BD474FAA27240E5D005BF154 /* ProfileInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileInteractor.swift; sourceTree = "<group>"; };
+		BD474FAD27240EC0005BF154 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		BD474FAF27240FDC005BF154 /* TabBarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarVC.swift; sourceTree = "<group>"; };
 		BDD3F9D32722FD2A00B2AF7F /* Macro Challenge ADAIL.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Macro Challenge ADAIL.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDD3F9D62722FD2A00B2AF7F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BDD3F9D82722FD2A00B2AF7F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		BDD3F9DA2722FD2A00B2AF7F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		BDD3F9DD2722FD2A00B2AF7F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BDD3F9DF2722FD2B00B2AF7F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BDD3F9E22722FD2B00B2AF7F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BDD3F9E42722FD2B00B2AF7F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -38,7 +49,6 @@
 		BDD3F9F42723031800B2AF7F /* HomeProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeProtocol.swift; sourceTree = "<group>"; };
 		BDD3F9F62723032300B2AF7F /* HomeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRouter.swift; sourceTree = "<group>"; };
 		BDD3F9F82723034B00B2AF7F /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
-		BDD3F9FE27231C6100B2AF7F /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		BDD3FA002723489900B2AF7F /* TabBarProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarProtocol.swift; sourceTree = "<group>"; };
 		BDD3FA02272349FF00B2AF7F /* TabBarRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarRouter.swift; sourceTree = "<group>"; };
 		BDD3FA0427234A7400B2AF7F /* TapBarPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapBarPresenter.swift; sourceTree = "<group>"; };
@@ -55,6 +65,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BD474FA127240DBA005BF154 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				BD474FAA27240E5D005BF154 /* ProfileInteractor.swift */,
+				BD474FA827240E4E005BF154 /* ProfilePresenter.swift */,
+				BD474FA627240E41005BF154 /* ProfileProtocol.swift */,
+				BD474FA427240E2E005BF154 /* ProfileRouter.swift */,
+				BD474FA227240E15005BF154 /* ProfileVC.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		BD474FAC27240EA3005BF154 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				BD474FAD27240EC0005BF154 /* Constants.swift */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
 		BDD3F9CA2722FD2A00B2AF7F = {
 			isa = PBXGroup;
 			children = (
@@ -74,11 +104,11 @@
 		BDD3F9D52722FD2A00B2AF7F /* Macro Challenge ADAIL */ = {
 			isa = PBXGroup;
 			children = (
+				BD474FAC27240EA3005BF154 /* Constants */,
 				BDD3F9EA2723027600B2AF7F /* Modules */,
 				BDD3F9D62722FD2A00B2AF7F /* AppDelegate.swift */,
 				BDD3F9D82722FD2A00B2AF7F /* SceneDelegate.swift */,
 				BDD3F9DA2722FD2A00B2AF7F /* ViewController.swift */,
-				BDD3F9DC2722FD2A00B2AF7F /* Main.storyboard */,
 				BDD3F9DF2722FD2B00B2AF7F /* Assets.xcassets */,
 				BDD3F9E12722FD2B00B2AF7F /* LaunchScreen.storyboard */,
 				BDD3F9E42722FD2B00B2AF7F /* Info.plist */,
@@ -90,6 +120,7 @@
 			isa = PBXGroup;
 			children = (
 				BDD3F9FB27231BEE00B2AF7F /* TapBar */,
+				BD474FA127240DBA005BF154 /* Profile */,
 				BDD3F9ED272302B000B2AF7F /* Home */,
 			);
 			path = Modules;
@@ -118,10 +149,10 @@
 		BDD3F9FB27231BEE00B2AF7F /* TapBar */ = {
 			isa = PBXGroup;
 			children = (
-				BDD3F9FE27231C6100B2AF7F /* TabBarViewController.swift */,
 				BDD3FA002723489900B2AF7F /* TabBarProtocol.swift */,
 				BDD3FA02272349FF00B2AF7F /* TabBarRouter.swift */,
 				BDD3FA0427234A7400B2AF7F /* TapBarPresenter.swift */,
+				BD474FAF27240FDC005BF154 /* TabBarVC.swift */,
 			);
 			path = TapBar;
 			sourceTree = "<group>";
@@ -186,7 +217,6 @@
 			files = (
 				BDD3F9E32722FD2B00B2AF7F /* LaunchScreen.storyboard in Resources */,
 				BDD3F9E02722FD2B00B2AF7F /* Assets.xcassets in Resources */,
-				BDD3F9DE2722FD2A00B2AF7F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -199,30 +229,28 @@
 			files = (
 				BDD3F9F52723031800B2AF7F /* HomeProtocol.swift in Sources */,
 				BDD3F9F92723034B00B2AF7F /* HomeVC.swift in Sources */,
+				BD474FAB27240E5D005BF154 /* ProfileInteractor.swift in Sources */,
 				BDD3F9DB2722FD2A00B2AF7F /* ViewController.swift in Sources */,
 				BDD3F9D72722FD2A00B2AF7F /* AppDelegate.swift in Sources */,
 				BDD3F9D92722FD2A00B2AF7F /* SceneDelegate.swift in Sources */,
 				BDD3FA012723489900B2AF7F /* TabBarProtocol.swift in Sources */,
+				BD474FA527240E2E005BF154 /* ProfileRouter.swift in Sources */,
 				BDD3F9F3272302DD00B2AF7F /* HomePresenter.swift in Sources */,
+				BD474FB027240FDC005BF154 /* TabBarVC.swift in Sources */,
 				BDD3F9F72723032300B2AF7F /* HomeRouter.swift in Sources */,
+				BD474FA327240E15005BF154 /* ProfileVC.swift in Sources */,
+				BD474FA927240E4E005BF154 /* ProfilePresenter.swift in Sources */,
 				BDD3FA03272349FF00B2AF7F /* TabBarRouter.swift in Sources */,
 				BDD3F9F1272302CE00B2AF7F /* HomeInteractor.swift in Sources */,
 				BDD3FA0527234A7400B2AF7F /* TapBarPresenter.swift in Sources */,
-				BDD3F9FF27231C6100B2AF7F /* TabBarViewController.swift in Sources */,
+				BD474FA727240E41005BF154 /* ProfileProtocol.swift in Sources */,
+				BD474FAE27240EC0005BF154 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		BDD3F9DC2722FD2A00B2AF7F /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				BDD3F9DD2722FD2A00B2AF7F /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		BDD3F9E12722FD2B00B2AF7F /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

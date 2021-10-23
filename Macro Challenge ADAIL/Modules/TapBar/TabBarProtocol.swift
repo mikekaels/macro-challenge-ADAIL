@@ -17,5 +17,5 @@ protocol TabBarPresenterToViewProtocol: AnyObject {
 }
 
 protocol TabBarPresenterToRouterProtocol: AnyObject {
-    func createModule() -> TabBarViewController
+    func createModule() -> TabBarVC
 }

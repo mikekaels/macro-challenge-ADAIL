@@ -1,18 +1,18 @@
 //
-//  HomeVC.swift
+//  ProfileVC.swift
 //  Macro Challenge ADAIL
 //
-//  Created by Santo Michael Sihombing on 22/10/21.
+//  Created by Santo Michael Sihombing on 23/10/21.
 //
 
 import UIKit
 
-class HomeVC: UIViewController {
-    var presentor: HomeViewToPresenterProtocol?
+class ProfileVC: UIViewController {
+    var presentor: ProfileViewToPresenterProtocol?
     
     let textLabel: UILabel = {
         let label = UILabel()
-        label.text = Constants().tab1Title
+        label.text = Constants().tab2Title
         label.textAlignment = .center
         label.textColor = .black
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -22,15 +22,13 @@ class HomeVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .systemBackground
-        self.title = Constants().tab1Title
+        self.title = Constants().tab2Title
         self.view.addSubview(textLabel)
         textLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
         textLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
     }
-    
-
 }
 
-extension HomeVC: HomePresenterToViewProtocol {
+extension ProfileVC: ProfilePresenterToViewProtocol {
     
 }
