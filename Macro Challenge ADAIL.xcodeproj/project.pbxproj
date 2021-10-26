@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4117519B2727C40A00C997E9 /* RecordInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4117519A2727C40A00C997E9 /* RecordInteractor.swift */; };
+		4117519D2727C41200C997E9 /* RecordPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4117519C2727C41200C997E9 /* RecordPresenter.swift */; };
+		4117519F2727C41900C997E9 /* RecordProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4117519E2727C41900C997E9 /* RecordProtocol.swift */; };
+		411751A12727C43500C997E9 /* RecordRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 411751A02727C43500C997E9 /* RecordRouter.swift */; };
+		411751A32727C43C00C997E9 /* RecordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 411751A22727C43C00C997E9 /* RecordVC.swift */; };
 		BD474FA327240E15005BF154 /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD474FA227240E15005BF154 /* ProfileVC.swift */; };
 		BD474FA527240E2E005BF154 /* ProfileRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD474FA427240E2E005BF154 /* ProfileRouter.swift */; };
 		BD474FA727240E41005BF154 /* ProfileProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD474FA627240E41005BF154 /* ProfileProtocol.swift */; };
@@ -30,6 +35,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4117519A2727C40A00C997E9 /* RecordInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordInteractor.swift; sourceTree = "<group>"; };
+		4117519C2727C41200C997E9 /* RecordPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordPresenter.swift; sourceTree = "<group>"; };
+		4117519E2727C41900C997E9 /* RecordProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordProtocol.swift; sourceTree = "<group>"; };
+		411751A02727C43500C997E9 /* RecordRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordRouter.swift; sourceTree = "<group>"; };
+		411751A22727C43C00C997E9 /* RecordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordVC.swift; sourceTree = "<group>"; };
 		BD474FA227240E15005BF154 /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
 		BD474FA427240E2E005BF154 /* ProfileRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileRouter.swift; sourceTree = "<group>"; };
 		BD474FA627240E41005BF154 /* ProfileProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileProtocol.swift; sourceTree = "<group>"; };
@@ -65,6 +75,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		411751992727C3F500C997E9 /* Records */ = {
+			isa = PBXGroup;
+			children = (
+				4117519A2727C40A00C997E9 /* RecordInteractor.swift */,
+				4117519C2727C41200C997E9 /* RecordPresenter.swift */,
+				4117519E2727C41900C997E9 /* RecordProtocol.swift */,
+				411751A02727C43500C997E9 /* RecordRouter.swift */,
+				411751A22727C43C00C997E9 /* RecordVC.swift */,
+			);
+			path = Records;
+			sourceTree = "<group>";
+		};
 		BD474FA127240DBA005BF154 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
@@ -120,8 +142,9 @@
 			isa = PBXGroup;
 			children = (
 				BDD3F9FB27231BEE00B2AF7F /* TapBar */,
-				BD474FA127240DBA005BF154 /* Profile */,
 				BDD3F9ED272302B000B2AF7F /* Home */,
+				411751992727C3F500C997E9 /* Records */,
+				BD474FA127240DBA005BF154 /* Profile */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -230,17 +253,22 @@
 				BDD3F9F52723031800B2AF7F /* HomeProtocol.swift in Sources */,
 				BDD3F9F92723034B00B2AF7F /* HomeVC.swift in Sources */,
 				BD474FAB27240E5D005BF154 /* ProfileInteractor.swift in Sources */,
+				4117519D2727C41200C997E9 /* RecordPresenter.swift in Sources */,
+				411751A32727C43C00C997E9 /* RecordVC.swift in Sources */,
 				BDD3F9DB2722FD2A00B2AF7F /* ViewController.swift in Sources */,
+				4117519B2727C40A00C997E9 /* RecordInteractor.swift in Sources */,
 				BDD3F9D72722FD2A00B2AF7F /* AppDelegate.swift in Sources */,
 				BDD3F9D92722FD2A00B2AF7F /* SceneDelegate.swift in Sources */,
 				BDD3FA012723489900B2AF7F /* TabBarProtocol.swift in Sources */,
 				BD474FA527240E2E005BF154 /* ProfileRouter.swift in Sources */,
 				BDD3F9F3272302DD00B2AF7F /* HomePresenter.swift in Sources */,
+				4117519F2727C41900C997E9 /* RecordProtocol.swift in Sources */,
 				BD474FB027240FDC005BF154 /* TabBarVC.swift in Sources */,
 				BDD3F9F72723032300B2AF7F /* HomeRouter.swift in Sources */,
 				BD474FA327240E15005BF154 /* ProfileVC.swift in Sources */,
 				BD474FA927240E4E005BF154 /* ProfilePresenter.swift in Sources */,
 				BDD3FA03272349FF00B2AF7F /* TabBarRouter.swift in Sources */,
+				411751A12727C43500C997E9 /* RecordRouter.swift in Sources */,
 				BDD3F9F1272302CE00B2AF7F /* HomeInteractor.swift in Sources */,
 				BDD3FA0527234A7400B2AF7F /* TapBarPresenter.swift in Sources */,
 				BD474FA727240E41005BF154 /* ProfileProtocol.swift in Sources */,

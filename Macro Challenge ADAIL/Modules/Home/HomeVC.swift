@@ -7,6 +7,8 @@
 
 import UIKit
 
+
+
 class HomeVC: UIViewController {
     var presentor: HomeViewToPresenterProtocol?
     
@@ -18,6 +20,18 @@ class HomeVC: UIViewController {
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
+    
+    let newExpenses: UIButton = {
+        let newExpensesButton = UIButton()
+        newExpensesButton.setTitle("Create New Expenses", for: .normal)
+        newExpensesButton.setTitleColor(.white, for: .normal)
+        //MARK: PROGRESS
+        newExpensesButton.addTarget(self, action: #selector(goToNewExpenses(_:)), for: .touchUpInside)
+        newExpensesButton.layer.cornerRadius = 11
+        newExpensesButton.backgroundColor = .systemBlue
+        newExpensesButton.translatesAutoresizingMaskIntoConstraints = false
+        return newExpensesButton
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,11 +40,19 @@ class HomeVC: UIViewController {
         self.view.addSubview(textLabel)
         textLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
         textLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        
+        self.view.addSubview(newExpenses)
+        newExpenses.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10).isActive = true
+        newExpenses.topAnchor.constraint(equalTo: view.topAnchor, constant: 130).isActive = true
+        newExpenses.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        newExpenses.widthAnchor.constraint(equalToConstant: 180).isActive = true
     }
     
 
 }
 
 extension HomeVC: HomePresenterToViewProtocol {
-    
+    @objc func goToNewExpenses(_ sender : Any) {
+        print("Go To New Expenses")
+    }
 }
