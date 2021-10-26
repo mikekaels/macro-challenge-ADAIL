@@ -18,6 +18,13 @@ class ProfileVC: UIViewController {
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
+    
+    let bgImg: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = UIImage(named: "ProfileTabBG")
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        return imageView
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,6 +33,11 @@ class ProfileVC: UIViewController {
         self.view.addSubview(textLabel)
         textLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
         textLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        
+        self.view.addSubview(bgImg)
+        bgImg.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        bgImg.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        
     }
 }
 
