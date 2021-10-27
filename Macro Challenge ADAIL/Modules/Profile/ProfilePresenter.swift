@@ -11,5 +11,13 @@ class ProfilePresenter: ProfileViewToPresenterProtocol {
     var view: ProfilePresenterToViewProtocol?
     
     var router: ProfilePresenterToRouterProtocol?
+    
+    func goToSignIn(viewController: ProfileVC) {
+        router?.goToSignIn(viewController: viewController)
+    }
+    
+    func goToSignUp(viewController: ProfileVC) {
+        router?.goToSignUp(viewController: viewController)
+    }
 }
 

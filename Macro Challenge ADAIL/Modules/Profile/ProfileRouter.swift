@@ -30,5 +30,15 @@ class ProfileRouter: ProfilePresenterToRouterProtocol {
         return view
     }
     
+    func goToSignIn(viewController: ProfileVC) {
+        let vc = SignInRouter.shared.initialize()
+        vc.delegate = viewController
+        viewController.navigationController?.pushViewController(vc, animated: true)
+    }
     
+    func goToSignUp(viewController: ProfileVC) {
+        let vc = SignUpRouter.shared.initialize()
+        vc.delegate = viewController
+        viewController.navigationController?.pushViewController(vc, animated: true)
+    }
 }
