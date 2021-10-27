@@ -7,8 +7,6 @@
 
 import UIKit
 
-
-
 class HomeVC: UIViewController {
     var presentor: HomeViewToPresenterProtocol?
     
