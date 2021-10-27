@@ -20,6 +20,14 @@
 		BD474FAE27240EC0005BF154 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD474FAD27240EC0005BF154 /* Constants.swift */; };
 		BD474FB027240FDC005BF154 /* TabBarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD474FAF27240FDC005BF154 /* TabBarVC.swift */; };
 		BD84242927295A1A00B922DC /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD84242827295A1A00B922DC /* Button.swift */; };
+		BD84242B2729628100B922DC /* SignInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD84242A2729628100B922DC /* SignInVC.swift */; };
+		BD84242D2729629100B922DC /* SignInProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD84242C2729629100B922DC /* SignInProtocol.swift */; };
+		BD84242F2729629A00B922DC /* SignInPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD84242E2729629A00B922DC /* SignInPresenter.swift */; };
+		BD842431272962A400B922DC /* SignInRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD842430272962A400B922DC /* SignInRouter.swift */; };
+		BD84243327296D3900B922DC /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD84243227296D3900B922DC /* SignUpVC.swift */; };
+		BD84243527296D4A00B922DC /* SignUpProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD84243427296D4A00B922DC /* SignUpProtocol.swift */; };
+		BD84243727296D5700B922DC /* SignUpPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD84243627296D5700B922DC /* SignUpPresenter.swift */; };
+		BD84243927296D6400B922DC /* SignUpRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD84243827296D6400B922DC /* SignUpRouter.swift */; };
 		BDD3F9D72722FD2A00B2AF7F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD3F9D62722FD2A00B2AF7F /* AppDelegate.swift */; };
 		BDD3F9D92722FD2A00B2AF7F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD3F9D82722FD2A00B2AF7F /* SceneDelegate.swift */; };
 		BDD3F9DB2722FD2A00B2AF7F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD3F9DA2722FD2A00B2AF7F /* ViewController.swift */; };
@@ -49,6 +57,14 @@
 		BD474FAD27240EC0005BF154 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		BD474FAF27240FDC005BF154 /* TabBarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarVC.swift; sourceTree = "<group>"; };
 		BD84242827295A1A00B922DC /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
+		BD84242A2729628100B922DC /* SignInVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInVC.swift; sourceTree = "<group>"; };
+		BD84242C2729629100B922DC /* SignInProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInProtocol.swift; sourceTree = "<group>"; };
+		BD84242E2729629A00B922DC /* SignInPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInPresenter.swift; sourceTree = "<group>"; };
+		BD842430272962A400B922DC /* SignInRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInRouter.swift; sourceTree = "<group>"; };
+		BD84243227296D3900B922DC /* SignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
+		BD84243427296D4A00B922DC /* SignUpProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpProtocol.swift; sourceTree = "<group>"; };
+		BD84243627296D5700B922DC /* SignUpPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpPresenter.swift; sourceTree = "<group>"; };
+		BD84243827296D6400B922DC /* SignUpRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpRouter.swift; sourceTree = "<group>"; };
 		BDD3F9D32722FD2A00B2AF7F /* Macro Challenge ADAIL.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Macro Challenge ADAIL.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDD3F9D62722FD2A00B2AF7F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BDD3F9D82722FD2A00B2AF7F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -101,6 +117,10 @@
 		BD0DE93D27281D7B0037FD44 /* SignIn */ = {
 			isa = PBXGroup;
 			children = (
+				BD84242A2729628100B922DC /* SignInVC.swift */,
+				BD84242C2729629100B922DC /* SignInProtocol.swift */,
+				BD84242E2729629A00B922DC /* SignInPresenter.swift */,
+				BD842430272962A400B922DC /* SignInRouter.swift */,
 			);
 			path = SignIn;
 			sourceTree = "<group>";
@@ -108,6 +128,10 @@
 		BD0DE93E27281DDF0037FD44 /* SignUp */ = {
 			isa = PBXGroup;
 			children = (
+				BD84243227296D3900B922DC /* SignUpVC.swift */,
+				BD84243427296D4A00B922DC /* SignUpProtocol.swift */,
+				BD84243627296D5700B922DC /* SignUpPresenter.swift */,
+				BD84243827296D6400B922DC /* SignUpRouter.swift */,
 			);
 			path = SignUp;
 			sourceTree = "<group>";
@@ -286,14 +310,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				BDD3F9F52723031800B2AF7F /* HomeProtocol.swift in Sources */,
+				BD84243727296D5700B922DC /* SignUpPresenter.swift in Sources */,
 				BDD3F9F92723034B00B2AF7F /* HomeVC.swift in Sources */,
 				BD474FAB27240E5D005BF154 /* ProfileInteractor.swift in Sources */,
+				BD84243927296D6400B922DC /* SignUpRouter.swift in Sources */,
+				BD84243527296D4A00B922DC /* SignUpProtocol.swift in Sources */,
 				4117519D2727C41200C997E9 /* RecordPresenter.swift in Sources */,
 				411751A32727C43C00C997E9 /* RecordVC.swift in Sources */,
+				BD84242D2729629100B922DC /* SignInProtocol.swift in Sources */,
 				BDD3F9DB2722FD2A00B2AF7F /* ViewController.swift in Sources */,
 				4117519B2727C40A00C997E9 /* RecordInteractor.swift in Sources */,
 				BDD3F9D72722FD2A00B2AF7F /* AppDelegate.swift in Sources */,
 				BDD3F9D92722FD2A00B2AF7F /* SceneDelegate.swift in Sources */,
+				BD842431272962A400B922DC /* SignInRouter.swift in Sources */,
 				BDD3FA012723489900B2AF7F /* TabBarProtocol.swift in Sources */,
 				BD474FA527240E2E005BF154 /* ProfileRouter.swift in Sources */,
 				BDD3F9F3272302DD00B2AF7F /* HomePresenter.swift in Sources */,
@@ -304,11 +333,14 @@
 				BD474FA927240E4E005BF154 /* ProfilePresenter.swift in Sources */,
 				BDD3FA03272349FF00B2AF7F /* TabBarRouter.swift in Sources */,
 				411751A12727C43500C997E9 /* RecordRouter.swift in Sources */,
+				BD84243327296D3900B922DC /* SignUpVC.swift in Sources */,
 				BD84242927295A1A00B922DC /* Button.swift in Sources */,
+				BD84242F2729629A00B922DC /* SignInPresenter.swift in Sources */,
 				BDD3F9F1272302CE00B2AF7F /* HomeInteractor.swift in Sources */,
 				BDD3FA0527234A7400B2AF7F /* TapBarPresenter.swift in Sources */,
 				BD474FA727240E41005BF154 /* ProfileProtocol.swift in Sources */,
 				BD474FAE27240EC0005BF154 /* Constants.swift in Sources */,
+				BD84242B2729628100B922DC /* SignInVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

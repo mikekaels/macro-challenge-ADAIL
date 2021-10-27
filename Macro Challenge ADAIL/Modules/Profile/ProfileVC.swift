@@ -9,6 +9,7 @@ import UIKit
 
 class ProfileVC: UIViewController {
     var presentor: ProfileViewToPresenterProtocol?
+    public var delegate: ProfileDelegate!
     
     let textLabel: UILabel = {
         let label = UILabel()
@@ -54,11 +55,11 @@ class ProfileVC: UIViewController {
     }
     
     @objc func signUpPressed() {
-        print("SIGN UP PRESSED")
+        self.presentor?.goToSignUp(viewController: self)
     }
     
     @objc func signInPressed() {
-        print("SIGN IN PRESSED")
+        self.presentor?.goToSignIn(viewController: self)
     }
     
     func setupView() {
@@ -89,5 +90,13 @@ class ProfileVC: UIViewController {
 }
 
 extension ProfileVC: ProfilePresenterToViewProtocol {
+    
+}
+
+extension ProfileVC: SignInDelegate {
+    
+}
+
+extension ProfileVC: SignUpDelegate {
     
 }
