@@ -14,7 +14,7 @@ class HomeVC: UIViewController {
     
     let textLabel: UILabel = {
         let label = UILabel()
-        label.text = Constants().tab1Title
+        label.text = L10n.welcomeTitle
         label.textAlignment = .center
         label.textColor = .black
         label.translatesAutoresizingMaskIntoConstraints = false
