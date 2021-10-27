@@ -32,6 +32,7 @@
 		BD8424472729BA7700B922DC /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = BD8424452729BA7700B922DC /* Localizable.strings */; };
 		BD84244A2729BB9F00B922DC /* Strings+Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD8424482729BB9F00B922DC /* Strings+Generated.swift */; };
 		BD84244B2729BB9F00B922DC /* Assets+Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD8424492729BB9F00B922DC /* Assets+Generated.swift */; };
+		BD8424512729D1B400B922DC /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = BD8424502729D1B400B922DC /* .gitignore */; };
 		BDD3F9D72722FD2A00B2AF7F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD3F9D62722FD2A00B2AF7F /* AppDelegate.swift */; };
 		BDD3F9D92722FD2A00B2AF7F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD3F9D82722FD2A00B2AF7F /* SceneDelegate.swift */; };
 		BDD3F9DB2722FD2A00B2AF7F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD3F9DA2722FD2A00B2AF7F /* ViewController.swift */; };
@@ -73,6 +74,7 @@
 		BD8424482729BB9F00B922DC /* Strings+Generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Strings+Generated.swift"; sourceTree = "<group>"; };
 		BD8424492729BB9F00B922DC /* Assets+Generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Assets+Generated.swift"; sourceTree = "<group>"; };
 		BD84244C2729C0C400B922DC /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/Localizable.strings; sourceTree = "<group>"; };
+		BD8424502729D1B400B922DC /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		BDD3F9D32722FD2A00B2AF7F /* Macro Challenge ADAIL.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Macro Challenge ADAIL.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDD3F9D62722FD2A00B2AF7F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BDD3F9D82722FD2A00B2AF7F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -205,6 +207,7 @@
 		BDD3F9CA2722FD2A00B2AF7F = {
 			isa = PBXGroup;
 			children = (
+				BD8424502729D1B400B922DC /* .gitignore */,
 				BDD3F9D52722FD2A00B2AF7F /* Macro Challenge ADAIL */,
 				BDD3F9D42722FD2A00B2AF7F /* Products */,
 				0F2F6F52B6F4D5488B0C02ED /* Pods */,
@@ -342,6 +345,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BD8424512729D1B400B922DC /* .gitignore in Resources */,
 				BDD3F9E32722FD2B00B2AF7F /* LaunchScreen.storyboard in Resources */,
 				BD8424472729BA7700B922DC /* Localizable.strings in Resources */,
 				BDD3F9E02722FD2B00B2AF7F /* Assets.xcassets in Resources */,

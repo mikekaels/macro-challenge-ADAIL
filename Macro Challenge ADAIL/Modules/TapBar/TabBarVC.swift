@@ -16,8 +16,7 @@ class TabBarVC: UITabBarController {
         super.viewDidLoad()
         delegate = self
         view.backgroundColor = .systemBackground
-        UITabBar.appearance().barTintColor = .systemBackground
-        tabBar.tintColor = .systemBlue
+        tabBar.layer.backgroundColor = UIColor.systemBackground.cgColor
         setupVCs()
     }
     
@@ -38,6 +37,18 @@ class TabBarVC: UITabBarController {
         navController.tabBarItem.image = image
         navController.navigationBar.prefersLargeTitles = true
         rootViewController.navigationItem.title = title
+        
+        let appearance = UINavigationBarAppearance()
+        appearance.configureWithTransparentBackground()
+        appearance.backgroundColor = .systemBackground
+        
+        navController.navigationBar.setBackgroundImage(UIImage(), for: UIBarPosition.any, barMetrics: UIBarMetrics.defaultPrompt)
+        navController.navigationBar.shadowImage = UIImage()
+        
+        navController.navigationBar.layer.borderColor = .none
+        navController.navigationBar.standardAppearance = appearance
+        navController.navigationBar.scrollEdgeAppearance = appearance
+        
         return navController
     }
 }
