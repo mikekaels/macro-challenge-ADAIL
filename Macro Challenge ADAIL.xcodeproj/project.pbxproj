@@ -19,6 +19,7 @@
 		BD474FAB27240E5D005BF154 /* ProfileInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD474FAA27240E5D005BF154 /* ProfileInteractor.swift */; };
 		BD474FAE27240EC0005BF154 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD474FAD27240EC0005BF154 /* Constants.swift */; };
 		BD474FB027240FDC005BF154 /* TabBarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD474FAF27240FDC005BF154 /* TabBarVC.swift */; };
+		BD84242927295A1A00B922DC /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD84242827295A1A00B922DC /* Button.swift */; };
 		BDD3F9D72722FD2A00B2AF7F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD3F9D62722FD2A00B2AF7F /* AppDelegate.swift */; };
 		BDD3F9D92722FD2A00B2AF7F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD3F9D82722FD2A00B2AF7F /* SceneDelegate.swift */; };
 		BDD3F9DB2722FD2A00B2AF7F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD3F9DA2722FD2A00B2AF7F /* ViewController.swift */; };
@@ -47,6 +48,7 @@
 		BD474FAA27240E5D005BF154 /* ProfileInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileInteractor.swift; sourceTree = "<group>"; };
 		BD474FAD27240EC0005BF154 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		BD474FAF27240FDC005BF154 /* TabBarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarVC.swift; sourceTree = "<group>"; };
+		BD84242827295A1A00B922DC /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
 		BDD3F9D32722FD2A00B2AF7F /* Macro Challenge ADAIL.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Macro Challenge ADAIL.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDD3F9D62722FD2A00B2AF7F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BDD3F9D82722FD2A00B2AF7F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -87,6 +89,29 @@
 			path = Records;
 			sourceTree = "<group>";
 		};
+		BD0DE93C27281D6D0037FD44 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				BD0DE93E27281DDF0037FD44 /* SignUp */,
+				BD0DE93D27281D7B0037FD44 /* SignIn */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		BD0DE93D27281D7B0037FD44 /* SignIn */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = SignIn;
+			sourceTree = "<group>";
+		};
+		BD0DE93E27281DDF0037FD44 /* SignUp */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = SignUp;
+			sourceTree = "<group>";
+		};
 		BD474FA127240DBA005BF154 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
@@ -105,6 +130,14 @@
 				BD474FAD27240EC0005BF154 /* Constants.swift */,
 			);
 			path = Constants;
+			sourceTree = "<group>";
+		};
+		BD84242727295A0E00B922DC /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				BD84242827295A1A00B922DC /* Button.swift */,
+			);
+			path = UI;
 			sourceTree = "<group>";
 		};
 		BDD3F9CA2722FD2A00B2AF7F = {
@@ -126,6 +159,7 @@
 		BDD3F9D52722FD2A00B2AF7F /* Macro Challenge ADAIL */ = {
 			isa = PBXGroup;
 			children = (
+				BD84242727295A0E00B922DC /* UI */,
 				BD474FAC27240EA3005BF154 /* Constants */,
 				BDD3F9EA2723027600B2AF7F /* Modules */,
 				BDD3F9D62722FD2A00B2AF7F /* AppDelegate.swift */,
@@ -141,6 +175,7 @@
 		BDD3F9EA2723027600B2AF7F /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				BD0DE93C27281D6D0037FD44 /* Auth */,
 				BDD3F9FB27231BEE00B2AF7F /* TapBar */,
 				BDD3F9ED272302B000B2AF7F /* Home */,
 				411751992727C3F500C997E9 /* Records */,
@@ -269,6 +304,7 @@
 				BD474FA927240E4E005BF154 /* ProfilePresenter.swift in Sources */,
 				BDD3FA03272349FF00B2AF7F /* TabBarRouter.swift in Sources */,
 				411751A12727C43500C997E9 /* RecordRouter.swift in Sources */,
+				BD84242927295A1A00B922DC /* Button.swift in Sources */,
 				BDD3F9F1272302CE00B2AF7F /* HomeInteractor.swift in Sources */,
 				BDD3FA0527234A7400B2AF7F /* TapBarPresenter.swift in Sources */,
 				BD474FA727240E41005BF154 /* ProfileProtocol.swift in Sources */,
