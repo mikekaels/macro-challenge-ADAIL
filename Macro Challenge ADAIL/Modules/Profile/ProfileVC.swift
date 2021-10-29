@@ -6,86 +6,66 @@
 //
 
 import UIKit
+import AuthenticationServices
 
 class ProfileVC: UIViewController {
     var presentor: ProfileViewToPresenterProtocol?
     public var delegate: ProfileDelegate!
     
-    let textLabel: UILabel = {
-        let label = UILabel()
-        label.text = Constants().tab3Title
-        label.textAlignment = .center
-        label.textColor = .black
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
-    
-    let bgImg: UIImageView = {
-        let imageView = UIImageView()
-        imageView.image = UIImage(named: "ProfileTabBG")
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        return imageView
-    }()
-    
-    let singUpButton: UIButton = {
-        let b = UIButton()
-        b.setTitle("Sign Up", for: .normal)
-        b.heightAnchor.constraint(equalToConstant: 20).isActive = true
-        b.setTitleColor(.systemBlue, for: .normal)
-        b.translatesAutoresizingMaskIntoConstraints = false
-        b.addTarget(self, action: #selector(signUpPressed), for: .touchUpInside)
-        return b
-    }()
-    
-    let signInButton: UIButton = {
-        let b = UIButton()
-        b.setTitle("Sign In", for: .normal)
-        b.heightAnchor.constraint(equalToConstant: 20).isActive = true
-        b.setTitleColor(.systemBlue, for: .normal)
-        b.translatesAutoresizingMaskIntoConstraints = false
-        b.addTarget(self, action: #selector(signInPressed), for: .touchUpInside)
-        return b
-    }()
+    private let signInButton = ASAuthorizationAppleIDButton()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .systemBackground
         self.title = Constants().tab3Title
+        
+        signInButton.addTarget(self, action: #selector(didTapSignIn), for: .touchUpInside)
         setupView()
     }
     
-    @objc func signUpPressed() {
-        self.presentor?.goToSignUp(viewController: self)
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        signInButton.frame = CGRect(x: 0, y: 0, width: 250, height: 50)
+        signInButton.center = view.center
     }
     
-    @objc func signInPressed() {
-        self.presentor?.goToSignIn(viewController: self)
+    @objc func didTapSignIn() {
+        let provider = ASAuthorizationAppleIDProvider()
+        let request = provider.createRequest()
+        request.requestedScopes = [.fullName, .email]
+        
+        let controller = ASAuthorizationController(authorizationRequests: [request])
+        controller.delegate = self
+        controller.presentationContextProvider = self
+        controller.performRequests()
     }
     
     func setupView() {
-        self.view.addSubview(textLabel)
-        textLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
-        textLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        view.addSubview(signInButton)
+//        self.view.addSubview(textLabel)
+//        textLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+//        textLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         
-        self.view.addSubview(bgImg)
-        bgImg.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        bgImg.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+//        self.view.addSubview(bgImg)
+//        bgImg.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+//        bgImg.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
         
-        self.view.addSubview(singUpButton)
-        singUpButton.topAnchor.constraint(equalTo: textLabel.bottomAnchor, constant: 50)
-            .isActive = true
-        singUpButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 36)
-            .isActive = true
-        singUpButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -36)
-            .isActive = true
+//        self.view.addSubview(singUpButton)
+//        singUpButton.topAnchor.constraint(equalTo: textLabel.bottomAnchor, constant: 50)
+//            .isActive = true
+//        singUpButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 36)
+//            .isActive = true
+//        singUpButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -36)
+//            .isActive = true
         
-        self.view.addSubview(signInButton)
-        signInButton.topAnchor.constraint(equalTo: singUpButton.bottomAnchor, constant: 20)
-            .isActive = true
-        signInButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 36)
-            .isActive = true
-        signInButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -36)
-            .isActive = true
+//        self.view.addSubview(signInButton)
+//        signInButton.topAnchor.constraint(equalTo: singUpButton.bottomAnchor, constant: 20)
+//            .isActive = true
+//        signInButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 36)
+//            .isActive = true
+//        signInButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -36)
+//            .isActive = true
+        
     }
 }
 
@@ -99,4 +79,41 @@ extension ProfileVC: SignInDelegate {
 
 extension ProfileVC: SignUpDelegate {
     
+}
+
+extension ProfileVC: ASAuthorizationControllerDelegate {
+    func authorizationController(controller: ASAuthorizationController, didCompleteWithError error: Error) {
+        print("FAILED")
+    }
+    
+    func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
+        switch authorization.credential {
+        case let credentials as ASAuthorizationAppleIDCredential:
+            
+            if let firstname = credentials.fullName?.givenName {
+                print(firstname)
+            }
+            
+            if let lastname = credentials.fullName?.familyName {
+                print(lastname)
+            }
+            
+            if let email = credentials.email {
+                print(email)
+            }
+            
+            let user = credentials.user
+            print(user)
+            
+            break
+        default:
+            break
+        }
+    }
+}
+
+extension ProfileVC: ASAuthorizationControllerPresentationContextProviding {
+    func presentationAnchor(for controller: ASAuthorizationController) -> ASPresentationAnchor {
+        return view.window!
+    }
 }

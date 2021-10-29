@@ -40,10 +40,10 @@ class HomeVC: UIViewController {
         textLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         
         self.view.addSubview(newExpenses)
-        newExpenses.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10).isActive = true
-        newExpenses.topAnchor.constraint(equalTo: view.topAnchor, constant: 130).isActive = true
+        newExpenses.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        newExpenses.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 130).isActive = true
         newExpenses.heightAnchor.constraint(equalToConstant: 50).isActive = true
-        newExpenses.widthAnchor.constraint(equalToConstant: 180).isActive = true
+        newExpenses.widthAnchor.constraint(equalToConstant: view.bounds.width - 200).isActive = true
     }
     
 
