@@ -46,7 +46,7 @@ class ProfileVC: UIViewController {
 //        textLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
 //        textLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         
-//        self.view.addSubview(bgImg)
+//        self.view.addSubview(bgImg)w
 //        bgImg.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
 //        bgImg.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
         
