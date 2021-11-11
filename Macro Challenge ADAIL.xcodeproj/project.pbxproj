@@ -13,6 +13,8 @@
 		411751A12727C43500C997E9 /* RecordRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 411751A02727C43500C997E9 /* RecordRouter.swift */; };
 		411751A32727C43C00C997E9 /* RecordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 411751A22727C43C00C997E9 /* RecordVC.swift */; };
 		4D8149CB78178E7A93F5FEBD /* Pods_Macro_Challenge_ADAIL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3AEC2BB7D259CF82C415683 /* Pods_Macro_Challenge_ADAIL.framework */; };
+		BD06A046273CB96C0030E085 /* Configures.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD06A045273CB96C0030E085 /* Configures.swift */; };
+		BD2675AE273CC09B004F7856 /* RecordsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2675AD273CC09B004F7856 /* RecordsTableViewCell.swift */; };
 		BD474FA327240E15005BF154 /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD474FA227240E15005BF154 /* ProfileVC.swift */; };
 		BD474FA527240E2E005BF154 /* ProfileRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD474FA427240E2E005BF154 /* ProfileRouter.swift */; };
 		BD474FA727240E41005BF154 /* ProfileProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD474FA627240E41005BF154 /* ProfileProtocol.swift */; };
@@ -54,6 +56,8 @@
 		4117519E2727C41900C997E9 /* RecordProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordProtocol.swift; sourceTree = "<group>"; };
 		411751A02727C43500C997E9 /* RecordRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordRouter.swift; sourceTree = "<group>"; };
 		411751A22727C43C00C997E9 /* RecordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordVC.swift; sourceTree = "<group>"; };
+		BD06A045273CB96C0030E085 /* Configures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configures.swift; sourceTree = "<group>"; };
+		BD2675AD273CC09B004F7856 /* RecordsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordsTableViewCell.swift; sourceTree = "<group>"; };
 		BD474FA227240E15005BF154 /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
 		BD474FA427240E2E005BF154 /* ProfileRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileRouter.swift; sourceTree = "<group>"; };
 		BD474FA627240E41005BF154 /* ProfileProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileProtocol.swift; sourceTree = "<group>"; };
@@ -137,6 +141,14 @@
 			path = Records;
 			sourceTree = "<group>";
 		};
+		BD06A044273CB9570030E085 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				BD06A045273CB96C0030E085 /* Configures.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		BD0DE93C27281D6D0037FD44 /* Auth */ = {
 			isa = PBXGroup;
 			children = (
@@ -168,6 +180,14 @@
 			path = SignUp;
 			sourceTree = "<group>";
 		};
+		BD2675AC273CC076004F7856 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				BD2675AD273CC09B004F7856 /* RecordsTableViewCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		BD474FA127240DBA005BF154 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
@@ -191,6 +211,7 @@
 		BD84242727295A0E00B922DC /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				BD2675AC273CC076004F7856 /* Cells */,
 				BD84242827295A1A00B922DC /* Button.swift */,
 			);
 			path = UI;
@@ -227,6 +248,7 @@
 		BDD3F9D52722FD2A00B2AF7F /* Macro Challenge ADAIL */ = {
 			isa = PBXGroup;
 			children = (
+				BD06A044273CB9570030E085 /* Extensions */,
 				BDA71D23272C575600EEF4C6 /* Macro Challenge ADAIL.entitlements */,
 				BD84242727295A0E00B922DC /* UI */,
 				BD474FAC27240EA3005BF154 /* Constants */,
@@ -410,9 +432,11 @@
 				BDD3F9F92723034B00B2AF7F /* HomeVC.swift in Sources */,
 				BD474FAB27240E5D005BF154 /* ProfileInteractor.swift in Sources */,
 				BD84243927296D6400B922DC /* SignUpRouter.swift in Sources */,
+				BD2675AE273CC09B004F7856 /* RecordsTableViewCell.swift in Sources */,
 				BD84243527296D4A00B922DC /* SignUpProtocol.swift in Sources */,
 				4117519D2727C41200C997E9 /* RecordPresenter.swift in Sources */,
 				411751A32727C43C00C997E9 /* RecordVC.swift in Sources */,
+				BD06A046273CB96C0030E085 /* Configures.swift in Sources */,
 				BD84242D2729629100B922DC /* SignInProtocol.swift in Sources */,
 				BDD3F9DB2722FD2A00B2AF7F /* ViewController.swift in Sources */,
 				4117519B2727C40A00C997E9 /* RecordInteractor.swift in Sources */,
