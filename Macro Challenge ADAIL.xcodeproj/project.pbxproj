@@ -15,6 +15,13 @@
 		4D8149CB78178E7A93F5FEBD /* Pods_Macro_Challenge_ADAIL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3AEC2BB7D259CF82C415683 /* Pods_Macro_Challenge_ADAIL.framework */; };
 		BD06A046273CB96C0030E085 /* Configures.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD06A045273CB96C0030E085 /* Configures.swift */; };
 		BD2675AE273CC09B004F7856 /* RecordsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2675AD273CC09B004F7856 /* RecordsTableViewCell.swift */; };
+		BD2675BD273CFFA8004F7856 /* ExpansesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2675BC273CFFA8004F7856 /* ExpansesPresenter.swift */; };
+		BD2675BF273CFFB5004F7856 /* ExpansesRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2675BE273CFFB5004F7856 /* ExpansesRouter.swift */; };
+		BD2675C1273CFFC5004F7856 /* ExpansesProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2675C0273CFFC5004F7856 /* ExpansesProtocol.swift */; };
+		BD2675C3273CFFDA004F7856 /* ExpansesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2675C2273CFFDA004F7856 /* ExpansesVC.swift */; };
+		BD2675C5273D023F004F7856 /* EasyScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2675C4273D023F004F7856 /* EasyScrollView.swift */; };
+		BD2675C8273D02A3004F7856 /* LivePreviewer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2675C7273D02A3004F7856 /* LivePreviewer.swift */; };
+		BD2675CA273D06D3004F7856 /* SwiftUIRouterAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2675C9273D06D3004F7856 /* SwiftUIRouterAdapter.swift */; };
 		BD474FA327240E15005BF154 /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD474FA227240E15005BF154 /* ProfileVC.swift */; };
 		BD474FA527240E2E005BF154 /* ProfileRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD474FA427240E2E005BF154 /* ProfileRouter.swift */; };
 		BD474FA727240E41005BF154 /* ProfileProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD474FA627240E41005BF154 /* ProfileProtocol.swift */; };
@@ -58,6 +65,13 @@
 		411751A22727C43C00C997E9 /* RecordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordVC.swift; sourceTree = "<group>"; };
 		BD06A045273CB96C0030E085 /* Configures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configures.swift; sourceTree = "<group>"; };
 		BD2675AD273CC09B004F7856 /* RecordsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordsTableViewCell.swift; sourceTree = "<group>"; };
+		BD2675BC273CFFA8004F7856 /* ExpansesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpansesPresenter.swift; sourceTree = "<group>"; };
+		BD2675BE273CFFB5004F7856 /* ExpansesRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpansesRouter.swift; sourceTree = "<group>"; };
+		BD2675C0273CFFC5004F7856 /* ExpansesProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpansesProtocol.swift; sourceTree = "<group>"; };
+		BD2675C2273CFFDA004F7856 /* ExpansesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpansesVC.swift; sourceTree = "<group>"; };
+		BD2675C4273D023F004F7856 /* EasyScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EasyScrollView.swift; sourceTree = "<group>"; };
+		BD2675C7273D02A3004F7856 /* LivePreviewer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LivePreviewer.swift; sourceTree = "<group>"; };
+		BD2675C9273D06D3004F7856 /* SwiftUIRouterAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIRouterAdapter.swift; sourceTree = "<group>"; };
 		BD474FA227240E15005BF154 /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
 		BD474FA427240E2E005BF154 /* ProfileRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileRouter.swift; sourceTree = "<group>"; };
 		BD474FA627240E41005BF154 /* ProfileProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileProtocol.swift; sourceTree = "<group>"; };
@@ -188,6 +202,26 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
+		BD2675BB273CFF8F004F7856 /* Expanses */ = {
+			isa = PBXGroup;
+			children = (
+				BD2675BC273CFFA8004F7856 /* ExpansesPresenter.swift */,
+				BD2675C0273CFFC5004F7856 /* ExpansesProtocol.swift */,
+				BD2675BE273CFFB5004F7856 /* ExpansesRouter.swift */,
+				BD2675C2273CFFDA004F7856 /* ExpansesVC.swift */,
+			);
+			path = Expanses;
+			sourceTree = "<group>";
+		};
+		BD2675C6273D0282004F7856 /* LivePreviewer */ = {
+			isa = PBXGroup;
+			children = (
+				BD2675C7273D02A3004F7856 /* LivePreviewer.swift */,
+				BD2675C9273D06D3004F7856 /* SwiftUIRouterAdapter.swift */,
+			);
+			path = LivePreviewer;
+			sourceTree = "<group>";
+		};
 		BD474FA127240DBA005BF154 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
@@ -213,6 +247,7 @@
 			children = (
 				BD2675AC273CC076004F7856 /* Cells */,
 				BD84242827295A1A00B922DC /* Button.swift */,
+				BD2675C4273D023F004F7856 /* EasyScrollView.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -248,6 +283,7 @@
 		BDD3F9D52722FD2A00B2AF7F /* Macro Challenge ADAIL */ = {
 			isa = PBXGroup;
 			children = (
+				BD2675C6273D0282004F7856 /* LivePreviewer */,
 				BD06A044273CB9570030E085 /* Extensions */,
 				BDA71D23272C575600EEF4C6 /* Macro Challenge ADAIL.entitlements */,
 				BD84242727295A0E00B922DC /* UI */,
@@ -268,6 +304,7 @@
 		BDD3F9EA2723027600B2AF7F /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				BD2675BB273CFF8F004F7856 /* Expanses */,
 				BD0DE93C27281D6D0037FD44 /* Auth */,
 				BDD3F9FB27231BEE00B2AF7F /* TapBar */,
 				BDD3F9ED272302B000B2AF7F /* Home */,
@@ -432,12 +469,16 @@
 				BDD3F9F92723034B00B2AF7F /* HomeVC.swift in Sources */,
 				BD474FAB27240E5D005BF154 /* ProfileInteractor.swift in Sources */,
 				BD84243927296D6400B922DC /* SignUpRouter.swift in Sources */,
+				BD2675BF273CFFB5004F7856 /* ExpansesRouter.swift in Sources */,
+				BD2675C8273D02A3004F7856 /* LivePreviewer.swift in Sources */,
 				BD2675AE273CC09B004F7856 /* RecordsTableViewCell.swift in Sources */,
+				BD2675BD273CFFA8004F7856 /* ExpansesPresenter.swift in Sources */,
 				BD84243527296D4A00B922DC /* SignUpProtocol.swift in Sources */,
 				4117519D2727C41200C997E9 /* RecordPresenter.swift in Sources */,
 				411751A32727C43C00C997E9 /* RecordVC.swift in Sources */,
 				BD06A046273CB96C0030E085 /* Configures.swift in Sources */,
 				BD84242D2729629100B922DC /* SignInProtocol.swift in Sources */,
+				BD2675C1273CFFC5004F7856 /* ExpansesProtocol.swift in Sources */,
 				BDD3F9DB2722FD2A00B2AF7F /* ViewController.swift in Sources */,
 				4117519B2727C40A00C997E9 /* RecordInteractor.swift in Sources */,
 				BDD3F9D72722FD2A00B2AF7F /* AppDelegate.swift in Sources */,
@@ -458,9 +499,12 @@
 				BD84242F2729629A00B922DC /* SignInPresenter.swift in Sources */,
 				BDD3F9F1272302CE00B2AF7F /* HomeInteractor.swift in Sources */,
 				BDD3FA0527234A7400B2AF7F /* TapBarPresenter.swift in Sources */,
+				BD2675C3273CFFDA004F7856 /* ExpansesVC.swift in Sources */,
 				BD474FA727240E41005BF154 /* ProfileProtocol.swift in Sources */,
+				BD2675CA273D06D3004F7856 /* SwiftUIRouterAdapter.swift in Sources */,
 				BD474FAE27240EC0005BF154 /* Constants.swift in Sources */,
 				BD84242B2729628100B922DC /* SignInVC.swift in Sources */,
+				BD2675C5273D023F004F7856 /* EasyScrollView.swift in Sources */,
 				BD84244A2729BB9F00B922DC /* Strings+Generated.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

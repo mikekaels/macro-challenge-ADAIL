@@ -12,7 +12,7 @@ struct Constants {
     public var AppName: String =  "App Name"
     
     public var tab1Title: String = "Home"
-    public var tab2Title: String = "Records"
+    public var tab2Title: String = "Expanses Records"
     public var tab3Title: String = "Profile"
     
     public var tab1Icon: String = "house"

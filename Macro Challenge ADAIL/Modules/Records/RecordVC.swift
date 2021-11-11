@@ -88,4 +88,8 @@ extension RecordVC: UITableViewDelegate, UITableViewDataSource {
         return 60
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        presentor?.router?.goToDetailsRecord(from: self)
+    }
+    
 }

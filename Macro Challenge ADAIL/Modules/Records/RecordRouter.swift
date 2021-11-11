@@ -30,4 +30,10 @@ class RecordRouter: RecordPresenterToRouterProtocol {
         
         return view
     }
+    
+    func goToDetailsRecord(from: RecordVC) {
+        let vc = ExpansesRouter().createModule()
+        vc.title = "Expanse details"
+        from.navigationController?.pushViewController(vc, animated: false)
+    }
 }

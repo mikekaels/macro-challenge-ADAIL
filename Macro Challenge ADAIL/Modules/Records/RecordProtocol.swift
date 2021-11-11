@@ -28,4 +28,5 @@ protocol RecordInteractorToPresenterProtocol: AnyObject {
 
 protocol RecordPresenterToRouterProtocol: AnyObject {
     func createModule() -> RecordVC
+    func goToDetailsRecord(from: RecordVC)
 }
