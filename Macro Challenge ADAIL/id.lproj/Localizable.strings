@@ -7,3 +7,9 @@
 */
 
 "welcomeTitle" = "Selamat Datang";
+"onB1Title" = "Buat atau Bergabung dengan Group";
+"onB2Title" = "Buat Pembukuan";
+"onB3Title" = "Catat Perhutangan";
+"onB1Desc" = "Buat grupmu sendiri atau bergabung dengan grup temanmu";
+"onB2Desc" = "'CoFi' akan membantumu dalam mengatur keuangan grupmu";
+"onB3Desc" = "'CoFi' akan membantumu dalam pencatatan perhutanganmu";
