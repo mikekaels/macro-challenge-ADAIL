@@ -7,4 +7,10 @@
 */
 
 "welcomeTitle" = "Welcome";
-"boardingTitle" = "Hello";
+"onB1Title" = "Create Or Join Group";
+"onB2Title" = "Create Expenses";
+"onB3Title" = "Providing Your Owe Information";
+"onB1Desc" = "Create your group first or joint to access this app";
+"onB2Desc" = "'CoFi' will help you to manage your expenses bill group";
+"onB3Desc" = "'CoFi' will help to provide your owe information";
+
