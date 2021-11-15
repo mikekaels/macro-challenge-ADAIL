@@ -15,7 +15,9 @@ class RecordPresenter: RecordViewToPresenterProtocol {
     
     var router: RecordPresenterToRouterProtocol?
     
-    
+    func goToDetailsRecord(from: RecordVC) {
+        router?.goToDetailsRecord(from: from)
+    }
 }
 
 extension RecordPresenter: RecordInteractorToPresenterProtocol {

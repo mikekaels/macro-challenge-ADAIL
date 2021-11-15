@@ -1,0 +1,6 @@
+module Pods_Macro_Challenge_ADAIL {
+  umbrella header "Pods-Macro Challenge ADAIL-umbrella.h"
+
+  export *
+  module * { export * }
+}

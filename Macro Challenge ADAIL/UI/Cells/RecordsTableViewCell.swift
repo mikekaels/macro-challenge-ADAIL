@@ -11,7 +11,7 @@ class RecordsTableViewCell: UITableViewCell {
     
     let background: UIView = {
         let v = UIView()
-        v.backgroundColor = UIColor.systemGray5
+        v.backgroundColor = UIColor.systemGray6
         v.layer.cornerRadius = 7
         v.translatesAutoresizingMaskIntoConstraints = false
         return v
