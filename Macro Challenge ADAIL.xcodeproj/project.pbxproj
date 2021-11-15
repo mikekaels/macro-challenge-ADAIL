@@ -12,7 +12,7 @@
 		4117519F2727C41900C997E9 /* RecordProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4117519E2727C41900C997E9 /* RecordProtocol.swift */; };
 		411751A12727C43500C997E9 /* RecordRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 411751A02727C43500C997E9 /* RecordRouter.swift */; };
 		411751A32727C43C00C997E9 /* RecordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 411751A22727C43C00C997E9 /* RecordVC.swift */; };
-		4D8149CB78178E7A93F5FEBD /* Pods_Macro_Challenge_ADAIL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3AEC2BB7D259CF82C415683 /* Pods_Macro_Challenge_ADAIL.framework */; };
+		9BEE11FEFC4F12C2AF48B7B3 /* libPods-Macro Challenge ADAIL.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F59F2B2B77366C48A7D0270 /* libPods-Macro Challenge ADAIL.a */; };
 		BD06A046273CB96C0030E085 /* Configures.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD06A045273CB96C0030E085 /* Configures.swift */; };
 		BD2675AE273CC09B004F7856 /* RecordsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2675AD273CC09B004F7856 /* RecordsTableViewCell.swift */; };
 		BD2675BD273CFFA8004F7856 /* ExpansesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2675BC273CFFA8004F7856 /* ExpansesPresenter.swift */; };
@@ -22,6 +22,10 @@
 		BD2675C5273D023F004F7856 /* EasyScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2675C4273D023F004F7856 /* EasyScrollView.swift */; };
 		BD2675C8273D02A3004F7856 /* LivePreviewer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2675C7273D02A3004F7856 /* LivePreviewer.swift */; };
 		BD2675CA273D06D3004F7856 /* SwiftUIRouterAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2675C9273D06D3004F7856 /* SwiftUIRouterAdapter.swift */; };
+		BD2675CD273D5EF6004F7856 /* RemindMeAtVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2675CC273D5EF6004F7856 /* RemindMeAtVC.swift */; };
+		BD2675CF273D5F06004F7856 /* RemindMeAtProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2675CE273D5F06004F7856 /* RemindMeAtProtocol.swift */; };
+		BD2675D1273D5F1A004F7856 /* RemindMeAtRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2675D0273D5F1A004F7856 /* RemindMeAtRouter.swift */; };
+		BD2675D3273D5F2C004F7856 /* RemindMeAtPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2675D2273D5F2C004F7856 /* RemindMeAtPresenter.swift */; };
 		BD474FA327240E15005BF154 /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD474FA227240E15005BF154 /* ProfileVC.swift */; };
 		BD474FA527240E2E005BF154 /* ProfileRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD474FA427240E2E005BF154 /* ProfileRouter.swift */; };
 		BD474FA727240E41005BF154 /* ProfileProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD474FA627240E41005BF154 /* ProfileProtocol.swift */; };
@@ -63,6 +67,7 @@
 		4117519E2727C41900C997E9 /* RecordProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordProtocol.swift; sourceTree = "<group>"; };
 		411751A02727C43500C997E9 /* RecordRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordRouter.swift; sourceTree = "<group>"; };
 		411751A22727C43C00C997E9 /* RecordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordVC.swift; sourceTree = "<group>"; };
+		5F59F2B2B77366C48A7D0270 /* libPods-Macro Challenge ADAIL.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Macro Challenge ADAIL.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD06A045273CB96C0030E085 /* Configures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configures.swift; sourceTree = "<group>"; };
 		BD2675AD273CC09B004F7856 /* RecordsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordsTableViewCell.swift; sourceTree = "<group>"; };
 		BD2675BC273CFFA8004F7856 /* ExpansesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpansesPresenter.swift; sourceTree = "<group>"; };
@@ -72,6 +77,10 @@
 		BD2675C4273D023F004F7856 /* EasyScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EasyScrollView.swift; sourceTree = "<group>"; };
 		BD2675C7273D02A3004F7856 /* LivePreviewer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LivePreviewer.swift; sourceTree = "<group>"; };
 		BD2675C9273D06D3004F7856 /* SwiftUIRouterAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIRouterAdapter.swift; sourceTree = "<group>"; };
+		BD2675CC273D5EF6004F7856 /* RemindMeAtVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindMeAtVC.swift; sourceTree = "<group>"; };
+		BD2675CE273D5F06004F7856 /* RemindMeAtProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindMeAtProtocol.swift; sourceTree = "<group>"; };
+		BD2675D0273D5F1A004F7856 /* RemindMeAtRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindMeAtRouter.swift; sourceTree = "<group>"; };
+		BD2675D2273D5F2C004F7856 /* RemindMeAtPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindMeAtPresenter.swift; sourceTree = "<group>"; };
 		BD474FA227240E15005BF154 /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
 		BD474FA427240E2E005BF154 /* ProfileRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileRouter.swift; sourceTree = "<group>"; };
 		BD474FA627240E41005BF154 /* ProfileProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileProtocol.swift; sourceTree = "<group>"; };
@@ -110,7 +119,6 @@
 		BDD3FA02272349FF00B2AF7F /* TabBarRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarRouter.swift; sourceTree = "<group>"; };
 		BDD3FA0427234A7400B2AF7F /* TapBarPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapBarPresenter.swift; sourceTree = "<group>"; };
 		C7350901D25C087E18E3573F /* Pods-Macro Challenge ADAIL.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Macro Challenge ADAIL.release.xcconfig"; path = "Target Support Files/Pods-Macro Challenge ADAIL/Pods-Macro Challenge ADAIL.release.xcconfig"; sourceTree = "<group>"; };
-		E3AEC2BB7D259CF82C415683 /* Pods_Macro_Challenge_ADAIL.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Macro_Challenge_ADAIL.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EFEE89E27E48416436B2195A /* Pods-Macro Challenge ADAIL.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Macro Challenge ADAIL.debug.xcconfig"; path = "Target Support Files/Pods-Macro Challenge ADAIL/Pods-Macro Challenge ADAIL.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -119,7 +127,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4D8149CB78178E7A93F5FEBD /* Pods_Macro_Challenge_ADAIL.framework in Frameworks */,
+				9BEE11FEFC4F12C2AF48B7B3 /* libPods-Macro Challenge ADAIL.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,7 +146,7 @@
 		40103B7FD706D911A49253B0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				E3AEC2BB7D259CF82C415683 /* Pods_Macro_Challenge_ADAIL.framework */,
+				5F59F2B2B77366C48A7D0270 /* libPods-Macro Challenge ADAIL.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -220,6 +228,17 @@
 				BD2675C9273D06D3004F7856 /* SwiftUIRouterAdapter.swift */,
 			);
 			path = LivePreviewer;
+			sourceTree = "<group>";
+		};
+		BD2675CB273D5ECF004F7856 /* RemindMeAt */ = {
+			isa = PBXGroup;
+			children = (
+				BD2675CC273D5EF6004F7856 /* RemindMeAtVC.swift */,
+				BD2675CE273D5F06004F7856 /* RemindMeAtProtocol.swift */,
+				BD2675D0273D5F1A004F7856 /* RemindMeAtRouter.swift */,
+				BD2675D2273D5F2C004F7856 /* RemindMeAtPresenter.swift */,
+			);
+			path = RemindMeAt;
 			sourceTree = "<group>";
 		};
 		BD474FA127240DBA005BF154 /* Profile */ = {
@@ -304,6 +323,7 @@
 		BDD3F9EA2723027600B2AF7F /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				BD2675CB273D5ECF004F7856 /* RemindMeAt */,
 				BD2675BB273CFF8F004F7856 /* Expanses */,
 				BD0DE93C27281D6D0037FD44 /* Auth */,
 				BDD3F9FB27231BEE00B2AF7F /* TapBar */,
@@ -463,7 +483,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BD2675CD273D5EF6004F7856 /* RemindMeAtVC.swift in Sources */,
 				BDD3F9F52723031800B2AF7F /* HomeProtocol.swift in Sources */,
+				BD2675CF273D5F06004F7856 /* RemindMeAtProtocol.swift in Sources */,
 				BD84243727296D5700B922DC /* SignUpPresenter.swift in Sources */,
 				BD84244B2729BB9F00B922DC /* Assets+Generated.swift in Sources */,
 				BDD3F9F92723034B00B2AF7F /* HomeVC.swift in Sources */,
@@ -481,6 +503,7 @@
 				BD2675C1273CFFC5004F7856 /* ExpansesProtocol.swift in Sources */,
 				BDD3F9DB2722FD2A00B2AF7F /* ViewController.swift in Sources */,
 				4117519B2727C40A00C997E9 /* RecordInteractor.swift in Sources */,
+				BD2675D1273D5F1A004F7856 /* RemindMeAtRouter.swift in Sources */,
 				BDD3F9D72722FD2A00B2AF7F /* AppDelegate.swift in Sources */,
 				BDD3F9D92722FD2A00B2AF7F /* SceneDelegate.swift in Sources */,
 				BD842431272962A400B922DC /* SignInRouter.swift in Sources */,
@@ -493,6 +516,7 @@
 				BD474FA327240E15005BF154 /* ProfileVC.swift in Sources */,
 				BD474FA927240E4E005BF154 /* ProfilePresenter.swift in Sources */,
 				BDD3FA03272349FF00B2AF7F /* TabBarRouter.swift in Sources */,
+				BD2675D3273D5F2C004F7856 /* RemindMeAtPresenter.swift in Sources */,
 				411751A12727C43500C997E9 /* RecordRouter.swift in Sources */,
 				BD84243327296D3900B922DC /* SignUpVC.swift in Sources */,
 				BD84242927295A1A00B922DC /* Button.swift in Sources */,

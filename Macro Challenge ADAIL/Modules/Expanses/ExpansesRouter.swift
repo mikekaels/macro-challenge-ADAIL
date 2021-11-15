@@ -10,6 +10,7 @@ import Foundation
 class ExpansesRouter: ExpansesPresenterToRouterProtocol {
     
     
+    
     public static let shared = ExpansesRouter()
     
     public func intialize() -> ExpansesVC {
@@ -29,4 +30,9 @@ class ExpansesRouter: ExpansesPresenterToRouterProtocol {
         
         return view
     }
+    
+    func goToRemindMeAt() {
+        
+    }
+    
 }

@@ -14,6 +14,8 @@ public protocol ExpansesDelegate {
 protocol ExpansesViewToPresenterProtocol: AnyObject {
     var view: ExpansesPresenterToViewProtocol? { get set }
     var router: ExpansesPresenterToRouterProtocol? { get set }
+    
+    func goToRemindMeAt()
 }
 
 protocol ExpansesPresenterToViewProtocol: AnyObject {
@@ -22,4 +24,5 @@ protocol ExpansesPresenterToViewProtocol: AnyObject {
 
 protocol ExpansesPresenterToRouterProtocol: AnyObject {
     func createModule() -> ExpansesVC
+    func goToRemindMeAt()
 }
