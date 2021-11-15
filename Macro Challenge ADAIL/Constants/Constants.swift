@@ -24,7 +24,7 @@ struct Constants {
     public var onB3Desc: String = "“CoFi” will help to provide your owe information "
     
     public var tab1Title: String = "Home"
-    public var tab2Title: String = "Records"
+    public var tab2Title: String = "Expanses Records"
     public var tab3Title: String = "Profile"
     
     public var tab1Icon: String = "house"
