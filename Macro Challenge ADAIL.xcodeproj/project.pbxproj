@@ -12,6 +12,14 @@
 		4117519F2727C41900C997E9 /* RecordProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4117519E2727C41900C997E9 /* RecordProtocol.swift */; };
 		411751A12727C43500C997E9 /* RecordRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 411751A02727C43500C997E9 /* RecordRouter.swift */; };
 		411751A32727C43C00C997E9 /* RecordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 411751A22727C43C00C997E9 /* RecordVC.swift */; };
+		4164CEC1273FD8FD00025193 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4164CEC0273FD8FD00025193 /* Assets.xcassets */; };
+		4184C5D3273D9FF700F81BAD /* OnBoardingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4184C5D2273D9FF700F81BAD /* OnBoardingVC.swift */; };
+		4184C5D5273DA03200F81BAD /* OnBoardingProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4184C5D4273DA03200F81BAD /* OnBoardingProtocol.swift */; };
+		4184C5D7273DA04000F81BAD /* OnBoardingRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4184C5D6273DA04000F81BAD /* OnBoardingRouter.swift */; };
+		4184C5D9273DA05000F81BAD /* OnBoardingPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4184C5D8273DA05000F81BAD /* OnBoardingPresenter.swift */; };
+		4197A22A273FF3A200FBFBB6 /* Core.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4197A229273FF3A200FBFBB6 /* Core.swift */; };
+		41C3761A273E1FF000BA01FF /* OnBoardingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C37619273E1FF000BA01FF /* OnBoardingCollectionViewCell.swift */; };
+		4D8149CB78178E7A93F5FEBD /* Pods_Macro_Challenge_ADAIL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3AEC2BB7D259CF82C415683 /* Pods_Macro_Challenge_ADAIL.framework */; };
 		9BEE11FEFC4F12C2AF48B7B3 /* libPods-Macro Challenge ADAIL.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F59F2B2B77366C48A7D0270 /* libPods-Macro Challenge ADAIL.a */; };
 		BD06A046273CB96C0030E085 /* Configures.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD06A045273CB96C0030E085 /* Configures.swift */; };
 		BD2675AE273CC09B004F7856 /* RecordsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2675AD273CC09B004F7856 /* RecordsTableViewCell.swift */; };
@@ -49,7 +57,6 @@
 		BDD3F9D72722FD2A00B2AF7F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD3F9D62722FD2A00B2AF7F /* AppDelegate.swift */; };
 		BDD3F9D92722FD2A00B2AF7F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD3F9D82722FD2A00B2AF7F /* SceneDelegate.swift */; };
 		BDD3F9DB2722FD2A00B2AF7F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD3F9DA2722FD2A00B2AF7F /* ViewController.swift */; };
-		BDD3F9E02722FD2B00B2AF7F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BDD3F9DF2722FD2B00B2AF7F /* Assets.xcassets */; };
 		BDD3F9E32722FD2B00B2AF7F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BDD3F9E12722FD2B00B2AF7F /* LaunchScreen.storyboard */; };
 		BDD3F9F1272302CE00B2AF7F /* HomeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD3F9F0272302CE00B2AF7F /* HomeInteractor.swift */; };
 		BDD3F9F3272302DD00B2AF7F /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD3F9F2272302DD00B2AF7F /* HomePresenter.swift */; };
@@ -67,6 +74,13 @@
 		4117519E2727C41900C997E9 /* RecordProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordProtocol.swift; sourceTree = "<group>"; };
 		411751A02727C43500C997E9 /* RecordRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordRouter.swift; sourceTree = "<group>"; };
 		411751A22727C43C00C997E9 /* RecordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordVC.swift; sourceTree = "<group>"; };
+		4164CEC0273FD8FD00025193 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		4184C5D2273D9FF700F81BAD /* OnBoardingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingVC.swift; sourceTree = "<group>"; };
+		4184C5D4273DA03200F81BAD /* OnBoardingProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingProtocol.swift; sourceTree = "<group>"; };
+		4184C5D6273DA04000F81BAD /* OnBoardingRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingRouter.swift; sourceTree = "<group>"; };
+		4184C5D8273DA05000F81BAD /* OnBoardingPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingPresenter.swift; sourceTree = "<group>"; };
+		4197A229273FF3A200FBFBB6 /* Core.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Core.swift; sourceTree = "<group>"; };
+		41C37619273E1FF000BA01FF /* OnBoardingCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingCollectionViewCell.swift; sourceTree = "<group>"; };
 		5F59F2B2B77366C48A7D0270 /* libPods-Macro Challenge ADAIL.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Macro Challenge ADAIL.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD06A045273CB96C0030E085 /* Configures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configures.swift; sourceTree = "<group>"; };
 		BD2675AD273CC09B004F7856 /* RecordsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordsTableViewCell.swift; sourceTree = "<group>"; };
@@ -107,7 +121,6 @@
 		BDD3F9D62722FD2A00B2AF7F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BDD3F9D82722FD2A00B2AF7F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		BDD3F9DA2722FD2A00B2AF7F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		BDD3F9DF2722FD2B00B2AF7F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BDD3F9E22722FD2B00B2AF7F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BDD3F9E42722FD2B00B2AF7F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BDD3F9F0272302CE00B2AF7F /* HomeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInteractor.swift; sourceTree = "<group>"; };
@@ -163,6 +176,17 @@
 			path = Records;
 			sourceTree = "<group>";
 		};
+		4184C5D1273D9FDD00F81BAD /* OnBoarding */ = {
+			isa = PBXGroup;
+			children = (
+				4184C5D4273DA03200F81BAD /* OnBoardingProtocol.swift */,
+				4184C5D6273DA04000F81BAD /* OnBoardingRouter.swift */,
+				4184C5D8273DA05000F81BAD /* OnBoardingPresenter.swift */,
+				4184C5D2273D9FF700F81BAD /* OnBoardingVC.swift */,
+			);
+			path = OnBoarding;
+			sourceTree = "<group>";
+		};
 		BD06A044273CB9570030E085 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -176,6 +200,7 @@
 			children = (
 				BD0DE93E27281DDF0037FD44 /* SignUp */,
 				BD0DE93D27281D7B0037FD44 /* SignIn */,
+				4197A229273FF3A200FBFBB6 /* Core.swift */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -206,6 +231,7 @@
 			isa = PBXGroup;
 			children = (
 				BD2675AD273CC09B004F7856 /* RecordsTableViewCell.swift */,
+				41C37619273E1FF000BA01FF /* OnBoardingCollectionViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -312,8 +338,8 @@
 				BDD3F9D62722FD2A00B2AF7F /* AppDelegate.swift */,
 				BDD3F9D82722FD2A00B2AF7F /* SceneDelegate.swift */,
 				BDD3F9DA2722FD2A00B2AF7F /* ViewController.swift */,
-				BDD3F9DF2722FD2B00B2AF7F /* Assets.xcassets */,
 				BDD3F9E12722FD2B00B2AF7F /* LaunchScreen.storyboard */,
+				4164CEC0273FD8FD00025193 /* Assets.xcassets */,
 				BDD3F9E42722FD2B00B2AF7F /* Info.plist */,
 				BD8424452729BA7700B922DC /* Localizable.strings */,
 			);
@@ -326,6 +352,7 @@
 				BD2675CB273D5ECF004F7856 /* RemindMeAt */,
 				BD2675BB273CFF8F004F7856 /* Expanses */,
 				BD0DE93C27281D6D0037FD44 /* Auth */,
+				4184C5D1273D9FDD00F81BAD /* OnBoarding */,
 				BDD3F9FB27231BEE00B2AF7F /* TapBar */,
 				BDD3F9ED272302B000B2AF7F /* Home */,
 				411751992727C3F500C997E9 /* Records */,
@@ -428,8 +455,8 @@
 			files = (
 				BD8424512729D1B400B922DC /* .gitignore in Resources */,
 				BDD3F9E32722FD2B00B2AF7F /* LaunchScreen.storyboard in Resources */,
+				4164CEC1273FD8FD00025193 /* Assets.xcassets in Resources */,
 				BD8424472729BA7700B922DC /* Localizable.strings in Resources */,
-				BDD3F9E02722FD2B00B2AF7F /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -488,7 +515,9 @@
 				BD2675CF273D5F06004F7856 /* RemindMeAtProtocol.swift in Sources */,
 				BD84243727296D5700B922DC /* SignUpPresenter.swift in Sources */,
 				BD84244B2729BB9F00B922DC /* Assets+Generated.swift in Sources */,
+				4184C5D7273DA04000F81BAD /* OnBoardingRouter.swift in Sources */,
 				BDD3F9F92723034B00B2AF7F /* HomeVC.swift in Sources */,
+				4184C5D5273DA03200F81BAD /* OnBoardingProtocol.swift in Sources */,
 				BD474FAB27240E5D005BF154 /* ProfileInteractor.swift in Sources */,
 				BD84243927296D6400B922DC /* SignUpRouter.swift in Sources */,
 				BD2675BF273CFFB5004F7856 /* ExpansesRouter.swift in Sources */,
@@ -505,11 +534,14 @@
 				4117519B2727C40A00C997E9 /* RecordInteractor.swift in Sources */,
 				BD2675D1273D5F1A004F7856 /* RemindMeAtRouter.swift in Sources */,
 				BDD3F9D72722FD2A00B2AF7F /* AppDelegate.swift in Sources */,
+				4184C5D3273D9FF700F81BAD /* OnBoardingVC.swift in Sources */,
+				41C3761A273E1FF000BA01FF /* OnBoardingCollectionViewCell.swift in Sources */,
 				BDD3F9D92722FD2A00B2AF7F /* SceneDelegate.swift in Sources */,
 				BD842431272962A400B922DC /* SignInRouter.swift in Sources */,
 				BDD3FA012723489900B2AF7F /* TabBarProtocol.swift in Sources */,
 				BD474FA527240E2E005BF154 /* ProfileRouter.swift in Sources */,
 				BDD3F9F3272302DD00B2AF7F /* HomePresenter.swift in Sources */,
+				4197A22A273FF3A200FBFBB6 /* Core.swift in Sources */,
 				4117519F2727C41900C997E9 /* RecordProtocol.swift in Sources */,
 				BD474FB027240FDC005BF154 /* TabBarVC.swift in Sources */,
 				BDD3F9F72723032300B2AF7F /* HomeRouter.swift in Sources */,
@@ -530,6 +562,7 @@
 				BD84242B2729628100B922DC /* SignInVC.swift in Sources */,
 				BD2675C5273D023F004F7856 /* EasyScrollView.swift in Sources */,
 				BD84244A2729BB9F00B922DC /* Strings+Generated.swift in Sources */,
+				4184C5D9273DA05000F81BAD /* OnBoardingPresenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
