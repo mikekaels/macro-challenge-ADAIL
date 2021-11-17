@@ -30,15 +30,16 @@ class ProfileRouter: ProfilePresenterToRouterProtocol {
         return view
     }
     
-    func goToSignIn(viewController: ProfileVC) {
-        let vc = SignInRouter.shared.initialize()
-        vc.delegate = viewController
-        viewController.navigationController?.pushViewController(vc, animated: true)
+    func goToCreateSpace(from: ProfileVC) {
+        let vc = CreateSpaceRouter().createModule()
+        vc.title = "Create Co-Living Space"
+        from.navigationController?.pushViewController(vc, animated: true)
     }
     
-    func goToSignUp(viewController: ProfileVC) {
-        let vc = SignUpRouter.shared.initialize()
-        vc.delegate = viewController
-        viewController.navigationController?.pushViewController(vc, animated: true)
+    func goToJoinSpace(from: ProfileVC) {
+        let vc = JoinSpaceRouter().createModule()
+        from.navigationController?.pushViewController(vc, animated: true)
     }
+    
+    
 }
