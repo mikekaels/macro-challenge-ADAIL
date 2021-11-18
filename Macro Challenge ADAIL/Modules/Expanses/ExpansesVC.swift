@@ -385,23 +385,3 @@ extension ExpansesVC: UITextFieldDelegate, UIPickerViewDataSource,UIPickerViewDe
     }
 }
 
-#if canImport(SwiftUI) && DEBUG
-import SwiftUI
-struct SwiftUIViewRepresentable: UIViewRepresentable {
-    func makeUIView(context: Context) -> UIView {
-        return ExpansesRouter().createModule().view
-    }
-    
-    func updateUIView(_ view: UIView, context: Context) {
-        
-    }
-}
-
-@available(iOS 13.0, *)
-struct SwiftLeeViewController_Preview: PreviewProvider {
-    static var previews: some View {
-        SwiftUIViewRepresentable()
-    }
-}
-#endif
-
