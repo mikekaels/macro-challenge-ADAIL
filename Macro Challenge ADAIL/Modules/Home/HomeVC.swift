@@ -26,27 +26,157 @@ class HomeVC: UIViewController {
         //MARK: PROGRESS
         newExpensesButton.addTarget(self, action: #selector(goToNewExpenses(_:)), for: .touchUpInside)
         newExpensesButton.layer.cornerRadius = 11
-        newExpensesButton.backgroundColor = .systemBlue
+        newExpensesButton.backgroundColor = .systemGray6
         newExpensesButton.translatesAutoresizingMaskIntoConstraints = false
         return newExpensesButton
     }()
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        self.view.backgroundColor = .systemBackground
-        self.title = Constants().tab1Title
-        self.view.addSubview(textLabel)
-        textLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
-        textLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+    
+    let scrollView: UIScrollView = {
+        let scrollView = UIScrollView()
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        return scrollView
+    }()
+    
+    let scrollViewContainer: UIStackView = {
+        let view = UIStackView()
         
-        self.view.addSubview(newExpenses)
-        newExpenses.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        newExpenses.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 130).isActive = true
-        newExpenses.heightAnchor.constraint(equalToConstant: 50).isActive = true
-        newExpenses.widthAnchor.constraint(equalToConstant: view.bounds.width - 200).isActive = true
+        view.axis = .vertical
+        view.spacing = 20
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
+    let greetingLabel: UILabel = UILabel().configure { v in
+        v.text = "Hello Mike"
+        v.font = UIFont.systemFont(ofSize: 30, weight: .semibold)
+        v.textAlignment = .left
+        v.textColor = .systemGray
+        v.translatesAutoresizingMaskIntoConstraints = false
     }
     
-
+    let profileContainer: UIView = UIView()
+        .configure { v in
+            v.layer.cornerRadius = 15
+            v.layer.masksToBounds = true
+            v.translatesAutoresizingMaskIntoConstraints = false
+        }
+    let profileButton: UIButton = UIButton()
+        .configure { v in
+            v.setImage(UIImage(named: Asset.Icons.groceries.name), for: .normal)
+            v.widthAnchor.constraint(equalToConstant: 25).isActive = true
+            v.heightAnchor.constraint(equalToConstant: 25).isActive = true
+            v.translatesAutoresizingMaskIntoConstraints = false
+            v.addTarget(self, action: #selector(profileTapped), for: .touchUpInside)
+        }
+    
+    let upcomingContainer: UIView = UIView()
+        .configure { v in
+            v.layer.cornerRadius = 15
+            v.backgroundColor = Asset.blueLight.color
+            v.layer.masksToBounds = true
+            v.translatesAutoresizingMaskIntoConstraints = false
+        }
+    
+    let upcomingStackView: UIStackView = UIStackView()
+        .configure { v in
+            v.axis = .vertical
+            v.distribution = .fill
+        }
+    
+    let upcomingDesc: UILabel = UILabel()
+        .configure { v in
+            v.text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi nec justo velit. "
+            v.font = UIFont.systemFont(ofSize: 12, weight: .medium)
+            v.textAlignment = .left
+            v.textColor = .label
+            v.numberOfLines = 0
+            v.translatesAutoresizingMaskIntoConstraints = false
+        }
+    
+    let createExpanseButton: UIButton = UIButton()
+        .configure { v in
+            v.setTitle("Create expanses", for: .normal)
+            v.titleLabel?.font = UIFont.systemFont(ofSize: 12, weight: .bold)
+            v.backgroundColor = .systemBlue
+            v.layer.cornerRadius = 10
+            v.widthAnchor.constraint(equalToConstant: 120).isActive = true
+            v.heightAnchor.constraint(equalToConstant: 30).isActive = true
+            v.translatesAutoresizingMaskIntoConstraints = false
+        }
+    
+    let upcomingCardView: CardView = CardView()
+        .configure { v in
+//            v.translatesAutoresizingMaskIntoConstraints = false
+        }
+    
+    let friendsOweCardView: CardView = CardView()
+        .configure { v in
+//            v.translatesAutoresizingMaskIntoConstraints = false
+        }
+    
+    let myOweCardView: CardView = CardView()
+        .configure { v in
+//            v.translatesAutoresizingMaskIntoConstraints = false
+        }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        title = "Hello Mike"
+        self.title = Constants().tab1Title
+        self.view.backgroundColor = .secondarySystemBackground
+        profileContainer.widthAnchor.constraint(equalToConstant: 50).isActive = true
+        profileContainer.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        
+        profileContainer.addSubview(profileButton)
+        profileButton.centerXAnchor.constraint(equalTo: profileContainer.centerXAnchor).isActive = true
+        profileButton.centerYAnchor.constraint(equalTo: profileContainer.centerYAnchor).isActive = true
+        
+        scrollViewContainer.addArrangedSubview(UIStackView(arrangedSubviews: [greetingLabel, profileContainer]).configure(completion: { v in
+            v.axis = .horizontal
+            v.distribution = .equalSpacing
+            v.translatesAutoresizingMaskIntoConstraints = false
+        }))
+        scrollViewContainer.addArrangedSubview(upcomingCardView)
+        scrollViewContainer.addArrangedSubview(friendsOweCardView)
+        scrollViewContainer.addArrangedSubview(myOweCardView)
+        
+        setupScrollView()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        hideNavigationBar(animated: animated)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        showNavigationBar(animated: animated)
+    }
+    
+    func setupScrollView() {
+        
+        self.view.addSubview(scrollView)
+        scrollView.addSubview(scrollViewContainer)
+        
+        scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        scrollView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        //        scrollViewContainer.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor).isActive = true
+        //        scrollViewContainer.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor).isActive = true
+        scrollViewContainer.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 50).isActive = true
+        scrollViewContainer.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor).isActive = true
+        // Important!
+        scrollViewContainer.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor).isActive = true
+        scrollViewContainer.widthAnchor.constraint(equalTo: scrollView.widthAnchor, multiplier: 0.90).isActive = true
+        //        scrollViewContainer.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: -50).isActive = true
+        scrollViewContainer.spacing = 20
+    }
+    
+    
+    @objc func profileTapped() {
+        
+    }
 }
 
 extension HomeVC: HomePresenterToViewProtocol {
@@ -54,3 +184,25 @@ extension HomeVC: HomePresenterToViewProtocol {
         print("Go To New Expenses")
     }
 }
+
+
+#if canImport(SwiftUI) && DEBUG
+import SwiftUI
+struct SwiftUIViewRepresentable: UIViewRepresentable {
+    func makeUIView(context: Context) -> UIView {
+        return HomeRouter().createModule().view
+    }
+    
+    func updateUIView(_ view: UIView, context: Context) {
+        
+    }
+}
+
+@available(iOS 13.0, *)
+struct SwiftLeeViewController_Preview: PreviewProvider {
+    static var previews: some View {
+        SwiftUIViewRepresentable()
+    }
+}
+#endif
+
