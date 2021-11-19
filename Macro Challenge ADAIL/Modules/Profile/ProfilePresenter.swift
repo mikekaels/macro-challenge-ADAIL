@@ -19,5 +19,17 @@ class ProfilePresenter: ProfileViewToPresenterProtocol {
     func goToJoinSpace(from: ProfileVC) {
         
     }
+    
+    func goToDetailSpace(from: ProfileVC) {
+        
+    }
+    
+    func goToDescSpace(from: ProfileVC) {
+        
+    }
+    
+    func goToShowQR(from: ProfileVC) {
+        
+    }
 }
 

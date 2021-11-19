@@ -22,11 +22,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         if Core.shared.isSignIn() == false {
             window?.rootViewController = TabBarRouter().createModule()
+//            window?.rootViewController = ShowQRRouter().createModule()
         } else {
             window?.rootViewController = OnBoardingRouter().createModule()
-//            window?.rootViewController = JoinSpaceRouter().createModule()
-//            window?.rootViewController = TabBarRouter().createModule()
-
         }
         
         window?.makeKeyAndVisible()

@@ -27,4 +27,7 @@ protocol ProfilePresenterToRouterProtocol: AnyObject {
     func createModule() -> ProfileVC
     func goToCreateSpace(from: ProfileVC)
     func goToJoinSpace(from: ProfileVC)
+    func goToDetailSpace(from: ProfileVC)
+    func goToDescSpace(from: ProfileVC)
+    func goToShowQR(from: ProfileVC)
 }

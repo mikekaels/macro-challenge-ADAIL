@@ -16,7 +16,7 @@ class ProfileVC: UIViewController {
     private let signInButton = ASAuthorizationAppleIDButton()
     
     //Test
-    var isGroup: Bool = false
+    var isGroup: Bool = true
     
     var members: [Member] = []
     private var memberCollectionView: UICollectionView?
@@ -96,12 +96,15 @@ class ProfileVC: UIViewController {
         btn.layer.cornerRadius = 8
         return btn
     }()
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.navigationBar.prefersLargeTitles = true
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = Constants().tab3Title
         self.view.backgroundColor = .secondarySystemBackground
-        self.navigationController?.navigationBar.prefersLargeTitles = true
         
         if isGroup {
             members = [
@@ -153,6 +156,12 @@ class ProfileVC: UIViewController {
         chevronBtnCard1.translatesAutoresizingMaskIntoConstraints = false
         chevronBtnCard1.centerYAnchor.constraint(equalTo: card1.centerYAnchor).isActive = true
         chevronBtnCard1.trailingAnchor.constraint(equalTo: card1.trailingAnchor, constant: -20).isActive = true
+        
+        chevronBtnCard1.addTarget(self, action: #selector(card1Tap), for: .touchUpInside)
+    }
+    
+    @objc func card1Tap() {
+        presentor?.router?.goToDetailSpace(from: self)
     }
     
     func setCard2() {
@@ -174,6 +183,11 @@ class ProfileVC: UIViewController {
         chevronBtnCard2.translatesAutoresizingMaskIntoConstraints = false
         chevronBtnCard2.centerYAnchor.constraint(equalTo: card2.centerYAnchor).isActive = true
         chevronBtnCard2.trailingAnchor.constraint(equalTo: card2.trailingAnchor, constant: -20).isActive = true
+        chevronBtnCard2.addTarget(self, action: #selector(card2Tap), for: .touchUpInside)
+    }
+    
+    @objc func card2Tap() {
+        presentor?.router?.goToDescSpace(from: self)
     }
     
     func setCard3() {
@@ -219,6 +233,12 @@ class ProfileVC: UIViewController {
         qrButton.centerXAnchor.constraint(equalTo: card3.centerXAnchor).isActive = true
         qrButton.widthAnchor.constraint(equalToConstant: 315).isActive = true
         qrButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        
+        qrButton.addTarget(self, action: #selector(qrTap), for: .touchUpInside)
+    }
+    
+    @objc func qrTap() {
+        presentor?.router?.goToShowQR(from: self)
     }
 }
 
