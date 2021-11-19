@@ -38,5 +38,6 @@ public class JoinSpaceRouter: JoinSpacePresenterToRouterProtocol{
         let vc = ExpansesRouter().createModule()
         vc.title = "Expanse details"
         from.navigationController?.popViewController(animated: true)
+        from.tabBarController?.tabBar.isHidden = false
     }
 }
