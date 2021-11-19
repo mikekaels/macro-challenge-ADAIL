@@ -23,7 +23,7 @@ class DetailSpaceVC: UIViewController {
         return imgView
     }()
     
-    let button: UIButton = {
+    let changeButton: UIButton = {
         let btn = UIButton()
         btn.setTitle("Change Co-Living Photo", for: .normal)
         btn.frame = CGRect(x: 0, y: 0, width: 200, height: 50)
@@ -89,14 +89,17 @@ class DetailSpaceVC: UIViewController {
         view.addSubview(imgProfile)
         imgProfile.center.x = view.center.x
         
-        view.addSubview(button)
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.topAnchor.constraint(equalTo: imgProfile.bottomAnchor, constant: 10).isActive = true
-        button.centerXAnchor.constraint(equalTo: imgProfile.centerXAnchor).isActive = true
+        view.addSubview(changeButton)
+        changeButton.translatesAutoresizingMaskIntoConstraints = false
+        changeButton.topAnchor.constraint(equalTo: imgProfile.bottomAnchor, constant: 10).isActive = true
+        changeButton.centerXAnchor.constraint(equalTo: imgProfile.centerXAnchor).isActive = true
+        changeButton.addTarget(self, action: #selector(changePhotoTap), for: .touchUpInside)
+        
+        
         
         view.addSubview(textFieldBG)
         textFieldBG.translatesAutoresizingMaskIntoConstraints = false
-        textFieldBG.topAnchor.constraint(equalTo: button.bottomAnchor, constant: 30).isActive = true
+        textFieldBG.topAnchor.constraint(equalTo: changeButton.bottomAnchor, constant: 30).isActive = true
         textFieldBG.heightAnchor.constraint(equalToConstant: 140).isActive = true
         textFieldBG.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 15).isActive = true
         textFieldBG.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -15).isActive = true
@@ -137,6 +140,24 @@ class DetailSpaceVC: UIViewController {
         addressTxtField.leadingAnchor.constraint(equalTo: addressTitleLabel.trailingAnchor, constant: 40).isActive = true
         addressTxtField.widthAnchor.constraint(equalToConstant: 210).isActive = true
         addressTxtField.heightAnchor.constraint(equalToConstant: 50).isActive = true
+    }
+    
+    @objc func changePhotoTap() {
+        let action = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        action.addAction(UIAlertAction(title: "Remove current photo", style: .destructive, handler: { action in
+            print("Remove current photo")
+        }))
+        action.addAction(UIAlertAction(title: "Take Photo", style: .default, handler: { action in
+            print("Remove current photo")
+        }))
+        action.addAction(UIAlertAction(title: "Choose from library", style: .default, handler: { action in
+            print("Choose from library")
+        }))
+        action.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { action in
+            print("Cancel")
+        }))
+        
+        present(action, animated: true, completion: nil)
     }
 }
 
