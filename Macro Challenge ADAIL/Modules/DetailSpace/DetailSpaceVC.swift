@@ -6,6 +6,7 @@
 //  Copyright (c) 2021 ___ORGANIZATIONNAME___. All rights reserved.
 
 import UIKit
+import PhotosUI
 
 class DetailSpaceVC: UIViewController {
     var presentor: DetailSpaceViewToPresenterProtocol?
@@ -13,7 +14,7 @@ class DetailSpaceVC: UIViewController {
     
     let imgProfile: UIImageView = {
         let imgView = UIImageView()
-        let img = UIImage()
+        let img = UIImage(named: "EmptyPP")
         imgView.image = img
         imgView.frame = CGRect(x: 0, y: 150, width: 150, height: 150)
         imgView.layer.cornerRadius = imgView.frame.width / 2
@@ -144,17 +145,31 @@ class DetailSpaceVC: UIViewController {
     
     @objc func changePhotoTap() {
         let action = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        
         action.addAction(UIAlertAction(title: "Remove current photo", style: .destructive, handler: { action in
-            print("Remove current photo")
+            self.imgProfile.image = UIImage(named: "EmptyPP")
         }))
+        
         action.addAction(UIAlertAction(title: "Take Photo", style: .default, handler: { action in
-            print("Remove current photo")
+            print("Take Photo")
+            let imagePicker = UIImagePickerController()
+            imagePicker.sourceType = .camera
+            imagePicker.delegate = self
+            self.present(imagePicker, animated: true, completion: nil)
+
         }))
+        
         action.addAction(UIAlertAction(title: "Choose from library", style: .default, handler: { action in
-            print("Choose from library")
+            var pickerConfig:PHPickerConfiguration = PHPickerConfiguration()
+            pickerConfig.filter = .images
+            pickerConfig.selectionLimit = 1
+            
+            let picker:PHPickerViewController = PHPickerViewController(configuration: pickerConfig)
+            picker.delegate = self
+            self.present(picker, animated: true, completion: nil)
         }))
+        
         action.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { action in
-            print("Cancel")
         }))
         
         present(action, animated: true, completion: nil)
@@ -162,5 +177,31 @@ class DetailSpaceVC: UIViewController {
 }
 
 extension DetailSpaceVC: DetailSpacePresenterToViewProtocol {
+    
+}
+
+extension DetailSpaceVC: PHPickerViewControllerDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
+        dismiss(animated: true, completion: nil)
+        for i in results {
+            i.itemProvider.loadObject(ofClass: UIImage.self) { image, error in
+                if let image = image as? UIImage {
+                    DispatchQueue.main.async {
+                        self.imgProfile.image = image
+                        print("Berhasil")
+                    }
+                }
+            }
+        }
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        dismiss(animated: true, completion: nil)
+        guard let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage else {
+            return
+        }
+        imgProfile.image = image
+    }
+    
     
 }
