@@ -20,10 +20,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         window = UIWindow(frame: UIScreen.main.bounds)
         
-        if Core.shared.isSignIn() == false {
+        if Core.shared.isSignIn(){
             window?.rootViewController = TabBarRouter().createModule()
         } else {
-            window?.rootViewController = OnBoardingRouter().createModule()
+//            window?.rootViewController = OnBoardingRouter().createModule()
+            window?.rootViewController = TabBarRouter().createModule()
         }
         window?.makeKeyAndVisible()
         window?.windowScene = windowsScene

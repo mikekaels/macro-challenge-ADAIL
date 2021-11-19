@@ -104,20 +104,20 @@ class HomeVC: UIViewController {
             v.translatesAutoresizingMaskIntoConstraints = false
         }
     
-    let upcomingCardView: CardView = CardView()
+    let upcomingCardView: CardView = CardView(to: ExpansesVC())
         .configure { v in
 //            v.translatesAutoresizingMaskIntoConstraints = false
         }
     
-    let friendsOweCardView: CardView = CardView()
+    let friendsOweCardView: CardView = CardView(to: FriendsDebtVC())
         .configure { v in
 //            v.translatesAutoresizingMaskIntoConstraints = false
         }
-    
-    let myOweCardView: CardView = CardView()
-        .configure { v in
-//            v.translatesAutoresizingMaskIntoConstraints = false
-        }
+
+//    let myOweCardView: CardView = CardView()
+//        .configure { v in
+////            v.translatesAutoresizingMaskIntoConstraints = false
+//        }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -138,7 +138,7 @@ class HomeVC: UIViewController {
         }))
         scrollViewContainer.addArrangedSubview(upcomingCardView)
         scrollViewContainer.addArrangedSubview(friendsOweCardView)
-        scrollViewContainer.addArrangedSubview(myOweCardView)
+//        scrollViewContainer.addArrangedSubview(myOweCardView)
         
         setupScrollView()
     }

@@ -9,6 +9,8 @@ import UIKit
 
 class CardViewTableViewCell: UITableViewCell {
     
+    var parent: UIViewController?
+    
     let background: UIView = UIView()
         .configure { v in
             v.backgroundColor = .white
