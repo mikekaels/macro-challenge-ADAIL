@@ -26,7 +26,9 @@ internal enum Asset {
     internal static let fff5Cd = ColorAsset(name: "FFF5CD")
     internal static let red = ColorAsset(name: "red")
   }
+  internal static let groupImage = ImageAsset(name: "GroupImage")
   internal enum Icons {
+    internal static let cameraShut = ImageAsset(name: "CameraShut")
     internal static let groceries = ImageAsset(name: "groceries")
   }
   internal enum Images {
