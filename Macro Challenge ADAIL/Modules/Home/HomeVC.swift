@@ -47,7 +47,7 @@ class HomeVC: UIViewController {
     }()
     
     let greetingLabel: UILabel = UILabel().configure { v in
-        v.text = "Hello User"
+        v.text = "Hello Mike"
         v.font = UIFont.systemFont(ofSize: 30, weight: .semibold)
         v.textAlignment = .left
         v.textColor = .systemGray
