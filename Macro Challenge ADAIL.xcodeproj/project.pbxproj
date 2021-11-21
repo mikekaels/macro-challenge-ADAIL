@@ -68,6 +68,7 @@
 		BD2675D1273D5F1A004F7856 /* RemindMeAtRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2675D0273D5F1A004F7856 /* RemindMeAtRouter.swift */; };
 		BD2675D3273D5F2C004F7856 /* RemindMeAtPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2675D2273D5F2C004F7856 /* RemindMeAtPresenter.swift */; };
 		BD3AA15D274354D00068AAEA /* Extension + UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3AA15C274354D00068AAEA /* Extension + UIViewController.swift */; };
+		BD3EB3732747820F00273B0C /* Extension + UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3EB3722747820F00273B0C /* Extension + UIView.swift */; };
 		BD474FA327240E15005BF154 /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD474FA227240E15005BF154 /* ProfileVC.swift */; };
 		BD474FA527240E2E005BF154 /* ProfileRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD474FA427240E2E005BF154 /* ProfileRouter.swift */; };
 		BD474FA727240E41005BF154 /* ProfileProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD474FA627240E41005BF154 /* ProfileProtocol.swift */; };
@@ -77,6 +78,12 @@
 		BD474FB027240FDC005BF154 /* TabBarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD474FAF27240FDC005BF154 /* TabBarVC.swift */; };
 		BD4D657627450DA300EAD0EC /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD4D657527450DA300EAD0EC /* CardView.swift */; };
 		BD4D65782745127E00EAD0EC /* CardViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD4D65772745127E00EAD0EC /* CardViewTableViewCell.swift */; };
+		BD6EA535274A3FFB00EF89B5 /* FriendsDebtProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD6EA52F274A3FFB00EF89B5 /* FriendsDebtProtocol.swift */; };
+		BD6EA536274A3FFB00EF89B5 /* FriendsDebtPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD6EA530274A3FFB00EF89B5 /* FriendsDebtPresenter.swift */; };
+		BD6EA537274A3FFB00EF89B5 /* FriendsDebtModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD6EA531274A3FFB00EF89B5 /* FriendsDebtModels.swift */; };
+		BD6EA538274A3FFB00EF89B5 /* FriendsDebtVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD6EA532274A3FFB00EF89B5 /* FriendsDebtVC.swift */; };
+		BD6EA539274A3FFB00EF89B5 /* FriendsDebtRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD6EA533274A3FFB00EF89B5 /* FriendsDebtRouter.swift */; };
+		BD6EA53A274A3FFB00EF89B5 /* FriendsDebtInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD6EA534274A3FFB00EF89B5 /* FriendsDebtInteractor.swift */; };
 		BD84242927295A1A00B922DC /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD84242827295A1A00B922DC /* Button.swift */; };
 		BD84242B2729628100B922DC /* SignInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD84242A2729628100B922DC /* SignInVC.swift */; };
 		BD84242D2729629100B922DC /* SignInProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD84242C2729629100B922DC /* SignInProtocol.swift */; };
@@ -166,6 +173,7 @@
 		BD2675D0273D5F1A004F7856 /* RemindMeAtRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindMeAtRouter.swift; sourceTree = "<group>"; };
 		BD2675D2273D5F2C004F7856 /* RemindMeAtPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindMeAtPresenter.swift; sourceTree = "<group>"; };
 		BD3AA15C274354D00068AAEA /* Extension + UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + UIViewController.swift"; sourceTree = "<group>"; };
+		BD3EB3722747820F00273B0C /* Extension + UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + UIView.swift"; sourceTree = "<group>"; };
 		BD474FA227240E15005BF154 /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
 		BD474FA427240E2E005BF154 /* ProfileRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileRouter.swift; sourceTree = "<group>"; };
 		BD474FA627240E41005BF154 /* ProfileProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileProtocol.swift; sourceTree = "<group>"; };
@@ -175,6 +183,12 @@
 		BD474FAF27240FDC005BF154 /* TabBarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarVC.swift; sourceTree = "<group>"; };
 		BD4D657527450DA300EAD0EC /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		BD4D65772745127E00EAD0EC /* CardViewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewTableViewCell.swift; sourceTree = "<group>"; };
+		BD6EA52F274A3FFB00EF89B5 /* FriendsDebtProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendsDebtProtocol.swift; sourceTree = "<group>"; };
+		BD6EA530274A3FFB00EF89B5 /* FriendsDebtPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendsDebtPresenter.swift; sourceTree = "<group>"; };
+		BD6EA531274A3FFB00EF89B5 /* FriendsDebtModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendsDebtModels.swift; sourceTree = "<group>"; };
+		BD6EA532274A3FFB00EF89B5 /* FriendsDebtVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendsDebtVC.swift; sourceTree = "<group>"; };
+		BD6EA533274A3FFB00EF89B5 /* FriendsDebtRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendsDebtRouter.swift; sourceTree = "<group>"; };
+		BD6EA534274A3FFB00EF89B5 /* FriendsDebtInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendsDebtInteractor.swift; sourceTree = "<group>"; };
 		BD84242827295A1A00B922DC /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
 		BD84242A2729628100B922DC /* SignInVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInVC.swift; sourceTree = "<group>"; };
 		BD84242C2729629100B922DC /* SignInProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInProtocol.swift; sourceTree = "<group>"; };
@@ -359,6 +373,7 @@
 			children = (
 				BD06A045273CB96C0030E085 /* Configures.swift */,
 				BD3AA15C274354D00068AAEA /* Extension + UIViewController.swift */,
+				BD3EB3722747820F00273B0C /* Extension + UIView.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -455,6 +470,19 @@
 			path = Constants;
 			sourceTree = "<group>";
 		};
+		BD6EA52E274A3FFB00EF89B5 /* FriendsDebt */ = {
+			isa = PBXGroup;
+			children = (
+				BD6EA52F274A3FFB00EF89B5 /* FriendsDebtProtocol.swift */,
+				BD6EA530274A3FFB00EF89B5 /* FriendsDebtPresenter.swift */,
+				BD6EA531274A3FFB00EF89B5 /* FriendsDebtModels.swift */,
+				BD6EA532274A3FFB00EF89B5 /* FriendsDebtVC.swift */,
+				BD6EA533274A3FFB00EF89B5 /* FriendsDebtRouter.swift */,
+				BD6EA534274A3FFB00EF89B5 /* FriendsDebtInteractor.swift */,
+			);
+			path = FriendsDebt;
+			sourceTree = "<group>";
+		};
 		BD84242727295A0E00B922DC /* UI */ = {
 			isa = PBXGroup;
 			children = (
@@ -523,6 +551,7 @@
 				419A86DC2747F01500FEA99B /* ShowQR */,
 				419A86CF2747EB7100FEA99B /* DescSpace */,
 				419A86C22747D75C00FEA99B /* DetailSpace */,
+				BD6EA52E274A3FFB00EF89B5 /* FriendsDebt */,
 				413213AA2743ACCF00F5BD9C /* JoinSpace */,
 				4115380927425C0B00154DB1 /* CreateSpace */,
 				BD2675CB273D5ECF004F7856 /* RemindMeAt */,
@@ -678,6 +707,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BD2675CD273D5EF6004F7856 /* RemindMeAtVC.swift in Sources */,
+				BD6EA539274A3FFB00EF89B5 /* FriendsDebtRouter.swift in Sources */,
 				BDD3F9F52723031800B2AF7F /* HomeProtocol.swift in Sources */,
 				41E6E10727423BBB00527CAA /* MemberCollectionView.swift in Sources */,
 				BD2675CF273D5F06004F7856 /* RemindMeAtProtocol.swift in Sources */,
@@ -703,12 +733,16 @@
 				BD84243527296D4A00B922DC /* SignUpProtocol.swift in Sources */,
 				4117519D2727C41200C997E9 /* RecordPresenter.swift in Sources */,
 				411751A32727C43C00C997E9 /* RecordVC.swift in Sources */,
+				BD6EA53A274A3FFB00EF89B5 /* FriendsDebtInteractor.swift in Sources */,
 				BD06A046273CB96C0030E085 /* Configures.swift in Sources */,
+				BD6EA536274A3FFB00EF89B5 /* FriendsDebtPresenter.swift in Sources */,
 				BD84242D2729629100B922DC /* SignInProtocol.swift in Sources */,
 				413213B12743ACDE00F5BD9C /* JoinSpacePresenter.swift in Sources */,
 				419A86CD2747D77900FEA99B /* DetailSpaceProtocol.swift in Sources */,
 				BD2675C1273CFFC5004F7856 /* ExpansesProtocol.swift in Sources */,
+				BD6EA538274A3FFB00EF89B5 /* FriendsDebtVC.swift in Sources */,
 				BDD3F9DB2722FD2A00B2AF7F /* ViewController.swift in Sources */,
+				BD6EA535274A3FFB00EF89B5 /* FriendsDebtProtocol.swift in Sources */,
 				4117519B2727C40A00C997E9 /* RecordInteractor.swift in Sources */,
 				BD2675D1273D5F1A004F7856 /* RemindMeAtRouter.swift in Sources */,
 				413213B42743ACDE00F5BD9C /* JoinSpaceInteractor.swift in Sources */,
@@ -739,6 +773,7 @@
 				419A86D62747EB8600FEA99B /* DescSpacePresenter.swift in Sources */,
 				413213B22743ACDE00F5BD9C /* JoinSpaceRouter.swift in Sources */,
 				BDD3FA03272349FF00B2AF7F /* TabBarRouter.swift in Sources */,
+				BD3EB3732747820F00273B0C /* Extension + UIView.swift in Sources */,
 				BD2675D3273D5F2C004F7856 /* RemindMeAtPresenter.swift in Sources */,
 				419A86E32747F02C00FEA99B /* ShowQRPresenter.swift in Sources */,
 				413213B52743ACDE00F5BD9C /* JoinSpaceProtocol.swift in Sources */,
@@ -750,6 +785,7 @@
 				419A86DA2747EB8600FEA99B /* DescSpaceProtocol.swift in Sources */,
 				BD84242927295A1A00B922DC /* Button.swift in Sources */,
 				BD3AA15D274354D00068AAEA /* Extension + UIViewController.swift in Sources */,
+				BD6EA537274A3FFB00EF89B5 /* FriendsDebtModels.swift in Sources */,
 				BD84242F2729629A00B922DC /* SignInPresenter.swift in Sources */,
 				419A86C92747D77900FEA99B /* DetailSpacePresenter.swift in Sources */,
 				BDD3F9F1272302CE00B2AF7F /* HomeInteractor.swift in Sources */,
@@ -919,10 +955,10 @@
 				CODE_SIGN_ENTITLEMENTS = "Macro Challenge ADAIL/Macro Challenge ADAIL.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = VXCW9GZNN5;
+				DEVELOPMENT_TEAM = RMQNS23DVX;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Macro Challenge ADAIL/Info.plist";
-				INFOPLIST_KEY_NSCameraUsageDescription = Scan;
+				INFOPLIST_KEY_NSCameraUsageDescription = "We need ur camera";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -932,7 +968,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.zalifer.Macro-Challenge-ADAIL";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.kaelsihombing.Macro-Challenge-ADAIL";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -949,10 +985,10 @@
 				CODE_SIGN_ENTITLEMENTS = "Macro Challenge ADAIL/Macro Challenge ADAIL.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = VXCW9GZNN5;
+				DEVELOPMENT_TEAM = RMQNS23DVX;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Macro Challenge ADAIL/Info.plist";
-				INFOPLIST_KEY_NSCameraUsageDescription = Scan;
+				INFOPLIST_KEY_NSCameraUsageDescription = "We need ur camera";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -962,7 +998,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.zalifer.Macro-Challenge-ADAIL";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.kaelsihombing.Macro-Challenge-ADAIL";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

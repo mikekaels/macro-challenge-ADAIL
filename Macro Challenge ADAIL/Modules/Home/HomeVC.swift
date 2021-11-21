@@ -104,17 +104,17 @@ class HomeVC: UIViewController {
             v.translatesAutoresizingMaskIntoConstraints = false
         }
     
-    let upcomingCardView: CardView = CardView()
+    let upcomingCardView: CardView = CardView(to: ExpansesVC())
         .configure { v in
 //            v.translatesAutoresizingMaskIntoConstraints = false
         }
     
-    let friendsOweCardView: CardView = CardView()
+    let friendsOweCardView: CardView = CardView(to: FriendsDebtVC())
         .configure { v in
 //            v.translatesAutoresizingMaskIntoConstraints = false
         }
-    
-    let myOweCardView: CardView = CardView()
+
+    let myOweCardView: CardView = CardView(to: FriendsDebtVC())
         .configure { v in
 //            v.translatesAutoresizingMaskIntoConstraints = false
         }
@@ -139,7 +139,7 @@ class HomeVC: UIViewController {
         }))
         scrollViewContainer.addArrangedSubview(upcomingCardView)
         scrollViewContainer.addArrangedSubview(friendsOweCardView)
-        scrollViewContainer.addArrangedSubview(myOweCardView)
+//        scrollViewContainer.addArrangedSubview(myOweCardView)
         
         setupScrollView()
     }
@@ -185,25 +185,3 @@ extension HomeVC: HomePresenterToViewProtocol {
         print("Go To New Expenses")
     }
 }
-
-
-#if canImport(SwiftUI) && DEBUG
-import SwiftUI
-struct SwiftUIViewRepresentable: UIViewRepresentable {
-    func makeUIView(context: Context) -> UIView {
-        return HomeRouter().createModule().view
-    }
-    
-    func updateUIView(_ view: UIView, context: Context) {
-        
-    }
-}
-
-@available(iOS 13.0, *)
-struct SwiftLeeViewController_Preview: PreviewProvider {
-    static var previews: some View {
-        SwiftUIViewRepresentable()
-    }
-}
-#endif
-

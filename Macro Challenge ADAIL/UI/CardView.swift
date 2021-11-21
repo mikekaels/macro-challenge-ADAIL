@@ -9,6 +9,8 @@ import UIKit
 
 class CardView: UIView {
     
+    var cellTo: UIViewController?
+    
     let upcomingDesc: UILabel = UILabel()
         .configure { v in
             v.text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi nec justo velit. "
@@ -48,8 +50,9 @@ class CardView: UIView {
             v.translatesAutoresizingMaskIntoConstraints = false
         }
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+    init(to cellTo: UIViewController) {
+        self.cellTo = cellTo
+        super.init(frame: .zero)
         setupView()
     }
     
@@ -110,10 +113,11 @@ extension CardView: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        print("item \(indexPath.row)")
         let cell = tableView.dequeueReusableCell(withIdentifier: "CardViewCell", for: indexPath) as! CardViewTableViewCell
         cell.textLabel?.text = "CardView Cell \(indexPath.row)"
         cell.backgroundColor = .clear
+        cell.selectionStyle = .none
+        cell.parent = HomeVC()
         return cell
     }
     
@@ -122,6 +126,7 @@ extension CardView: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("Cell \(indexPath.row)")
+        tableView.deselectRow(at: indexPath, animated: true)
+        parentViewController?.navigationController?.pushViewController(self.cellTo!, animated: true)
     }
 }

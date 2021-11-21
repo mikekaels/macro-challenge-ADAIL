@@ -9,6 +9,8 @@ import UIKit
 
 class CardViewTableViewCell: UITableViewCell {
     
+    var parent: UIViewController?
+    
     let background: UIView = UIView()
         .configure { v in
             v.backgroundColor = .white
@@ -38,7 +40,7 @@ class CardViewTableViewCell: UITableViewCell {
     
     let itemLabel: UILabel = UILabel()
         .configure { v in
-            v.text = "Bayar kontrakan bu lili"
+            v.text = "Sewa Kontrakan"
             v.font = UIFont.systemFont(ofSize: 14, weight: .light)
             v.textAlignment = .left
             v.textColor = .label
@@ -68,7 +70,7 @@ class CardViewTableViewCell: UITableViewCell {
     
     let priceLabel: UILabel = UILabel()
         .configure { v in
-            v.text = "Rp 2.000.000"
+            v.text = "Rp 2.500.000"
             v.font = UIFont.systemFont(ofSize: 12, weight: .bold)
             v.textAlignment = .left
             v.textColor = .label
@@ -107,13 +109,14 @@ class CardViewTableViewCell: UITableViewCell {
         dateLabel.leadingAnchor.constraint(equalTo: imageWrapper.trailingAnchor, constant: 15).isActive = true
         dateLabel.bottomAnchor.constraint(equalTo: background.bottomAnchor, constant: -6).isActive = true
         
-        background.addSubview(timeLabel)
-        timeLabel.trailingAnchor.constraint(equalTo: background.trailingAnchor, constant: -15).isActive = true
-        timeLabel.topAnchor.constraint(equalTo: background.topAnchor, constant: 6).isActive = true
+//        background.addSubview(timeLabel)
+//        timeLabel.trailingAnchor.constraint(equalTo: background.trailingAnchor, constant: -15).isActive = true
+//        timeLabel.topAnchor.constraint(equalTo: background.topAnchor, constant: 6).isActive = true
     
         background.addSubview(priceLabel)
         priceLabel.trailingAnchor.constraint(equalTo: background.trailingAnchor, constant: -15).isActive = true
-        priceLabel.bottomAnchor.constraint(equalTo: background.bottomAnchor, constant: -6).isActive = true
+//        priceLabel.bottomAnchor.constraint(equalTo: background.bottomAnchor, constant: -6).isActive = true
+        priceLabel.centerYAnchor.constraint(equalTo: background.centerYAnchor).isActive = true
     }
 
 }
