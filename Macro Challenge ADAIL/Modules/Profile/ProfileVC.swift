@@ -16,7 +16,7 @@ class ProfileVC: UIViewController {
     private let signInButton = ASAuthorizationAppleIDButton()
     
     //Test
-    var isGroup: Bool = true
+    var isGroup: Bool = false
     
     var members: [Member] = []
     private var memberCollectionView: UICollectionView?

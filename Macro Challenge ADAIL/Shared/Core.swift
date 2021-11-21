@@ -27,5 +27,6 @@ class Core {
         UserDefaults.standard.removeObject(forKey: "name")
         UserDefaults.standard.removeObject(forKey: "email")
 
+
     }
 }

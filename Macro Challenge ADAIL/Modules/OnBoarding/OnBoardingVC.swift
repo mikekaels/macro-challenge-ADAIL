@@ -212,15 +212,9 @@ extension OnBoardingVC: ASAuthorizationControllerDelegate {
             print(user)
             
             fetchUser(user: user, name: nameUser, email: emailUser)
-            self.newScene()
-            
-//            if fetchUser(user: user) {
-//                self.newScene()
-//            } else {
-//                print("User Tidak ada")
-//                saveUser(name: nameUser, email: emailUser, user: user)
-//            }
-            
+            DispatchQueue.main.asyncAfter(deadline: .now()+2) {
+                self.newScene()
+            }
             
             break
         default:
@@ -234,10 +228,8 @@ extension OnBoardingVC: ASAuthorizationControllerDelegate {
             if let record = record {
                 print("Record with ID \(record.recordID.recordName) was fetched.")
                 if let name = record["name"] as? String {
-                    DispatchQueue.main.async {
-                        Core.shared.signIn(user: record.recordID.recordName, name: name, email: record["email"] as! String)
-                        print("user: \(record.recordID.recordName), name: \(name), email: \(record["email"] as! String)")
-                    }
+                    Core.shared.signIn(user: record.recordID.recordName, name: name, email: record["email"] as! String)
+                    print("user: \(record.recordID.recordName), name: \(name), email: \(record["email"] as! String)")
                 }
             } else {
                 print("error \(self.userId!)")

@@ -968,7 +968,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.kaelsihombing.Macro-Challenge-ADAIL";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.zalifer.Macro-Challenge-ADAIL";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -985,7 +985,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Macro Challenge ADAIL/Macro Challenge ADAIL.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = RMQNS23DVX;
+				DEVELOPMENT_TEAM = VXCW9GZNN5;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Macro Challenge ADAIL/Info.plist";
 				INFOPLIST_KEY_NSCameraUsageDescription = "We need ur camera";
@@ -998,7 +998,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.kaelsihombing.Macro-Challenge-ADAIL";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.zalifer.Macro-Challenge-ADAIL";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
