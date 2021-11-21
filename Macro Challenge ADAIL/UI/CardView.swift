@@ -116,6 +116,7 @@ extension CardView: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CardViewCell", for: indexPath) as! CardViewTableViewCell
         cell.textLabel?.text = "CardView Cell \(indexPath.row)"
         cell.backgroundColor = .clear
+        cell.selectionStyle = .none
         cell.parent = HomeVC()
         return cell
     }

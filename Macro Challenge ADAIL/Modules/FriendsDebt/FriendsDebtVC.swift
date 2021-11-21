@@ -61,7 +61,7 @@ class FriendsDebtVC: UIViewController {
             rp.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
             rp.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
             
-//            v.heightAnchor.constraint(equalToConstant: 40).isActive = true
+            //            v.heightAnchor.constraint(equalToConstant: 40).isActive = true
             v.translatesAutoresizingMaskIntoConstraints = false
         }
     
@@ -70,6 +70,10 @@ class FriendsDebtVC: UIViewController {
             v.setTitle("All Paid", for: .normal)
             v.setTitleColor(.blue, for: .normal)
             v.backgroundColor = Asset.blueLight.color
+            
+            v.layer.cornerRadius = 10
+            v.heightAnchor.constraint(equalToConstant: 30).isActive = true
+            v.widthAnchor.constraint(equalToConstant: 100).isActive = true
             v.translatesAutoresizingMaskIntoConstraints = false
         }
     
@@ -91,7 +95,7 @@ class FriendsDebtVC: UIViewController {
                 v.heightAnchor.constraint(equalToConstant: v.frame.height).isActive = true
                 v.translatesAutoresizingMaskIntoConstraints = false
             }
-
+            
             v.leftViewMode = .always
             v.leftView = view
             
@@ -109,12 +113,36 @@ class FriendsDebtVC: UIViewController {
             d.translatesAutoresizingMaskIntoConstraints = false
         }
     
+    let submitButton: UIButton = UIButton()
+        .configure { v in
+            v.setTitle("submit", for: .normal)
+            v.setTitleColor(.blue, for: .normal)
+            v.backgroundColor = Asset.blueLight.color
+            
+            v.layer.cornerRadius = 10
+            v.heightAnchor.constraint(equalToConstant: 30).isActive = true
+            v.widthAnchor.constraint(equalToConstant: 100).isActive = true
+            v.translatesAutoresizingMaskIntoConstraints = false
+        }
+    
+    let tableView: UITableView = UITableView()
+        .configure { t in
+            t.backgroundColor = .clear
+            t.register(CardViewTableViewCell.self, forCellReuseIdentifier: "cell")
+            t.register(UITableViewCell.self, forCellReuseIdentifier: "seeMore")
+            t.isScrollEnabled = false
+            t.separatorStyle = .none
+            t.translatesAutoresizingMaskIntoConstraints = false
+        }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .secondarySystemBackground
         title = "Detail Yudha's Debt"
         // Do any additional setup after loading the view.
         setupViews()
+        tableView.delegate = self
+        tableView.dataSource = self
     }
     
     func setupViews() {
@@ -123,9 +151,9 @@ class FriendsDebtVC: UIViewController {
             UIStackView(arrangedSubviews: [
                 UIView().configure(completion: { s in
                     s.backgroundColor = .blue
-                    s.layer.cornerRadius = 30
-                    s.widthAnchor.constraint(equalToConstant: 60).isActive = true
-                    s.heightAnchor.constraint(equalToConstant: 60).isActive = true
+                    s.layer.cornerRadius = 35
+                    s.widthAnchor.constraint(equalToConstant: 70).isActive = true
+                    s.heightAnchor.constraint(equalToConstant: 70).isActive = true
                     s.translatesAutoresizingMaskIntoConstraints = false
                     
                     s.addSubview(self.profileImage)
@@ -136,40 +164,37 @@ class FriendsDebtVC: UIViewController {
                     totalTextfield.configure(completion: { t in
                         t.heightAnchor.constraint(equalToConstant: 40).isActive = true
                         t.widthAnchor.constraint(equalToConstant: 500).isActive = true
-                }), paidAllButton.configure(completion: { t in
-                    
-                    t.layer.cornerRadius = 10
-                    t.heightAnchor.constraint(equalToConstant: 30).isActive = true
-                    t.widthAnchor.constraint(equalToConstant: 100).isActive = true
-                    t.translatesAutoresizingMaskIntoConstraints = false
-                })])
+                    }), paidAllButton.configure(completion: { t in
+                    })])
                     .configure(completion: { v in
                         v.spacing = 10
-                        v.alignment = .center
+                        v.alignment = .trailing
                         v.distribution = .fill
                         v.axis = .vertical
-//                        v.backgroundColor = .yellow
-//                        v.heightAnchor.constraint(equalToConstant: 100).isActive = true
+                        //                        v.backgroundColor = .yellow
+                        //                        v.heightAnchor.constraint(equalToConstant: 100).isActive = true
                         v.translatesAutoresizingMaskIntoConstraints = false
                     })
             ]).configure(completion: { s in
                 s.axis = .horizontal
                 s.alignment = .center
-                s.spacing = 30
+                s.spacing = 20
                 s.distribution = .fillProportionally
                 s.heightAnchor.constraint(equalToConstant: 100).isActive = true
                 s.translatesAutoresizingMaskIntoConstraints = false
-//                s.backgroundColor = .red
+                //                s.backgroundColor = .red
             })
         )
         
         scrollViewContainer.addArrangedSubview(
             UIStackView(arrangedSubviews: [
                 installPaymentLabel,
-                totalAmountInstallPaymentTextField.configure(completion: { v in
-                    
-                }),
-                paymentDate
+                totalAmountInstallPaymentTextField
+                    .configure(completion: { v in
+                        
+                    }),
+                paymentDate,
+                submitButton
             ]).configure(completion: { v in
                 v.spacing = 10
                 v.axis = .vertical
@@ -177,61 +202,17 @@ class FriendsDebtVC: UIViewController {
             })
         )
         
+        //        scrollViewContainer.addArrangedSubview(UIView().configure(completion: { v in
+        //            v.addSubview(tableView)
+        //            tableView.backgroundColor = .blue
+        //            v.backgroundColor = .red
+        //            v.translatesAutoresizingMaskIntoConstraints = false
+        //            v.heightAnchor.constraint(equalToConstant: 200).isActive = true
+        //
+        //        }))
         
-        
-        //        self.scrollView.setupScrollView(in: self.view)
-        //
-        //        scrollView.stack.configure { v in
-        //            v.spacing = 20
-        //            v.distribution = .fill
-        //            v.axis = .vertical
-        //
-        //            v.addArrangedSubview(
-        //                UIStackView(arrangedSubviews: [
-        //                    UIView().configure(completion: { s in
-        //                        s.backgroundColor = .blue
-        //                        s.layer.cornerRadius = 25
-        //                        s.widthAnchor.constraint(equalToConstant: 50).isActive = true
-        //                        s.heightAnchor.constraint(equalToConstant: 50).isActive = true
-        //                        s.translatesAutoresizingMaskIntoConstraints = false
-        //
-        //                        s.addSubview(self.profileImage)
-        //                        profileImage.centerXAnchor.constraint(equalTo: s.centerXAnchor).isActive = true
-        //                        profileImage.centerYAnchor.constraint(equalTo: s.centerYAnchor).isActive = true
-        //                    }),
-        //                    UIStackView(arrangedSubviews: [totalTextfield
-        //                                                    .configure(completion: { t in
-        //                                                        t.text = "Hahaha"
-        //                                                    }), paidAllButton])
-        //                        .configure(completion: { v in
-        //                            v.spacing = 10
-        //                            v.distribution = .fill
-        //                            v.axis = .vertical
-        //                            v.backgroundColor = .green
-        //                        })
-        //                ]).configure(completion: { s in
-        //                    s.axis = .horizontal
-        //                    s.distribution = .fill
-        //                    s.heightAnchor.constraint(equalToConstant: 100).isActive = true
-        //                    s.translatesAutoresizingMaskIntoConstraints = false
-        //                })
-        //            )
-        //
-        //            v.addArrangedSubview(
-        //                UIStackView(arrangedSubviews: [
-        //                    installPaymentLabel,
-        //                    totalAmountInstallPaymentTextField,
-        //                    paymentDate
-        //                ]).configure(completion: { v in
-        //                    v.axis = .vertical
-        //                    v.distribution = .fill
-        //                })
-        //            )
-        //        }
-        //
-        //        scrollView.layoutSetting.widthMultiplier = 0.85
-        //        scrollView.layoutSetting.top = 20
-        //        scrollView.layoutSetting.bottom = -50
+        scrollViewContainer.addArrangedSubview(tableView)
+        tableView.heightAnchor.constraint(equalToConstant: 500).isActive = true
     }
     
     func setupScrollView() {
@@ -244,7 +225,7 @@ class FriendsDebtVC: UIViewController {
         scrollView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
         scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
         
-        scrollViewContainer.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 50).isActive = true
+        scrollViewContainer.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 20).isActive = true
         scrollViewContainer.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor).isActive = true
         scrollViewContainer.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor).isActive = true
         scrollViewContainer.widthAnchor.constraint(equalTo: scrollView.widthAnchor, multiplier: 0.90).isActive = true
@@ -255,6 +236,61 @@ class FriendsDebtVC: UIViewController {
 
 extension FriendsDebtVC: FriendsDebtPresenterToViewProtocol {
     
+}
+
+extension FriendsDebtVC: UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        switch section {
+        case 0:
+            return "Debt History"
+        case 1:
+            return "Paid History"
+        default:
+            return ""
+        }
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 2
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 4
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if indexPath.row == 3 {
+            let cell = UITableViewCell(style: .default, reuseIdentifier: "seeMore")
+            cell.textLabel?.text = "See More"
+            cell.textLabel?.textAlignment = .right
+            cell.textLabel?.textColor = .systemBlue
+            cell.backgroundColor = .clear
+            cell.selectionStyle = .none
+            return cell
+        } else {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! CardViewTableViewCell
+            cell.textLabel?.text = "CardView Cell \(indexPath.row)"
+            cell.backgroundColor = .clear
+            cell.selectionStyle = .none
+            cell.parent = FriendsDebtVC()
+            return cell
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        switch indexPath.row {
+        case 3:
+            return 20
+        default:
+            return 55
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
 }
 
 #if canImport(SwiftUI) && DEBUG
