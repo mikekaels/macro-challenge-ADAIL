@@ -22,7 +22,7 @@ class ExpansesVC: UIViewController {
     
     let scrollView: EasyScrollView = {
         let s = EasyScrollView()
-        s.backgroundColor = .systemGray6
+        s.backgroundColor = .secondarySystemBackground
         s.translatesAutoresizingMaskIntoConstraints = false
         return s
     }()
