@@ -113,7 +113,7 @@ struct EasyScrollView_Preview: PreviewProvider {
     
     final class _View: UIView {
         
-        let titleLabel: UILabel = {
+        let nameTitleLabel: UILabel = {
             let label = UILabel()
             label.text = """
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam finibus in dui nec eleifend. Integer imperdiet, lacus sed tincidunt ultrices, dui odio dignissim elit, id facilisis lorem lectus in dui. Phasellus dignissim ante eget nisi maximus malesuada. Morbi dui metus, elementum id nibh ac, egestas sollicitudin ante. Maecenas tempus quam arcu, sed tristique sem fermentum ac. Suspendisse vel nibh consectetur, efficitur elit sit amet, mattis nulla. Duis nec porta lectus. Vivamus vulputate libero eu sem ultrices, eu volutpat justo iaculis.
@@ -150,7 +150,7 @@ struct EasyScrollView_Preview: PreviewProvider {
             scrollView.stack.distribution = .equalCentering
             scrollView.stack.alignment = .center
             scrollView.layoutSetting.widthMultiplier = 0.6
-            scrollView.stack.addArrangedSubview(titleLabel)
+            scrollView.stack.addArrangedSubview(nameTitleLabel)
             scrollView.stack.addArrangedSubview(subtitleLabel)
         }
     }

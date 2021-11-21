@@ -24,9 +24,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             window?.rootViewController = TabBarRouter().createModule()
         } else {
             window?.rootViewController = OnBoardingRouter().createModule()
-//            window?.rootViewController = JoinSpaceRouter().createModule()
-//            window?.rootViewController = TabBarRouter().createModule()
-
         }
         
         window?.makeKeyAndVisible()

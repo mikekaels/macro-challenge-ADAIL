@@ -32,6 +32,7 @@ internal enum Asset {
     internal static let groceries = ImageAsset(name: "groceries")
   }
   internal enum Images {
+    internal static let emptyPP = ImageAsset(name: "EmptyPP")
     internal static let profileImage = ImageAsset(name: "profileImage")
     internal static let upcomingImage = ImageAsset(name: "upcomingImage")
   }

@@ -121,7 +121,8 @@ class HomeVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Hello Mike"
+        let UserName = UserDefaults.standard.object(forKey: "name") as? String
+        greetingLabel.text = "Hello \(UserName ?? "User")"
         self.title = Constants().tab1Title
         self.view.backgroundColor = .secondarySystemBackground
         profileContainer.widthAnchor.constraint(equalToConstant: 50).isActive = true

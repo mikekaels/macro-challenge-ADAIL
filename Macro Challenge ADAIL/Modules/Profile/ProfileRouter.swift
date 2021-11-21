@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 class ProfileRouter: ProfilePresenterToRouterProtocol {
     
@@ -41,5 +42,29 @@ class ProfileRouter: ProfilePresenterToRouterProtocol {
         from.navigationController?.pushViewController(vc, animated: true)
     }
     
+    func goToDetailSpace(from: ProfileVC) {
+        let vc = DetailSpaceRouter().createModule()
+        vc.title = "Kos Ibu Wati"
+        from.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    func goToDescSpace(from: ProfileVC) {
+        let vc = DescSpaceRouter().createModule()
+        vc.title = "Kos Ibu Wati"
+        from.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    func goToShowQR(from: ProfileVC) {
+        let vc = ShowQRRouter().createModule()
+        vc.title = "Kos Ibu Wati"
+        from.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    func signOut(from: ProfileVC) {
+        let vc = OnBoardingRouter().createModule()
+        from.navigationController?.pushViewController(vc, animated: true)
+        from.tabBarController?.tabBar.removeFromSuperview()
+        Core.shared.signOut()
+    }
     
 }

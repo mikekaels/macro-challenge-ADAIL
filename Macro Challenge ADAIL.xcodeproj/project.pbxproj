@@ -30,6 +30,25 @@
 		4184C5D7273DA04000F81BAD /* OnBoardingRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4184C5D6273DA04000F81BAD /* OnBoardingRouter.swift */; };
 		4184C5D9273DA05000F81BAD /* OnBoardingPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4184C5D8273DA05000F81BAD /* OnBoardingPresenter.swift */; };
 		4197A22A273FF3A200FBFBB6 /* Core.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4197A229273FF3A200FBFBB6 /* Core.swift */; };
+		419A86C92747D77900FEA99B /* DetailSpacePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419A86C32747D77900FEA99B /* DetailSpacePresenter.swift */; };
+		419A86CA2747D77900FEA99B /* DetailSpaceRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419A86C42747D77900FEA99B /* DetailSpaceRouter.swift */; };
+		419A86CB2747D77900FEA99B /* DetailSpaceModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419A86C52747D77900FEA99B /* DetailSpaceModels.swift */; };
+		419A86CC2747D77900FEA99B /* DetailSpaceInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419A86C62747D77900FEA99B /* DetailSpaceInteractor.swift */; };
+		419A86CD2747D77900FEA99B /* DetailSpaceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419A86C72747D77900FEA99B /* DetailSpaceProtocol.swift */; };
+		419A86CE2747D77900FEA99B /* DetailSpaceVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419A86C82747D77900FEA99B /* DetailSpaceVC.swift */; };
+		419A86D62747EB8600FEA99B /* DescSpacePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419A86D02747EB8600FEA99B /* DescSpacePresenter.swift */; };
+		419A86D72747EB8600FEA99B /* DescSpaceRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419A86D12747EB8600FEA99B /* DescSpaceRouter.swift */; };
+		419A86D82747EB8600FEA99B /* DescSpaceModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419A86D22747EB8600FEA99B /* DescSpaceModels.swift */; };
+		419A86D92747EB8600FEA99B /* DescSpaceInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419A86D32747EB8600FEA99B /* DescSpaceInteractor.swift */; };
+		419A86DA2747EB8600FEA99B /* DescSpaceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419A86D42747EB8600FEA99B /* DescSpaceProtocol.swift */; };
+		419A86DB2747EB8600FEA99B /* DescSpaceVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419A86D52747EB8600FEA99B /* DescSpaceVC.swift */; };
+		419A86E32747F02C00FEA99B /* ShowQRPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419A86DD2747F02C00FEA99B /* ShowQRPresenter.swift */; };
+		419A86E42747F02C00FEA99B /* ShowQRRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419A86DE2747F02C00FEA99B /* ShowQRRouter.swift */; };
+		419A86E52747F02C00FEA99B /* ShowQRModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419A86DF2747F02C00FEA99B /* ShowQRModels.swift */; };
+		419A86E62747F02C00FEA99B /* ShowQRInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419A86E02747F02C00FEA99B /* ShowQRInteractor.swift */; };
+		419A86E72747F02C00FEA99B /* ShowQRProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419A86E12747F02C00FEA99B /* ShowQRProtocol.swift */; };
+		419A86E82747F02C00FEA99B /* ShowQRVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419A86E22747F02C00FEA99B /* ShowQRVC.swift */; };
+		41A6AFE42749A33900BE254B /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41A6AFE32749A33900BE254B /* CloudKit.framework */; };
 		41C3761A273E1FF000BA01FF /* OnBoardingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C37619273E1FF000BA01FF /* OnBoardingCollectionViewCell.swift */; };
 		41E6E10727423BBB00527CAA /* MemberCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E6E10627423BBB00527CAA /* MemberCollectionView.swift */; };
 		41E6E10927423BE300527CAA /* MemberCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E6E10827423BE300527CAA /* MemberCollectionViewCell.swift */; };
@@ -116,6 +135,25 @@
 		4184C5D6273DA04000F81BAD /* OnBoardingRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingRouter.swift; sourceTree = "<group>"; };
 		4184C5D8273DA05000F81BAD /* OnBoardingPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingPresenter.swift; sourceTree = "<group>"; };
 		4197A229273FF3A200FBFBB6 /* Core.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Core.swift; sourceTree = "<group>"; };
+		419A86C32747D77900FEA99B /* DetailSpacePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailSpacePresenter.swift; sourceTree = "<group>"; };
+		419A86C42747D77900FEA99B /* DetailSpaceRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailSpaceRouter.swift; sourceTree = "<group>"; };
+		419A86C52747D77900FEA99B /* DetailSpaceModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailSpaceModels.swift; sourceTree = "<group>"; };
+		419A86C62747D77900FEA99B /* DetailSpaceInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailSpaceInteractor.swift; sourceTree = "<group>"; };
+		419A86C72747D77900FEA99B /* DetailSpaceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailSpaceProtocol.swift; sourceTree = "<group>"; };
+		419A86C82747D77900FEA99B /* DetailSpaceVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailSpaceVC.swift; sourceTree = "<group>"; };
+		419A86D02747EB8600FEA99B /* DescSpacePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescSpacePresenter.swift; sourceTree = "<group>"; };
+		419A86D12747EB8600FEA99B /* DescSpaceRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescSpaceRouter.swift; sourceTree = "<group>"; };
+		419A86D22747EB8600FEA99B /* DescSpaceModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescSpaceModels.swift; sourceTree = "<group>"; };
+		419A86D32747EB8600FEA99B /* DescSpaceInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescSpaceInteractor.swift; sourceTree = "<group>"; };
+		419A86D42747EB8600FEA99B /* DescSpaceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescSpaceProtocol.swift; sourceTree = "<group>"; };
+		419A86D52747EB8600FEA99B /* DescSpaceVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescSpaceVC.swift; sourceTree = "<group>"; };
+		419A86DD2747F02C00FEA99B /* ShowQRPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowQRPresenter.swift; sourceTree = "<group>"; };
+		419A86DE2747F02C00FEA99B /* ShowQRRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowQRRouter.swift; sourceTree = "<group>"; };
+		419A86DF2747F02C00FEA99B /* ShowQRModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowQRModels.swift; sourceTree = "<group>"; };
+		419A86E02747F02C00FEA99B /* ShowQRInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowQRInteractor.swift; sourceTree = "<group>"; };
+		419A86E12747F02C00FEA99B /* ShowQRProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowQRProtocol.swift; sourceTree = "<group>"; };
+		419A86E22747F02C00FEA99B /* ShowQRVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowQRVC.swift; sourceTree = "<group>"; };
+		41A6AFE32749A33900BE254B /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		41C37619273E1FF000BA01FF /* OnBoardingCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingCollectionViewCell.swift; sourceTree = "<group>"; };
 		41E6E10627423BBB00527CAA /* MemberCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberCollectionView.swift; sourceTree = "<group>"; };
 		41E6E10827423BE300527CAA /* MemberCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -190,6 +228,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9BEE11FEFC4F12C2AF48B7B3 /* libPods-Macro Challenge ADAIL.a in Frameworks */,
+				41A6AFE42749A33900BE254B /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -208,6 +247,7 @@
 		40103B7FD706D911A49253B0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				41A6AFE32749A33900BE254B /* CloudKit.framework */,
 				5F59F2B2B77366C48A7D0270 /* libPods-Macro Challenge ADAIL.a */,
 			);
 			name = Frameworks;
@@ -287,6 +327,45 @@
 				411537F827424B3400154DB1 /* Views */,
 			);
 			path = OnBoarding;
+			sourceTree = "<group>";
+		};
+		419A86C22747D75C00FEA99B /* DetailSpace */ = {
+			isa = PBXGroup;
+			children = (
+				419A86C32747D77900FEA99B /* DetailSpacePresenter.swift */,
+				419A86C42747D77900FEA99B /* DetailSpaceRouter.swift */,
+				419A86C52747D77900FEA99B /* DetailSpaceModels.swift */,
+				419A86C62747D77900FEA99B /* DetailSpaceInteractor.swift */,
+				419A86C72747D77900FEA99B /* DetailSpaceProtocol.swift */,
+				419A86C82747D77900FEA99B /* DetailSpaceVC.swift */,
+			);
+			path = DetailSpace;
+			sourceTree = "<group>";
+		};
+		419A86CF2747EB7100FEA99B /* DescSpace */ = {
+			isa = PBXGroup;
+			children = (
+				419A86D02747EB8600FEA99B /* DescSpacePresenter.swift */,
+				419A86D12747EB8600FEA99B /* DescSpaceRouter.swift */,
+				419A86D22747EB8600FEA99B /* DescSpaceModels.swift */,
+				419A86D32747EB8600FEA99B /* DescSpaceInteractor.swift */,
+				419A86D42747EB8600FEA99B /* DescSpaceProtocol.swift */,
+				419A86D52747EB8600FEA99B /* DescSpaceVC.swift */,
+			);
+			path = DescSpace;
+			sourceTree = "<group>";
+		};
+		419A86DC2747F01500FEA99B /* ShowQR */ = {
+			isa = PBXGroup;
+			children = (
+				419A86DD2747F02C00FEA99B /* ShowQRPresenter.swift */,
+				419A86DE2747F02C00FEA99B /* ShowQRRouter.swift */,
+				419A86DF2747F02C00FEA99B /* ShowQRModels.swift */,
+				419A86E02747F02C00FEA99B /* ShowQRInteractor.swift */,
+				419A86E12747F02C00FEA99B /* ShowQRProtocol.swift */,
+				419A86E22747F02C00FEA99B /* ShowQRVC.swift */,
+			);
+			path = ShowQR;
 			sourceTree = "<group>";
 		};
 		BD06A044273CB9570030E085 /* Extensions */ = {
@@ -468,13 +547,16 @@
 		BDD3F9EA2723027600B2AF7F /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				4184C5D1273D9FDD00F81BAD /* OnBoarding */,
+				419A86DC2747F01500FEA99B /* ShowQR */,
+				419A86CF2747EB7100FEA99B /* DescSpace */,
+				419A86C22747D75C00FEA99B /* DetailSpace */,
 				BD6EA52E274A3FFB00EF89B5 /* FriendsDebt */,
 				413213AA2743ACCF00F5BD9C /* JoinSpace */,
 				4115380927425C0B00154DB1 /* CreateSpace */,
 				BD2675CB273D5ECF004F7856 /* RemindMeAt */,
 				BD2675BB273CFF8F004F7856 /* Expanses */,
 				BD0DE93C27281D6D0037FD44 /* Auth */,
-				4184C5D1273D9FDD00F81BAD /* OnBoarding */,
 				BDD3F9FB27231BEE00B2AF7F /* TapBar */,
 				BDD3F9ED272302B000B2AF7F /* Home */,
 				411751992727C3F500C997E9 /* Records */,
@@ -631,17 +713,22 @@
 				BD2675CF273D5F06004F7856 /* RemindMeAtProtocol.swift in Sources */,
 				BD84243727296D5700B922DC /* SignUpPresenter.swift in Sources */,
 				BD84244B2729BB9F00B922DC /* Assets+Generated.swift in Sources */,
+				419A86E62747F02C00FEA99B /* ShowQRInteractor.swift in Sources */,
+				419A86E82747F02C00FEA99B /* ShowQRVC.swift in Sources */,
 				4184C5D7273DA04000F81BAD /* OnBoardingRouter.swift in Sources */,
 				BDD3F9F92723034B00B2AF7F /* HomeVC.swift in Sources */,
 				4115381227425C2F00154DB1 /* CreateSpaceModels.swift in Sources */,
 				4184C5D5273DA03200F81BAD /* OnBoardingProtocol.swift in Sources */,
 				BD474FAB27240E5D005BF154 /* ProfileInteractor.swift in Sources */,
+				419A86E42747F02C00FEA99B /* ShowQRRouter.swift in Sources */,
 				BD4D657627450DA300EAD0EC /* CardView.swift in Sources */,
 				BD84243927296D6400B922DC /* SignUpRouter.swift in Sources */,
 				BD2675BF273CFFB5004F7856 /* ExpansesRouter.swift in Sources */,
 				BD2675C8273D02A3004F7856 /* LivePreviewer.swift in Sources */,
+				419A86CB2747D77900FEA99B /* DetailSpaceModels.swift in Sources */,
 				413213B32743ACDE00F5BD9C /* JoinSpaceModels.swift in Sources */,
 				BD2675AE273CC09B004F7856 /* RecordsTableViewCell.swift in Sources */,
+				419A86D72747EB8600FEA99B /* DescSpaceRouter.swift in Sources */,
 				BD2675BD273CFFA8004F7856 /* ExpansesPresenter.swift in Sources */,
 				BD84243527296D4A00B922DC /* SignUpProtocol.swift in Sources */,
 				4117519D2727C41200C997E9 /* RecordPresenter.swift in Sources */,
@@ -651,6 +738,7 @@
 				BD6EA536274A3FFB00EF89B5 /* FriendsDebtPresenter.swift in Sources */,
 				BD84242D2729629100B922DC /* SignInProtocol.swift in Sources */,
 				413213B12743ACDE00F5BD9C /* JoinSpacePresenter.swift in Sources */,
+				419A86CD2747D77900FEA99B /* DetailSpaceProtocol.swift in Sources */,
 				BD2675C1273CFFC5004F7856 /* ExpansesProtocol.swift in Sources */,
 				BD6EA538274A3FFB00EF89B5 /* FriendsDebtVC.swift in Sources */,
 				BDD3F9DB2722FD2A00B2AF7F /* ViewController.swift in Sources */,
@@ -659,7 +747,9 @@
 				BD2675D1273D5F1A004F7856 /* RemindMeAtRouter.swift in Sources */,
 				413213B42743ACDE00F5BD9C /* JoinSpaceInteractor.swift in Sources */,
 				4115381327425C2F00154DB1 /* CreateSpaceInteractor.swift in Sources */,
+				419A86CE2747D77900FEA99B /* DetailSpaceVC.swift in Sources */,
 				BDD3F9D72722FD2A00B2AF7F /* AppDelegate.swift in Sources */,
+				419A86D92747EB8600FEA99B /* DescSpaceInteractor.swift in Sources */,
 				4184C5D3273D9FF700F81BAD /* OnBoardingVC.swift in Sources */,
 				41E6E10927423BE300527CAA /* MemberCollectionViewCell.swift in Sources */,
 				41C3761A273E1FF000BA01FF /* OnBoardingCollectionViewCell.swift in Sources */,
@@ -672,6 +762,7 @@
 				4115381027425C2F00154DB1 /* CreateSpacePresenter.swift in Sources */,
 				BDD3F9F3272302DD00B2AF7F /* HomePresenter.swift in Sources */,
 				4197A22A273FF3A200FBFBB6 /* Core.swift in Sources */,
+				419A86CC2747D77900FEA99B /* DetailSpaceInteractor.swift in Sources */,
 				4117519F2727C41900C997E9 /* RecordProtocol.swift in Sources */,
 				BD474FB027240FDC005BF154 /* TabBarVC.swift in Sources */,
 				BDD3F9F72723032300B2AF7F /* HomeRouter.swift in Sources */,
@@ -679,18 +770,24 @@
 				41E6E10B27423C8900527CAA /* ProfileVCEmptyState.swift in Sources */,
 				BD474FA927240E4E005BF154 /* ProfilePresenter.swift in Sources */,
 				4115381527425C2F00154DB1 /* CreateSpaceVC.swift in Sources */,
+				419A86D62747EB8600FEA99B /* DescSpacePresenter.swift in Sources */,
 				413213B22743ACDE00F5BD9C /* JoinSpaceRouter.swift in Sources */,
 				BDD3FA03272349FF00B2AF7F /* TabBarRouter.swift in Sources */,
 				BD3EB3732747820F00273B0C /* Extension + UIView.swift in Sources */,
 				BD2675D3273D5F2C004F7856 /* RemindMeAtPresenter.swift in Sources */,
+				419A86E32747F02C00FEA99B /* ShowQRPresenter.swift in Sources */,
 				413213B52743ACDE00F5BD9C /* JoinSpaceProtocol.swift in Sources */,
+				419A86E52747F02C00FEA99B /* ShowQRModels.swift in Sources */,
 				411751A12727C43500C997E9 /* RecordRouter.swift in Sources */,
 				BD84243327296D3900B922DC /* SignUpVC.swift in Sources */,
 				4115381127425C2F00154DB1 /* CreateSpaceRouter.swift in Sources */,
+				419A86CA2747D77900FEA99B /* DetailSpaceRouter.swift in Sources */,
+				419A86DA2747EB8600FEA99B /* DescSpaceProtocol.swift in Sources */,
 				BD84242927295A1A00B922DC /* Button.swift in Sources */,
 				BD3AA15D274354D00068AAEA /* Extension + UIViewController.swift in Sources */,
 				BD6EA537274A3FFB00EF89B5 /* FriendsDebtModels.swift in Sources */,
 				BD84242F2729629A00B922DC /* SignInPresenter.swift in Sources */,
+				419A86C92747D77900FEA99B /* DetailSpacePresenter.swift in Sources */,
 				BDD3F9F1272302CE00B2AF7F /* HomeInteractor.swift in Sources */,
 				BDD3FA0527234A7400B2AF7F /* TapBarPresenter.swift in Sources */,
 				BD2675C3273CFFDA004F7856 /* ExpansesVC.swift in Sources */,
@@ -702,6 +799,9 @@
 				BD2675C5273D023F004F7856 /* EasyScrollView.swift in Sources */,
 				BD84244A2729BB9F00B922DC /* Strings+Generated.swift in Sources */,
 				4184C5D9273DA05000F81BAD /* OnBoardingPresenter.swift in Sources */,
+				419A86E72747F02C00FEA99B /* ShowQRProtocol.swift in Sources */,
+				419A86D82747EB8600FEA99B /* DescSpaceModels.swift in Sources */,
+				419A86DB2747EB8600FEA99B /* DescSpaceVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -855,7 +955,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Macro Challenge ADAIL/Macro Challenge ADAIL.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = RMQNS23DVX;
+				DEVELOPMENT_TEAM = VXCW9GZNN5;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Macro Challenge ADAIL/Info.plist";
 				INFOPLIST_KEY_NSCameraUsageDescription = "We need ur camera";
@@ -868,7 +968,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.kaelsihombing.Macro-Challenge-ADAIL";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.zalifer.Macro-Challenge-ADAIL";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -885,7 +985,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Macro Challenge ADAIL/Macro Challenge ADAIL.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = RMQNS23DVX;
+				DEVELOPMENT_TEAM = VXCW9GZNN5;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Macro Challenge ADAIL/Info.plist";
 				INFOPLIST_KEY_NSCameraUsageDescription = "We need ur camera";
@@ -898,7 +998,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.kaelsihombing.Macro-Challenge-ADAIL";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.zalifer.Macro-Challenge-ADAIL";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
