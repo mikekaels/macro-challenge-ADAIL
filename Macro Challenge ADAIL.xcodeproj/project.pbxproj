@@ -135,12 +135,6 @@
 		BD2675D0273D5F1A004F7856 /* RemindMeAtRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindMeAtRouter.swift; sourceTree = "<group>"; };
 		BD2675D2273D5F2C004F7856 /* RemindMeAtPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindMeAtPresenter.swift; sourceTree = "<group>"; };
 		BD3AA15C274354D00068AAEA /* Extension + UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + UIViewController.swift"; sourceTree = "<group>"; };
-		BD3EB36627476D7600273B0C /* FriendsDebtPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsDebtPresenter.swift; sourceTree = "<group>"; };
-		BD3EB36727476D7600273B0C /* FriendsDebtRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsDebtRouter.swift; sourceTree = "<group>"; };
-		BD3EB36827476D7600273B0C /* FriendsDebtModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsDebtModels.swift; sourceTree = "<group>"; };
-		BD3EB36927476D7600273B0C /* FriendsDebtInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsDebtInteractor.swift; sourceTree = "<group>"; };
-		BD3EB36A27476D7600273B0C /* FriendsDebtProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsDebtProtocol.swift; sourceTree = "<group>"; };
-		BD3EB36B27476D7600273B0C /* FriendsDebtVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsDebtVC.swift; sourceTree = "<group>"; };
 		BD3EB3722747820F00273B0C /* Extension + UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + UIView.swift"; sourceTree = "<group>"; };
 		BD474FA227240E15005BF154 /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
 		BD474FA427240E2E005BF154 /* ProfileRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileRouter.swift; sourceTree = "<group>"; };
@@ -397,19 +391,6 @@
 			path = Constants;
 			sourceTree = "<group>";
 		};
-		BD6EA52A274A3DBB00EF89B5 /* Recovered References */ = {
-			isa = PBXGroup;
-			children = (
-				BD3EB36627476D7600273B0C /* FriendsDebtPresenter.swift */,
-				BD3EB36727476D7600273B0C /* FriendsDebtRouter.swift */,
-				BD3EB36B27476D7600273B0C /* FriendsDebtVC.swift */,
-				BD3EB36927476D7600273B0C /* FriendsDebtInteractor.swift */,
-				BD3EB36827476D7600273B0C /* FriendsDebtModels.swift */,
-				BD3EB36A27476D7600273B0C /* FriendsDebtProtocol.swift */,
-			);
-			name = "Recovered References";
-			sourceTree = "<group>";
-		};
 		BD6EA52E274A3FFB00EF89B5 /* FriendsDebt */ = {
 			isa = PBXGroup;
 			children = (
@@ -451,7 +432,6 @@
 				BDD3F9D42722FD2A00B2AF7F /* Products */,
 				0F2F6F52B6F4D5488B0C02ED /* Pods */,
 				40103B7FD706D911A49253B0 /* Frameworks */,
-				BD6EA52A274A3DBB00EF89B5 /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
