@@ -49,6 +49,13 @@
 		BD2675D1273D5F1A004F7856 /* RemindMeAtRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2675D0273D5F1A004F7856 /* RemindMeAtRouter.swift */; };
 		BD2675D3273D5F2C004F7856 /* RemindMeAtPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2675D2273D5F2C004F7856 /* RemindMeAtPresenter.swift */; };
 		BD3AA15D274354D00068AAEA /* Extension + UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3AA15C274354D00068AAEA /* Extension + UIViewController.swift */; };
+		BD3EB36C27476D7600273B0C /* FriendsDebtPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3EB36627476D7600273B0C /* FriendsDebtPresenter.swift */; };
+		BD3EB36D27476D7600273B0C /* FriendsDebtRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3EB36727476D7600273B0C /* FriendsDebtRouter.swift */; };
+		BD3EB36E27476D7600273B0C /* FriendsDebtModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3EB36827476D7600273B0C /* FriendsDebtModels.swift */; };
+		BD3EB36F27476D7600273B0C /* FriendsDebtInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3EB36927476D7600273B0C /* FriendsDebtInteractor.swift */; };
+		BD3EB37027476D7600273B0C /* FriendsDebtProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3EB36A27476D7600273B0C /* FriendsDebtProtocol.swift */; };
+		BD3EB37127476D7600273B0C /* FriendsDebtVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3EB36B27476D7600273B0C /* FriendsDebtVC.swift */; };
+		BD3EB3732747820F00273B0C /* Extension + UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3EB3722747820F00273B0C /* Extension + UIView.swift */; };
 		BD474FA327240E15005BF154 /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD474FA227240E15005BF154 /* ProfileVC.swift */; };
 		BD474FA527240E2E005BF154 /* ProfileRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD474FA427240E2E005BF154 /* ProfileRouter.swift */; };
 		BD474FA727240E41005BF154 /* ProfileProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD474FA627240E41005BF154 /* ProfileProtocol.swift */; };
@@ -128,6 +135,13 @@
 		BD2675D0273D5F1A004F7856 /* RemindMeAtRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindMeAtRouter.swift; sourceTree = "<group>"; };
 		BD2675D2273D5F2C004F7856 /* RemindMeAtPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindMeAtPresenter.swift; sourceTree = "<group>"; };
 		BD3AA15C274354D00068AAEA /* Extension + UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + UIViewController.swift"; sourceTree = "<group>"; };
+		BD3EB36627476D7600273B0C /* FriendsDebtPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsDebtPresenter.swift; sourceTree = "<group>"; };
+		BD3EB36727476D7600273B0C /* FriendsDebtRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsDebtRouter.swift; sourceTree = "<group>"; };
+		BD3EB36827476D7600273B0C /* FriendsDebtModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsDebtModels.swift; sourceTree = "<group>"; };
+		BD3EB36927476D7600273B0C /* FriendsDebtInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsDebtInteractor.swift; sourceTree = "<group>"; };
+		BD3EB36A27476D7600273B0C /* FriendsDebtProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsDebtProtocol.swift; sourceTree = "<group>"; };
+		BD3EB36B27476D7600273B0C /* FriendsDebtVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsDebtVC.swift; sourceTree = "<group>"; };
+		BD3EB3722747820F00273B0C /* Extension + UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + UIView.swift"; sourceTree = "<group>"; };
 		BD474FA227240E15005BF154 /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
 		BD474FA427240E2E005BF154 /* ProfileRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileRouter.swift; sourceTree = "<group>"; };
 		BD474FA627240E41005BF154 /* ProfileProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileProtocol.swift; sourceTree = "<group>"; };
@@ -280,6 +294,7 @@
 			children = (
 				BD06A045273CB96C0030E085 /* Configures.swift */,
 				BD3AA15C274354D00068AAEA /* Extension + UIViewController.swift */,
+				BD3EB3722747820F00273B0C /* Extension + UIView.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -354,6 +369,19 @@
 				BD2675D2273D5F2C004F7856 /* RemindMeAtPresenter.swift */,
 			);
 			path = RemindMeAt;
+			sourceTree = "<group>";
+		};
+		BD3EB36527476D5200273B0C /* FriendsDebt */ = {
+			isa = PBXGroup;
+			children = (
+				BD3EB36627476D7600273B0C /* FriendsDebtPresenter.swift */,
+				BD3EB36727476D7600273B0C /* FriendsDebtRouter.swift */,
+				BD3EB36827476D7600273B0C /* FriendsDebtModels.swift */,
+				BD3EB36927476D7600273B0C /* FriendsDebtInteractor.swift */,
+				BD3EB36A27476D7600273B0C /* FriendsDebtProtocol.swift */,
+				BD3EB36B27476D7600273B0C /* FriendsDebtVC.swift */,
+			);
+			path = FriendsDebt;
 			sourceTree = "<group>";
 		};
 		BD474FA127240DBA005BF154 /* Profile */ = {
@@ -597,6 +625,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BD2675CD273D5EF6004F7856 /* RemindMeAtVC.swift in Sources */,
+				BD3EB36C27476D7600273B0C /* FriendsDebtPresenter.swift in Sources */,
 				BDD3F9F52723031800B2AF7F /* HomeProtocol.swift in Sources */,
 				41E6E10727423BBB00527CAA /* MemberCollectionView.swift in Sources */,
 				BD2675CF273D5F06004F7856 /* RemindMeAtProtocol.swift in Sources */,
@@ -648,16 +677,22 @@
 				4115381527425C2F00154DB1 /* CreateSpaceVC.swift in Sources */,
 				413213B22743ACDE00F5BD9C /* JoinSpaceRouter.swift in Sources */,
 				BDD3FA03272349FF00B2AF7F /* TabBarRouter.swift in Sources */,
+				BD3EB3732747820F00273B0C /* Extension + UIView.swift in Sources */,
 				BD2675D3273D5F2C004F7856 /* RemindMeAtPresenter.swift in Sources */,
 				413213B52743ACDE00F5BD9C /* JoinSpaceProtocol.swift in Sources */,
 				411751A12727C43500C997E9 /* RecordRouter.swift in Sources */,
+				BD3EB36D27476D7600273B0C /* FriendsDebtRouter.swift in Sources */,
 				BD84243327296D3900B922DC /* SignUpVC.swift in Sources */,
 				4115381127425C2F00154DB1 /* CreateSpaceRouter.swift in Sources */,
 				BD84242927295A1A00B922DC /* Button.swift in Sources */,
 				BD3AA15D274354D00068AAEA /* Extension + UIViewController.swift in Sources */,
+				BD3EB37127476D7600273B0C /* FriendsDebtVC.swift in Sources */,
+				BD3EB36F27476D7600273B0C /* FriendsDebtInteractor.swift in Sources */,
 				BD84242F2729629A00B922DC /* SignInPresenter.swift in Sources */,
+				BD3EB36E27476D7600273B0C /* FriendsDebtModels.swift in Sources */,
 				BDD3F9F1272302CE00B2AF7F /* HomeInteractor.swift in Sources */,
 				BDD3FA0527234A7400B2AF7F /* TapBarPresenter.swift in Sources */,
+				BD3EB37027476D7600273B0C /* FriendsDebtProtocol.swift in Sources */,
 				BD2675C3273CFFDA004F7856 /* ExpansesVC.swift in Sources */,
 				BD474FA727240E41005BF154 /* ProfileProtocol.swift in Sources */,
 				BD2675CA273D06D3004F7856 /* SwiftUIRouterAdapter.swift in Sources */,

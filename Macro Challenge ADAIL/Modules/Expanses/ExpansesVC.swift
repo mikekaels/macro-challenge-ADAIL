@@ -22,7 +22,7 @@ class ExpansesVC: UIViewController {
     
     let scrollView: EasyScrollView = {
         let s = EasyScrollView()
-        s.backgroundColor = .systemGray6
+        s.backgroundColor = .secondarySystemBackground
         s.translatesAutoresizingMaskIntoConstraints = false
         return s
     }()
@@ -138,23 +138,29 @@ class ExpansesVC: UIViewController {
 //            t.backgroundColor = .green
             t.layer.cornerRadius = 13
             t.layer.masksToBounds = true
-            t.heightAnchor.constraint(equalToConstant: 50).isActive = true
+            t.heightAnchor.constraint(equalToConstant: 70).isActive = true
             t.translatesAutoresizingMaskIntoConstraints = false
-        }
-    
-    let imageButton: UIButton = UIButton()
-        .configure { b in
-                b.setImage(UIImage(systemName: "camera.circle"), for: .normal)
-                b.setPreferredSymbolConfiguration(UIImage.SymbolConfiguration(pointSize: 48), forImageIn: .normal)
-                b.tintColor = .systemBlue
-                b.translatesAutoresizingMaskIntoConstraints = false
         }
     
     let imageInputView: UIView = UIView()
         .configure { v in
-                v.translatesAutoresizingMaskIntoConstraints = false
-                v.heightAnchor.constraint(equalToConstant: 120).isActive = true
+            v.layer.cornerRadius = 13
+            v.layer.masksToBounds = true
+            v.translatesAutoresizingMaskIntoConstraints = false
         }
+    
+    let imageButton: UIButton = UIButton()
+        .configure { b in
+            b.setTitle(" Upload Image", for: .normal)
+            b.setTitleColor(.label, for: .normal)
+            b.titleLabel?.font = UIFont.systemFont(ofSize: 14, weight: .light)
+            b.setImage(UIImage(systemName: "camera"), for: .normal)
+            b.setPreferredSymbolConfiguration(UIImage.SymbolConfiguration(pointSize: 18), forImageIn: .normal)
+            b.tintColor = .systemBlue
+            b.translatesAutoresizingMaskIntoConstraints = false
+        }
+    
+    
     
     @objc func buttonTapped() {
         
@@ -222,6 +228,10 @@ class ExpansesVC: UIViewController {
             }))
             
             v.addArrangedSubview(imageInputView.configure(completion: { v in
+                v.backgroundColor = .white
+                v.widthAnchor.constraint(equalToConstant: 50).isActive = true
+//                v.heightAnchor.constraint(equalToConstant: 70).isActive = true
+                
                 v.addSubview(imageButton)
                 imageButton.centerXAnchor.constraint(equalTo: v.centerXAnchor).isActive = true
                 imageButton.centerYAnchor.constraint(equalTo: v.centerYAnchor).isActive = true
