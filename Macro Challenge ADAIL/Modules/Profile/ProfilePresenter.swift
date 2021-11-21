@@ -12,12 +12,12 @@ class ProfilePresenter: ProfileViewToPresenterProtocol {
     
     var router: ProfilePresenterToRouterProtocol?
     
-    func goToSignIn(viewController: ProfileVC) {
-        router?.goToSignIn(viewController: viewController)
+    func goToCreateSpace(from: ProfileVC){
+        
     }
     
-    func goToSignUp(viewController: ProfileVC) {
-        router?.goToSignUp(viewController: viewController)
+    func goToJoinSpace(from: ProfileVC) {
+        
     }
 }
 

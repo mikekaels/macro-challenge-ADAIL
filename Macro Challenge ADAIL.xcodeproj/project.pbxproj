@@ -7,11 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4115381027425C2F00154DB1 /* CreateSpacePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4115380A27425C2F00154DB1 /* CreateSpacePresenter.swift */; };
+		4115381127425C2F00154DB1 /* CreateSpaceRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4115380B27425C2F00154DB1 /* CreateSpaceRouter.swift */; };
+		4115381227425C2F00154DB1 /* CreateSpaceModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4115380C27425C2F00154DB1 /* CreateSpaceModels.swift */; };
+		4115381327425C2F00154DB1 /* CreateSpaceInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4115380D27425C2F00154DB1 /* CreateSpaceInteractor.swift */; };
+		4115381427425C2F00154DB1 /* CreateSpaceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4115380E27425C2F00154DB1 /* CreateSpaceProtocol.swift */; };
+		4115381527425C2F00154DB1 /* CreateSpaceVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4115380F27425C2F00154DB1 /* CreateSpaceVC.swift */; };
 		4117519B2727C40A00C997E9 /* RecordInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4117519A2727C40A00C997E9 /* RecordInteractor.swift */; };
 		4117519D2727C41200C997E9 /* RecordPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4117519C2727C41200C997E9 /* RecordPresenter.swift */; };
 		4117519F2727C41900C997E9 /* RecordProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4117519E2727C41900C997E9 /* RecordProtocol.swift */; };
 		411751A12727C43500C997E9 /* RecordRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 411751A02727C43500C997E9 /* RecordRouter.swift */; };
 		411751A32727C43C00C997E9 /* RecordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 411751A22727C43C00C997E9 /* RecordVC.swift */; };
+		413213B12743ACDE00F5BD9C /* JoinSpacePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 413213AB2743ACDE00F5BD9C /* JoinSpacePresenter.swift */; };
+		413213B22743ACDE00F5BD9C /* JoinSpaceRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 413213AC2743ACDE00F5BD9C /* JoinSpaceRouter.swift */; };
+		413213B32743ACDE00F5BD9C /* JoinSpaceModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 413213AD2743ACDE00F5BD9C /* JoinSpaceModels.swift */; };
+		413213B42743ACDE00F5BD9C /* JoinSpaceInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 413213AE2743ACDE00F5BD9C /* JoinSpaceInteractor.swift */; };
+		413213B52743ACDE00F5BD9C /* JoinSpaceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 413213AF2743ACDE00F5BD9C /* JoinSpaceProtocol.swift */; };
+		413213B62743ACDE00F5BD9C /* JoinSpaceVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 413213B02743ACDE00F5BD9C /* JoinSpaceVC.swift */; };
 		4164CEC1273FD8FD00025193 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4164CEC0273FD8FD00025193 /* Assets.xcassets */; };
 		4184C5D3273D9FF700F81BAD /* OnBoardingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4184C5D2273D9FF700F81BAD /* OnBoardingVC.swift */; };
 		4184C5D5273DA03200F81BAD /* OnBoardingProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4184C5D4273DA03200F81BAD /* OnBoardingProtocol.swift */; };
@@ -19,6 +31,9 @@
 		4184C5D9273DA05000F81BAD /* OnBoardingPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4184C5D8273DA05000F81BAD /* OnBoardingPresenter.swift */; };
 		4197A22A273FF3A200FBFBB6 /* Core.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4197A229273FF3A200FBFBB6 /* Core.swift */; };
 		41C3761A273E1FF000BA01FF /* OnBoardingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C37619273E1FF000BA01FF /* OnBoardingCollectionViewCell.swift */; };
+		41E6E10727423BBB00527CAA /* MemberCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E6E10627423BBB00527CAA /* MemberCollectionView.swift */; };
+		41E6E10927423BE300527CAA /* MemberCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E6E10827423BE300527CAA /* MemberCollectionViewCell.swift */; };
+		41E6E10B27423C8900527CAA /* ProfileVCEmptyState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E6E10A27423C8900527CAA /* ProfileVCEmptyState.swift */; };
 		9BEE11FEFC4F12C2AF48B7B3 /* libPods-Macro Challenge ADAIL.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F59F2B2B77366C48A7D0270 /* libPods-Macro Challenge ADAIL.a */; };
 		BD06A046273CB96C0030E085 /* Configures.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD06A045273CB96C0030E085 /* Configures.swift */; };
 		BD2675AE273CC09B004F7856 /* RecordsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2675AD273CC09B004F7856 /* RecordsTableViewCell.swift */; };
@@ -78,11 +93,23 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4115380A27425C2F00154DB1 /* CreateSpacePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateSpacePresenter.swift; sourceTree = "<group>"; };
+		4115380B27425C2F00154DB1 /* CreateSpaceRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateSpaceRouter.swift; sourceTree = "<group>"; };
+		4115380C27425C2F00154DB1 /* CreateSpaceModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateSpaceModels.swift; sourceTree = "<group>"; };
+		4115380D27425C2F00154DB1 /* CreateSpaceInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateSpaceInteractor.swift; sourceTree = "<group>"; };
+		4115380E27425C2F00154DB1 /* CreateSpaceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateSpaceProtocol.swift; sourceTree = "<group>"; };
+		4115380F27425C2F00154DB1 /* CreateSpaceVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateSpaceVC.swift; sourceTree = "<group>"; };
 		4117519A2727C40A00C997E9 /* RecordInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordInteractor.swift; sourceTree = "<group>"; };
 		4117519C2727C41200C997E9 /* RecordPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordPresenter.swift; sourceTree = "<group>"; };
 		4117519E2727C41900C997E9 /* RecordProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordProtocol.swift; sourceTree = "<group>"; };
 		411751A02727C43500C997E9 /* RecordRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordRouter.swift; sourceTree = "<group>"; };
 		411751A22727C43C00C997E9 /* RecordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordVC.swift; sourceTree = "<group>"; };
+		413213AB2743ACDE00F5BD9C /* JoinSpacePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinSpacePresenter.swift; sourceTree = "<group>"; };
+		413213AC2743ACDE00F5BD9C /* JoinSpaceRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinSpaceRouter.swift; sourceTree = "<group>"; };
+		413213AD2743ACDE00F5BD9C /* JoinSpaceModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinSpaceModels.swift; sourceTree = "<group>"; };
+		413213AE2743ACDE00F5BD9C /* JoinSpaceInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinSpaceInteractor.swift; sourceTree = "<group>"; };
+		413213AF2743ACDE00F5BD9C /* JoinSpaceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinSpaceProtocol.swift; sourceTree = "<group>"; };
+		413213B02743ACDE00F5BD9C /* JoinSpaceVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinSpaceVC.swift; sourceTree = "<group>"; };
 		4164CEC0273FD8FD00025193 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4184C5D2273D9FF700F81BAD /* OnBoardingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingVC.swift; sourceTree = "<group>"; };
 		4184C5D4273DA03200F81BAD /* OnBoardingProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingProtocol.swift; sourceTree = "<group>"; };
@@ -90,6 +117,9 @@
 		4184C5D8273DA05000F81BAD /* OnBoardingPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingPresenter.swift; sourceTree = "<group>"; };
 		4197A229273FF3A200FBFBB6 /* Core.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Core.swift; sourceTree = "<group>"; };
 		41C37619273E1FF000BA01FF /* OnBoardingCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingCollectionViewCell.swift; sourceTree = "<group>"; };
+		41E6E10627423BBB00527CAA /* MemberCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberCollectionView.swift; sourceTree = "<group>"; };
+		41E6E10827423BE300527CAA /* MemberCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberCollectionViewCell.swift; sourceTree = "<group>"; };
+		41E6E10A27423C8900527CAA /* ProfileVCEmptyState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVCEmptyState.swift; sourceTree = "<group>"; };
 		5F59F2B2B77366C48A7D0270 /* libPods-Macro Challenge ADAIL.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Macro Challenge ADAIL.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD06A045273CB96C0030E085 /* Configures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configures.swift; sourceTree = "<group>"; };
 		BD2675AD273CC09B004F7856 /* RecordsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordsTableViewCell.swift; sourceTree = "<group>"; };
@@ -183,6 +213,45 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		411537F827424B3400154DB1 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				41C37619273E1FF000BA01FF /* OnBoardingCollectionViewCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		411537F927424B8700154DB1 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				4197A229273FF3A200FBFBB6 /* Core.swift */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		411538082742560000154DB1 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				41E6E10A27423C8900527CAA /* ProfileVCEmptyState.swift */,
+				41E6E10627423BBB00527CAA /* MemberCollectionView.swift */,
+				41E6E10827423BE300527CAA /* MemberCollectionViewCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		4115380927425C0B00154DB1 /* CreateSpace */ = {
+			isa = PBXGroup;
+			children = (
+				4115380A27425C2F00154DB1 /* CreateSpacePresenter.swift */,
+				4115380B27425C2F00154DB1 /* CreateSpaceRouter.swift */,
+				4115380C27425C2F00154DB1 /* CreateSpaceModels.swift */,
+				4115380D27425C2F00154DB1 /* CreateSpaceInteractor.swift */,
+				4115380E27425C2F00154DB1 /* CreateSpaceProtocol.swift */,
+				4115380F27425C2F00154DB1 /* CreateSpaceVC.swift */,
+			);
+			path = CreateSpace;
+			sourceTree = "<group>";
+		};
 		411751992727C3F500C997E9 /* Records */ = {
 			isa = PBXGroup;
 			children = (
@@ -195,6 +264,19 @@
 			path = Records;
 			sourceTree = "<group>";
 		};
+		413213AA2743ACCF00F5BD9C /* JoinSpace */ = {
+			isa = PBXGroup;
+			children = (
+				413213AB2743ACDE00F5BD9C /* JoinSpacePresenter.swift */,
+				413213AC2743ACDE00F5BD9C /* JoinSpaceRouter.swift */,
+				413213AD2743ACDE00F5BD9C /* JoinSpaceModels.swift */,
+				413213AE2743ACDE00F5BD9C /* JoinSpaceInteractor.swift */,
+				413213AF2743ACDE00F5BD9C /* JoinSpaceProtocol.swift */,
+				413213B02743ACDE00F5BD9C /* JoinSpaceVC.swift */,
+			);
+			path = JoinSpace;
+			sourceTree = "<group>";
+		};
 		4184C5D1273D9FDD00F81BAD /* OnBoarding */ = {
 			isa = PBXGroup;
 			children = (
@@ -202,6 +284,7 @@
 				4184C5D6273DA04000F81BAD /* OnBoardingRouter.swift */,
 				4184C5D8273DA05000F81BAD /* OnBoardingPresenter.swift */,
 				4184C5D2273D9FF700F81BAD /* OnBoardingVC.swift */,
+				411537F827424B3400154DB1 /* Views */,
 			);
 			path = OnBoarding;
 			sourceTree = "<group>";
@@ -221,7 +304,6 @@
 			children = (
 				BD0DE93E27281DDF0037FD44 /* SignUp */,
 				BD0DE93D27281D7B0037FD44 /* SignIn */,
-				4197A229273FF3A200FBFBB6 /* Core.swift */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -310,6 +392,7 @@
 				BD474FA627240E41005BF154 /* ProfileProtocol.swift */,
 				BD474FA427240E2E005BF154 /* ProfileRouter.swift */,
 				BD474FA227240E15005BF154 /* ProfileVC.swift */,
+				411538082742560000154DB1 /* Views */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -369,6 +452,7 @@
 				BDA71D23272C575600EEF4C6 /* Macro Challenge ADAIL.entitlements */,
 				BD84242727295A0E00B922DC /* UI */,
 				BD474FAC27240EA3005BF154 /* Constants */,
+				411537F927424B8700154DB1 /* Shared */,
 				BDD3F9EA2723027600B2AF7F /* Modules */,
 				BD8424402729B3AA00B922DC /* SwiftGen */,
 				BDD3F9D62722FD2A00B2AF7F /* AppDelegate.swift */,
@@ -385,7 +469,8 @@
 		BDD3F9EA2723027600B2AF7F /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				BD3EB36527476D5200273B0C /* FriendsDebt */,
+				413213AA2743ACCF00F5BD9C /* JoinSpace */,
+				4115380927425C0B00154DB1 /* CreateSpace */,
 				BD2675CB273D5ECF004F7856 /* RemindMeAt */,
 				BD2675BB273CFF8F004F7856 /* Expanses */,
 				BD0DE93C27281D6D0037FD44 /* Auth */,
@@ -542,17 +627,20 @@
 				BD2675CD273D5EF6004F7856 /* RemindMeAtVC.swift in Sources */,
 				BD3EB36C27476D7600273B0C /* FriendsDebtPresenter.swift in Sources */,
 				BDD3F9F52723031800B2AF7F /* HomeProtocol.swift in Sources */,
+				41E6E10727423BBB00527CAA /* MemberCollectionView.swift in Sources */,
 				BD2675CF273D5F06004F7856 /* RemindMeAtProtocol.swift in Sources */,
 				BD84243727296D5700B922DC /* SignUpPresenter.swift in Sources */,
 				BD84244B2729BB9F00B922DC /* Assets+Generated.swift in Sources */,
 				4184C5D7273DA04000F81BAD /* OnBoardingRouter.swift in Sources */,
 				BDD3F9F92723034B00B2AF7F /* HomeVC.swift in Sources */,
+				4115381227425C2F00154DB1 /* CreateSpaceModels.swift in Sources */,
 				4184C5D5273DA03200F81BAD /* OnBoardingProtocol.swift in Sources */,
 				BD474FAB27240E5D005BF154 /* ProfileInteractor.swift in Sources */,
 				BD4D657627450DA300EAD0EC /* CardView.swift in Sources */,
 				BD84243927296D6400B922DC /* SignUpRouter.swift in Sources */,
 				BD2675BF273CFFB5004F7856 /* ExpansesRouter.swift in Sources */,
 				BD2675C8273D02A3004F7856 /* LivePreviewer.swift in Sources */,
+				413213B32743ACDE00F5BD9C /* JoinSpaceModels.swift in Sources */,
 				BD2675AE273CC09B004F7856 /* RecordsTableViewCell.swift in Sources */,
 				BD2675BD273CFFA8004F7856 /* ExpansesPresenter.swift in Sources */,
 				BD84243527296D4A00B922DC /* SignUpProtocol.swift in Sources */,
@@ -560,31 +648,42 @@
 				411751A32727C43C00C997E9 /* RecordVC.swift in Sources */,
 				BD06A046273CB96C0030E085 /* Configures.swift in Sources */,
 				BD84242D2729629100B922DC /* SignInProtocol.swift in Sources */,
+				413213B12743ACDE00F5BD9C /* JoinSpacePresenter.swift in Sources */,
 				BD2675C1273CFFC5004F7856 /* ExpansesProtocol.swift in Sources */,
 				BDD3F9DB2722FD2A00B2AF7F /* ViewController.swift in Sources */,
 				4117519B2727C40A00C997E9 /* RecordInteractor.swift in Sources */,
 				BD2675D1273D5F1A004F7856 /* RemindMeAtRouter.swift in Sources */,
+				413213B42743ACDE00F5BD9C /* JoinSpaceInteractor.swift in Sources */,
+				4115381327425C2F00154DB1 /* CreateSpaceInteractor.swift in Sources */,
 				BDD3F9D72722FD2A00B2AF7F /* AppDelegate.swift in Sources */,
 				4184C5D3273D9FF700F81BAD /* OnBoardingVC.swift in Sources */,
+				41E6E10927423BE300527CAA /* MemberCollectionViewCell.swift in Sources */,
 				41C3761A273E1FF000BA01FF /* OnBoardingCollectionViewCell.swift in Sources */,
+				413213B62743ACDE00F5BD9C /* JoinSpaceVC.swift in Sources */,
 				BDD3F9D92722FD2A00B2AF7F /* SceneDelegate.swift in Sources */,
 				BD842431272962A400B922DC /* SignInRouter.swift in Sources */,
 				BDD3FA012723489900B2AF7F /* TabBarProtocol.swift in Sources */,
 				BD4D65782745127E00EAD0EC /* CardViewTableViewCell.swift in Sources */,
 				BD474FA527240E2E005BF154 /* ProfileRouter.swift in Sources */,
+				4115381027425C2F00154DB1 /* CreateSpacePresenter.swift in Sources */,
 				BDD3F9F3272302DD00B2AF7F /* HomePresenter.swift in Sources */,
 				4197A22A273FF3A200FBFBB6 /* Core.swift in Sources */,
 				4117519F2727C41900C997E9 /* RecordProtocol.swift in Sources */,
 				BD474FB027240FDC005BF154 /* TabBarVC.swift in Sources */,
 				BDD3F9F72723032300B2AF7F /* HomeRouter.swift in Sources */,
 				BD474FA327240E15005BF154 /* ProfileVC.swift in Sources */,
+				41E6E10B27423C8900527CAA /* ProfileVCEmptyState.swift in Sources */,
 				BD474FA927240E4E005BF154 /* ProfilePresenter.swift in Sources */,
+				4115381527425C2F00154DB1 /* CreateSpaceVC.swift in Sources */,
+				413213B22743ACDE00F5BD9C /* JoinSpaceRouter.swift in Sources */,
 				BDD3FA03272349FF00B2AF7F /* TabBarRouter.swift in Sources */,
 				BD3EB3732747820F00273B0C /* Extension + UIView.swift in Sources */,
 				BD2675D3273D5F2C004F7856 /* RemindMeAtPresenter.swift in Sources */,
+				413213B52743ACDE00F5BD9C /* JoinSpaceProtocol.swift in Sources */,
 				411751A12727C43500C997E9 /* RecordRouter.swift in Sources */,
 				BD3EB36D27476D7600273B0C /* FriendsDebtRouter.swift in Sources */,
 				BD84243327296D3900B922DC /* SignUpVC.swift in Sources */,
+				4115381127425C2F00154DB1 /* CreateSpaceRouter.swift in Sources */,
 				BD84242927295A1A00B922DC /* Button.swift in Sources */,
 				BD3AA15D274354D00068AAEA /* Extension + UIViewController.swift in Sources */,
 				BD3EB37127476D7600273B0C /* FriendsDebtVC.swift in Sources */,
@@ -597,6 +696,7 @@
 				BD2675C3273CFFDA004F7856 /* ExpansesVC.swift in Sources */,
 				BD474FA727240E41005BF154 /* ProfileProtocol.swift in Sources */,
 				BD2675CA273D06D3004F7856 /* SwiftUIRouterAdapter.swift in Sources */,
+				4115381427425C2F00154DB1 /* CreateSpaceProtocol.swift in Sources */,
 				BD474FAE27240EC0005BF154 /* Constants.swift in Sources */,
 				BD84242B2729628100B922DC /* SignInVC.swift in Sources */,
 				BD2675C5273D023F004F7856 /* EasyScrollView.swift in Sources */,
@@ -755,9 +855,10 @@
 				CODE_SIGN_ENTITLEMENTS = "Macro Challenge ADAIL/Macro Challenge ADAIL.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = RMQNS23DVX;
+				DEVELOPMENT_TEAM = VXCW9GZNN5;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Macro Challenge ADAIL/Info.plist";
+				INFOPLIST_KEY_NSCameraUsageDescription = Scan;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -767,7 +868,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.kaelsihombing.Macro-Challenge-ADAIL";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.zalifer.Macro-Challenge-ADAIL";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -784,9 +885,10 @@
 				CODE_SIGN_ENTITLEMENTS = "Macro Challenge ADAIL/Macro Challenge ADAIL.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = RMQNS23DVX;
+				DEVELOPMENT_TEAM = VXCW9GZNN5;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Macro Challenge ADAIL/Info.plist";
+				INFOPLIST_KEY_NSCameraUsageDescription = Scan;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -796,7 +898,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.kaelsihombing.Macro-Challenge-ADAIL";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.zalifer.Macro-Challenge-ADAIL";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
