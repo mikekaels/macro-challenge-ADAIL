@@ -30,4 +30,5 @@ protocol ProfilePresenterToRouterProtocol: AnyObject {
     func goToDetailSpace(from: ProfileVC)
     func goToDescSpace(from: ProfileVC)
     func goToShowQR(from: ProfileVC)
+    func signOut(from: ProfileVC)
 }

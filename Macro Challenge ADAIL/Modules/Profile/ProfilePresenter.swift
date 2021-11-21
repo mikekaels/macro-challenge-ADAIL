@@ -31,5 +31,9 @@ class ProfilePresenter: ProfileViewToPresenterProtocol {
     func goToShowQR(from: ProfileVC) {
         
     }
+    
+    func signOut(from: ProfileVC) {
+        
+    }
 }
 

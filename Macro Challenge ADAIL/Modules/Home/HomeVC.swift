@@ -47,7 +47,7 @@ class HomeVC: UIViewController {
     }()
     
     let greetingLabel: UILabel = UILabel().configure { v in
-        v.text = "Hello Mike"
+        v.text = "Hello User"
         v.font = UIFont.systemFont(ofSize: 30, weight: .semibold)
         v.textAlignment = .left
         v.textColor = .systemGray
@@ -121,7 +121,8 @@ class HomeVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Hello Mike"
+        let UserName = UserDefaults.standard.object(forKey: "name") as? String
+        greetingLabel.text = "Hello \(UserName ?? "User")"
         self.title = Constants().tab1Title
         self.view.backgroundColor = .secondarySystemBackground
         profileContainer.widthAnchor.constraint(equalToConstant: 50).isActive = true

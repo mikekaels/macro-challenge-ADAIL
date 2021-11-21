@@ -14,11 +14,18 @@ class Core {
         return UserDefaults.standard.bool(forKey: "isSignIn")
     }
     
-    func signIn() {
+    func signIn(user: String, name: String, email: String) {
+        UserDefaults.standard.set(user, forKey: "userid")
+        UserDefaults.standard.set(name, forKey: "name")
+        UserDefaults.standard.set(email, forKey: "email")
         UserDefaults.standard.set(true, forKey: "isSignIn")
     }
     
     func signOut() {
         UserDefaults.standard.set(false, forKey: "isSignIn")
+        UserDefaults.standard.removeObject(forKey: "userid")
+        UserDefaults.standard.removeObject(forKey: "name")
+        UserDefaults.standard.removeObject(forKey: "email")
+
     }
 }

@@ -48,6 +48,7 @@
 		419A86E62747F02C00FEA99B /* ShowQRInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419A86E02747F02C00FEA99B /* ShowQRInteractor.swift */; };
 		419A86E72747F02C00FEA99B /* ShowQRProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419A86E12747F02C00FEA99B /* ShowQRProtocol.swift */; };
 		419A86E82747F02C00FEA99B /* ShowQRVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419A86E22747F02C00FEA99B /* ShowQRVC.swift */; };
+		41A6AFE42749A33900BE254B /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41A6AFE32749A33900BE254B /* CloudKit.framework */; };
 		41C3761A273E1FF000BA01FF /* OnBoardingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C37619273E1FF000BA01FF /* OnBoardingCollectionViewCell.swift */; };
 		41E6E10727423BBB00527CAA /* MemberCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E6E10627423BBB00527CAA /* MemberCollectionView.swift */; };
 		41E6E10927423BE300527CAA /* MemberCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E6E10827423BE300527CAA /* MemberCollectionViewCell.swift */; };
@@ -145,6 +146,7 @@
 		419A86E02747F02C00FEA99B /* ShowQRInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowQRInteractor.swift; sourceTree = "<group>"; };
 		419A86E12747F02C00FEA99B /* ShowQRProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowQRProtocol.swift; sourceTree = "<group>"; };
 		419A86E22747F02C00FEA99B /* ShowQRVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowQRVC.swift; sourceTree = "<group>"; };
+		41A6AFE32749A33900BE254B /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		41C37619273E1FF000BA01FF /* OnBoardingCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingCollectionViewCell.swift; sourceTree = "<group>"; };
 		41E6E10627423BBB00527CAA /* MemberCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberCollectionView.swift; sourceTree = "<group>"; };
 		41E6E10827423BE300527CAA /* MemberCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -212,6 +214,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9BEE11FEFC4F12C2AF48B7B3 /* libPods-Macro Challenge ADAIL.a in Frameworks */,
+				41A6AFE42749A33900BE254B /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -230,6 +233,7 @@
 		40103B7FD706D911A49253B0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				41A6AFE32749A33900BE254B /* CloudKit.framework */,
 				5F59F2B2B77366C48A7D0270 /* libPods-Macro Challenge ADAIL.a */,
 			);
 			name = Frameworks;
@@ -515,6 +519,7 @@
 		BDD3F9EA2723027600B2AF7F /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				4184C5D1273D9FDD00F81BAD /* OnBoarding */,
 				419A86DC2747F01500FEA99B /* ShowQR */,
 				419A86CF2747EB7100FEA99B /* DescSpace */,
 				419A86C22747D75C00FEA99B /* DetailSpace */,
@@ -523,7 +528,6 @@
 				BD2675CB273D5ECF004F7856 /* RemindMeAt */,
 				BD2675BB273CFF8F004F7856 /* Expanses */,
 				BD0DE93C27281D6D0037FD44 /* Auth */,
-				4184C5D1273D9FDD00F81BAD /* OnBoarding */,
 				BDD3F9FB27231BEE00B2AF7F /* TapBar */,
 				BDD3F9ED272302B000B2AF7F /* Home */,
 				411751992727C3F500C997E9 /* Records */,

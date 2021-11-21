@@ -20,9 +20,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         window = UIWindow(frame: UIScreen.main.bounds)
         
-        if Core.shared.isSignIn() == false {
+        if Core.shared.isSignIn() == true {
             window?.rootViewController = TabBarRouter().createModule()
-//            window?.rootViewController = ShowQRRouter().createModule()
         } else {
             window?.rootViewController = OnBoardingRouter().createModule()
         }

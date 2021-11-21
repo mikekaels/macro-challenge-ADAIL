@@ -7,12 +7,14 @@
 
 import UIKit
 import AuthenticationServices
+import CloudKit
 
 struct OnBoardingItem {
     let title: String
     let image: UIImage
     let Desc: String
 }
+
 
 class OnBoardingVC: UIViewController {
     var presentor: OnBoardingViewToPresenterProtocol?
@@ -33,6 +35,14 @@ class OnBoardingVC: UIViewController {
             }
         }
     }
+    
+    
+    private let database = CKContainer(identifier: "iCloud.Marvelous.CoFi").privateCloudDatabase
+    private let record = CKRecord(recordType: "UserType")
+    private var userId: CKRecord.ID?
+    private var isTrue: Bool?
+    
+    
     
     let pageControl: UIPageControl = {
         let control = UIPageControl()
@@ -55,6 +65,7 @@ class OnBoardingVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         self.navigationController?.isNavigationBarHidden = true
         onBoarding = [
             OnBoardingItem(title: L10n.onB1Title, image: UIImage(named: "oB1")!, Desc: L10n.onB1Desc),
@@ -63,6 +74,8 @@ class OnBoardingVC: UIViewController {
         ]
         setupView()
     }
+    
+    
     
     @objc func didTapSignIn() {
         let provider = ASAuthorizationAppleIDProvider()
@@ -175,31 +188,120 @@ extension OnBoardingVC: ASAuthorizationControllerDelegate {
     
     func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
         switch authorization.credential {
-        case let credentials as ASAuthorizationAppleIDCredential:
+        case let credentials as ASAuthorizationAppleIDCredential :
+            
+            var nameUser: String = ""
+            var emailUser: String = ""
             
             if let firstname = credentials.fullName?.givenName {
+                nameUser = firstname
                 print(firstname)
             }
             
             if let lastname = credentials.fullName?.familyName {
+                nameUser = "\(nameUser) \(lastname)"
                 print(lastname)
             }
             
             if let email = credentials.email {
+                emailUser = email
                 print(email)
             }
             
             let user = credentials.user
             print(user)
             
-            Core.shared.signIn()
-            newScene()
+            fetchUser(user: user, name: nameUser, email: emailUser)
+            self.newScene()
+            
+//            if fetchUser(user: user) {
+//                self.newScene()
+//            } else {
+//                print("User Tidak ada")
+//                saveUser(name: nameUser, email: emailUser, user: user)
+//            }
+            
             
             break
         default:
             break
         }
     }
+    
+    func fetchUser(user: String, name: String, email: String){
+        userId = CKRecord.ID(recordName: user)
+        database.fetch(withRecordID: userId!, completionHandler: { record, error in
+            if let record = record {
+                print("Record with ID \(record.recordID.recordName) was fetched.")
+                if let name = record["name"] as? String {
+                    DispatchQueue.main.async {
+                        Core.shared.signIn(user: record.recordID.recordName, name: name, email: record["email"] as! String)
+                        print("user: \(record.recordID.recordName), name: \(name), email: \(record["email"] as! String)")
+                    }
+                }
+            } else {
+                print("error \(self.userId!)")
+                self.saveUser(name: name, email: email, user: user)
+            }
+        })
+    }
+                  
+    func saveUser(name: String, email: String, user: String) {
+        userId = CKRecord.ID(recordName: user)
+        let userRecord = CKRecord(recordType: "UserType", recordID: userId!)
+        userRecord["name"] = name
+        userRecord["email"] = email
+
+        let saveOperation = CKModifyRecordsOperation(recordsToSave: [userRecord])
+        saveOperation.savePolicy = .allKeys
+
+        saveOperation.perRecordCompletionBlock = { record, error in
+            print("Record with ID \(record.recordID.recordName) was saved.")
+
+            if let error = error {
+                self.reportError(error)
+            }
+            self.fetchUser(user: user, name: name, email: email)
+        }
+        
+        database.add(saveOperation)
+    }
+    
+    
+    private func reportError(_ error: Error) {
+        guard let ckerror = error as? CKError else {
+            print("Not a CKError: \(error.localizedDescription)")
+            return
+        }
+
+        switch ckerror.code {
+        case .partialFailure:
+            // Iterate through error(s) in partial failure and report each one.
+            let dict = ckerror.userInfo[CKPartialErrorsByItemIDKey] as? [NSObject: CKError]
+            if let errorDictionary = dict {
+                for (_, error) in errorDictionary {
+                    reportError(error)
+                }
+            }
+
+        // This switch could explicitly handle as many specific errors as needed, for example:
+        case .unknownItem:
+            print("CKError: Record not found.")
+
+        case .notAuthenticated:
+            print("CKError: An iCloud account must be signed in on device or Simulator to write to a PrivateDB.")
+
+        case .permissionFailure:
+            print("CKError: An iCloud account permission failure occured.")
+
+        case .networkUnavailable:
+            print("CKError: The network is unavailable.")
+
+        default:
+            print("CKError: \(error.localizedDescription)")
+        }
+    }
+    
 }
 
 extension OnBoardingVC: ASAuthorizationControllerPresentationContextProviding {
