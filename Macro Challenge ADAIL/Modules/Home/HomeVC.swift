@@ -72,7 +72,7 @@ class HomeVC: UIViewController {
     let upcomingContainer: UIView = UIView()
         .configure { v in
             v.layer.cornerRadius = 15
-            v.backgroundColor = Asset.blueLight.color
+            v.backgroundColor = Asset.Colors.blueLight.color
             v.layer.masksToBounds = true
             v.translatesAutoresizingMaskIntoConstraints = false
         }
@@ -104,19 +104,19 @@ class HomeVC: UIViewController {
             v.translatesAutoresizingMaskIntoConstraints = false
         }
     
-    let upcomingCardView: CardView = CardView(to: ExpansesVC())
+    let upcomingCardView: CardView = CardView(to: ExpansesRouter().createModule())
         .configure { v in
-//            v.translatesAutoresizingMaskIntoConstraints = false
+            v.image.image = Asset.Images.cards1.image
         }
     
-    let friendsOweCardView: CardView = CardView(to: FriendsDebtVC())
+    let friendsOweCardView: CardView = CardView(to: ExpansesRouter().createModule())
         .configure { v in
-//            v.translatesAutoresizingMaskIntoConstraints = false
+            v.image.image = Asset.Images.cards2.image
         }
 
-    let myOweCardView: CardView = CardView(to: FriendsDebtVC())
+    let myOweCardView: CardView = CardView(to: ExpansesRouter().createModule())
         .configure { v in
-//            v.translatesAutoresizingMaskIntoConstraints = false
+            v.image.image = Asset.Images.cards3.image
         }
     
     override func viewDidLoad() {
@@ -138,7 +138,7 @@ class HomeVC: UIViewController {
         }))
         scrollViewContainer.addArrangedSubview(upcomingCardView)
         scrollViewContainer.addArrangedSubview(friendsOweCardView)
-//        scrollViewContainer.addArrangedSubview(myOweCardView)
+        scrollViewContainer.addArrangedSubview(myOweCardView)
         
         setupScrollView()
     }

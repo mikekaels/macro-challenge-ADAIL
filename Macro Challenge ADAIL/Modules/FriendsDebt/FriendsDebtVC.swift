@@ -27,7 +27,7 @@ class FriendsDebtVC: UIViewController {
     
     let profileImage: UIImageView = UIImageView()
         .configure { v in
-            v.image = Asset.Images.profileImage.image
+            v.image = Asset.Images.profile.image
             v.layer.cornerRadius = 25
             v.heightAnchor.constraint(equalToConstant: 50).isActive = true
             v.widthAnchor.constraint(equalToConstant: 50).isActive = true
@@ -69,7 +69,7 @@ class FriendsDebtVC: UIViewController {
         .configure { v in
             v.setTitle("All Paid", for: .normal)
             v.setTitleColor(.blue, for: .normal)
-            v.backgroundColor = Asset.blueLight.color
+            v.backgroundColor = Asset.Colors.blueLight.color
             
             v.layer.cornerRadius = 10
             v.heightAnchor.constraint(equalToConstant: 30).isActive = true
@@ -117,7 +117,7 @@ class FriendsDebtVC: UIViewController {
         .configure { v in
             v.setTitle("submit", for: .normal)
             v.setTitleColor(.blue, for: .normal)
-            v.backgroundColor = Asset.blueLight.color
+            v.backgroundColor = Asset.Colors.blueLight.color
             
             v.layer.cornerRadius = 10
             v.heightAnchor.constraint(equalToConstant: 30).isActive = true

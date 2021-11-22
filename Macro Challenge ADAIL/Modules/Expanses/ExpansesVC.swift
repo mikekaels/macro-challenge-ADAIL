@@ -168,7 +168,7 @@ class ExpansesVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        title = "Expanse details"
         self.scrollView.setupScrollView(in: self.view)
 
         scrollView.stack.configure { v in
@@ -298,7 +298,7 @@ class ExpansesVC: UIViewController {
     }
     
     @objc func iconButtonTapped() {
-        print("HElllllllllllllOOOOOOOOOO!!!")
+        presentor?.goToIcons(from: self)
     }
     
     @objc func remindMeAtSelected() {
