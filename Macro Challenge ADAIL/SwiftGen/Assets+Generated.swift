@@ -33,6 +33,7 @@ internal enum Asset {
     internal static let iFood = ImageAsset(name: "i-food")
   }
   internal enum Images {
+    internal static let emptyPP = ImageAsset(name: "EmptyPP")
     internal static let groupImage = ImageAsset(name: "GroupImage")
     internal static let cards1 = ImageAsset(name: "cards-1")
     internal static let cards2 = ImageAsset(name: "cards-2")
@@ -41,9 +42,6 @@ internal enum Asset {
     internal static let ob2 = ImageAsset(name: "oB2")
     internal static let ob3 = ImageAsset(name: "oB3")
     internal static let profile = ImageAsset(name: "profile")
-    internal static let emptyPP = ImageAsset(name: "EmptyPP")
-    internal static let profileImage = ImageAsset(name: "profileImage")
-    internal static let upcomingImage = ImageAsset(name: "upcomingImage")
   }
 }
 // swiftlint:enable identifier_name line_length nesting type_body_length type_name
