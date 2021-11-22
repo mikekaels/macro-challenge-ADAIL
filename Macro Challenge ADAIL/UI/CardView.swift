@@ -21,6 +21,14 @@ class CardView: UIView {
             v.translatesAutoresizingMaskIntoConstraints = false
         }
     
+    let image: UIImageView = UIImageView()
+        .configure(completion: { i in
+            i.image = Asset.Images.cards1.image
+            i.widthAnchor.constraint(equalToConstant: 100).isActive = true
+            i.heightAnchor.constraint(equalToConstant: 90).isActive = true
+            i.translatesAutoresizingMaskIntoConstraints = false
+        })
+    
     let createExpanseButton: UIButton = UIButton()
         .configure { v in
             v.setTitle("Create expanses", for: .normal)
@@ -64,7 +72,7 @@ class CardView: UIView {
         tableView.delegate = self
         tableView.dataSource = self
         layer.cornerRadius = 15
-        backgroundColor = Asset.blueLight.color
+        backgroundColor = .clear
         layer.masksToBounds = true
         translatesAutoresizingMaskIntoConstraints = false
         
@@ -78,12 +86,7 @@ class CardView: UIView {
                     b.distribution = .fillProportionally
                     b.translatesAutoresizingMaskIntoConstraints = false
         }),
-            UIImageView().configure(completion: { i in
-                i.image = Asset.Images.upcomingImage.image
-                i.widthAnchor.constraint(equalToConstant: 100).isActive = true
-                i.heightAnchor.constraint(equalToConstant: 90).isActive = true
-                i.translatesAutoresizingMaskIntoConstraints = false
-            })
+            image
         ]).configure(completion: { s in
             s.distribution = .fillProportionally
             s.translatesAutoresizingMaskIntoConstraints = false

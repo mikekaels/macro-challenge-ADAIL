@@ -16,6 +16,7 @@ protocol ExpansesViewToPresenterProtocol: AnyObject {
     var router: ExpansesPresenterToRouterProtocol? { get set }
     
     func goToRemindMeAt()
+    func goToIcons(from: ExpansesVC)
 }
 
 protocol ExpansesPresenterToViewProtocol: AnyObject {
@@ -25,4 +26,5 @@ protocol ExpansesPresenterToViewProtocol: AnyObject {
 protocol ExpansesPresenterToRouterProtocol: AnyObject {
     func createModule() -> ExpansesVC
     func goToRemindMeAt()
+    func goToIcons(from: ExpansesVC)
 }

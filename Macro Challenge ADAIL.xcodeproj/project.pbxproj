@@ -69,6 +69,13 @@
 		BD2675D3273D5F2C004F7856 /* RemindMeAtPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2675D2273D5F2C004F7856 /* RemindMeAtPresenter.swift */; };
 		BD3AA15D274354D00068AAEA /* Extension + UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3AA15C274354D00068AAEA /* Extension + UIViewController.swift */; };
 		BD3EB3732747820F00273B0C /* Extension + UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3EB3722747820F00273B0C /* Extension + UIView.swift */; };
+		BD41E729274B3123001EA88F /* IconsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD41E723274B3123001EA88F /* IconsPresenter.swift */; };
+		BD41E72A274B3123001EA88F /* IconsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD41E724274B3123001EA88F /* IconsRouter.swift */; };
+		BD41E72B274B3123001EA88F /* IconsModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD41E725274B3123001EA88F /* IconsModels.swift */; };
+		BD41E72C274B3123001EA88F /* IconsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD41E726274B3123001EA88F /* IconsInteractor.swift */; };
+		BD41E72D274B3123001EA88F /* IconsProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD41E727274B3123001EA88F /* IconsProtocol.swift */; };
+		BD41E72E274B3123001EA88F /* IconsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD41E728274B3123001EA88F /* IconsVC.swift */; };
+		BD41E730274B38B9001EA88F /* IconCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD41E72F274B38B9001EA88F /* IconCollectionViewCell.swift */; };
 		BD474FA327240E15005BF154 /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD474FA227240E15005BF154 /* ProfileVC.swift */; };
 		BD474FA527240E2E005BF154 /* ProfileRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD474FA427240E2E005BF154 /* ProfileRouter.swift */; };
 		BD474FA727240E41005BF154 /* ProfileProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD474FA627240E41005BF154 /* ProfileProtocol.swift */; };
@@ -174,6 +181,13 @@
 		BD2675D2273D5F2C004F7856 /* RemindMeAtPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindMeAtPresenter.swift; sourceTree = "<group>"; };
 		BD3AA15C274354D00068AAEA /* Extension + UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + UIViewController.swift"; sourceTree = "<group>"; };
 		BD3EB3722747820F00273B0C /* Extension + UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + UIView.swift"; sourceTree = "<group>"; };
+		BD41E723274B3123001EA88F /* IconsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconsPresenter.swift; sourceTree = "<group>"; };
+		BD41E724274B3123001EA88F /* IconsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconsRouter.swift; sourceTree = "<group>"; };
+		BD41E725274B3123001EA88F /* IconsModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconsModels.swift; sourceTree = "<group>"; };
+		BD41E726274B3123001EA88F /* IconsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconsInteractor.swift; sourceTree = "<group>"; };
+		BD41E727274B3123001EA88F /* IconsProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconsProtocol.swift; sourceTree = "<group>"; };
+		BD41E728274B3123001EA88F /* IconsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconsVC.swift; sourceTree = "<group>"; };
+		BD41E72F274B38B9001EA88F /* IconCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconCollectionViewCell.swift; sourceTree = "<group>"; };
 		BD474FA227240E15005BF154 /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
 		BD474FA427240E2E005BF154 /* ProfileRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileRouter.swift; sourceTree = "<group>"; };
 		BD474FA627240E41005BF154 /* ProfileProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileProtocol.swift; sourceTree = "<group>"; };
@@ -414,6 +428,7 @@
 			children = (
 				BD2675AD273CC09B004F7856 /* RecordsTableViewCell.swift */,
 				BD4D65772745127E00EAD0EC /* CardViewTableViewCell.swift */,
+				BD41E72F274B38B9001EA88F /* IconCollectionViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -447,6 +462,19 @@
 				BD2675D2273D5F2C004F7856 /* RemindMeAtPresenter.swift */,
 			);
 			path = RemindMeAt;
+			sourceTree = "<group>";
+		};
+		BD41E722274B30FB001EA88F /* Icons */ = {
+			isa = PBXGroup;
+			children = (
+				BD41E723274B3123001EA88F /* IconsPresenter.swift */,
+				BD41E724274B3123001EA88F /* IconsRouter.swift */,
+				BD41E725274B3123001EA88F /* IconsModels.swift */,
+				BD41E726274B3123001EA88F /* IconsInteractor.swift */,
+				BD41E727274B3123001EA88F /* IconsProtocol.swift */,
+				BD41E728274B3123001EA88F /* IconsVC.swift */,
+			);
+			path = Icons;
 			sourceTree = "<group>";
 		};
 		BD474FA127240DBA005BF154 /* Profile */ = {
@@ -525,9 +553,9 @@
 		BDD3F9D52722FD2A00B2AF7F /* Macro Challenge ADAIL */ = {
 			isa = PBXGroup;
 			children = (
+				BDA71D23272C575600EEF4C6 /* Macro Challenge ADAIL.entitlements */,
 				BD2675C6273D0282004F7856 /* LivePreviewer */,
 				BD06A044273CB9570030E085 /* Extensions */,
-				BDA71D23272C575600EEF4C6 /* Macro Challenge ADAIL.entitlements */,
 				BD84242727295A0E00B922DC /* UI */,
 				BD474FAC27240EA3005BF154 /* Constants */,
 				411537F927424B8700154DB1 /* Shared */,
@@ -547,6 +575,7 @@
 		BDD3F9EA2723027600B2AF7F /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				BD41E722274B30FB001EA88F /* Icons */,
 				4184C5D1273D9FDD00F81BAD /* OnBoarding */,
 				419A86DC2747F01500FEA99B /* ShowQR */,
 				419A86CF2747EB7100FEA99B /* DescSpace */,
@@ -710,6 +739,7 @@
 				BD6EA539274A3FFB00EF89B5 /* FriendsDebtRouter.swift in Sources */,
 				BDD3F9F52723031800B2AF7F /* HomeProtocol.swift in Sources */,
 				41E6E10727423BBB00527CAA /* MemberCollectionView.swift in Sources */,
+				BD41E72B274B3123001EA88F /* IconsModels.swift in Sources */,
 				BD2675CF273D5F06004F7856 /* RemindMeAtProtocol.swift in Sources */,
 				BD84243727296D5700B922DC /* SignUpPresenter.swift in Sources */,
 				BD84244B2729BB9F00B922DC /* Assets+Generated.swift in Sources */,
@@ -733,6 +763,7 @@
 				BD84243527296D4A00B922DC /* SignUpProtocol.swift in Sources */,
 				4117519D2727C41200C997E9 /* RecordPresenter.swift in Sources */,
 				411751A32727C43C00C997E9 /* RecordVC.swift in Sources */,
+				BD41E72C274B3123001EA88F /* IconsInteractor.swift in Sources */,
 				BD6EA53A274A3FFB00EF89B5 /* FriendsDebtInteractor.swift in Sources */,
 				BD06A046273CB96C0030E085 /* Configures.swift in Sources */,
 				BD6EA536274A3FFB00EF89B5 /* FriendsDebtPresenter.swift in Sources */,
@@ -741,6 +772,7 @@
 				419A86CD2747D77900FEA99B /* DetailSpaceProtocol.swift in Sources */,
 				BD2675C1273CFFC5004F7856 /* ExpansesProtocol.swift in Sources */,
 				BD6EA538274A3FFB00EF89B5 /* FriendsDebtVC.swift in Sources */,
+				BD41E730274B38B9001EA88F /* IconCollectionViewCell.swift in Sources */,
 				BDD3F9DB2722FD2A00B2AF7F /* ViewController.swift in Sources */,
 				BD6EA535274A3FFB00EF89B5 /* FriendsDebtProtocol.swift in Sources */,
 				4117519B2727C40A00C997E9 /* RecordInteractor.swift in Sources */,
@@ -753,12 +785,16 @@
 				4184C5D3273D9FF700F81BAD /* OnBoardingVC.swift in Sources */,
 				41E6E10927423BE300527CAA /* MemberCollectionViewCell.swift in Sources */,
 				41C3761A273E1FF000BA01FF /* OnBoardingCollectionViewCell.swift in Sources */,
+				BD41E72E274B3123001EA88F /* IconsVC.swift in Sources */,
 				413213B62743ACDE00F5BD9C /* JoinSpaceVC.swift in Sources */,
 				BDD3F9D92722FD2A00B2AF7F /* SceneDelegate.swift in Sources */,
+				BD41E72A274B3123001EA88F /* IconsRouter.swift in Sources */,
 				BD842431272962A400B922DC /* SignInRouter.swift in Sources */,
+				BD41E729274B3123001EA88F /* IconsPresenter.swift in Sources */,
 				BDD3FA012723489900B2AF7F /* TabBarProtocol.swift in Sources */,
 				BD4D65782745127E00EAD0EC /* CardViewTableViewCell.swift in Sources */,
 				BD474FA527240E2E005BF154 /* ProfileRouter.swift in Sources */,
+				BD41E72D274B3123001EA88F /* IconsProtocol.swift in Sources */,
 				4115381027425C2F00154DB1 /* CreateSpacePresenter.swift in Sources */,
 				BDD3F9F3272302DD00B2AF7F /* HomePresenter.swift in Sources */,
 				4197A22A273FF3A200FBFBB6 /* Core.swift in Sources */,

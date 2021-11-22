@@ -17,4 +17,8 @@ class ExpansesPresenter: ExpansesViewToPresenterProtocol {
     func goToRemindMeAt() {
 
     }
+    
+    func goToIcons(from: ExpansesVC) {
+        router?.goToIcons(from: from)
+    }
 }

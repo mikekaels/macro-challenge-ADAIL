@@ -35,4 +35,9 @@ class ExpansesRouter: ExpansesPresenterToRouterProtocol {
         
     }
     
+    func goToIcons(from: ExpansesVC) {
+        let vc = IconsRouter().createModule()
+        from.navigationController?.pushViewController(vc, animated: true)
+    }
+    
 }
