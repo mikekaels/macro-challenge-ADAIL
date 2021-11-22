@@ -21,6 +21,21 @@ class ProfileVC: UIViewController {
     var members: [Member] = []
     private var memberCollectionView: UICollectionView?
     
+    
+    let scrollView: UIScrollView = {
+        let scrollView = UIScrollView()
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        return scrollView
+    }()
+    
+    let scrollViewContainer: UIStackView = {
+        let view = UIStackView()
+        view.axis = .vertical
+        view.spacing = 20
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
     let card1: UIView = {
         let view = UIView()
         view.backgroundColor = .white
@@ -96,12 +111,25 @@ class ProfileVC: UIViewController {
         btn.layer.cornerRadius = 8
         return btn
     }()
+    
+    let signOut: UIButton = {
+        let btn = UIButton()
+        btn.backgroundColor = .white
+        btn.setTitle("Sign Out", for: .normal)
+        btn.titleLabel?.font = UIFont.systemFont(ofSize: 17, weight: .semibold)
+        btn.setTitleColor(UIColor.red, for: .normal)
+        btn.layer.cornerRadius = 8
+        return btn
+    }()
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.navigationBar.prefersLargeTitles = true
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = Constants().tab3Title
         self.view.backgroundColor = .secondarySystemBackground
-        self.navigationController?.navigationBar.prefersLargeTitles = true
         
         if isGroup {
             members = [
@@ -119,19 +147,44 @@ class ProfileVC: UIViewController {
     }
     
     func setupView() {
+        self.view.addSubview(scrollView)
+        
+        
+        scrollView.addSubview(scrollViewContainer)
         setCard1()
+        scrollViewContainer.addArrangedSubview(card1)
         setCard2()
+        scrollViewContainer.addArrangedSubview(card2)
         setCard3()
+        scrollViewContainer.addArrangedSubview(card3)
         setQRButton()
+        scrollViewContainer.addArrangedSubview(qrButton)
+        setSignOutButton()
+        scrollViewContainer.addArrangedSubview(signOut)
+
+        scrollView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+//        scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        scrollView.widthAnchor.constraint(equalTo: view.widthAnchor).isActive = true
+//        scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        scrollView.heightAnchor.constraint(equalTo: view.heightAnchor).isActive = true
+        //        scrollViewContainer.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor).isActive = true
+        //        scrollViewContainer.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor).isActive = true
+        scrollViewContainer.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 50).isActive = true
+        scrollViewContainer.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: -50).isActive = true
+        // Important!
+        scrollViewContainer.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor).isActive = true
+        scrollViewContainer.widthAnchor.constraint(equalTo: scrollView.widthAnchor, multiplier: 0.90).isActive = true
+        //        scrollViewContainer.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: -50).isActive = true
+        scrollViewContainer.spacing = 20
     }
     
     func setCard1() {
         view.addSubview(card1)
         card1.translatesAutoresizingMaskIntoConstraints = false
-        card1.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 15).isActive = true
-        card1.leadingAnchor.constraint(equalTo: view.leadingAnchor,constant: 15).isActive = true
-        card1.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -15).isActive = true
         card1.heightAnchor.constraint(equalToConstant: 100).isActive = true
+        card1.widthAnchor.constraint(equalTo: view.widthAnchor, constant: -30).isActive = true
+        card1.topAnchor.constraint(equalTo: scrollViewContainer.topAnchor, constant: -30).isActive = true
         
         card1.addSubview(image)
         image.translatesAutoresizingMaskIntoConstraints = false
@@ -153,6 +206,12 @@ class ProfileVC: UIViewController {
         chevronBtnCard1.translatesAutoresizingMaskIntoConstraints = false
         chevronBtnCard1.centerYAnchor.constraint(equalTo: card1.centerYAnchor).isActive = true
         chevronBtnCard1.trailingAnchor.constraint(equalTo: card1.trailingAnchor, constant: -20).isActive = true
+        
+        chevronBtnCard1.addTarget(self, action: #selector(card1Tap), for: .touchUpInside)
+    }
+    
+    @objc func card1Tap() {
+        presentor?.router?.goToDetailSpace(from: self)
     }
     
     func setCard2() {
@@ -174,6 +233,11 @@ class ProfileVC: UIViewController {
         chevronBtnCard2.translatesAutoresizingMaskIntoConstraints = false
         chevronBtnCard2.centerYAnchor.constraint(equalTo: card2.centerYAnchor).isActive = true
         chevronBtnCard2.trailingAnchor.constraint(equalTo: card2.trailingAnchor, constant: -20).isActive = true
+        chevronBtnCard2.addTarget(self, action: #selector(card2Tap), for: .touchUpInside)
+    }
+    
+    @objc func card2Tap() {
+        presentor?.router?.goToDescSpace(from: self)
     }
     
     func setCard3() {
@@ -219,6 +283,28 @@ class ProfileVC: UIViewController {
         qrButton.centerXAnchor.constraint(equalTo: card3.centerXAnchor).isActive = true
         qrButton.widthAnchor.constraint(equalToConstant: 315).isActive = true
         qrButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        
+        qrButton.addTarget(self, action: #selector(qrTap), for: .touchUpInside)
+    }
+    
+    @objc func qrTap() {
+        presentor?.router?.goToShowQR(from: self)
+    }
+    
+    func setSignOutButton() {
+        view.addSubview(signOut)
+
+        signOut.translatesAutoresizingMaskIntoConstraints = false
+        signOut.topAnchor.constraint(equalTo: qrButton.bottomAnchor, constant: 15).isActive = true
+        signOut.centerXAnchor.constraint(equalTo: qrButton.centerXAnchor).isActive = true
+        signOut.widthAnchor.constraint(equalToConstant: 315).isActive = true
+        signOut.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        
+        signOut.addTarget(self, action: #selector(signOutTap), for: .touchUpInside)
+    }
+    
+    @objc func signOutTap() {
+        presentor?.router?.signOut(from: self)
     }
 }
 

@@ -167,7 +167,6 @@ class CreateSpaceVC: UIViewController {
         print("Create Co-Living Space")
         presentor?.router?.goToProfile(from: self)
     }
-
 }
 
 extension CreateSpaceVC: CreateSpacePresenterToViewProtocol {
