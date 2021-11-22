@@ -24,23 +24,25 @@ internal enum Asset {
   internal static let accentColor = ColorAsset(name: "AccentColor")
   internal enum Colors {
     internal static let fff5Cd = ColorAsset(name: "FFF5CD")
+    internal static let blueLight = ColorAsset(name: "blue-light")
     internal static let red = ColorAsset(name: "red")
   }
-  internal static let groupImage = ImageAsset(name: "GroupImage")
   internal enum Icons {
     internal static let cameraShut = ImageAsset(name: "CameraShut")
     internal static let groceries = ImageAsset(name: "groceries")
+    internal static let iFood = ImageAsset(name: "i-food")
   }
   internal enum Images {
     internal static let emptyPP = ImageAsset(name: "EmptyPP")
-    internal static let profileImage = ImageAsset(name: "profileImage")
-    internal static let upcomingImage = ImageAsset(name: "upcomingImage")
+    internal static let groupImage = ImageAsset(name: "GroupImage")
+    internal static let cards1 = ImageAsset(name: "cards-1")
+    internal static let cards2 = ImageAsset(name: "cards-2")
+    internal static let cards3 = ImageAsset(name: "cards-3")
+    internal static let ob1 = ImageAsset(name: "oB1")
+    internal static let ob2 = ImageAsset(name: "oB2")
+    internal static let ob3 = ImageAsset(name: "oB3")
+    internal static let profile = ImageAsset(name: "profile")
   }
-  internal static let profileTabBG = ImageAsset(name: "ProfileTabBG")
-  internal static let blueLight = ColorAsset(name: "blue-light")
-  internal static let ob1 = ImageAsset(name: "oB1")
-  internal static let ob2 = ImageAsset(name: "oB2")
-  internal static let ob3 = ImageAsset(name: "oB3")
 }
 // swiftlint:enable identifier_name line_length nesting type_body_length type_name
 

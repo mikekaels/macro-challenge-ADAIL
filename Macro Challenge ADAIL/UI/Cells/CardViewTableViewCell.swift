@@ -13,7 +13,7 @@ class CardViewTableViewCell: UITableViewCell {
     
     let background: UIView = UIView()
         .configure { v in
-            v.backgroundColor = .white
+            v.backgroundColor = Asset.Colors.blueLight.color
             v.layer.cornerRadius = 10
             v.layer.masksToBounds = true
             v.translatesAutoresizingMaskIntoConstraints = false
@@ -35,7 +35,7 @@ class CardViewTableViewCell: UITableViewCell {
             v.widthAnchor.constraint(equalToConstant: 25).isActive = true
             v.heightAnchor.constraint(equalToConstant: 25).isActive = true
             v.translatesAutoresizingMaskIntoConstraints = false
-            v.image = Asset.Images.profileImage.image
+            v.image = Asset.Images.profile.image
         }
     
     let itemLabel: UILabel = UILabel()
