@@ -109,12 +109,12 @@ class HomeVC: UIViewController {
             v.image.image = Asset.Images.cards1.image
         }
     
-    let friendsOweCardView: CardView = CardView(to: ExpansesRouter().createModule())
+    let friendsOweCardView: CardView = CardView(to: FriendsDebtRouter().createModule())
         .configure { v in
             v.image.image = Asset.Images.cards2.image
         }
 
-    let myOweCardView: CardView = CardView(to: ExpansesRouter().createModule())
+    let myOweCardView: CardView = CardView(to: FriendsDebtRouter().createModule())
         .configure { v in
             v.image.image = Asset.Images.cards3.image
         }
