@@ -20,12 +20,6 @@ class RecordVC: UIViewController {
     }()
     
     let tableView: UITableView = UITableView()
-//    {
-//        var table = UITableView()
-//        table.frame = RecordVC().view.frame
-//        table.register(UITableViewCell.self, forCellReuseIdentifier: "recordCell")
-//        return table
-//    }()
     
     
     override func viewDidLoad() {
@@ -44,6 +38,7 @@ class RecordVC: UIViewController {
         textLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         
         tableSetup()
+        
         
     }
     
