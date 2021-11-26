@@ -13,6 +13,10 @@ protocol HomeViewToPresenterProtocol: AnyObject {
     var router: HomePresenterToRouterProtocol? { get set }
 }
 
+protocol HomePresenterToRouterProtocol: AnyObject {
+    func createModule() -> HomeVC
+}
+
 protocol HomePresenterToViewProtocol: AnyObject {
     
 }
@@ -25,6 +29,3 @@ protocol HomeInteractorToPresenterProtocol: AnyObject {
     
 }
 
-protocol HomePresenterToRouterProtocol: AnyObject {
-    func createModule() -> HomeVC
-}

@@ -115,7 +115,7 @@ class FriendsDebtVC: UIViewController {
     
     let submitButton: UIButton = UIButton()
         .configure { v in
-            v.setTitle("submit", for: .normal)
+            v.setTitle("Submit", for: .normal)
             v.setTitleColor(.blue, for: .normal)
             v.backgroundColor = Asset.Colors.blueLight.color
             
@@ -130,6 +130,7 @@ class FriendsDebtVC: UIViewController {
             t.backgroundColor = .clear
             t.register(CardViewTableViewCell.self, forCellReuseIdentifier: "cell")
             t.register(UITableViewCell.self, forCellReuseIdentifier: "seeMore")
+            
             t.isScrollEnabled = false
             t.separatorStyle = .none
             t.translatesAutoresizingMaskIntoConstraints = false
@@ -138,7 +139,6 @@ class FriendsDebtVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .secondarySystemBackground
-        title = "Detail Yudha's Debt"
         // Do any additional setup after loading the view.
         setupViews()
         tableView.delegate = self
@@ -260,7 +260,7 @@ extension FriendsDebtVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.row == 3 {
+        if indexPath.row == 0 {
             let cell = UITableViewCell(style: .default, reuseIdentifier: "seeMore")
             cell.textLabel?.text = "See More"
             cell.textLabel?.textAlignment = .right
@@ -280,7 +280,7 @@ extension FriendsDebtVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath.row {
-        case 3:
+        case 0:
             return 20
         default:
             return 55
