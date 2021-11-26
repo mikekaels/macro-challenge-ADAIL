@@ -85,6 +85,19 @@
 		BD474FB027240FDC005BF154 /* TabBarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD474FAF27240FDC005BF154 /* TabBarVC.swift */; };
 		BD4D657627450DA300EAD0EC /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD4D657527450DA300EAD0EC /* CardView.swift */; };
 		BD4D65782745127E00EAD0EC /* CardViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD4D65772745127E00EAD0EC /* CardViewTableViewCell.swift */; };
+		BD6740D8274F802E00866E67 /* FriendsDebtTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD6740D7274F802E00866E67 /* FriendsDebtTableViewCell.swift */; };
+		BD6740ED274FA43200866E67 /* ListsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD6740E7274FA43200866E67 /* ListsPresenter.swift */; };
+		BD6740EE274FA43200866E67 /* ListsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD6740E8274FA43200866E67 /* ListsRouter.swift */; };
+		BD6740EF274FA43200866E67 /* ListsModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD6740E9274FA43200866E67 /* ListsModels.swift */; };
+		BD6740F0274FA43200866E67 /* ListsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD6740EA274FA43200866E67 /* ListsInteractor.swift */; };
+		BD6740F1274FA43200866E67 /* ListsProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD6740EB274FA43200866E67 /* ListsProtocol.swift */; };
+		BD6740F2274FA43200866E67 /* ListsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD6740EC274FA43200866E67 /* ListsVC.swift */; };
+		BD6740FA27500B5600866E67 /* AddDebtPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD6740F427500B5600866E67 /* AddDebtPresenter.swift */; };
+		BD6740FB27500B5600866E67 /* AddDebtRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD6740F527500B5600866E67 /* AddDebtRouter.swift */; };
+		BD6740FC27500B5600866E67 /* AddDebtModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD6740F627500B5600866E67 /* AddDebtModels.swift */; };
+		BD6740FD27500B5600866E67 /* AddDebtInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD6740F727500B5600866E67 /* AddDebtInteractor.swift */; };
+		BD6740FE27500B5600866E67 /* AddDebtProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD6740F827500B5600866E67 /* AddDebtProtocol.swift */; };
+		BD6740FF27500B5600866E67 /* AddDebtVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD6740F927500B5600866E67 /* AddDebtVC.swift */; };
 		BD6EA535274A3FFB00EF89B5 /* FriendsDebtProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD6EA52F274A3FFB00EF89B5 /* FriendsDebtProtocol.swift */; };
 		BD6EA536274A3FFB00EF89B5 /* FriendsDebtPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD6EA530274A3FFB00EF89B5 /* FriendsDebtPresenter.swift */; };
 		BD6EA537274A3FFB00EF89B5 /* FriendsDebtModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD6EA531274A3FFB00EF89B5 /* FriendsDebtModels.swift */; };
@@ -197,6 +210,19 @@
 		BD474FAF27240FDC005BF154 /* TabBarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarVC.swift; sourceTree = "<group>"; };
 		BD4D657527450DA300EAD0EC /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		BD4D65772745127E00EAD0EC /* CardViewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewTableViewCell.swift; sourceTree = "<group>"; };
+		BD6740D7274F802E00866E67 /* FriendsDebtTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsDebtTableViewCell.swift; sourceTree = "<group>"; };
+		BD6740E7274FA43200866E67 /* ListsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListsPresenter.swift; sourceTree = "<group>"; };
+		BD6740E8274FA43200866E67 /* ListsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListsRouter.swift; sourceTree = "<group>"; };
+		BD6740E9274FA43200866E67 /* ListsModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListsModels.swift; sourceTree = "<group>"; };
+		BD6740EA274FA43200866E67 /* ListsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListsInteractor.swift; sourceTree = "<group>"; };
+		BD6740EB274FA43200866E67 /* ListsProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListsProtocol.swift; sourceTree = "<group>"; };
+		BD6740EC274FA43200866E67 /* ListsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListsVC.swift; sourceTree = "<group>"; };
+		BD6740F427500B5600866E67 /* AddDebtPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDebtPresenter.swift; sourceTree = "<group>"; };
+		BD6740F527500B5600866E67 /* AddDebtRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDebtRouter.swift; sourceTree = "<group>"; };
+		BD6740F627500B5600866E67 /* AddDebtModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDebtModels.swift; sourceTree = "<group>"; };
+		BD6740F727500B5600866E67 /* AddDebtInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDebtInteractor.swift; sourceTree = "<group>"; };
+		BD6740F827500B5600866E67 /* AddDebtProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDebtProtocol.swift; sourceTree = "<group>"; };
+		BD6740F927500B5600866E67 /* AddDebtVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDebtVC.swift; sourceTree = "<group>"; };
 		BD6EA52F274A3FFB00EF89B5 /* FriendsDebtProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendsDebtProtocol.swift; sourceTree = "<group>"; };
 		BD6EA530274A3FFB00EF89B5 /* FriendsDebtPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendsDebtPresenter.swift; sourceTree = "<group>"; };
 		BD6EA531274A3FFB00EF89B5 /* FriendsDebtModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendsDebtModels.swift; sourceTree = "<group>"; };
@@ -429,6 +455,7 @@
 				BD2675AD273CC09B004F7856 /* RecordsTableViewCell.swift */,
 				BD4D65772745127E00EAD0EC /* CardViewTableViewCell.swift */,
 				BD41E72F274B38B9001EA88F /* IconCollectionViewCell.swift */,
+				BD6740D7274F802E00866E67 /* FriendsDebtTableViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -496,6 +523,32 @@
 				BD474FAD27240EC0005BF154 /* Constants.swift */,
 			);
 			path = Constants;
+			sourceTree = "<group>";
+		};
+		BD6740E6274FA42000866E67 /* Lists */ = {
+			isa = PBXGroup;
+			children = (
+				BD6740E7274FA43200866E67 /* ListsPresenter.swift */,
+				BD6740E8274FA43200866E67 /* ListsRouter.swift */,
+				BD6740E9274FA43200866E67 /* ListsModels.swift */,
+				BD6740EA274FA43200866E67 /* ListsInteractor.swift */,
+				BD6740EB274FA43200866E67 /* ListsProtocol.swift */,
+				BD6740EC274FA43200866E67 /* ListsVC.swift */,
+			);
+			path = Lists;
+			sourceTree = "<group>";
+		};
+		BD6740F327500B3F00866E67 /* AddDebt */ = {
+			isa = PBXGroup;
+			children = (
+				BD6740F427500B5600866E67 /* AddDebtPresenter.swift */,
+				BD6740F527500B5600866E67 /* AddDebtRouter.swift */,
+				BD6740F627500B5600866E67 /* AddDebtModels.swift */,
+				BD6740F727500B5600866E67 /* AddDebtInteractor.swift */,
+				BD6740F827500B5600866E67 /* AddDebtProtocol.swift */,
+				BD6740F927500B5600866E67 /* AddDebtVC.swift */,
+			);
+			path = AddDebt;
 			sourceTree = "<group>";
 		};
 		BD6EA52E274A3FFB00EF89B5 /* FriendsDebt */ = {
@@ -575,6 +628,8 @@
 		BDD3F9EA2723027600B2AF7F /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				BD6740F327500B3F00866E67 /* AddDebt */,
+				BD6740E6274FA42000866E67 /* Lists */,
 				BD41E722274B30FB001EA88F /* Icons */,
 				4184C5D1273D9FDD00F81BAD /* OnBoarding */,
 				419A86DC2747F01500FEA99B /* ShowQR */,
@@ -744,9 +799,11 @@
 				BD84243727296D5700B922DC /* SignUpPresenter.swift in Sources */,
 				BD84244B2729BB9F00B922DC /* Assets+Generated.swift in Sources */,
 				419A86E62747F02C00FEA99B /* ShowQRInteractor.swift in Sources */,
+				BD6740FD27500B5600866E67 /* AddDebtInteractor.swift in Sources */,
 				419A86E82747F02C00FEA99B /* ShowQRVC.swift in Sources */,
 				4184C5D7273DA04000F81BAD /* OnBoardingRouter.swift in Sources */,
 				BDD3F9F92723034B00B2AF7F /* HomeVC.swift in Sources */,
+				BD6740EE274FA43200866E67 /* ListsRouter.swift in Sources */,
 				4115381227425C2F00154DB1 /* CreateSpaceModels.swift in Sources */,
 				4184C5D5273DA03200F81BAD /* OnBoardingProtocol.swift in Sources */,
 				BD474FAB27240E5D005BF154 /* ProfileInteractor.swift in Sources */,
@@ -755,6 +812,7 @@
 				BD84243927296D6400B922DC /* SignUpRouter.swift in Sources */,
 				BD2675BF273CFFB5004F7856 /* ExpansesRouter.swift in Sources */,
 				BD2675C8273D02A3004F7856 /* LivePreviewer.swift in Sources */,
+				BD6740FE27500B5600866E67 /* AddDebtProtocol.swift in Sources */,
 				419A86CB2747D77900FEA99B /* DetailSpaceModels.swift in Sources */,
 				413213B32743ACDE00F5BD9C /* JoinSpaceModels.swift in Sources */,
 				BD2675AE273CC09B004F7856 /* RecordsTableViewCell.swift in Sources */,
@@ -763,7 +821,9 @@
 				BD84243527296D4A00B922DC /* SignUpProtocol.swift in Sources */,
 				4117519D2727C41200C997E9 /* RecordPresenter.swift in Sources */,
 				411751A32727C43C00C997E9 /* RecordVC.swift in Sources */,
+				BD6740FF27500B5600866E67 /* AddDebtVC.swift in Sources */,
 				BD41E72C274B3123001EA88F /* IconsInteractor.swift in Sources */,
+				BD6740F2274FA43200866E67 /* ListsVC.swift in Sources */,
 				BD6EA53A274A3FFB00EF89B5 /* FriendsDebtInteractor.swift in Sources */,
 				BD06A046273CB96C0030E085 /* Configures.swift in Sources */,
 				BD6EA536274A3FFB00EF89B5 /* FriendsDebtPresenter.swift in Sources */,
@@ -772,13 +832,17 @@
 				419A86CD2747D77900FEA99B /* DetailSpaceProtocol.swift in Sources */,
 				BD2675C1273CFFC5004F7856 /* ExpansesProtocol.swift in Sources */,
 				BD6EA538274A3FFB00EF89B5 /* FriendsDebtVC.swift in Sources */,
+				BD6740FB27500B5600866E67 /* AddDebtRouter.swift in Sources */,
 				BD41E730274B38B9001EA88F /* IconCollectionViewCell.swift in Sources */,
 				BDD3F9DB2722FD2A00B2AF7F /* ViewController.swift in Sources */,
+				BD6740FC27500B5600866E67 /* AddDebtModels.swift in Sources */,
+				BD6740FA27500B5600866E67 /* AddDebtPresenter.swift in Sources */,
 				BD6EA535274A3FFB00EF89B5 /* FriendsDebtProtocol.swift in Sources */,
 				4117519B2727C40A00C997E9 /* RecordInteractor.swift in Sources */,
 				BD2675D1273D5F1A004F7856 /* RemindMeAtRouter.swift in Sources */,
 				413213B42743ACDE00F5BD9C /* JoinSpaceInteractor.swift in Sources */,
 				4115381327425C2F00154DB1 /* CreateSpaceInteractor.swift in Sources */,
+				BD6740ED274FA43200866E67 /* ListsPresenter.swift in Sources */,
 				419A86CE2747D77900FEA99B /* DetailSpaceVC.swift in Sources */,
 				BDD3F9D72722FD2A00B2AF7F /* AppDelegate.swift in Sources */,
 				419A86D92747EB8600FEA99B /* DescSpaceInteractor.swift in Sources */,
@@ -805,12 +869,14 @@
 				BD474FA327240E15005BF154 /* ProfileVC.swift in Sources */,
 				41E6E10B27423C8900527CAA /* ProfileVCEmptyState.swift in Sources */,
 				BD474FA927240E4E005BF154 /* ProfilePresenter.swift in Sources */,
+				BD6740D8274F802E00866E67 /* FriendsDebtTableViewCell.swift in Sources */,
 				4115381527425C2F00154DB1 /* CreateSpaceVC.swift in Sources */,
 				419A86D62747EB8600FEA99B /* DescSpacePresenter.swift in Sources */,
 				413213B22743ACDE00F5BD9C /* JoinSpaceRouter.swift in Sources */,
 				BDD3FA03272349FF00B2AF7F /* TabBarRouter.swift in Sources */,
 				BD3EB3732747820F00273B0C /* Extension + UIView.swift in Sources */,
 				BD2675D3273D5F2C004F7856 /* RemindMeAtPresenter.swift in Sources */,
+				BD6740F0274FA43200866E67 /* ListsInteractor.swift in Sources */,
 				419A86E32747F02C00FEA99B /* ShowQRPresenter.swift in Sources */,
 				413213B52743ACDE00F5BD9C /* JoinSpaceProtocol.swift in Sources */,
 				419A86E52747F02C00FEA99B /* ShowQRModels.swift in Sources */,
@@ -820,6 +886,7 @@
 				419A86CA2747D77900FEA99B /* DetailSpaceRouter.swift in Sources */,
 				419A86DA2747EB8600FEA99B /* DescSpaceProtocol.swift in Sources */,
 				BD84242927295A1A00B922DC /* Button.swift in Sources */,
+				BD6740EF274FA43200866E67 /* ListsModels.swift in Sources */,
 				BD3AA15D274354D00068AAEA /* Extension + UIViewController.swift in Sources */,
 				BD6EA537274A3FFB00EF89B5 /* FriendsDebtModels.swift in Sources */,
 				BD84242F2729629A00B922DC /* SignInPresenter.swift in Sources */,
@@ -835,6 +902,7 @@
 				BD2675C5273D023F004F7856 /* EasyScrollView.swift in Sources */,
 				BD84244A2729BB9F00B922DC /* Strings+Generated.swift in Sources */,
 				4184C5D9273DA05000F81BAD /* OnBoardingPresenter.swift in Sources */,
+				BD6740F1274FA43200866E67 /* ListsProtocol.swift in Sources */,
 				419A86E72747F02C00FEA99B /* ShowQRProtocol.swift in Sources */,
 				419A86D82747EB8600FEA99B /* DescSpaceModels.swift in Sources */,
 				419A86DB2747EB8600FEA99B /* DescSpaceVC.swift in Sources */,

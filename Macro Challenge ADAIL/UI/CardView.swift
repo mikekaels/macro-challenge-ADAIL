@@ -7,9 +7,15 @@
 
 import UIKit
 
+enum CardState {
+    case upcomingBills
+    case friendsDebt
+}
+
 class CardView: UIView {
     
     var cellTo: UIViewController?
+    var card: CardState
     
     let upcomingDesc: UILabel = UILabel()
         .configure { v in
@@ -31,7 +37,7 @@ class CardView: UIView {
     
     let createExpanseButton: UIButton = UIButton()
         .configure { v in
-            v.setTitle("Create expanses", for: .normal)
+            
             v.titleLabel?.font = UIFont.systemFont(ofSize: 12, weight: .bold)
             v.backgroundColor = .systemBlue
             v.layer.cornerRadius = 10
@@ -43,7 +49,8 @@ class CardView: UIView {
     let tableView: UITableView = UITableView()
         .configure { t in
             t.backgroundColor = .clear
-            t.register(CardViewTableViewCell.self, forCellReuseIdentifier: "CardViewCell")
+            t.register(CardViewTableViewCell.self, forCellReuseIdentifier: "UpcomingBillsCell")
+            t.register(FriendsDebtTableViewCell.self, forCellReuseIdentifier: "FriendsDebtCell")
             t.isScrollEnabled = false
 //            t.allowsSelection = false
             t.separatorStyle = .none
@@ -52,16 +59,34 @@ class CardView: UIView {
     
     let button: UIButton = UIButton()
         .configure { v in
-            v.setTitle("See More", for: .normal)
+            v.setTitle("See All", for: .normal)
             v.titleLabel?.font = .systemFont(ofSize: 14, weight: .bold)
             v.setTitleColor(.systemBlue, for: .normal)
             v.translatesAutoresizingMaskIntoConstraints = false
+            
+            v.addTarget(self, action: #selector(seeAllPressed), for: .touchUpInside)
         }
     
-    init(to cellTo: UIViewController) {
+    init(to cellTo: UIViewController, for card: CardState) {
         self.cellTo = cellTo
+        self.card = card
         super.init(frame: .zero)
         setupView()
+        
+        
+        
+        switch card {
+        case .upcomingBills:
+            createExpanseButton.setTitle("Create expanses", for: .normal)
+            createExpanseButton.addTarget(self, action: #selector(mainButtonPressed), for: .touchUpInside)
+            
+        case .friendsDebt:
+            createExpanseButton.setTitle("Add friend's debt", for: .normal)
+            createExpanseButton.addTarget(self, action: #selector(mainButtonPressed), for: .touchUpInside)
+        default:
+            break
+        }
+        
     }
     
     required init?(coder: NSCoder) {
@@ -92,6 +117,8 @@ class CardView: UIView {
             s.translatesAutoresizingMaskIntoConstraints = false
         })
         
+        
+        
         addSubview(stackViewww)
         stackViewww.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
         stackViewww.topAnchor.constraint(equalTo: topAnchor, constant: 10).isActive = true
@@ -105,8 +132,42 @@ class CardView: UIView {
         tableView.bottomAnchor.constraint(equalTo: button.topAnchor, constant: 10).isActive = true
         
         
-        button.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -5).isActive = true
+        button.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10).isActive = true
         button.rightAnchor.constraint(equalTo: rightAnchor, constant: -25).isActive = true
+    }
+    
+    @objc func mainButtonPressed() {
+        switch card {
+        case .upcomingBills:
+            let vc = ExpansesRouter().createModule()
+            vc.title = "Create Repeat bills"
+            parentViewController?.navigationController?.pushViewController(vc, animated: true)
+            
+        case .friendsDebt:
+            let vc = AddDebtRouter().createModule()
+            vc.title = "Add Friend's Debt"
+            parentViewController?.navigationController?.pushViewController(vc, animated: true)
+        default:
+            break
+        }
+    }
+    
+    @objc func seeAllPressed() {
+        switch card {
+        case .upcomingBills:
+            let vc = ListsRouter().createModule()
+            vc.title = "Upcoming bills List"
+            vc.state = "UpcomingBills"
+            parentViewController?.navigationController?.pushViewController(vc, animated: true)
+            
+        case .friendsDebt:
+            let vc = ListsRouter().createModule()
+            vc.title = "Friends Debt List"
+            vc.state = "FriendsDebt"
+            parentViewController?.navigationController?.pushViewController(vc, animated: true)
+        default:
+            break
+        }
     }
 }
 
@@ -116,12 +177,22 @@ extension CardView: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "CardViewCell", for: indexPath) as! CardViewTableViewCell
-        cell.textLabel?.text = "CardView Cell \(indexPath.row)"
-        cell.backgroundColor = .clear
-        cell.selectionStyle = .none
-        cell.parent = HomeVC()
-        return cell
+        if card == .upcomingBills {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "UpcomingBillsCell", for: indexPath) as! CardViewTableViewCell
+            cell.textLabel?.text = "CardView Cell \(indexPath.row)"
+            cell.backgroundColor = .clear
+            cell.selectionStyle = .none
+            cell.parent = HomeVC()
+            return cell
+        } else if card == .friendsDebt {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "FriendsDebtCell", for: indexPath) as! FriendsDebtTableViewCell
+            cell.backgroundColor = .clear
+            cell.selectionStyle = .none
+            cell.parent = HomeVC()
+            return cell
+        } else {
+            return UITableViewCell()
+        }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

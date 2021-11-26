@@ -104,19 +104,20 @@ class HomeVC: UIViewController {
             v.translatesAutoresizingMaskIntoConstraints = false
         }
     
-    let upcomingCardView: CardView = CardView(to: ExpansesRouter().createModule())
+    let upcomingCardView: CardView = CardView(to: ExpansesRouter().createModule(), for: .upcomingBills)
         .configure { v in
             v.image.image = Asset.Images.cards1.image
         }
     
-    let friendsOweCardView: CardView = CardView(to: FriendsDebtRouter().createModule())
+    let friendsOweCardView: CardView = CardView(to: FriendsDebtRouter().createModule(), for: .friendsDebt)
         .configure { v in
             v.image.image = Asset.Images.cards2.image
         }
 
-    let myOweCardView: CardView = CardView(to: FriendsDebtRouter().createModule())
+    let myOweCardView: CardView = CardView(to: FriendsDebtRouter().createModule(), for: .friendsDebt)
         .configure { v in
             v.image.image = Asset.Images.cards3.image
+            v.createExpanseButton.isHidden = true
         }
     
     override func viewDidLoad() {
