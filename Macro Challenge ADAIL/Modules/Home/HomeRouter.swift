@@ -9,6 +9,7 @@ import UIKit
 
 class HomeRouter: HomePresenterToRouterProtocol {
     
+    
     public static let shared = HomeRouter()
     
     public func initialize() -> HomeVC {

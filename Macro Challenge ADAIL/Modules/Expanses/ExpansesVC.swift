@@ -168,7 +168,6 @@ class ExpansesVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Expanse details"
         self.scrollView.setupScrollView(in: self.view)
 
         scrollView.stack.configure { v in
@@ -227,15 +226,13 @@ class ExpansesVC: UIViewController {
                 s.translatesAutoresizingMaskIntoConstraints = false
             }))
             
-            v.addArrangedSubview(imageInputView.configure(completion: { v in
-                v.backgroundColor = .white
-                v.widthAnchor.constraint(equalToConstant: 50).isActive = true
-//                v.heightAnchor.constraint(equalToConstant: 70).isActive = true
-                
-                v.addSubview(imageButton)
-                imageButton.centerXAnchor.constraint(equalTo: v.centerXAnchor).isActive = true
-                imageButton.centerYAnchor.constraint(equalTo: v.centerYAnchor).isActive = true
-            }))
+//            v.addArrangedSubview(imageInputView.configure(completion: { v in
+//                v.backgroundColor = .white
+//                v.widthAnchor.constraint(equalToConstant: 50).isActive = true
+//                v.addSubview(imageButton)
+//                imageButton.centerXAnchor.constraint(equalTo: v.centerXAnchor).isActive = true
+//                imageButton.centerYAnchor.constraint(equalTo: v.centerYAnchor).isActive = true
+//            }))
         }
         
         scrollView.layoutSetting.widthMultiplier = 0.85
@@ -295,6 +292,16 @@ class ExpansesVC: UIViewController {
                 b.translatesAutoresizingMaskIntoConstraints = false
                 b.widthAnchor.constraint(equalToConstant: 50).isActive = true
             }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.navigationBar.prefersLargeTitles = false
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Save", style: .plain, target: self, action: #selector(saveTapped))
+    }
+    
+    @objc func saveTapped() {
+        print("ouchh")
     }
     
     @objc func iconButtonTapped() {

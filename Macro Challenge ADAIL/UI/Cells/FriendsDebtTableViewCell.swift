@@ -1,14 +1,14 @@
 //
-//  CardViewTableViewCell.swift
+//  FriendsDebtTableViewCell.swift
 //  Macro Challenge ADAIL
 //
-//  Created by Santo Michael Sihombing on 17/11/21.
+//  Created by Santo Michael Sihombing on 25/11/21.
 //
 
 import UIKit
 
-class CardViewTableViewCell: UITableViewCell {
-    
+class FriendsDebtTableViewCell: UITableViewCell {
+
     var parent: UIViewController?
     
     let background: UIView = UIView()
@@ -40,7 +40,7 @@ class CardViewTableViewCell: UITableViewCell {
     
     let itemLabel: UILabel = UILabel()
         .configure { v in
-            v.text = "Sewa Kontrakan"
+            v.text = "Mike Sihombing"
             v.font = UIFont.systemFont(ofSize: 14, weight: .light)
             v.textAlignment = .left
             v.textColor = .label
@@ -58,15 +58,15 @@ class CardViewTableViewCell: UITableViewCell {
             v.translatesAutoresizingMaskIntoConstraints = false
         }
     
-    let timeLabel: UILabel = UILabel()
-        .configure { v in
-            v.text = "14.30"
-            v.font = UIFont.systemFont(ofSize: 11, weight: .light)
-            v.textAlignment = .right
-            v.textColor = .label
-            v.numberOfLines = 0
-            v.translatesAutoresizingMaskIntoConstraints = false
-        }
+//    let timeLabel: UILabel = UILabel()
+//        .configure { v in
+//            v.text = "14.30"
+//            v.font = UIFont.systemFont(ofSize: 11, weight: .light)
+//            v.textAlignment = .right
+//            v.textColor = .label
+//            v.numberOfLines = 0
+//            v.translatesAutoresizingMaskIntoConstraints = false
+//        }
     
     let priceLabel: UILabel = UILabel()
         .configure { v in
@@ -103,16 +103,12 @@ class CardViewTableViewCell: UITableViewCell {
         
         background.addSubview(itemLabel)
         itemLabel.leadingAnchor.constraint(equalTo: imageWrapper.trailingAnchor, constant: 15).isActive = true
-        itemLabel.topAnchor.constraint(equalTo: background.topAnchor, constant: 6).isActive = true
+        itemLabel.centerYAnchor.constraint(equalTo: background.centerYAnchor).isActive = true
         
-        background.addSubview(dateLabel)
-        dateLabel.leadingAnchor.constraint(equalTo: imageWrapper.trailingAnchor, constant: 15).isActive = true
-        dateLabel.bottomAnchor.constraint(equalTo: background.bottomAnchor, constant: -6).isActive = true
-        
-//        background.addSubview(timeLabel)
-//        timeLabel.trailingAnchor.constraint(equalTo: background.trailingAnchor, constant: -15).isActive = true
-//        timeLabel.topAnchor.constraint(equalTo: background.topAnchor, constant: 6).isActive = true
-    
+//        background.addSubview(dateLabel)
+//        dateLabel.leadingAnchor.constraint(equalTo: imageWrapper.trailingAnchor, constant: 15).isActive = true
+//        dateLabel.bottomAnchor.constraint(equalTo: background.bottomAnchor, constant: -6).isActive = true
+//
         background.addSubview(priceLabel)
         priceLabel.trailingAnchor.constraint(equalTo: background.trailingAnchor, constant: -15).isActive = true
 //        priceLabel.bottomAnchor.constraint(equalTo: background.bottomAnchor, constant: -6).isActive = true
