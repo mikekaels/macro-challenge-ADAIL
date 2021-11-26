@@ -31,4 +31,10 @@ class HomeRouter: HomePresenterToRouterProtocol {
         
         return view
     }
+    
+    func goToAccount(from: HomeVC) {
+        let vc = AccountRouter().createModule()
+        let nav = UINavigationController(rootViewController: vc)
+        from.present(nav, animated: true, completion: nil)
+    }
 }

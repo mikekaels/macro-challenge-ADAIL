@@ -177,7 +177,7 @@ class HomeVC: UIViewController {
     
     
     @objc func profileTapped() {
-        
+        presentor?.goToAccount(from: self)
     }
 }
 

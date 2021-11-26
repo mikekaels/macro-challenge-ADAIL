@@ -129,6 +129,13 @@
 		BDD3FA012723489900B2AF7F /* TabBarProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD3FA002723489900B2AF7F /* TabBarProtocol.swift */; };
 		BDD3FA03272349FF00B2AF7F /* TabBarRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD3FA02272349FF00B2AF7F /* TabBarRouter.swift */; };
 		BDD3FA0527234A7400B2AF7F /* TapBarPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD3FA0427234A7400B2AF7F /* TapBarPresenter.swift */; };
+		BDF18C362750B9BE00B5263A /* AccountPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF18C302750B9BE00B5263A /* AccountPresenter.swift */; };
+		BDF18C372750B9BE00B5263A /* AccountRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF18C312750B9BE00B5263A /* AccountRouter.swift */; };
+		BDF18C382750B9BE00B5263A /* AccountModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF18C322750B9BE00B5263A /* AccountModels.swift */; };
+		BDF18C392750B9BE00B5263A /* AccountInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF18C332750B9BE00B5263A /* AccountInteractor.swift */; };
+		BDF18C3A2750B9BE00B5263A /* AccountProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF18C342750B9BE00B5263A /* AccountProtocol.swift */; };
+		BDF18C3B2750B9BE00B5263A /* AccountVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF18C352750B9BE00B5263A /* AccountVC.swift */; };
+		BDF18C3F2750DB3900B5263A /* TextFieldTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF18C3E2750DB3900B5263A /* TextFieldTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -258,6 +265,13 @@
 		BDD3FA002723489900B2AF7F /* TabBarProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarProtocol.swift; sourceTree = "<group>"; };
 		BDD3FA02272349FF00B2AF7F /* TabBarRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarRouter.swift; sourceTree = "<group>"; };
 		BDD3FA0427234A7400B2AF7F /* TapBarPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapBarPresenter.swift; sourceTree = "<group>"; };
+		BDF18C302750B9BE00B5263A /* AccountPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountPresenter.swift; sourceTree = "<group>"; };
+		BDF18C312750B9BE00B5263A /* AccountRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountRouter.swift; sourceTree = "<group>"; };
+		BDF18C322750B9BE00B5263A /* AccountModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountModels.swift; sourceTree = "<group>"; };
+		BDF18C332750B9BE00B5263A /* AccountInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountInteractor.swift; sourceTree = "<group>"; };
+		BDF18C342750B9BE00B5263A /* AccountProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountProtocol.swift; sourceTree = "<group>"; };
+		BDF18C352750B9BE00B5263A /* AccountVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountVC.swift; sourceTree = "<group>"; };
+		BDF18C3E2750DB3900B5263A /* TextFieldTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldTableViewCell.swift; sourceTree = "<group>"; };
 		C7350901D25C087E18E3573F /* Pods-Macro Challenge ADAIL.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Macro Challenge ADAIL.release.xcconfig"; path = "Target Support Files/Pods-Macro Challenge ADAIL/Pods-Macro Challenge ADAIL.release.xcconfig"; sourceTree = "<group>"; };
 		EFEE89E27E48416436B2195A /* Pods-Macro Challenge ADAIL.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Macro Challenge ADAIL.debug.xcconfig"; path = "Target Support Files/Pods-Macro Challenge ADAIL/Pods-Macro Challenge ADAIL.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -456,6 +470,7 @@
 				BD4D65772745127E00EAD0EC /* CardViewTableViewCell.swift */,
 				BD41E72F274B38B9001EA88F /* IconCollectionViewCell.swift */,
 				BD6740D7274F802E00866E67 /* FriendsDebtTableViewCell.swift */,
+				BDF18C3E2750DB3900B5263A /* TextFieldTableViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -628,6 +643,7 @@
 		BDD3F9EA2723027600B2AF7F /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				BDF18C2F2750B9AC00B5263A /* Account */,
 				BD6740F327500B3F00866E67 /* AddDebt */,
 				BD6740E6274FA42000866E67 /* Lists */,
 				BD41E722274B30FB001EA88F /* Icons */,
@@ -670,6 +686,19 @@
 				BD474FAF27240FDC005BF154 /* TabBarVC.swift */,
 			);
 			path = TapBar;
+			sourceTree = "<group>";
+		};
+		BDF18C2F2750B9AC00B5263A /* Account */ = {
+			isa = PBXGroup;
+			children = (
+				BDF18C302750B9BE00B5263A /* AccountPresenter.swift */,
+				BDF18C312750B9BE00B5263A /* AccountRouter.swift */,
+				BDF18C322750B9BE00B5263A /* AccountModels.swift */,
+				BDF18C332750B9BE00B5263A /* AccountInteractor.swift */,
+				BDF18C342750B9BE00B5263A /* AccountProtocol.swift */,
+				BDF18C352750B9BE00B5263A /* AccountVC.swift */,
+			);
+			path = Account;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -804,6 +833,7 @@
 				4184C5D7273DA04000F81BAD /* OnBoardingRouter.swift in Sources */,
 				BDD3F9F92723034B00B2AF7F /* HomeVC.swift in Sources */,
 				BD6740EE274FA43200866E67 /* ListsRouter.swift in Sources */,
+				BDF18C372750B9BE00B5263A /* AccountRouter.swift in Sources */,
 				4115381227425C2F00154DB1 /* CreateSpaceModels.swift in Sources */,
 				4184C5D5273DA03200F81BAD /* OnBoardingProtocol.swift in Sources */,
 				BD474FAB27240E5D005BF154 /* ProfileInteractor.swift in Sources */,
@@ -839,6 +869,7 @@
 				BD6740FA27500B5600866E67 /* AddDebtPresenter.swift in Sources */,
 				BD6EA535274A3FFB00EF89B5 /* FriendsDebtProtocol.swift in Sources */,
 				4117519B2727C40A00C997E9 /* RecordInteractor.swift in Sources */,
+				BDF18C3F2750DB3900B5263A /* TextFieldTableViewCell.swift in Sources */,
 				BD2675D1273D5F1A004F7856 /* RemindMeAtRouter.swift in Sources */,
 				413213B42743ACDE00F5BD9C /* JoinSpaceInteractor.swift in Sources */,
 				4115381327425C2F00154DB1 /* CreateSpaceInteractor.swift in Sources */,
@@ -860,6 +891,8 @@
 				BD474FA527240E2E005BF154 /* ProfileRouter.swift in Sources */,
 				BD41E72D274B3123001EA88F /* IconsProtocol.swift in Sources */,
 				4115381027425C2F00154DB1 /* CreateSpacePresenter.swift in Sources */,
+				BDF18C382750B9BE00B5263A /* AccountModels.swift in Sources */,
+				BDF18C3A2750B9BE00B5263A /* AccountProtocol.swift in Sources */,
 				BDD3F9F3272302DD00B2AF7F /* HomePresenter.swift in Sources */,
 				4197A22A273FF3A200FBFBB6 /* Core.swift in Sources */,
 				419A86CC2747D77900FEA99B /* DetailSpaceInteractor.swift in Sources */,
@@ -879,12 +912,15 @@
 				BD6740F0274FA43200866E67 /* ListsInteractor.swift in Sources */,
 				419A86E32747F02C00FEA99B /* ShowQRPresenter.swift in Sources */,
 				413213B52743ACDE00F5BD9C /* JoinSpaceProtocol.swift in Sources */,
+				BDF18C3B2750B9BE00B5263A /* AccountVC.swift in Sources */,
 				419A86E52747F02C00FEA99B /* ShowQRModels.swift in Sources */,
 				411751A12727C43500C997E9 /* RecordRouter.swift in Sources */,
 				BD84243327296D3900B922DC /* SignUpVC.swift in Sources */,
 				4115381127425C2F00154DB1 /* CreateSpaceRouter.swift in Sources */,
 				419A86CA2747D77900FEA99B /* DetailSpaceRouter.swift in Sources */,
+				BDF18C362750B9BE00B5263A /* AccountPresenter.swift in Sources */,
 				419A86DA2747EB8600FEA99B /* DescSpaceProtocol.swift in Sources */,
+				BDF18C392750B9BE00B5263A /* AccountInteractor.swift in Sources */,
 				BD84242927295A1A00B922DC /* Button.swift in Sources */,
 				BD6740EF274FA43200866E67 /* ListsModels.swift in Sources */,
 				BD3AA15D274354D00068AAEA /* Extension + UIViewController.swift in Sources */,
