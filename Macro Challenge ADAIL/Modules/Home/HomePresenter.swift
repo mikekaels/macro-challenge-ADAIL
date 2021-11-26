@@ -16,6 +16,10 @@ class HomePresenter: HomeViewToPresenterProtocol {
     var interactor: HomePresenterToInteractorProtocol?
     
     var router: HomePresenterToRouterProtocol?
+    
+    func goToAccount(from: HomeVC) {
+        router?.goToAccount(from: from)
+    }
 }
 
 extension HomePresenter: HomeInteractorToPresenterProtocol {
