@@ -10,12 +10,31 @@ import Foundation
 protocol OnBoardingViewToPresenterProtocol: AnyObject {
     var view: OnBoardingPresenterToViewProtocol? { get set }
     var router: OnBoardingPresenterToRouterProtocol? { get set }
+    var interactor: OnBoardingPresenterToInteractorProtocol? { get set }
+    
+    func saveUser(id: String, name: String, email: String)
+    func fetchUser(id: String)
+    
+    func goToDashboard(from: OnBoardingVC)
 }
 
 protocol OnBoardingPresenterToViewProtocol: AnyObject {
-    
+    func didSaveUser(user: User)
+    func didFetchUser(user: User)
 }
 
 protocol OnBoardingPresenterToRouterProtocol: AnyObject {
     func createModule() -> OnBoardingVC
+    func goToDashboard(from: OnBoardingVC)
+}
+
+protocol OnBoardingPresenterToInteractorProtocol: AnyObject {
+    var presenter: OnBoardingInteractorToPresenterProtocol? { get set }
+    func saveUser(id: String, name: String, email: String)
+    func fetchUser(id: String)
+}
+
+protocol OnBoardingInteractorToPresenterProtocol: AnyObject {
+    func didSaveUser(user: User)
+    func didFetchUser(user: User)
 }

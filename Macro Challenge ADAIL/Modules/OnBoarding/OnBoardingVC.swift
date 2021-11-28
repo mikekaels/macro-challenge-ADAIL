@@ -158,6 +158,16 @@ class OnBoardingVC: UIViewController {
 }
 
 extension OnBoardingVC: OnBoardingPresenterToViewProtocol {
+    func didFetchUser(user: User) {
+        Core.shared.signIn(id: user.id, name: user.name, email: user.email)
+        presentor?.goToDashboard(from: self)
+    }
+    
+    func didSaveUser(user: User) {
+        Core.shared.signIn(id: user.id, name: user.name, email: user.email)
+        presentor?.goToDashboard(from: self)
+    }
+    
 }
 
 extension OnBoardingVC: UICollectionViewDataSource, UICollectionViewDelegate {
@@ -209,55 +219,53 @@ extension OnBoardingVC: ASAuthorizationControllerDelegate {
             }
             
             let user = credentials.user
-            print(user)
-            
-            fetchUser(user: user, name: nameUser, email: emailUser)
-            DispatchQueue.main.asyncAfter(deadline: .now()+2) {
-                self.newScene()
+            if emailUser == "" {
+                presentor?.fetchUser(id: user)
+            } else {
+                presentor?.saveUser(id: user, name: nameUser, email: emailUser)
             }
-            
             break
         default:
             break
         }
     }
     
-    func fetchUser(user: String, name: String, email: String){
-        userId = CKRecord.ID(recordName: user)
-        database.fetch(withRecordID: userId!, completionHandler: { record, error in
-            if let record = record {
-                print("Record with ID \(record.recordID.recordName) was fetched.")
-                if let name = record["name"] as? String {
-                    Core.shared.signIn(user: record.recordID.recordName, name: name, email: record["email"] as! String)
-                    print("user: \(record.recordID.recordName), name: \(name), email: \(record["email"] as! String)")
-                }
-            } else {
-                print("error \(self.userId!)")
-                self.saveUser(name: name, email: email, user: user)
-            }
-        })
-    }
-                  
-    func saveUser(name: String, email: String, user: String) {
-        userId = CKRecord.ID(recordName: user)
-        let userRecord = CKRecord(recordType: "UserType", recordID: userId!)
-        userRecord["name"] = name
-        userRecord["email"] = email
-
-        let saveOperation = CKModifyRecordsOperation(recordsToSave: [userRecord])
-        saveOperation.savePolicy = .allKeys
-
-        saveOperation.perRecordCompletionBlock = { record, error in
-            print("Record with ID \(record.recordID.recordName) was saved.")
-
-            if let error = error {
-                self.reportError(error)
-            }
-            self.fetchUser(user: user, name: name, email: email)
-        }
-        
-        database.add(saveOperation)
-    }
+//    func fetchUser(user: String, name: String, email: String){
+//        userId = CKRecord.ID(recordName: user)
+//        database.fetch(withRecordID: userId!, completionHandler: { record, error in
+//            if let record = record {
+//                print("Record with ID \(record.recordID.recordName) was fetched.")
+//                if let name = record["name"] as? String {
+//                    Core.shared.signIn(user: record.recordID.recordName, name: name, email: record["email"] as! String)
+//                    print("user: \(record.recordID.recordName), name: \(name), email: \(record["email"] as! String)")
+//                }
+//            } else {
+//                print("error \(self.userId!)")
+//                self.saveUser(name: name, email: email, user: user)
+//            }
+//        })
+//    }
+//
+//    func saveUser(name: String, email: String, user: String) {
+//        userId = CKRecord.ID(recordName: user)
+//        let userRecord = CKRecord(recordType: "UserType", recordID: userId!)
+//        userRecord["name"] = name
+//        userRecord["email"] = email
+//
+//        let saveOperation = CKModifyRecordsOperation(recordsToSave: [userRecord])
+//        saveOperation.savePolicy = .allKeys
+//
+//        saveOperation.perRecordCompletionBlock = { record, error in
+//            print("Record with ID \(record.recordID.recordName) was saved.")
+//
+//            if let error = error {
+//                self.reportError(error)
+//            }
+//            self.fetchUser(user: user, name: name, email: email)
+//        }
+//
+//        database.add(saveOperation)
+//    }
     
     
     private func reportError(_ error: Error) {

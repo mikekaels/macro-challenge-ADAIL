@@ -13,6 +13,8 @@ protocol AccountViewToPresenterProtocol: AnyObject {
     var view: AccountPresenterToViewProtocol? { get set }
     var interactor: AccountPresenterToInteractorProtocol? { get set }
     var router: AccountPresenterToRouterProtocol? { get set }
+    
+    func fetchUser()
 }
 
 protocol AccountPresenterToRouterProtocol: AnyObject {
@@ -20,14 +22,14 @@ protocol AccountPresenterToRouterProtocol: AnyObject {
 }
 
 protocol AccountPresenterToViewProtocol: AnyObject {
-
+    func didFetchUser(user: User)
 }
 
 protocol AccountInteractorToPresenterProtocol: AnyObject {
-
+    func didFetchUser(user: User)
 }
 
 protocol AccountPresenterToInteractorProtocol: AnyObject {
     var presenter: AccountInteractorToPresenterProtocol? { get set }
-
+    func fetchUser()
 }

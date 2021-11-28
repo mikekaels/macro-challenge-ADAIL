@@ -67,6 +67,8 @@
 		BD2675CF273D5F06004F7856 /* RemindMeAtProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2675CE273D5F06004F7856 /* RemindMeAtProtocol.swift */; };
 		BD2675D1273D5F1A004F7856 /* RemindMeAtRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2675D0273D5F1A004F7856 /* RemindMeAtRouter.swift */; };
 		BD2675D3273D5F2C004F7856 /* RemindMeAtPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2675D2273D5F2C004F7856 /* RemindMeAtPresenter.swift */; };
+		BD307C422753960600E1725D /* OnBoardingInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD307C412753960600E1725D /* OnBoardingInteractor.swift */; };
+		BD307C442753D32900E1725D /* CloudKitHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD307C432753D32900E1725D /* CloudKitHelper.swift */; };
 		BD3AA15D274354D00068AAEA /* Extension + UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3AA15C274354D00068AAEA /* Extension + UIViewController.swift */; };
 		BD3EB3732747820F00273B0C /* Extension + UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3EB3722747820F00273B0C /* Extension + UIView.swift */; };
 		BD41E729274B3123001EA88F /* IconsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD41E723274B3123001EA88F /* IconsPresenter.swift */; };
@@ -199,6 +201,8 @@
 		BD2675CE273D5F06004F7856 /* RemindMeAtProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindMeAtProtocol.swift; sourceTree = "<group>"; };
 		BD2675D0273D5F1A004F7856 /* RemindMeAtRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindMeAtRouter.swift; sourceTree = "<group>"; };
 		BD2675D2273D5F2C004F7856 /* RemindMeAtPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindMeAtPresenter.swift; sourceTree = "<group>"; };
+		BD307C412753960600E1725D /* OnBoardingInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingInteractor.swift; sourceTree = "<group>"; };
+		BD307C432753D32900E1725D /* CloudKitHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKitHelper.swift; sourceTree = "<group>"; };
 		BD3AA15C274354D00068AAEA /* Extension + UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + UIViewController.swift"; sourceTree = "<group>"; };
 		BD3EB3722747820F00273B0C /* Extension + UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + UIView.swift"; sourceTree = "<group>"; };
 		BD41E723274B3123001EA88F /* IconsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconsPresenter.swift; sourceTree = "<group>"; };
@@ -319,6 +323,7 @@
 			isa = PBXGroup;
 			children = (
 				4197A229273FF3A200FBFBB6 /* Core.swift */,
+				BD307C432753D32900E1725D /* CloudKitHelper.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -377,6 +382,7 @@
 				4184C5D4273DA03200F81BAD /* OnBoardingProtocol.swift */,
 				4184C5D6273DA04000F81BAD /* OnBoardingRouter.swift */,
 				4184C5D8273DA05000F81BAD /* OnBoardingPresenter.swift */,
+				BD307C412753960600E1725D /* OnBoardingInteractor.swift */,
 				4184C5D2273D9FF700F81BAD /* OnBoardingVC.swift */,
 				411537F827424B3400154DB1 /* Views */,
 			);
@@ -847,6 +853,7 @@
 				413213B32743ACDE00F5BD9C /* JoinSpaceModels.swift in Sources */,
 				BD2675AE273CC09B004F7856 /* RecordsTableViewCell.swift in Sources */,
 				419A86D72747EB8600FEA99B /* DescSpaceRouter.swift in Sources */,
+				BD307C442753D32900E1725D /* CloudKitHelper.swift in Sources */,
 				BD2675BD273CFFA8004F7856 /* ExpansesPresenter.swift in Sources */,
 				BD84243527296D4A00B922DC /* SignUpProtocol.swift in Sources */,
 				4117519D2727C41200C997E9 /* RecordPresenter.swift in Sources */,
@@ -926,6 +933,7 @@
 				BD3AA15D274354D00068AAEA /* Extension + UIViewController.swift in Sources */,
 				BD6EA537274A3FFB00EF89B5 /* FriendsDebtModels.swift in Sources */,
 				BD84242F2729629A00B922DC /* SignInPresenter.swift in Sources */,
+				BD307C422753960600E1725D /* OnBoardingInteractor.swift in Sources */,
 				419A86C92747D77900FEA99B /* DetailSpacePresenter.swift in Sources */,
 				BDD3F9F1272302CE00B2AF7F /* HomeInteractor.swift in Sources */,
 				BDD3FA0527234A7400B2AF7F /* TapBarPresenter.swift in Sources */,
@@ -1095,7 +1103,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Macro Challenge ADAIL/Macro Challenge ADAIL.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = VXCW9GZNN5;
+				DEVELOPMENT_TEAM = RMQNS23DVX;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Macro Challenge ADAIL/Info.plist";
 				INFOPLIST_KEY_NSCameraUsageDescription = "We need ur camera";
@@ -1108,7 +1116,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.zalifer.Macro-Challenge-ADAIL";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.cofi.Macro-Challenge-ADAIL";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -1125,7 +1133,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Macro Challenge ADAIL/Macro Challenge ADAIL.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = VXCW9GZNN5;
+				DEVELOPMENT_TEAM = RMQNS23DVX;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Macro Challenge ADAIL/Info.plist";
 				INFOPLIST_KEY_NSCameraUsageDescription = "We need ur camera";
@@ -1138,7 +1146,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.zalifer.Macro-Challenge-ADAIL";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.cofi.Macro-Challenge-ADAIL";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

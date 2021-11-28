@@ -10,23 +10,20 @@ import Foundation
 class Core {
     static let shared = Core()
     
-    func isSignIn() -> Bool {
-        return UserDefaults.standard.bool(forKey: "isSignIn")
+    func getID() -> String {
+        guard let id = UserDefaults.standard.string(forKey: "id") else { return "" }
+        return id
     }
     
-    func signIn(user: String, name: String, email: String) {
-        UserDefaults.standard.set(user, forKey: "userid")
+    func signIn(id: String, name: String, email: String) {
+        UserDefaults.standard.set(id, forKey: "id")
         UserDefaults.standard.set(name, forKey: "name")
         UserDefaults.standard.set(email, forKey: "email")
-        UserDefaults.standard.set(true, forKey: "isSignIn")
     }
     
     func signOut() {
-        UserDefaults.standard.set(false, forKey: "isSignIn")
         UserDefaults.standard.removeObject(forKey: "userid")
         UserDefaults.standard.removeObject(forKey: "name")
         UserDefaults.standard.removeObject(forKey: "email")
-
-
     }
 }
