@@ -13,6 +13,7 @@ class AccountVC: UIViewController {
     
     let accountFields = ["Name", "Email", "Phone"]
     let bankFields = ["Bank Name", "Acc Number"]
+    var user: User?
     
     let scrollView: UIScrollView = {
         let s = UIScrollView()
@@ -31,6 +32,7 @@ class AccountVC: UIViewController {
     
     let tableView: UITableView = UITableView(frame: CGRect.zero, style: .insetGrouped)
         .configure { v in
+            v.isScrollEnabled = false
             v.register(TextFieldTableViewCell.self, forCellReuseIdentifier: "TextfieldCell")
             v.translatesAutoresizingMaskIntoConstraints = false
         }
@@ -52,6 +54,7 @@ class AccountVC: UIViewController {
         
 //        setupScrollView()
         setupViews()
+        fetchUser()
         
         tableView.delegate = self
         tableView.dataSource = self
@@ -64,8 +67,11 @@ class AccountVC: UIViewController {
     }
     
     @objc func saveTapped() {
-        print("save")
         self.dismiss(animated: true, completion: nil)
+    }
+    
+    func fetchUser() {
+        presentor?.fetchUser()
     }
     
     func setupViews() {
@@ -102,7 +108,13 @@ class AccountVC: UIViewController {
 }
 
 extension AccountVC: AccountPresenterToViewProtocol {
-    
+    func didFetchUser(user: User) {
+        self.user = user
+        print("HERE: ",self.user)
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
+    }
 }
 
 extension AccountVC: UITableViewDelegate, UITableViewDataSource {
@@ -139,18 +151,32 @@ extension AccountVC: UITableViewDelegate, UITableViewDataSource {
         case 0:
             cell.label.text = accountFields[indexPath.row]
             switch indexPath.row {
+            case 0:
+                cell.textField.text = user?.name
             case 1:
                 cell.textField.keyboardType = .emailAddress
+                cell.textField.text = user?.email
             case 2:
                 cell.textField.keyboardType = .numberPad
+                if user?.phone != nil{
+                    cell.textField.text = String(user!.phone)
+                }
             default:
                 break
             }
         case 1:
             cell.label.text = bankFields[indexPath.row]
             switch indexPath.row {
+            case 0:
+                if user?.bankName != nil {
+                    cell.textField.text = String(user!.bankName)
+                }
             case 1:
                 cell.textField.keyboardType = .numberPad
+                
+                if user?.accountNumber != nil {
+                    cell.textField.text = String(user!.accountNumber)
+                }
             default:
                 break
             }

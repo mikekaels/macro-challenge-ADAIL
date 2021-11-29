@@ -7,5 +7,15 @@
 //
 
 class AccountInteractor: AccountPresenterToInteractorProtocol {
+    
     var presenter: AccountInteractorToPresenterProtocol?
+}
+
+extension AccountInteractor {
+    func fetchUser() {
+        let id = Core().getID()
+        CloudKitHelper.fetchOneUser(id: id) { user in
+            self.presenter?.didFetchUser(user: user)
+        }
+    }
 }
