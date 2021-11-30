@@ -14,8 +14,14 @@ class CreateSpacePresenter: CreateSpaceViewToPresenterProtocol {
     func goToProfile(from: CreateSpaceVC){
         
     }
+    
+    func saveGroup(name: String, address: String, description: String) {
+        interactor?.saveGroup(name: name, address: address, description: description)
+    }
 }
 
 extension CreateSpacePresenter: CreateSpaceInteractorToPresenterProtocol {
-
+    func didSaveGroup(group: Group){
+        view?.didFetchGroup(group: group)
+    }
 }

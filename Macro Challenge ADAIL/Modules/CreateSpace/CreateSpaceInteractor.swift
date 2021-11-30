@@ -9,3 +9,11 @@
 class CreateSpaceInteractor: CreateSpacePresenterToInteractorProtocol {
     var presenter: CreateSpaceInteractorToPresenterProtocol?
 }
+
+extension CreateSpaceInteractor {
+    func saveGroup(name: String, address: String, description: String) {
+        CloudKitHelper.createGroup(name: name, address: address, description: description, completion: { result in
+            self.presenter?.didSaveGroup(group: Group(id: result.id, name: name, address: address, description: description, users: result.users))
+        })
+    }
+}

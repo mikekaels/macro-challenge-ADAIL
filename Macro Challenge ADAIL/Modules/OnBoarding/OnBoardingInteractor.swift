@@ -24,6 +24,7 @@ extension OnBoardingInteractor {
     func fetchUser(id: String) {
         CloudKitHelper.fetchOneUser(id: id) { result in
             self.presenter?.didFetchUser(user: result)
+            
         }
     }
 }
