@@ -35,7 +35,7 @@ class OnBoardingRouter: OnBoardingPresenterToRouterProtocol {
     func goToDashboard(from: OnBoardingVC) {
         DispatchQueue.main.async {
             from.dismiss(animated: true) {
-                let vc = HomeRouter().createModule()
+                let vc = TabBarRouter().createModule()
                 let nav = UINavigationController(rootViewController: vc)
                 nav.modalPresentationStyle = .fullScreen
                 from.present(nav, animated: true, completion: nil)

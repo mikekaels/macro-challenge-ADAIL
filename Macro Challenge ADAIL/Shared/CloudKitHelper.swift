@@ -16,7 +16,7 @@ class CloudKitHelper {
     static func createUser(id: String, name: String, email: String, completion: @escaping (User) -> ()) {
         print("Creating User....")
         
-        let database = CKContainer(identifier: "iCloud.Marvelous.CoFi").publicCloudDatabase
+        let database = CKContainer(identifier: "iCloud.cofi-one").publicCloudDatabase
         let recordId = CKRecord.ID(recordName: id)
         let record = CKRecord(recordType: "User", recordID: recordId)
         
@@ -95,7 +95,7 @@ class CloudKitHelper {
     static func createGroup(name: String, address: String, description: String, completion: @escaping (Group) -> ()) {
         print("Creating Group....")
         
-        let database = CKContainer(identifier: "iCloud.Marvelous.CoFi").publicCloudDatabase
+        let database = CKContainer(identifier: "iCloud.cofi-one").publicCloudDatabase
         let record = CKRecord(recordType: "Group")
         
         let date = Calendar.current.dateComponents([.year,.month,.day], from: .now)
@@ -127,7 +127,7 @@ class CloudKitHelper {
     static func fetchGroup(id: String, completion: @escaping (Group) -> ()) {
         print("Fetching Group....")
         
-        let database = CKContainer(identifier: "iCloud.Marvelous.CoFi").publicCloudDatabase
+        let database = CKContainer(identifier: "iCloud.cofi-one").publicCloudDatabase
 
         let predicate = NSPredicate(value: true)
         
