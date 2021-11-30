@@ -160,12 +160,18 @@ class OnBoardingVC: UIViewController {
 extension OnBoardingVC: OnBoardingPresenterToViewProtocol {
     func didFetchUser(user: User) {
         Core.shared.signIn(id: user.id, name: user.name, email: user.email)
-        presentor?.goToDashboard(from: self)
+        DispatchQueue.main.async {
+            self.presentor?.goToDashboard(from: self)
+        }
+        
     }
     
     func didSaveUser(user: User) {
         Core.shared.signIn(id: user.id, name: user.name, email: user.email)
-        presentor?.goToDashboard(from: self)
+        DispatchQueue.main.async {
+            self.presentor?.goToDashboard(from: self)
+        }
+        
     }
     
 }

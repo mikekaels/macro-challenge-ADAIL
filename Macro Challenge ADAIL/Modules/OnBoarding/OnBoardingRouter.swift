@@ -33,14 +33,10 @@ class OnBoardingRouter: OnBoardingPresenterToRouterProtocol {
     }
     
     func goToDashboard(from: OnBoardingVC) {
-        DispatchQueue.main.async {
-            from.dismiss(animated: true) {
-                let vc = TabBarRouter().createModule()
-                let nav = UINavigationController(rootViewController: vc)
-                nav.modalPresentationStyle = .fullScreen
-                from.present(nav, animated: true, completion: nil)
-            }
-        }
+        let vc = TabBarRouter().createModule()
+        vc.modalPresentationStyle = .fullScreen
+        vc.modalTransitionStyle = .crossDissolve
+        from.present(vc, animated: true, completion: nil)
     }
 }
 
