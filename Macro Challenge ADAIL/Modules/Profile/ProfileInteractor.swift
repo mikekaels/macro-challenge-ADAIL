@@ -5,7 +5,7 @@
 //  Created by Santo Michael Sihombing on 23/10/21.
 //
 
-class ProfileInteractor: ProfilePresentertoInteractorProtocol {
+class ProfileInteractor: ProfilePresenterToInteractorProtocol {
     var presenter: ProfileInteractorToPresenterProtocol?
 }
 

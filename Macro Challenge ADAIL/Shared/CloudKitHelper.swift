@@ -20,7 +20,6 @@ class CloudKitHelper {
         let recordId = CKRecord.ID(recordName: id)
         let record = CKRecord(recordType: "User", recordID: recordId)
         
-//        record.setValue(id, forKey: "id")
         record.setValue(name, forKey: "name")
         record.setValue(email, forKey: "email")
         
@@ -85,7 +84,7 @@ class CloudKitHelper {
                 }
                 
                 completion(User(id: id, name: name, email: email, phone: phone , bankName: bankName, accountNumber: accountNumber, group: group))
-                Core.shared.signIn(id: id, name: name, email: email)
+//                Core.shared.signIn(id: id, name: name, email: email)
             }
         }
         
@@ -95,9 +94,6 @@ class CloudKitHelper {
     static func createGroup(name: String, address: String, description: String, completion: @escaping (Group) -> ()) {
         print("Creating Group....")
         
-        let database = CKContainer(identifier: "iCloud.cofi-one").publicCloudDatabase
-        let record = CKRecord(recordType: "Group")
-        
         let date = Calendar.current.dateComponents([.year,.month,.day], from: .now)
         let year = date.year!
         let month = date.month!
@@ -106,7 +102,10 @@ class CloudKitHelper {
         
         let user = Core.shared.getID()
         
-        record.setValue(id, forKey: "id")
+        let database = CKContainer(identifier: "iCloud.Marvelous.CoFi").publicCloudDatabase
+        let recordId = CKRecord.ID(recordName: id)
+        let record = CKRecord(recordType: "Group", recordID: recordId)
+        
         record.setValue(name, forKey: "name")
         record.setValue(address, forKey: "address")
         record.setValue(description, forKey: "description")
@@ -116,6 +115,7 @@ class CloudKitHelper {
             
             if error == nil {
                 completion(Group(id: id, name: name, address: address, description: description, users: [user]))
+                self.updateUserGroup(user: user, group: id)
                 
             } else {
                 print("ERROR: ",error)
@@ -135,13 +135,11 @@ class CloudKitHelper {
         
         let operation = CKQueryOperation(query: query)
         
-        operation.desiredKeys = ["id", "name", "address", "address", "description", "users"]
+        operation.desiredKeys = ["name", "address", "address", "description", "users"]
 
         operation.recordFetchedBlock = { record in
             DispatchQueue.main.async {
-                guard let id = record["id"] as? String else {
-                    return
-                }
+                let id = record.recordID.recordName
                 
                 guard let name = record["name"] as? String else {
                     return
@@ -159,13 +157,38 @@ class CloudKitHelper {
                 }
                 
                 completion(Group(id: id, name: name, address: address, description: description, users: users))
+                fetchListUsers(users: users)
+                
             }
         }
         database.add(operation)
     }
     
-    func updateUserGroup(id: String){
+    static func fetchListUsers(users: [String]){
+        var listUsers:[GroupUser] = []
+        for i in users {
+            fetchOneUser(id: i) { record in
+                listUsers.append(GroupUser(id: record.id, name: record.name))
+                print(listUsers)
+            }
+        }
+        DispatchQueue.main.asyncAfter(deadline: .now()+1, execute: {
+            UserDefaults.standard.set(try? PropertyListEncoder().encode(listUsers), forKey: "groupMembers")
+            
+        })
+    }
+    
+    static func updateUserGroup(user: String, group: String){
+        print("Update User Table....")
         
+        let database = CKContainer(identifier: "iCloud.Marvelous.CoFi").publicCloudDatabase
+        let recordId = CKRecord.ID(recordName: user)
+        let record = CKRecord(recordType: "User", recordID: recordId)
+        record.setValue(group, forKey: "group")
+        
+        let updateOperation = CKModifyRecordsOperation(recordsToSave: [record])
+        updateOperation.savePolicy = .allKeys
+        database.add(updateOperation)
     }
     
 }
@@ -187,4 +210,9 @@ struct Group {
     let address: String
     let description: String
     let users: [String]
+}
+
+struct GroupUser: Codable {
+    let id: String
+    let name: String
 }

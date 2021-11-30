@@ -15,15 +15,6 @@ class Core {
         return id
     }
     
-//    func getUserForGroup() -> [User] {
-//        var user = [User(id: "", name: "", email: "", phone: 0, bankName: "", accountNumber: 0)]
-//        guard let id = UserDefaults.standard.string(forKey: "id") else { return user }
-//        guard let name = UserDefaults.standard.string(forKey: "name") else { return user }
-//        guard let email = UserDefaults.standard.string(forKey: "email") else { return user }
-//        user = [User(id: id, name: name, email: email, phone: 0, bankName: "", accountNumber: 0)]
-//        return user
-//    }
-    
     func signIn(id: String, name: String, email: String) {
         UserDefaults.standard.set(id, forKey: "id")
         UserDefaults.standard.set(name, forKey: "name")
@@ -46,7 +37,7 @@ class Core {
         UserDefaults.standard.set(name, forKey: "groupName")
         UserDefaults.standard.set(address, forKey: "groupAddress")
         UserDefaults.standard.set(description, forKey: "groupDescription")
-        UserDefaults.standard.set(users, forKey: "groupMembers")
+        UserDefaults.standard.set(users, forKey: "userId")
     }
     
     func groupOut() {
@@ -54,6 +45,11 @@ class Core {
         UserDefaults.standard.removeObject(forKey: "groupName")
         UserDefaults.standard.removeObject(forKey: "groupAddress")
         UserDefaults.standard.removeObject(forKey: "groupDescription")
-        UserDefaults.standard.removeObject(forKey: "groupMembers")
+        UserDefaults.standard.removeObject(forKey: "userId")
     }
+    
+//    func addGroupMember(groupUser: GroupUser) {
+//        var listOfMembers = UserDefaults.standard.array(forKey: "groupMembers")
+//        listOfMembers?.append(groupUser)
+//    }
 }

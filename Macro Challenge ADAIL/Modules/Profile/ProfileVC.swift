@@ -16,8 +16,8 @@ class ProfileVC: UIViewController {
     private let signInButton = ASAuthorizationAppleIDButton()
     
     var group: Group?
+    var groupMember: [GroupUser]?
     
-    var members: [Member] = []
     private var memberCollectionView: UICollectionView?
     
     let emptyView: UIView = {
@@ -127,6 +127,7 @@ class ProfileVC: UIViewController {
     }()
     
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
         self.navigationController?.navigationBar.prefersLargeTitles = true
         
         if Core.shared.getGroupID() != "" {
@@ -149,16 +150,18 @@ class ProfileVC: UIViewController {
     }
     
     func setupView() {
-        fetchGroup()
+        emptyView.removeFromSuperview()
         
-        DispatchQueue.main.asyncAfter(deadline: .now()+1) {
-            let name = UserDefaults.standard.string(forKey: "groupName")
-            let address = UserDefaults.standard.string(forKey: "groupAddress")
-            let description = UserDefaults.standard.string(forKey: "groupDescription")
-            self.nameLabel.text = name
-            self.addressLabel.text = address
-            self.descriptionLabel.text = description
-        }
+        fetchGroup()
+
+//        DispatchQueue.main.asyncAfter(deadline: .now()+1) {
+//            let name = UserDefaults.standard.string(forKey: "groupName")
+//            let address = UserDefaults.standard.string(forKey: "groupAddress")
+//            let description = UserDefaults.standard.string(forKey: "groupDescription")
+//            self.nameLabel.text = name
+//            self.addressLabel.text = address
+//            self.descriptionLabel.text = description
+//        }
         
         self.view.addSubview(scrollView)
         
@@ -266,8 +269,9 @@ class ProfileVC: UIViewController {
     func setMemberCollectionView() {
         
         let layout = UICollectionViewFlowLayout()
-        layout.itemSize = CGSize(width: 100, height: 100)
-        layout.scrollDirection = .horizontal
+        layout.itemSize = CGSize(width: 100, height: 83)
+        layout.sectionInset = UIEdgeInsets(top: 10, left: 0, bottom: 10, right: 0)
+//        layout.scrollDirection = .horizontal
         memberCollectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         
         guard let memberCollectionView = memberCollectionView else {
@@ -281,10 +285,10 @@ class ProfileVC: UIViewController {
         memberCollectionView.collectionViewLayout = layout
         
         memberCollectionView.translatesAutoresizingMaskIntoConstraints = false
-        memberCollectionView.topAnchor.constraint(equalTo: card3.topAnchor).isActive = true
-        memberCollectionView.bottomAnchor.constraint(equalTo: card3.bottomAnchor).isActive = true
-        memberCollectionView.leadingAnchor.constraint(equalTo: card3.leadingAnchor).isActive = true
-        memberCollectionView.trailingAnchor.constraint(equalTo: card3.trailingAnchor).isActive = true
+        memberCollectionView.topAnchor.constraint(equalTo: card3.topAnchor,constant: 20).isActive = true
+        memberCollectionView.bottomAnchor.constraint(equalTo: card3.bottomAnchor,constant: -20).isActive = true
+        memberCollectionView.leadingAnchor.constraint(equalTo: card3.leadingAnchor, constant: 20).isActive = true
+        memberCollectionView.trailingAnchor.constraint(equalTo: card3.trailingAnchor,constant: -20).isActive = true
     }
     
     func setQRButton() {
@@ -321,9 +325,14 @@ class ProfileVC: UIViewController {
 }
 
 extension ProfileVC: ProfilePresenterToViewProtocol {
-    func didFetchGroup(group: Group) {
+    func didFetchGroup(group: Group){
         self.group = group
         print("HERE: ",self.group)
+        DispatchQueue.main.asyncAfter(deadline: .now()+1) {
+            self.nameLabel.text = group.name
+            self.addressLabel.text = group.address
+            self.descriptionLabel.text = group.description
+        }
         DispatchQueue.main.async {
             Core.shared.groupIn(id: group.id, name: group.name, address: group.address, description: group.description, users: group.users)
         }
