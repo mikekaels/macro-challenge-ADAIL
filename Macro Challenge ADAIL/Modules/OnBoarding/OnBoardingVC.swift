@@ -38,7 +38,7 @@ class OnBoardingVC: UIViewController {
     
     
     private let database = CKContainer(identifier: "iCloud.Marvelous.CoFi").privateCloudDatabase
-    private let record = CKRecord(recordType: "UserType")
+    private let record = CKRecord(recordType: "User")
     private var userId: CKRecord.ID?
     private var isTrue: Bool?
     
@@ -191,6 +191,8 @@ extension OnBoardingVC: UICollectionViewDataSource, UICollectionViewDelegate {
 extension OnBoardingVC: ASAuthorizationControllerDelegate {
     func authorizationController(controller: ASAuthorizationController, didCompleteWithError error: Error) {
         print("FAILED")
+        
+        presentor?.saveUser(id: "00000", name: "Yudha", email: "yudha@aja")
         
         //Test
         newScene()

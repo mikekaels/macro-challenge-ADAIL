@@ -10,7 +10,6 @@ import UIKit
 
 class HomePresenter: HomeViewToPresenterProtocol {
     
-    
     var view: HomePresenterToViewProtocol?
     
     var interactor: HomePresenterToInteractorProtocol?

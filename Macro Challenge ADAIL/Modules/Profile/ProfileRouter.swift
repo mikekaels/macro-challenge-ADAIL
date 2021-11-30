@@ -67,4 +67,10 @@ class ProfileRouter: ProfilePresenterToRouterProtocol {
         Core.shared.signOut()
     }
     
+    func leaveGroup(from: ProfileVC) {
+        from.scrollView.removeFromSuperview()
+        from.setupEmptyView()
+        Core.shared.groupOut()
+    }
+    
 }

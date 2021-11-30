@@ -35,10 +35,24 @@ public class CreateSpaceRouter: CreateSpacePresenterToRouterProtocol{
     }
     
     func goToProfile(from: CreateSpaceVC) {
-        let vc = ProfileRouter().createModule()
-        vc.isGroup = true
-        from.navigationController?.pushViewController(vc, animated: true)
+        DispatchQueue.main.asyncAfter(deadline: .now()+2, execute: {
+            let vc = ProfileRouter().createModule()
+            from.navigationController?.popViewController(animated: true)
+            vc.setupView()
+        })
     }
+//        let vc = ProfileRouter().createModule()
+//        from.navigationController?.pushViewController(vc, animated: true)
+        
+//        DispatchQueue.main.async {
+//            from.dismiss(animated: true) {
+//                let vc = ProfileRouter().createModule()
+//                let nav = UINavigationController(rootViewController: vc)
+//                nav.modalPresentationStyle = .fullScreen
+//                from.present(nav, animated: true, completion: nil)
+//            }
+//        }
+//    }
 }
 
 

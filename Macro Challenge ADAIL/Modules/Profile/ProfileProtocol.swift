@@ -17,10 +17,11 @@ protocol ProfileViewToPresenterProtocol: AnyObject {
     
     func goToCreateSpace(from: ProfileVC)
     func goToJoinSpace(from: ProfileVC)
+    func fetchGroup()
 }
 
 protocol ProfilePresenterToViewProtocol: AnyObject {
-    
+    func didFetchGroup(group: Group)
 }
 
 protocol ProfilePresenterToRouterProtocol: AnyObject {
@@ -31,4 +32,14 @@ protocol ProfilePresenterToRouterProtocol: AnyObject {
     func goToDescSpace(from: ProfileVC)
     func goToShowQR(from: ProfileVC)
     func signOut(from: ProfileVC)
+    func leaveGroup(from: ProfileVC)
+}
+
+protocol ProfilePresentertoInteractorProtocol: AnyObject {
+    var presenter: ProfileInteractorToPresenterProtocol? { get set }
+    func fetchGroup()
+}
+
+protocol ProfileInteractorToPresenterProtocol: AnyObject {
+    func didFetchGroup(group: Group)
 }

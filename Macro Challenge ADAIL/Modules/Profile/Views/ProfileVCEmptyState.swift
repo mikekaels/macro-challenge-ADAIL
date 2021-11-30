@@ -14,11 +14,11 @@ extension ProfileVC {
     func setupEmptyView() {
         self.navigationController?.isNavigationBarHidden = true
         
-        let emptyView: UIView = {
-            let view = UIView()
-            view.backgroundColor = .secondarySystemBackground
-            return view
-        }()
+//        let emptyView: UIView = {
+//            let view = UIView()
+//            view.backgroundColor = .secondarySystemBackground
+//            return view
+//        }()
         
         let card: UIView = {
             let view = UIView()
