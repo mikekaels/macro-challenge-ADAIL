@@ -19,13 +19,18 @@ class ProfileRouter: ProfilePresenterToRouterProtocol {
     func createModule() -> ProfileVC {
         let view = ProfileVC()
         
-        let presenter: ProfileViewToPresenterProtocol = ProfilePresenter()
+        let interactor: ProfilePresenterToInteractorProtocol = ProfileInteractor()
+        
+        let presenter: ProfileViewToPresenterProtocol & ProfileInteractorToPresenterProtocol = ProfilePresenter()
         
         let router: ProfilePresenterToRouterProtocol = ProfileRouter()
         
         view.presentor = presenter
         presenter.view = view
+        presenter.interactor = interactor
         presenter.router = router
+        
+        interactor.presenter = presenter
         
         
         return view

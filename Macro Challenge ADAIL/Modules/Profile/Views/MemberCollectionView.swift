@@ -8,21 +8,24 @@
 import Foundation
 import UIKit
 
-struct Member {
-    let image: UIImage
-    let name: String
-}
-
 extension ProfileVC: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        print(members.count)
-        return members.count
+        let member = group?.users.count ?? 0
+        return member
+    }
+    
+    func getCollection() -> [GroupUser]{
+        if let members = UserDefaults.standard.value(forKey: "groupMembers") as? Data {
+            let array = try? PropertyListDecoder().decode(Array<GroupUser>.self, from: members)
+            return array!
+        }
+        return [GroupUser(id: "", name: "")]
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         print("collection view check")
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MemberCollectionViewCell.identifier, for: indexPath) as! MemberCollectionViewCell
-        cell.setItem(members[indexPath.row])
+        cell.setItem(getCollection()[indexPath.row])
         return cell
     }
 }

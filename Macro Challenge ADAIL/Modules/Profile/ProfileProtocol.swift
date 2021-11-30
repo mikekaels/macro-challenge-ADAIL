@@ -14,7 +14,8 @@ public protocol ProfileDelegate{
 protocol ProfileViewToPresenterProtocol: AnyObject {
     var view: ProfilePresenterToViewProtocol? { get set }
     var router: ProfilePresenterToRouterProtocol? { get set }
-    
+    var interactor: ProfilePresenterToInteractorProtocol? { get set }
+
     func goToCreateSpace(from: ProfileVC)
     func goToJoinSpace(from: ProfileVC)
     func fetchGroup()
@@ -35,7 +36,7 @@ protocol ProfilePresenterToRouterProtocol: AnyObject {
     func leaveGroup(from: ProfileVC)
 }
 
-protocol ProfilePresentertoInteractorProtocol: AnyObject {
+protocol ProfilePresenterToInteractorProtocol: AnyObject {
     var presenter: ProfileInteractorToPresenterProtocol? { get set }
     func fetchGroup()
 }

@@ -12,7 +12,7 @@ class ProfilePresenter: ProfileViewToPresenterProtocol {
     
     var router: ProfilePresenterToRouterProtocol?
     
-    var interactor: ProfilePresentertoInteractorProtocol?
+    var interactor: ProfilePresenterToInteractorProtocol?
 
     
     func fetchGroup() {
@@ -46,7 +46,7 @@ class ProfilePresenter: ProfileViewToPresenterProtocol {
 
 extension ProfilePresenter: ProfileInteractorToPresenterProtocol {
     func didFetchGroup(group: Group) {
-        view?.didFetchGroup(group: group)
+        self.view?.didFetchGroup(group: group)
     }
     
     

@@ -12,13 +12,9 @@ import AVFoundation
 extension ProfileVC {
     
     func setupEmptyView() {
-        self.navigationController?.isNavigationBarHidden = true
+        scrollView.removeFromSuperview()
         
-//        let emptyView: UIView = {
-//            let view = UIView()
-//            view.backgroundColor = .secondarySystemBackground
-//            return view
-//        }()
+        self.navigationController?.isNavigationBarHidden = true
         
         let card: UIView = {
             let view = UIView()
