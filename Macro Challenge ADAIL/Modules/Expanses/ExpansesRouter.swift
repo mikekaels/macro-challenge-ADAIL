@@ -20,13 +20,17 @@ class ExpansesRouter: ExpansesPresenterToRouterProtocol {
     func createModule() -> ExpansesVC {
         let view = ExpansesVC()
         
-        let presenter: ExpansesViewToPresenterProtocol = ExpansesPresenter()
+        let presenter: ExpansesViewToPresenterProtocol & ExpansesInteractorToPresenterProtocol = ExpansesPresenter()
         
         let router: ExpansesPresenterToRouterProtocol = ExpansesRouter()
+        
+        let interactor: ExpansesPresenterToInteractorProtocol = ExpansesInteractor()
         
         view.presentor = presenter
         presenter.view = view
         presenter.router = router
+        presenter.interactor = interactor
+        interactor.presenter = presenter
         
         return view
     }
@@ -37,7 +41,12 @@ class ExpansesRouter: ExpansesPresenterToRouterProtocol {
     
     func goToIcons(from: ExpansesVC) {
         let vc = IconsRouter().createModule()
+        vc.delegate = from
         from.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    func dismiss(from: ExpansesVC) {
+        from.navigationController?.popViewController(animated: true)
     }
     
 }

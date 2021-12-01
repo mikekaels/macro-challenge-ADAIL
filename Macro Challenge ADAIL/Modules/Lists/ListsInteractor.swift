@@ -7,5 +7,14 @@
 //
 
 class ListsInteractor: ListsPresenterToInteractorProtocol {
+    
     var presenter: ListsInteractorToPresenterProtocol?
+}
+
+extension ListsInteractor {
+    func fetchUpcoming() {
+        CloudKitHelper.fetchAllUpcoming { result in
+            self.presenter?.didFetchUpcoming(data: result)
+        }
+    }
 }

@@ -17,7 +17,7 @@ class IconCollectionViewCell: UICollectionViewCell {
     
     let image: UIImageView = UIImageView()
         .configure { v in
-            v.image = Asset.Icons.iFood.image
+            v.image = UIImage(systemName: "pencil")
             v.translatesAutoresizingMaskIntoConstraints = false
             v.heightAnchor.constraint(equalToConstant: 30).isActive = true
             v.widthAnchor.constraint(equalToConstant: 30).isActive = true

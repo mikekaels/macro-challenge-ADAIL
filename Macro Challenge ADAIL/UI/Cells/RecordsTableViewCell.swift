@@ -6,14 +6,16 @@
 //
 
 import UIKit
+import SkeletonView
 
 class RecordsTableViewCell: UITableViewCell {
     
     let background: UIView = {
         let v = UIView()
-        v.backgroundColor = UIColor.systemGray6
+        v.backgroundColor = .white
         v.layer.cornerRadius = 7
         v.translatesAutoresizingMaskIntoConstraints = false
+        v.isSkeletonable = true
         return v
     }()
     
@@ -24,6 +26,7 @@ class RecordsTableViewCell: UITableViewCell {
             v.heightAnchor.constraint(equalToConstant: 35).isActive = true
             v.widthAnchor.constraint(equalToConstant: 35).isActive = true
             v.translatesAutoresizingMaskIntoConstraints = false
+            v.isSkeletonable = true
         }
     
     let image: UIImageView = UIImageView()
@@ -34,6 +37,7 @@ class RecordsTableViewCell: UITableViewCell {
             v.heightAnchor.constraint(equalToConstant: 25).isActive = true
             v.translatesAutoresizingMaskIntoConstraints = false
             v.image = Asset.Images.profile.image
+            v.isSkeletonable = true
         }
     
     
@@ -46,6 +50,7 @@ class RecordsTableViewCell: UITableViewCell {
         label.numberOfLines = 0
         label.font = UIFont.systemFont(ofSize: 15, weight: .medium)
         label.translatesAutoresizingMaskIntoConstraints = false
+        label.isSkeletonable = true
         return label
     }()
     
@@ -58,6 +63,7 @@ class RecordsTableViewCell: UITableViewCell {
         label.numberOfLines = 0
         label.font = UIFont.systemFont(ofSize: 17, weight: .bold)
         label.translatesAutoresizingMaskIntoConstraints = false
+        label.isSkeletonable = true
         return label
     }()
     
@@ -69,22 +75,26 @@ class RecordsTableViewCell: UITableViewCell {
         i.frame.size.height = 10
         i.contentMode = UIView.ContentMode.scaleAspectFit
         i.translatesAutoresizingMaskIntoConstraints = false
+        i.isSkeletonable = true
         return i
     }()
 
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        isSkeletonable = true
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
+        self.backgroundColor = .clear
         setupView()
-        
     }
     
+    
     func setupView() {
-        addSubview(background)
+        
+        contentView.addSubview(background)
         background.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
         background.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
         background.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width - 30).isActive = true

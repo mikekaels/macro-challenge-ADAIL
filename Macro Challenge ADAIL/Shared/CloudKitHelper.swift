@@ -9,14 +9,19 @@ import CloudKit
 
 class CloudKitHelper {
     
+    public static let shared = CloudKitHelper()
+    
+    private static let identifier: String = "iCloud.cofi-one"
+    
     static func hello() {
         print("Hello World")
+        
     }
     
     static func createUser(id: String, name: String, email: String, completion: @escaping (User) -> ()) {
         print("Creating User....")
         
-        let database = CKContainer(identifier: "iCloud.cofi-one").publicCloudDatabase
+        let database = CKContainer(identifier: CloudKitHelper.identifier).publicCloudDatabase
         let recordId = CKRecord.ID(recordName: id)
         let record = CKRecord(recordType: "User", recordID: recordId)
         
@@ -41,10 +46,143 @@ class CloudKitHelper {
         }
     }
     
+    static func createExpanses(expanses: Expanses, completion: @escaping(Expanses) -> ()) {
+        //        print(expanses)
+        let database = CKContainer(identifier: CloudKitHelper.identifier).publicCloudDatabase
+        let record = CKRecord(recordType: "Expanses")
+        
+        record.setValue(expanses.groupID, forKey: "groupID")
+        record.setValue(expanses.userId, forKey: "userID")
+        
+        record.setValue(expanses.icon, forKey: "icon")
+        record.setValue(expanses.transactionName, forKey: "transactionName")
+        record.setValue(expanses.totalTransaction, forKey: "totalTransaction")
+        record.setValue(expanses.paymentDate, forKey: "paymentDate")
+        record.setValue(expanses.remindTime.rawValue, forKey: "remindTime")
+        record.setValue(expanses.note, forKey: "note")
+        record.setValue(expanses.isRepeat, forKey: "isRepeat")
+        record.setValue(expanses.isPaid, forKey: "isPaid")
+        database.save(record) { (savedRecord, error) in
+            
+            if error == nil {
+                print("saved Record", savedRecord)
+                completion(expanses)
+            } else {
+                print("ERROR: ",error)
+            }
+        }
+    }
+    
+    static func fetchAllExpanses(completion: @escaping ([Expanses]) -> ()) {
+        let groupID = Core().getGroupID()
+        
+        let database = CKContainer(identifier: CloudKitHelper.identifier).publicCloudDatabase
+        
+        let pred1 = NSPredicate(format: "groupID == %@", groupID)
+        
+        let predicate = NSCompoundPredicate(andPredicateWithSubpredicates: [pred1])
+        
+        let query = CKQuery(recordType: "Expanses", predicate: predicate)
+        
+        let sort = NSSortDescriptor(key: "creationDate", ascending: false)
+        query.sortDescriptors = [sort]
+        
+        let operation = CKQueryOperation(query: query)
+        //        operation.desiredKeys = ["text"]
+        operation.resultsLimit = 50
+        
+        var results: [Expanses] = []
+        
+        operation.recordFetchedBlock = { (records) in
+//            results.append(record)
+            guard let groupID = records["groupID"] as? String else { return }
+            guard let userId = records["groupID"] as? String else { return }
+            guard let icon = records["icon"] as? String else { return }
+            guard let transactionName = records["transactionName"] as? String else { return }
+            guard let totalTransaction = records["totalTransaction"] as? Int else { return }
+            guard let paymentDate = records["paymentDate"] as? Date else { return }
+            guard let remindTime = records["remindTime"] as? Int else { return }
+            guard let isRepeat = records["isRepeat"] as? Int else { return }
+            guard let note = records["note"] as? String else { return }
+            guard let isPaid = records["isPaid"] as? Bool else { return }
+
+            
+            let expanses = Expanses(groupID: groupID, userId: userId, icon: icon, transactionName: transactionName, totalTransaction: totalTransaction, paymentDate: paymentDate, remindTime: remindAt(rawValue: remindTime)!, isRepeat: isRepeat == 1 ? true : false, note: note, isPaid: isPaid)
+            
+            results.append(expanses)
+        }
+        
+        operation.queryCompletionBlock = { _, err in
+            DispatchQueue.main.async {
+                if let error = err {
+                    print(error)
+                } else {
+                    completion(results)
+                }
+            }
+        }
+        
+        database.add(operation)
+    }
+    
+    static func fetchAllUpcoming(completion: @escaping ([Expanses]) -> ()) {
+        let groupID = Core().getGroupID()
+        
+        let database = CKContainer(identifier: CloudKitHelper.identifier).publicCloudDatabase
+        
+        let pred1 = NSPredicate(format: "groupID == %@", groupID)
+        
+        let pred2 = NSPredicate(format: "isRepeat == %i", 1)
+        
+        let predicate = NSCompoundPredicate(andPredicateWithSubpredicates: [pred1, pred2])
+        
+        let query = CKQuery(recordType: "Expanses", predicate: predicate)
+        
+        let sort = NSSortDescriptor(key: "paymentDate", ascending: false)
+        query.sortDescriptors = [sort]
+        
+        let operation = CKQueryOperation(query: query)
+        //        operation.desiredKeys = ["text"]
+        operation.resultsLimit = 50
+        
+        var results: [Expanses] = []
+        
+        operation.recordFetchedBlock = { (records) in
+//            results.append(record)
+            guard let groupID = records["groupID"] as? String else { return }
+            guard let userId = records["groupID"] as? String else { return }
+            guard let icon = records["icon"] as? String else { return }
+            guard let transactionName = records["transactionName"] as? String else { return }
+            guard let totalTransaction = records["totalTransaction"] as? Int else { return }
+            guard let paymentDate = records["paymentDate"] as? Date else { return }
+            guard let remindTime = records["remindTime"] as? Int else { return }
+            guard let isRepeat = records["isRepeat"] as? Int else { return }
+            guard let note = records["note"] as? String else { return }
+            guard let isPaid = records["isPaid"] as? Bool else { return }
+
+            
+            let expanses = Expanses(groupID: groupID, userId: userId, icon: icon, transactionName: transactionName, totalTransaction: totalTransaction, paymentDate: paymentDate, remindTime: remindAt(rawValue: remindTime)!, isRepeat: isRepeat == 1 ? true : false, note: note, isPaid: isPaid)
+            
+            results.append(expanses)
+        }
+        
+        operation.queryCompletionBlock = { _, err in
+            DispatchQueue.main.async {
+                if let error = err {
+                    print(error)
+                } else {
+                    completion(results)
+                }
+            }
+        }
+        
+        database.add(operation)
+    }
+    
     static func fetchOneUser(id: String, completion: @escaping (User) -> ()) {
         print("Fetching User....")
         
-        let database = CKContainer(identifier: "iCloud.cofi-one").publicCloudDatabase
+        let database = CKContainer(identifier: CloudKitHelper.identifier).publicCloudDatabase
         
         let predicate = NSPredicate(value: true)
         
@@ -52,9 +190,9 @@ class CloudKitHelper {
         
         let operation = CKQueryOperation(query: query)
         
-//        operation.desiredKeys = ["id", "name", "email", "phone", "bankName", "accountNumber"]
+        //        operation.desiredKeys = ["id", "name", "email", "phone", "bankName", "accountNumber"]
         operation.desiredKeys = ["name", "email", "phone", "bankName", "accountNumber", "group"]
-
+        
         
         operation.recordFetchedBlock = { record in
             DispatchQueue.main.async {
@@ -84,7 +222,7 @@ class CloudKitHelper {
                 }
                 
                 completion(User(id: id, name: name, email: email, phone: phone , bankName: bankName, accountNumber: accountNumber, group: group))
-//                Core.shared.signIn(id: id, name: name, email: email)
+                //                Core.shared.signIn(id: id, name: name, email: email)
             }
         }
         
@@ -102,7 +240,7 @@ class CloudKitHelper {
         
         let user = Core.shared.getID()
         
-        let database = CKContainer(identifier: "iCloud.Marvelous.CoFi").publicCloudDatabase
+        let database = CKContainer(identifier: CloudKitHelper.identifier).publicCloudDatabase
         let recordId = CKRecord.ID(recordName: id)
         let record = CKRecord(recordType: "Group", recordID: recordId)
         
@@ -127,8 +265,8 @@ class CloudKitHelper {
     static func fetchGroup(id: String, completion: @escaping (Group) -> ()) {
         print("Fetching Group....")
         
-        let database = CKContainer(identifier: "iCloud.cofi-one").publicCloudDatabase
-
+        let database = CKContainer(identifier: CloudKitHelper.identifier).publicCloudDatabase
+        
         let predicate = NSPredicate(value: true)
         
         let query = CKQuery(recordType: "Group", predicate: predicate)
@@ -136,7 +274,7 @@ class CloudKitHelper {
         let operation = CKQueryOperation(query: query)
         
         operation.desiredKeys = ["name", "address", "address", "description", "users"]
-
+        
         operation.recordFetchedBlock = { record in
             DispatchQueue.main.async {
                 let id = record.recordID.recordName
@@ -181,7 +319,7 @@ class CloudKitHelper {
     static func updateUserGroup(user: String, group: String){
         print("Update User Table....")
         
-        let database = CKContainer(identifier: "iCloud.Marvelous.CoFi").publicCloudDatabase
+        let database = CKContainer(identifier: CloudKitHelper.identifier).publicCloudDatabase
         let recordId = CKRecord.ID(recordName: user)
         let record = CKRecord(recordType: "User", recordID: recordId)
         record.setValue(group, forKey: "group")

@@ -11,7 +11,9 @@ class IconsPresenter: IconsViewToPresenterProtocol {
     var router: IconsPresenterToRouterProtocol?
     var interactor: IconsPresenterToInteractorProtocol?
     
-    
+    func dismiss(from: IconsVC, icon: Icon) {
+        router?.dismiss(from: from, icon: icon)
+    }
 }
 
 extension IconsPresenter: IconsInteractorToPresenterProtocol {

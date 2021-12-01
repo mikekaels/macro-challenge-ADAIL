@@ -18,9 +18,17 @@ class RecordPresenter: RecordViewToPresenterProtocol {
     func goToDetailsRecord(from: RecordVC) {
         router?.goToDetailsRecord(from: from)
     }
+    
+    func fetchRecords() {
+        interactor?.fetchRecords()
+    }
 }
 
 extension RecordPresenter: RecordInteractorToPresenterProtocol {
+    func didFetchRecords(expanses: [Expanses]) {
+        view?.didFetchRecords(expanses: expanses)
+    }
+    
     
 }
 

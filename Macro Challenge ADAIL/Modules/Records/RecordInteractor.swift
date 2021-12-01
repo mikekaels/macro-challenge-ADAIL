@@ -9,4 +9,10 @@ import Foundation
 
 class RecordInteractor: RecordPresenterToInteractorProtocol {
     var presenter: RecordInteractorToPresenterProtocol?
+    
+    func fetchRecords() {
+        CloudKitHelper.fetchAllExpanses { result in
+            self.presenter?.didFetchRecords(expanses: result)
+        }
+    }
 }
