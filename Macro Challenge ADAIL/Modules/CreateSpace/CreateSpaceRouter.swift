@@ -35,9 +35,9 @@ public class CreateSpaceRouter: CreateSpacePresenterToRouterProtocol{
     }
     
     func goToProfile(from: CreateSpaceVC) {
-        let vc = ProfileRouter().createModule()
-        vc.isGroup = true
-        from.navigationController?.pushViewController(vc, animated: true)
+        DispatchQueue.main.asyncAfter(deadline: .now()+2, execute: {
+            from.navigationController?.popViewController(animated: true)
+        })
     }
 }
 

@@ -17,6 +17,8 @@ class CardView: UIView {
     var cellTo: UIViewController?
     var card: CardState
     
+    var upcomingBills: [Expanses] = [Expanses]()
+    
     let upcomingDesc: UILabel = UILabel()
         .configure { v in
             v.text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi nec justo velit. "
@@ -72,8 +74,6 @@ class CardView: UIView {
         self.card = card
         super.init(frame: .zero)
         setupView()
-        
-        
         
         switch card {
         case .upcomingBills:
@@ -173,13 +173,24 @@ class CardView: UIView {
 
 extension CardView: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        if card == .upcomingBills && upcomingBills.count <= 3 {
+            return upcomingBills.count
+        } else if card == .friendsDebt {
+            return 3
+        } else {
+            return 3
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if card == .upcomingBills {
             let cell = tableView.dequeueReusableCell(withIdentifier: "UpcomingBillsCell", for: indexPath) as! CardViewTableViewCell
-            cell.textLabel?.text = "CardView Cell \(indexPath.row)"
+            let data = upcomingBills[indexPath.row]
+            cell.itemLabel.text = data.transactionName
+            cell.dateLabel.text = data.paymentDate.toString()
+            cell.priceLabel.text = String(data.totalTransaction).currencyFormatting()
+            cell.image.image = UIImage(systemName: data.icon)
+            
             cell.backgroundColor = .clear
             cell.selectionStyle = .none
             cell.parent = HomeVC()

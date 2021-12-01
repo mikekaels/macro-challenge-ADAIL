@@ -7,13 +7,21 @@
 //
 
 class AccountPresenter: AccountViewToPresenterProtocol {
+    
+    
     var view: AccountPresenterToViewProtocol?
     var router: AccountPresenterToRouterProtocol?
     var interactor: AccountPresenterToInteractorProtocol?
     
-    
+    func fetchUser() {
+        interactor?.fetchUser()
+    }
 }
 
 extension AccountPresenter: AccountInteractorToPresenterProtocol {
+    func didFetchUser(user: User) {
+        view?.didFetchUser(user: user)
+    }
+    
 
 }

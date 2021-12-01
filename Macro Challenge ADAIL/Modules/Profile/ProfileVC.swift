@@ -15,12 +15,16 @@ class ProfileVC: UIViewController {
     
     private let signInButton = ASAuthorizationAppleIDButton()
     
-    //Test
-    var isGroup: Bool = false
+    var group: Group?
+    var groupMember: [GroupUser]?
     
-    var members: [Member] = []
     private var memberCollectionView: UICollectionView?
     
+    let emptyView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .secondarySystemBackground
+        return view
+    }()
     
     let scrollView: UIScrollView = {
         let scrollView = UIScrollView()
@@ -79,7 +83,7 @@ class ProfileVC: UIViewController {
         return view
     }()
     
-    let aboutLabel: UILabel = {
+    let descriptionLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .left
         label.text =
@@ -112,10 +116,10 @@ class ProfileVC: UIViewController {
         return btn
     }()
     
-    let signOut: UIButton = {
+    let leaveGroup: UIButton = {
         let btn = UIButton()
         btn.backgroundColor = .white
-        btn.setTitle("Sign Out", for: .normal)
+        btn.setTitle("Leave Co-Living", for: .normal)
         btn.titleLabel?.font = UIFont.systemFont(ofSize: 17, weight: .semibold)
         btn.setTitleColor(UIColor.red, for: .normal)
         btn.layer.cornerRadius = 8
@@ -123,7 +127,15 @@ class ProfileVC: UIViewController {
     }()
     
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
         self.navigationController?.navigationBar.prefersLargeTitles = true
+        
+        if Core.shared.getGroupID() != "" {
+            setupView()
+        } else {
+            setupEmptyView()
+        }
+        print("This is groupId : \(Core.shared.getGroupID())")
     }
 
     override func viewDidLoad() {
@@ -131,24 +143,27 @@ class ProfileVC: UIViewController {
         self.title = Constants().tab3Title
         self.view.backgroundColor = .secondarySystemBackground
         
-        if isGroup {
-            members = [
-                Member(image: UIImage(named: "GroupImage")!, name: "Budi"),
-                Member(image: UIImage(named: "GroupImage")!, name: "Budi"),
-                Member(image: UIImage(named: "GroupImage")!, name: "Budi"),
-                Member(image: UIImage(named: "GroupImage")!, name: "Budi"),
-                Member(image: UIImage(named: "GroupImage")!, name: "Budi"),
-                Member(image: UIImage(named: "GroupImage")!, name: "Budi"),
-                Member(image: UIImage(named: "GroupImage")!, name: "Budi")]
-            setupView()
-        } else {
-            setupEmptyView()
-        }
+    }
+    
+    func fetchGroup() {
+        presentor?.fetchGroup()
     }
     
     func setupView() {
-        self.view.addSubview(scrollView)
+        emptyView.removeFromSuperview()
         
+        fetchGroup()
+
+//        DispatchQueue.main.asyncAfter(deadline: .now()+1) {
+//            let name = UserDefaults.standard.string(forKey: "groupName")
+//            let address = UserDefaults.standard.string(forKey: "groupAddress")
+//            let description = UserDefaults.standard.string(forKey: "groupDescription")
+//            self.nameLabel.text = name
+//            self.addressLabel.text = address
+//            self.descriptionLabel.text = description
+//        }
+        
+        self.view.addSubview(scrollView)
         
         scrollView.addSubview(scrollViewContainer)
         setCard1()
@@ -159,8 +174,8 @@ class ProfileVC: UIViewController {
         scrollViewContainer.addArrangedSubview(card3)
         setQRButton()
         scrollViewContainer.addArrangedSubview(qrButton)
-        setSignOutButton()
-        scrollViewContainer.addArrangedSubview(signOut)
+        setLeaveGroupBtn()
+        scrollViewContainer.addArrangedSubview(leaveGroup)
 
         scrollView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
         scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
@@ -222,12 +237,12 @@ class ProfileVC: UIViewController {
         card2.trailingAnchor.constraint(equalTo: card1.trailingAnchor).isActive = true
         card2.heightAnchor.constraint(equalToConstant: 100).isActive = true
         
-        card2.addSubview(aboutLabel)
-        aboutLabel.translatesAutoresizingMaskIntoConstraints = false
-        aboutLabel.topAnchor.constraint(equalTo: card2.topAnchor, constant: 10).isActive = true
-        aboutLabel.leadingAnchor.constraint(equalTo: card2.leadingAnchor, constant: 20).isActive = true
-        aboutLabel.widthAnchor.constraint(equalToConstant: 290).isActive = true
-        aboutLabel.bottomAnchor.constraint(equalTo: card2.bottomAnchor, constant: -10).isActive = true
+        card2.addSubview(descriptionLabel)
+        descriptionLabel.translatesAutoresizingMaskIntoConstraints = false
+        descriptionLabel.topAnchor.constraint(equalTo: card2.topAnchor, constant: 10).isActive = true
+        descriptionLabel.leadingAnchor.constraint(equalTo: card2.leadingAnchor, constant: 20).isActive = true
+        descriptionLabel.widthAnchor.constraint(equalToConstant: 290).isActive = true
+        descriptionLabel.bottomAnchor.constraint(equalTo: card2.bottomAnchor, constant: -10).isActive = true
         
         card2.addSubview(chevronBtnCard2)
         chevronBtnCard2.translatesAutoresizingMaskIntoConstraints = false
@@ -254,8 +269,9 @@ class ProfileVC: UIViewController {
     func setMemberCollectionView() {
         
         let layout = UICollectionViewFlowLayout()
-        layout.itemSize = CGSize(width: 100, height: 100)
-        layout.scrollDirection = .horizontal
+        layout.itemSize = CGSize(width: 100, height: 83)
+        layout.sectionInset = UIEdgeInsets(top: 10, left: 0, bottom: 10, right: 0)
+//        layout.scrollDirection = .horizontal
         memberCollectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         
         guard let memberCollectionView = memberCollectionView else {
@@ -269,10 +285,10 @@ class ProfileVC: UIViewController {
         memberCollectionView.collectionViewLayout = layout
         
         memberCollectionView.translatesAutoresizingMaskIntoConstraints = false
-        memberCollectionView.topAnchor.constraint(equalTo: card3.topAnchor).isActive = true
-        memberCollectionView.bottomAnchor.constraint(equalTo: card3.bottomAnchor).isActive = true
-        memberCollectionView.leadingAnchor.constraint(equalTo: card3.leadingAnchor).isActive = true
-        memberCollectionView.trailingAnchor.constraint(equalTo: card3.trailingAnchor).isActive = true
+        memberCollectionView.topAnchor.constraint(equalTo: card3.topAnchor,constant: 20).isActive = true
+        memberCollectionView.bottomAnchor.constraint(equalTo: card3.bottomAnchor,constant: -20).isActive = true
+        memberCollectionView.leadingAnchor.constraint(equalTo: card3.leadingAnchor, constant: 20).isActive = true
+        memberCollectionView.trailingAnchor.constraint(equalTo: card3.trailingAnchor,constant: -20).isActive = true
     }
     
     func setQRButton() {
@@ -291,25 +307,36 @@ class ProfileVC: UIViewController {
         presentor?.router?.goToShowQR(from: self)
     }
     
-    func setSignOutButton() {
-        view.addSubview(signOut)
+    func setLeaveGroupBtn() {
+        view.addSubview(leaveGroup)
 
-        signOut.translatesAutoresizingMaskIntoConstraints = false
-        signOut.topAnchor.constraint(equalTo: qrButton.bottomAnchor, constant: 15).isActive = true
-        signOut.centerXAnchor.constraint(equalTo: qrButton.centerXAnchor).isActive = true
-        signOut.widthAnchor.constraint(equalToConstant: 315).isActive = true
-        signOut.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        leaveGroup.translatesAutoresizingMaskIntoConstraints = false
+        leaveGroup.topAnchor.constraint(equalTo: qrButton.bottomAnchor, constant: 15).isActive = true
+        leaveGroup.centerXAnchor.constraint(equalTo: qrButton.centerXAnchor).isActive = true
+        leaveGroup.widthAnchor.constraint(equalToConstant: 315).isActive = true
+        leaveGroup.heightAnchor.constraint(equalToConstant: 50).isActive = true
         
-        signOut.addTarget(self, action: #selector(signOutTap), for: .touchUpInside)
+        leaveGroup.addTarget(self, action: #selector(leaveTap), for: .touchUpInside)
     }
     
-    @objc func signOutTap() {
-        presentor?.router?.signOut(from: self)
+    @objc func leaveTap() {
+        presentor?.router?.leaveGroup(from: self)
     }
 }
 
 extension ProfileVC: ProfilePresenterToViewProtocol {
-    
+    func didFetchGroup(group: Group){
+        self.group = group
+        print("HERE: ",self.group)
+        DispatchQueue.main.asyncAfter(deadline: .now()+1) {
+            self.nameLabel.text = group.name
+            self.addressLabel.text = group.address
+            self.descriptionLabel.text = group.description
+        }
+        DispatchQueue.main.async {
+            Core.shared.groupIn(id: group.id, name: group.name, address: group.address, description: group.description, users: group.users)
+        }
+    }
 }
 
 extension ProfileVC: SignInDelegate {

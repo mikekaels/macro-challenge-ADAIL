@@ -11,7 +11,7 @@ class RecordsTableViewCell: UITableViewCell {
     
     let background: UIView = {
         let v = UIView()
-        v.backgroundColor = UIColor.systemGray6
+        v.backgroundColor = .white
         v.layer.cornerRadius = 7
         v.translatesAutoresizingMaskIntoConstraints = false
         return v
@@ -79,11 +79,13 @@ class RecordsTableViewCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
+        self.backgroundColor = .clear
         setupView()
-        
     }
     
+    
     func setupView() {
+        
         addSubview(background)
         background.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
         background.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true

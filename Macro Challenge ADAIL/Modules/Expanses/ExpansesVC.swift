@@ -6,8 +6,12 @@
 //
 
 import UIKit
+import RxSwift
+import RxRelay
 
-class ExpansesVC: UIViewController {
+class ExpansesVC: UIViewController, IconsDelegate {
+    
+    
     
     var presentor: ExpansesViewToPresenterProtocol?
     public var delegate: ExpansesDelegate!
@@ -19,6 +23,9 @@ class ExpansesVC: UIViewController {
     let screenHeight = UIScreen.main.bounds.height / 2
     var selectedDayRow = 0
     var selectedDayWeekMonth = 1
+    
+    var icon: String = ""
+    var remindMeSelected: remindAt = .OneDay
     
     let scrollView: EasyScrollView = {
         let s = EasyScrollView()
@@ -114,7 +121,7 @@ class ExpansesVC: UIViewController {
             t.rightViewMode = .always
             t.isExclusiveTouch = true
             t.isUserInteractionEnabled = true
-//            t.addTarget(self, action: #selector(remindMeAtSelected), for: .allEditingEvents)
+            //            t.addTarget(self, action: #selector(remindMeAtSelected), for: .allEditingEvents)
         }
     
     let repeatBillTextField: UITextField = UITextField()
@@ -135,7 +142,7 @@ class ExpansesVC: UIViewController {
     
     let noteTextView: UITextView = UITextView()
         .configure { t in
-//            t.backgroundColor = .green
+            //            t.backgroundColor = .green
             t.layer.cornerRadius = 13
             t.layer.masksToBounds = true
             t.heightAnchor.constraint(equalToConstant: 70).isActive = true
@@ -166,16 +173,21 @@ class ExpansesVC: UIViewController {
         
     }
     
+    func didSelectIcon(icon: String) {
+        iconButton.setImage(UIImage(systemName: icon), for: .normal)
+        self.icon = icon
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.scrollView.setupScrollView(in: self.view)
-
+        
         scrollView.stack.configure { v in
             v.spacing = 10
             v.distribution = .fill
             v.axis = .vertical
             v.addArrangedSubview(UIStackView(arrangedSubviews: [UIView().configure(completion: { v in
-//                v.frame = CGRect(x: 0, y: 0, width: 50, height: 50)
+                //                v.frame = CGRect(x: 0, y: 0, width: 50, height: 50)
                 v.backgroundColor = .white
                 v.layer.cornerRadius = 10
                 
@@ -226,13 +238,13 @@ class ExpansesVC: UIViewController {
                 s.translatesAutoresizingMaskIntoConstraints = false
             }))
             
-//            v.addArrangedSubview(imageInputView.configure(completion: { v in
-//                v.backgroundColor = .white
-//                v.widthAnchor.constraint(equalToConstant: 50).isActive = true
-//                v.addSubview(imageButton)
-//                imageButton.centerXAnchor.constraint(equalTo: v.centerXAnchor).isActive = true
-//                imageButton.centerYAnchor.constraint(equalTo: v.centerYAnchor).isActive = true
-//            }))
+            //            v.addArrangedSubview(imageInputView.configure(completion: { v in
+            //                v.backgroundColor = .white
+            //                v.widthAnchor.constraint(equalToConstant: 50).isActive = true
+            //                v.addSubview(imageButton)
+            //                imageButton.centerXAnchor.constraint(equalTo: v.centerXAnchor).isActive = true
+            //                imageButton.centerYAnchor.constraint(equalTo: v.centerYAnchor).isActive = true
+            //            }))
         }
         
         scrollView.layoutSetting.widthMultiplier = 0.85
@@ -242,17 +254,25 @@ class ExpansesVC: UIViewController {
         remindMeAtTextField.delegate = self
         repeatBillTextField.delegate = self
         let remindmeTexfieldItems = UIMenu(title: "Remind me", options: .displayInline, children: [
+            UIAction(title: "Never", image: nil, handler: { _ in
+                self.remindMeAtTextField.text = "Never"
+                self.remindMeSelected = .never
+            }),
             UIAction(title: "1 day before", image: nil, handler: { _ in
                 self.remindMeAtTextField.text = "1 day before"
+                self.remindMeSelected = .OneDay
             }),
             UIAction(title: "1 week before", image: nil, handler: { _ in
                 self.remindMeAtTextField.text = "1 week before"
+                self.remindMeSelected = .OneWeek
             }),
             UIAction(title: "2 weeks before", image: UIImage(systemName: "nil"), handler: { _ in
                 self.remindMeAtTextField.text = "2 week before"
+                self.remindMeSelected = .TwoWeek
             }),
             UIAction(title: "3 weeks before", image: UIImage(systemName: "nil"), handler: { _ in
                 self.remindMeAtTextField.text = "3 week before"
+                self.remindMeSelected = .ThreeWeek
             })
         ])
         
@@ -261,7 +281,7 @@ class ExpansesVC: UIViewController {
                 b.setTitleColor(.green, for: .normal)
                 
                 b.setImage(UIImage(systemName: "chevron.down"), for: .normal)
-
+                
                 b.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
                 
                 b.showsMenuAsPrimaryAction = true
@@ -284,7 +304,7 @@ class ExpansesVC: UIViewController {
                 b.setTitleColor(.green, for: .normal)
                 
                 b.setImage(UIImage(systemName: "chevron.down"), for: .normal)
-
+                
                 b.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
                 
                 b.showsMenuAsPrimaryAction = true
@@ -301,7 +321,26 @@ class ExpansesVC: UIViewController {
     }
     
     @objc func saveTapped() {
-        print("ouchh")
+        //        print(icon)
+        //        print(transactionNameTextField.text)
+        //        print(Int(totalTransactionTextField.text!))
+        //        print(paymentDate.date)
+        //        print(remindMeAtTextField.text)
+        //        print(repeatBillTextField.text)
+        //        print(noteTextView.text)
+        
+        presentor?.saveExpanses(expanses: Expanses(
+            groupID: Core().getGroupID(),
+            userId: Core().getID(),
+            icon: icon,
+            transactionName: transactionNameTextField.text!,
+            totalTransaction: Int(totalTransactionTextField.text!)!,
+            paymentDate: paymentDate.date,
+            remindTime: remindMeSelected,
+            isRepeat: repeatBillTextField.text == "Repeat" ? true : false,
+            note: noteTextView.text!,
+            isPaid: false
+        ))
     }
     
     @objc func iconButtonTapped() {
@@ -344,7 +383,11 @@ class ExpansesVC: UIViewController {
 }
 
 extension ExpansesVC: ExpansesPresenterToViewProtocol {
-    
+    func didCreateExpanses(expanses: Expanses) {
+        DispatchQueue.main.async {
+            self.presentor?.dismiss(from: self)
+        }
+    }
 }
 
 extension ExpansesVC: ExpansesDelegate {

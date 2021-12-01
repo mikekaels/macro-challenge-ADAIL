@@ -19,13 +19,18 @@ class ProfileRouter: ProfilePresenterToRouterProtocol {
     func createModule() -> ProfileVC {
         let view = ProfileVC()
         
-        let presenter: ProfileViewToPresenterProtocol = ProfilePresenter()
+        let interactor: ProfilePresenterToInteractorProtocol = ProfileInteractor()
+        
+        let presenter: ProfileViewToPresenterProtocol & ProfileInteractorToPresenterProtocol = ProfilePresenter()
         
         let router: ProfilePresenterToRouterProtocol = ProfileRouter()
         
         view.presentor = presenter
         presenter.view = view
+        presenter.interactor = interactor
         presenter.router = router
+        
+        interactor.presenter = presenter
         
         
         return view
@@ -65,6 +70,12 @@ class ProfileRouter: ProfilePresenterToRouterProtocol {
         from.navigationController?.pushViewController(vc, animated: true)
         from.tabBarController?.tabBar.removeFromSuperview()
         Core.shared.signOut()
+    }
+    
+    func leaveGroup(from: ProfileVC) {
+        from.scrollView.removeFromSuperview()
+        from.setupEmptyView()
+        Core.shared.groupOut()
     }
     
 }

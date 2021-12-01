@@ -15,6 +15,7 @@ protocol CreateSpaceViewToPresenterProtocol: AnyObject {
     var router: CreateSpacePresenterToRouterProtocol? { get set }
     
     func goToProfile(from: CreateSpaceVC)
+    func saveGroup(name: String, address: String, description: String)
 }
 
 protocol CreateSpacePresenterToRouterProtocol: AnyObject {
@@ -23,14 +24,15 @@ protocol CreateSpacePresenterToRouterProtocol: AnyObject {
 }
 
 protocol CreateSpacePresenterToViewProtocol: AnyObject {
-
+    func didFetchGroup(group: Group)
 }
 
 protocol CreateSpaceInteractorToPresenterProtocol: AnyObject {
+    func didSaveGroup(group: Group)
 
 }
 
 protocol CreateSpacePresenterToInteractorProtocol: AnyObject {
     var presenter: CreateSpaceInteractorToPresenterProtocol? { get set }
-    
+    func saveGroup(name: String, address: String, description: String)
 }

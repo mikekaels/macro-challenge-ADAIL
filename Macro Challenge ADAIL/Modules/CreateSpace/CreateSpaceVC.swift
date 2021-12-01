@@ -164,13 +164,20 @@ class CreateSpaceVC: UIViewController {
     }
     
     @objc func didTapCreate() {
-        print("Create Co-Living Space")
+        let name = nameTextField.text!
+        let address = addressTextField.text!
+        let description = aboutTextField.text!
+        presentor?.saveGroup(name: name, address: address, description: description)
+        print("Saving group \(name) \(address) \(description)")
         presentor?.router?.goToProfile(from: self)
     }
 }
 
 extension CreateSpaceVC: CreateSpacePresenterToViewProtocol {
-    
+    func didFetchGroup(group: Group) {
+        Core.shared.groupIn(id: group.id, name: group.name, address: group.address, description: group.description, users: group.users)
+        presentor?.router?.goToProfile(from: self)
+    }
 }
 
 extension CreateSpaceVC: UITextViewDelegate {

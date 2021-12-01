@@ -10,7 +10,6 @@ import UIKit
 
 class HomePresenter: HomeViewToPresenterProtocol {
     
-    
     var view: HomePresenterToViewProtocol?
     
     var interactor: HomePresenterToInteractorProtocol?
@@ -20,8 +19,14 @@ class HomePresenter: HomeViewToPresenterProtocol {
     func goToAccount(from: HomeVC) {
         router?.goToAccount(from: from)
     }
+    
+    func fetchUpcomingBills() {
+        interactor?.fetchUpcomingBills()
+    }
 }
 
 extension HomePresenter: HomeInteractorToPresenterProtocol {
-    
+    func didFetchUpcomingBills(data: [Expanses]) {
+        view?.didFetchUpcomingBills(data: data)
+    }
 }

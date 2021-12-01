@@ -13,6 +13,7 @@ class ListsVC: UIViewController {
     
     var bills: [Any] = [Any]()
     var state: String?
+    var upcoming: [Expanses] = [Expanses]()
     
     let totalLabel: UILabel = UILabel()
         .configure { v in
@@ -90,33 +91,58 @@ class ListsVC: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.navigationBar.prefersLargeTitles = false
+        fetchUpcoming()
+    }
+    
+    func fetchUpcoming() {
+        presentor?.fetchUpcoming()
     }
 }
 
 extension ListsVC: ListsPresenterToViewProtocol {
+    func didFetchUpcoming(data: [Expanses]) {
+        self.upcoming = data
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
+    }
+    
     
 }
 
 extension ListsVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 100
+        switch state {
+        case "UpcomingBills":
+            return upcoming.count
+        case "FriendsDebt":
+            return 0
+        default:
+            return 0
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        var cell = UITableViewCell()
-        
+
         switch state {
         case "UpcomingBills":
-            cell = tableView.dequeueReusableCell(withIdentifier: "UpcomingBillsCell", for: indexPath) as! CardViewTableViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: "UpcomingBillsCell", for: indexPath) as! CardViewTableViewCell
+            let data = upcoming[indexPath.row]
+            cell.itemLabel.text = data.transactionName
+            cell.dateLabel.text = data.paymentDate.toString()
+            cell.priceLabel.text = String(data.totalTransaction).currencyFormatting()
+            cell.image.image = UIImage(systemName: data.icon)
+            cell.backgroundColor = .clear
+            cell.selectionStyle = .none
+            return cell
         case "FriendsDebt":
-            cell = tableView.dequeueReusableCell(withIdentifier: "FriendsDebtCell", for: indexPath) as! FriendsDebtTableViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: "FriendsDebtCell", for: indexPath) as! FriendsDebtTableViewCell
+            cell.backgroundColor = .clear
+            cell.selectionStyle = .none
+            return cell
         default:
-            break
+            return UITableViewCell()
         }
-        
-        cell.backgroundColor = .clear
-        cell.selectionStyle = .none
-        return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

@@ -33,4 +33,9 @@ public class IconsRouter: IconsPresenterToRouterProtocol{
         
         return view
     }
+    
+    func dismiss(from: IconsVC, icon: Icon) {
+        from.delegate.didSelectIcon(icon: icon.systemName)
+        from.navigationController?.popViewController(animated: true)
+    }
 }

@@ -12,6 +12,13 @@ class ProfilePresenter: ProfileViewToPresenterProtocol {
     
     var router: ProfilePresenterToRouterProtocol?
     
+    var interactor: ProfilePresenterToInteractorProtocol?
+
+    
+    func fetchGroup() {
+        interactor?.fetchGroup()
+    }
+    
     func goToCreateSpace(from: ProfileVC){
         
     }
@@ -35,5 +42,13 @@ class ProfilePresenter: ProfileViewToPresenterProtocol {
     func signOut(from: ProfileVC) {
         
     }
+}
+
+extension ProfilePresenter: ProfileInteractorToPresenterProtocol {
+    func didFetchGroup(group: Group) {
+        self.view?.didFetchGroup(group: group)
+    }
+    
+    
 }
 
