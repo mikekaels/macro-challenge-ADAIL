@@ -15,6 +15,7 @@
 			dependencies = (
 			);
 			name = SwiftGen;
+			productName = SwiftGen;
 		};
 /* End PBXAggregateTarget section */
 
@@ -694,7 +695,7 @@
 		9B2769C0E0E3C58DEE896BDB23318A14 /* Just.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Just.swift; path = RxSwift/Observables/Just.swift; sourceTree = "<group>"; };
 		9B8FCB17634972B370FE30FD10C0BA4F /* Deprecated.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Deprecated.swift; path = RxCocoa/Deprecated.swift; sourceTree = "<group>"; };
 		9D73121F9BB5AABDA253E1F54BB228A0 /* SwitchIfEmpty.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwitchIfEmpty.swift; path = RxSwift/Observables/SwitchIfEmpty.swift; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9DE50ABA3D026C0A7CCACC72EB71416A /* Driver+Subscription.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Driver+Subscription.swift"; path = "RxCocoa/Traits/Driver/Driver+Subscription.swift"; sourceTree = "<group>"; };
 		9E2FFF281D921534A930B66F94A637C2 /* RxCollectionViewReactiveArrayDataSource.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RxCollectionViewReactiveArrayDataSource.swift; path = RxCocoa/iOS/DataSources/RxCollectionViewReactiveArrayDataSource.swift; sourceTree = "<group>"; };
 		9EB1D9038415C90E18C25853E57F79A9 /* UITableView+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UITableView+Extensions.swift"; path = "SkeletonViewCore/Sources/Internal/UIKitExtensions/UITableView+Extensions.swift"; sourceTree = "<group>"; };
@@ -805,7 +806,7 @@
 		DAF850350DAD73E255695DC777C901B2 /* OperationQueueScheduler.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = OperationQueueScheduler.swift; path = RxSwift/Schedulers/OperationQueueScheduler.swift; sourceTree = "<group>"; };
 		DB623501B0DDD5408CCEFF1F64FC270E /* Generate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Generate.swift; path = RxSwift/Observables/Generate.swift; sourceTree = "<group>"; };
 		DBB819916E1DDD18C425CA6CD91B35C5 /* Bag+Rx.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Bag+Rx.swift"; path = "RxSwift/Extensions/Bag+Rx.swift"; sourceTree = "<group>"; };
-		DCAE1AB4A24CAA03C8AB7611A934FBC9 /* Pods-Macro Challenge ADAIL */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "Pods-Macro Challenge ADAIL"; path = "libPods-Macro Challenge ADAIL.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DCAE1AB4A24CAA03C8AB7611A934FBC9 /* libPods-Macro Challenge ADAIL.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Macro Challenge ADAIL.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCDA0BA4AEF823772C5065788BDDADBA /* RxSwift-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "RxSwift-umbrella.h"; sourceTree = "<group>"; };
 		DCDE4DF523462322F19F6047C16D6160 /* ItemEvents.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ItemEvents.swift; path = RxCocoa/iOS/Events/ItemEvents.swift; sourceTree = "<group>"; };
 		DCEE165613E38F31167D1BC5374B44D7 /* SubjectType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SubjectType.swift; path = RxSwift/Subjects/SubjectType.swift; sourceTree = "<group>"; };
@@ -1042,7 +1043,6 @@
 				6F547D6242937AA80697527FCDDD3B55 /* WKWebView+Rx.swift */,
 				237E30EAB0C0A5A08CD7ECAF7CDBE0B7 /* Support Files */,
 			);
-			name = RxCocoa;
 			path = RxCocoa;
 			sourceTree = "<group>";
 		};
@@ -1065,7 +1065,7 @@
 			isa = PBXGroup;
 			children = (
 				A8E950A16D00F649C54FFB30F81D7842 /* IQKeyboardManagerSwift */,
-				DCAE1AB4A24CAA03C8AB7611A934FBC9 /* Pods-Macro Challenge ADAIL */,
+				DCAE1AB4A24CAA03C8AB7611A934FBC9 /* libPods-Macro Challenge ADAIL.a */,
 				BC432FD48A5932251F1CAFBC4BF74894 /* RxCocoa */,
 				FF8B264DFE802855D5D67E7CDDABFC3C /* RxRelay */,
 				809C5FAB588354C9BA37DC3EAB8CB45C /* RxSwift */,
@@ -1097,7 +1097,6 @@
 				3975D8AF275DFBAE4C8D5EC2EC1697E5 /* Utils.swift */,
 				BFFD84CC509404E5DD9A7F27E25B06CD /* Support Files */,
 			);
-			name = RxRelay;
 			path = RxRelay;
 			sourceTree = "<group>";
 		};
@@ -1190,7 +1189,6 @@
 				E37056A21DC69EC309C4C28D1186B726 /* UIView+Transitions.swift */,
 				9C55284D43D18771ACD4209D69F6FB19 /* Support Files */,
 			);
-			name = SkeletonView;
 			path = SkeletonView;
 			sourceTree = "<group>";
 		};
@@ -1221,7 +1219,6 @@
 			children = (
 				4FF7A6DD475049AE9798AA8D84EE513B /* Support Files */,
 			);
-			name = SwiftGen;
 			path = SwiftGen;
 			sourceTree = "<group>";
 		};
@@ -1298,7 +1295,6 @@
 				0AB9531B980BB91DBC70CC97A1CC13AF /* IQUIViewController+Additions.swift */,
 				43E0406E97292A5201F80ABA6C2C80EF /* Support Files */,
 			);
-			name = IQKeyboardManagerSwift;
 			path = IQKeyboardManagerSwift;
 			sourceTree = "<group>";
 		};
@@ -1471,7 +1467,6 @@
 				A239AF300B2755F5BAB9A72CF381F322 /* Zip+Collection.swift */,
 				F360A0EB13C4F58A362498AEEED38994 /* Support Files */,
 			);
-			name = RxSwift;
 			path = RxSwift;
 			sourceTree = "<group>";
 		};
@@ -1555,7 +1550,7 @@
 			);
 			name = "Pods-Macro Challenge ADAIL";
 			productName = "Pods-Macro Challenge ADAIL";
-			productReference = DCAE1AB4A24CAA03C8AB7611A934FBC9 /* Pods-Macro Challenge ADAIL */;
+			productReference = DCAE1AB4A24CAA03C8AB7611A934FBC9 /* libPods-Macro Challenge ADAIL.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 		4622BFEF3DC16E8BD15EEFC30D4D0084 /* RxRelay */ = {
