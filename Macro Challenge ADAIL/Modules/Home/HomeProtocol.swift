@@ -13,6 +13,7 @@ protocol HomeViewToPresenterProtocol: AnyObject {
     var router: HomePresenterToRouterProtocol? { get set }
     
     func goToAccount(from: HomeVC)
+    func fetchUpcomingBills()
 }
 
 protocol HomePresenterToRouterProtocol: AnyObject {
@@ -21,14 +22,15 @@ protocol HomePresenterToRouterProtocol: AnyObject {
 }
 
 protocol HomePresenterToViewProtocol: AnyObject {
-    
+    func didFetchUpcomingBills(data: [Expanses])
 }
 
 protocol HomePresenterToInteractorProtocol: AnyObject {
     var presenter: HomeInteractorToPresenterProtocol? { get set }
+    func fetchUpcomingBills()
 }
 
 protocol HomeInteractorToPresenterProtocol: AnyObject {
-    
+    func didFetchUpcomingBills(data: [Expanses])
 }
 

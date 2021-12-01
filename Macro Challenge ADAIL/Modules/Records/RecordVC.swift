@@ -20,13 +20,27 @@ class RecordVC: UIViewController {
     }()
     
     let tableView: UITableView = UITableView()
+        .configure { v in
+            v.backgroundColor = .secondarySystemBackground
+        }
     
+    var records: [Expanses] = [] {
+        didSet {
+            print("RELOAD")
+            tableView.reloadData()
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
         tableView.delegate = self
         tableView.dataSource = self
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        fetchRecords()
     }
     
     func setupView() {
@@ -38,8 +52,6 @@ class RecordVC: UIViewController {
         textLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         
         tableSetup()
-        
-        
     }
     
     func tableSetup() {
@@ -48,32 +60,46 @@ class RecordVC: UIViewController {
         self.view.addSubview(tableView)
     }
     
+    func fetchRecords() {
+        presentor?.fetchRecords()
+    }
+    
 }
 
 extension RecordVC: RecordPresenterToViewProtocol {
-    
+    func didFetchRecords(expanses: [Expanses]) {
+        print("EXPANSES: ",expanses)
+        self.records = expanses
+    }
 }
 
 extension RecordVC: UITableViewDelegate, UITableViewDataSource {
     
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
-    }
-    
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        switch section {
-             case 0: return "2 Oktober 2021"
-             case 1: return "28 September 2021"
-             default: return nil
-        }
-    }
-    
+//    func numberOfSections(in tableView: UITableView) -> Int {
+//        return 2
+//    }
+//
+//    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+//        switch section {
+//             case 0: return "2 Oktober 2021"
+//             case 1: return "28 September 2021"
+//             default: return nil
+//        }
+//    }
+//
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return records.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "recordCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "recordCell", for: indexPath) as! RecordsTableViewCell
+        
+        let record = records[indexPath.row]
+        
+        cell.image.image = UIImage(systemName: record.icon)
+        cell.titleLabel.text = record.transactionName
+        cell.priceLabel.text = String(record.totalTransaction).currencyFormatting()
+        
         cell.layer.borderWidth = 0
         cell.selectionStyle = .none
         return cell

@@ -7,13 +7,19 @@
 //
 
 class ListsPresenter: ListsViewToPresenterProtocol {
+    
+    
     var view: ListsPresenterToViewProtocol?
     var router: ListsPresenterToRouterProtocol?
     var interactor: ListsPresenterToInteractorProtocol?
     
-    
+    func fetchUpcoming() {
+        interactor?.fetchUpcoming()
+    }
 }
 
 extension ListsPresenter: ListsInteractorToPresenterProtocol {
-
+    func didFetchUpcoming(data: [Expanses]) {
+        view?.didFetchUpcoming(data: data)
+    }
 }

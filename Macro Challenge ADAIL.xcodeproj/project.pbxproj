@@ -106,6 +106,10 @@
 		BD6EA538274A3FFB00EF89B5 /* FriendsDebtVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD6EA532274A3FFB00EF89B5 /* FriendsDebtVC.swift */; };
 		BD6EA539274A3FFB00EF89B5 /* FriendsDebtRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD6EA533274A3FFB00EF89B5 /* FriendsDebtRouter.swift */; };
 		BD6EA53A274A3FFB00EF89B5 /* FriendsDebtInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD6EA534274A3FFB00EF89B5 /* FriendsDebtInteractor.swift */; };
+		BD74AA512757530A005135C6 /* ExpansesInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD74AA502757530A005135C6 /* ExpansesInteractor.swift */; };
+		BD74AA532757B6E9005135C6 /* ExpansesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD74AA522757B6E9005135C6 /* ExpansesModel.swift */; };
+		BD74AA5727580169005135C6 /* Extension + Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD74AA5627580169005135C6 /* Extension + Date.swift */; };
+		BD74AA5927580343005135C6 /* Extension + String.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD74AA5827580343005135C6 /* Extension + String.swift */; };
 		BD84242927295A1A00B922DC /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD84242827295A1A00B922DC /* Button.swift */; };
 		BD84242B2729628100B922DC /* SignInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD84242A2729628100B922DC /* SignInVC.swift */; };
 		BD84242D2729629100B922DC /* SignInProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD84242C2729629100B922DC /* SignInProtocol.swift */; };
@@ -240,6 +244,10 @@
 		BD6EA532274A3FFB00EF89B5 /* FriendsDebtVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendsDebtVC.swift; sourceTree = "<group>"; };
 		BD6EA533274A3FFB00EF89B5 /* FriendsDebtRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendsDebtRouter.swift; sourceTree = "<group>"; };
 		BD6EA534274A3FFB00EF89B5 /* FriendsDebtInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendsDebtInteractor.swift; sourceTree = "<group>"; };
+		BD74AA502757530A005135C6 /* ExpansesInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpansesInteractor.swift; sourceTree = "<group>"; };
+		BD74AA522757B6E9005135C6 /* ExpansesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpansesModel.swift; sourceTree = "<group>"; };
+		BD74AA5627580169005135C6 /* Extension + Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + Date.swift"; sourceTree = "<group>"; };
+		BD74AA5827580343005135C6 /* Extension + String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + String.swift"; sourceTree = "<group>"; };
 		BD84242827295A1A00B922DC /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
 		BD84242A2729628100B922DC /* SignInVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInVC.swift; sourceTree = "<group>"; };
 		BD84242C2729629100B922DC /* SignInProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInProtocol.swift; sourceTree = "<group>"; };
@@ -434,6 +442,8 @@
 				BD06A045273CB96C0030E085 /* Configures.swift */,
 				BD3AA15C274354D00068AAEA /* Extension + UIViewController.swift */,
 				BD3EB3722747820F00273B0C /* Extension + UIView.swift */,
+				BD74AA5627580169005135C6 /* Extension + Date.swift */,
+				BD74AA5827580343005135C6 /* Extension + String.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -488,6 +498,8 @@
 				BD2675C0273CFFC5004F7856 /* ExpansesProtocol.swift */,
 				BD2675BE273CFFB5004F7856 /* ExpansesRouter.swift */,
 				BD2675C2273CFFDA004F7856 /* ExpansesVC.swift */,
+				BD74AA502757530A005135C6 /* ExpansesInteractor.swift */,
+				BD74AA522757B6E9005135C6 /* ExpansesModel.swift */,
 			);
 			path = Expanses;
 			sourceTree = "<group>";
@@ -845,8 +857,10 @@
 				BD474FAB27240E5D005BF154 /* ProfileInteractor.swift in Sources */,
 				419A86E42747F02C00FEA99B /* ShowQRRouter.swift in Sources */,
 				BD4D657627450DA300EAD0EC /* CardView.swift in Sources */,
+				BD74AA532757B6E9005135C6 /* ExpansesModel.swift in Sources */,
 				BD84243927296D6400B922DC /* SignUpRouter.swift in Sources */,
 				BD2675BF273CFFB5004F7856 /* ExpansesRouter.swift in Sources */,
+				BD74AA5727580169005135C6 /* Extension + Date.swift in Sources */,
 				BD2675C8273D02A3004F7856 /* LivePreviewer.swift in Sources */,
 				BD6740FE27500B5600866E67 /* AddDebtProtocol.swift in Sources */,
 				419A86CB2747D77900FEA99B /* DetailSpaceModels.swift in Sources */,
@@ -912,6 +926,7 @@
 				BD6740D8274F802E00866E67 /* FriendsDebtTableViewCell.swift in Sources */,
 				4115381527425C2F00154DB1 /* CreateSpaceVC.swift in Sources */,
 				419A86D62747EB8600FEA99B /* DescSpacePresenter.swift in Sources */,
+				BD74AA512757530A005135C6 /* ExpansesInteractor.swift in Sources */,
 				413213B22743ACDE00F5BD9C /* JoinSpaceRouter.swift in Sources */,
 				BDD3FA03272349FF00B2AF7F /* TabBarRouter.swift in Sources */,
 				BD3EB3732747820F00273B0C /* Extension + UIView.swift in Sources */,
@@ -941,6 +956,7 @@
 				BD474FA727240E41005BF154 /* ProfileProtocol.swift in Sources */,
 				BD2675CA273D06D3004F7856 /* SwiftUIRouterAdapter.swift in Sources */,
 				4115381427425C2F00154DB1 /* CreateSpaceProtocol.swift in Sources */,
+				BD74AA5927580343005135C6 /* Extension + String.swift in Sources */,
 				BD474FAE27240EC0005BF154 /* Constants.swift in Sources */,
 				BD84242B2729628100B922DC /* SignInVC.swift in Sources */,
 				BD2675C5273D023F004F7856 /* EasyScrollView.swift in Sources */,

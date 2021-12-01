@@ -125,11 +125,6 @@ class HomeVC: UIViewController {
         self.greetingLabel.text = "Hello \(UserName ?? "User")"
 
         
-//        DispatchQueue.main.async {
-//            let UserName = UserDefaults.standard.object(forKey: "name") as? String
-//            self.greetingLabel.text = "Hello \(UserName ?? "User")"
-//        }
-
         
         self.title = Constants().tab1Title
         self.view.backgroundColor = .secondarySystemBackground
@@ -155,11 +150,16 @@ class HomeVC: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         hideNavigationBar(animated: animated)
+        fetchData()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         showNavigationBar(animated: animated)
+    }
+    
+    func fetchData() {
+        presentor?.fetchUpcomingBills()
     }
     
     func setupScrollView() {
@@ -189,6 +189,13 @@ class HomeVC: UIViewController {
 }
 
 extension HomeVC: HomePresenterToViewProtocol {
+    func didFetchUpcomingBills(data: [Expanses]) {
+        self.upcomingCardView.upcomingBills = data
+        DispatchQueue.main.async {
+            self.upcomingCardView.tableView.reloadData()
+        }
+    }
+    
     @objc func goToNewExpenses(_ sender : Any) {
         print("Go To New Expenses")
     }

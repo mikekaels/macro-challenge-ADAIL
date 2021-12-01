@@ -13,6 +13,8 @@ protocol ListsViewToPresenterProtocol: AnyObject {
     var view: ListsPresenterToViewProtocol? { get set }
     var interactor: ListsPresenterToInteractorProtocol? { get set }
     var router: ListsPresenterToRouterProtocol? { get set }
+    
+    func fetchUpcoming()
 }
 
 protocol ListsPresenterToRouterProtocol: AnyObject {
@@ -20,14 +22,15 @@ protocol ListsPresenterToRouterProtocol: AnyObject {
 }
 
 protocol ListsPresenterToViewProtocol: AnyObject {
-
+    func didFetchUpcoming(data: [Expanses])
 }
 
 protocol ListsInteractorToPresenterProtocol: AnyObject {
-
+    func didFetchUpcoming(data: [Expanses])
 }
 
 protocol ListsPresenterToInteractorProtocol: AnyObject {
     var presenter: ListsInteractorToPresenterProtocol? { get set }
+    func fetchUpcoming()
 
 }

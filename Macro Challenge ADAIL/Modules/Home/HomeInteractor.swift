@@ -6,5 +6,12 @@
 //
 
 class HomeInteractor: HomePresenterToInteractorProtocol {
+    
     var presenter: HomeInteractorToPresenterProtocol?
+    
+    func fetchUpcomingBills() {
+        CloudKitHelper.fetchAllUpcoming { result in
+            self.presenter?.didFetchUpcomingBills(data: result)
+        }
+    }
 }
