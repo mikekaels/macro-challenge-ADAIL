@@ -13,8 +13,6 @@ class ProfileVC: UIViewController {
     var presentor: ProfileViewToPresenterProtocol?
     public var delegate: ProfileDelegate!
     
-    private let signInButton = ASAuthorizationAppleIDButton()
-    
     var group: Group?
     var groupMember: [GroupUser]?
     
@@ -101,7 +99,7 @@ class ProfileVC: UIViewController {
     
     let card3: UIView = {
         let view = UIView()
-        view.backgroundColor = .white
+        view.backgroundColor = .clear
         view.layer.cornerRadius = 20
         return view
     }()
@@ -269,10 +267,11 @@ class ProfileVC: UIViewController {
     func setMemberCollectionView() {
         
         let layout = UICollectionViewFlowLayout()
-        layout.itemSize = CGSize(width: 100, height: 83)
+        layout.itemSize = CGSize(width: 100, height: 100)
         layout.sectionInset = UIEdgeInsets(top: 10, left: 0, bottom: 10, right: 0)
 //        layout.scrollDirection = .horizontal
         memberCollectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        memberCollectionView?.backgroundColor = .clear
         
         guard let memberCollectionView = memberCollectionView else {
             return
@@ -326,8 +325,8 @@ class ProfileVC: UIViewController {
 
 extension ProfileVC: ProfilePresenterToViewProtocol {
     func didFetchGroup(group: Group){
+        print("GROUP: ",group)
         self.group = group
-        print("HERE: ",self.group)
         DispatchQueue.main.asyncAfter(deadline: .now()+1) {
             self.nameLabel.text = group.name
             self.addressLabel.text = group.address
@@ -347,39 +346,25 @@ extension ProfileVC: SignUpDelegate {
     
 }
 
-extension ProfileVC: ASAuthorizationControllerDelegate {
-    func authorizationController(controller: ASAuthorizationController, didCompleteWithError error: Error) {
-        print("FAILED")
+
+extension ProfileVC: UICollectionViewDataSource, UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        let member = group?.users.count ?? 0
+        return member
     }
     
-    func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
-        switch authorization.credential {
-        case let credentials as ASAuthorizationAppleIDCredential:
-            
-            if let firstname = credentials.fullName?.givenName {
-                print(firstname)
-            }
-            
-            if let lastname = credentials.fullName?.familyName {
-                print(lastname)
-            }
-            
-            if let email = credentials.email {
-                print(email)
-            }
-            
-            let user = credentials.user
-            print(user)
-            
-            break
-        default:
-            break
+    func getCollection() -> [GroupUser]{
+        if let members = UserDefaults.standard.value(forKey: "groupMembers") as? Data {
+            let array = try? PropertyListDecoder().decode(Array<GroupUser>.self, from: members)
+            return array!
         }
+        return [GroupUser(id: "", name: "")]
     }
-}
-
-extension ProfileVC: ASAuthorizationControllerPresentationContextProviding {
-    func presentationAnchor(for controller: ASAuthorizationController) -> ASPresentationAnchor {
-        return view.window!
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        print("collection view check")
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MemberCollectionViewCell.identifier, for: indexPath) as! MemberCollectionViewCell
+        cell.setItem(getCollection()[indexPath.row])
+        return cell
     }
 }

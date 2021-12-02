@@ -262,6 +262,8 @@ class CloudKitHelper {
         }
     }
     
+    
+    
     static func fetchGroup(id: String, completion: @escaping (Group) -> ()) {
         print("Fetching Group....")
         

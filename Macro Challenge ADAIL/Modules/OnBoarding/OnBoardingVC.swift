@@ -198,7 +198,7 @@ extension OnBoardingVC: ASAuthorizationControllerDelegate {
     func authorizationController(controller: ASAuthorizationController, didCompleteWithError error: Error) {
         print("FAILED")
         
-        presentor?.saveUser(id: "00000", name: "Yudha", email: "yudha@aja")
+//        presentor?.saveUser(id: "00000", name: "Yudha", email: "yudha@aja")
         
         //Test
         newScene()
