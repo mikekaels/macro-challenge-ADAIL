@@ -42,9 +42,17 @@ class ProfilePresenter: ProfileViewToPresenterProtocol {
     func signOut(from: ProfileVC) {
         
     }
+    
+    func fetchUsers(IDs: [String]) {
+        interactor?.fetchUsers(IDs: IDs)
+    }
 }
 
 extension ProfilePresenter: ProfileInteractorToPresenterProtocol {
+    func didFetchUsers(users: [User]) {
+        self.view?.didFetchUsers(users: users)
+    }
+    
     func didFetchGroup(group: Group) {
         self.view?.didFetchGroup(group: group)
     }

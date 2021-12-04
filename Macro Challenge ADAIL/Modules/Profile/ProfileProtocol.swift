@@ -19,10 +19,12 @@ protocol ProfileViewToPresenterProtocol: AnyObject {
     func goToCreateSpace(from: ProfileVC)
     func goToJoinSpace(from: ProfileVC)
     func fetchGroup()
+    func fetchUsers(IDs: [String])
 }
 
 protocol ProfilePresenterToViewProtocol: AnyObject {
     func didFetchGroup(group: Group)
+    func didFetchUsers(users: [User])
 }
 
 protocol ProfilePresenterToRouterProtocol: AnyObject {
@@ -39,8 +41,10 @@ protocol ProfilePresenterToRouterProtocol: AnyObject {
 protocol ProfilePresenterToInteractorProtocol: AnyObject {
     var presenter: ProfileInteractorToPresenterProtocol? { get set }
     func fetchGroup()
+    func fetchUsers(IDs: [String])
 }
 
 protocol ProfileInteractorToPresenterProtocol: AnyObject {
     func didFetchGroup(group: Group)
+    func didFetchUsers(users: [User])
 }

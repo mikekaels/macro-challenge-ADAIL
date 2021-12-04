@@ -180,7 +180,6 @@ class CloudKitHelper {
     }
     
     static func fetchOneUser(id: String, completion: @escaping (User) -> ()) {
-        print("Fetching User....")
         
         let database = CKContainer(identifier: CloudKitHelper.identifier).publicCloudDatabase
         
@@ -190,7 +189,6 @@ class CloudKitHelper {
         
         let operation = CKQueryOperation(query: query)
         
-        //        operation.desiredKeys = ["id", "name", "email", "phone", "bankName", "accountNumber"]
         operation.desiredKeys = ["name", "email", "phone", "bankName", "accountNumber", "group"]
         
         
@@ -229,6 +227,137 @@ class CloudKitHelper {
         database.add(operation)
     }
     
+    static func fetchUserByRecordID(id: String, completion: @escaping (User) -> ()) {
+        let database = CKContainer(identifier: CloudKitHelper.identifier).publicCloudDatabase
+        
+        let recordId = CKRecord.ID(recordName: id)
+        
+        let predicate = NSPredicate(format: "recordID == %@", recordId)
+        
+        let query = CKQuery(recordType: "User", predicate: predicate)
+        
+        let operation = CKQueryOperation(query: query)
+        
+        operation.desiredKeys = ["name", "email", "phone", "bankName", "accountNumber", "group"]
+        
+        operation.recordFetchedBlock = { record in
+            DispatchQueue.main.async {
+                let id = record.recordID.recordName
+                
+                guard let name = record["name"] as? String else {
+                    return
+                }
+                
+                guard let email = record["email"] as? String else {
+                    return
+                }
+                
+                guard let phone = record["phone"] as? Int else {
+                    return
+                }
+                guard let bankName = record["bankName"] as? String else {
+                    return
+                }
+                
+                guard let accountNumber = record["accountNumber"] as? Int else {
+                    return
+                }
+                
+                guard let group = record["group"] as? String else {
+                    return
+                }
+                completion(User(id: id, name: name, email: email, phone: phone , bankName: bankName, accountNumber: accountNumber, group: group))
+            }
+        }
+        
+        database.add(operation)
+    }
+    
+    static func fetchUsersByID(IDs: [String], completion: @escaping ([User]) -> ()) {
+        let database = CKContainer(identifier: CloudKitHelper.identifier).publicCloudDatabase
+        
+//        let predicate = NSPredicate(format: "%k IN %@", "record_name", IDs)
+        
+        let recordIDs = IDs.map { CKRecord.ID(recordName: $0) }
+        
+//        let query = CKQuery(recordType: "User", predicate: predicate)
+        
+//        let operation = CKQueryOperation(query: query)
+        
+        let operation = CKFetchRecordsOperation(recordIDs: recordIDs)
+        
+        operation.desiredKeys = ["name", "email", "phone", "bankName", "accountNumber", "group"]
+        
+//        operation.recordFetchedBlock = { record in
+//            DispatchQueue.main.async {
+//                let id = record.recordID.recordName
+//
+//                guard let name = record["name"] as? String else {
+//                    return
+//                }
+//
+//                guard let email = record["email"] as? String else {
+//                    return
+//                }
+//
+//                guard let phone = record["phone"] as? Int else {
+//                    return
+//                }
+//                guard let bankName = record["bankName"] as? String else {
+//                    return
+//                }
+//
+//                guard let accountNumber = record["accountNumber"] as? Int else {
+//                    return
+//                }
+//
+//                guard let group = record["group"] as? String else {
+//                    return
+//                }
+//                completion(User(id: id, name: name, email: email, phone: phone , bankName: bankName, accountNumber: accountNumber, group: group))
+//            }
+//        }
+        
+        operation.fetchRecordsCompletionBlock = { (ckRecords, error) in
+            print(ckRecords)
+            DispatchQueue.main.async {
+                var users: [User] = []
+                ckRecords!.mapValues { (record) in
+                    let id = record.recordID.recordName
+    
+                    guard let name = record["name"] as? String else {
+                        return
+                    }
+    
+                    guard let email = record["email"] as? String else {
+                        return
+                    }
+    
+                    guard let phone = record["phone"] as? Int else {
+                        return
+                    }
+                    guard let bankName = record["bankName"] as? String else {
+                        return
+                    }
+    
+                    guard let accountNumber = record["accountNumber"] as? Int else {
+                        return
+                    }
+    
+                    guard let group = record["group"] as? String else {
+                        return
+                    }
+                    users.append(User(id: id, name: name, email: email, phone: phone , bankName: bankName, accountNumber: accountNumber, group: group))
+                }
+                
+                completion(users)
+            }
+        }
+        
+        database.add(operation)
+    }
+    
+    
     static func createGroup(name: String, address: String, description: String, completion: @escaping (Group) -> ()) {
         print("Creating Group....")
         
@@ -261,8 +390,6 @@ class CloudKitHelper {
             
         }
     }
-    
-    
     
     static func fetchGroup(id: String, completion: @escaping (Group) -> ()) {
         print("Fetching Group....")

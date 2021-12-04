@@ -6,6 +6,7 @@
 //
 
 class ProfileInteractor: ProfilePresenterToInteractorProtocol {
+    
     var presenter: ProfileInteractorToPresenterProtocol?
 }
 
@@ -15,6 +16,12 @@ extension ProfileInteractor {
         CloudKitHelper.fetchGroup(id: id, completion: { group in
             self.presenter?.didFetchGroup(group: group)
         })
+    }
+    
+    func fetchUsers(IDs: [String]) {
+        CloudKitHelper.fetchUsersByID(IDs: IDs) { users in
+            self.presenter?.didFetchUsers(users: users)
+        }
     }
 }
 

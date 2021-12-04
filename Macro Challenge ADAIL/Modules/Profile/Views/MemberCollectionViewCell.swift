@@ -20,6 +20,7 @@ class MemberCollectionViewCell: UICollectionViewCell {
     let image: UIImageView = {
         let v = UIImageView()
         v.image = UIImage(named: "profile")
+        v.contentMode = .scaleToFill
         v.layer.cornerRadius = 30
         v.heightAnchor.constraint(equalToConstant: 40).isActive = true
         v.widthAnchor.constraint(equalToConstant: 40).isActive = true
@@ -32,11 +33,11 @@ class MemberCollectionViewCell: UICollectionViewCell {
         let l = UILabel()
         l.text = "Name"
         l.textAlignment = .center
-        
-        l.textColor = .label
+        l.textColor = .black
         l.lineBreakMode = .byWordWrapping
         l.numberOfLines = 0
         l.font = UIFont.systemFont(ofSize: 12, weight: .bold)
+        l.translatesAutoresizingMaskIntoConstraints = false
         return l
     }()
     
@@ -64,9 +65,9 @@ class MemberCollectionViewCell: UICollectionViewCell {
 //
         imageWrapper.addSubview(nameLabel)
         nameLabel.widthAnchor.constraint(equalTo: imageWrapper.widthAnchor).isActive = true
-        nameLabel.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        nameLabel.heightAnchor.constraint(equalToConstant: 20).isActive = true
         nameLabel.centerXAnchor.constraint(equalTo: imageWrapper.centerXAnchor).isActive = true
-        nameLabel.topAnchor.constraint(equalTo: image.bottomAnchor, constant: 15).isActive = true
+        nameLabel.topAnchor.constraint(equalTo: image.bottomAnchor, constant: 5).isActive = true
     }
     
     func setItem(_ item: GroupUser) {
