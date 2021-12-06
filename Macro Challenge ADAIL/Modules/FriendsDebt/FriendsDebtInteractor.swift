@@ -6,6 +6,13 @@
 //  Copyright (c) 2021 ___ORGANIZATIONNAME___. All rights reserved.
 //
 
+import Foundation
+
 class FriendsDebtInteractor: FriendsDebtPresenterToInteractorProtocol {
     var presenter: FriendsDebtInteractorToPresenterProtocol?
+}
+extension FriendsDebtInteractor {
+    func addDebt(userId: String, friendsId: String, totalDebt: Int, date: Date) {
+        print(userId)
+    }
 }

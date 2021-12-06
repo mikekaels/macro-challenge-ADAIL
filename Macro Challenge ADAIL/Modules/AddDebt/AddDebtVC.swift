@@ -189,7 +189,7 @@ class AddDebtVC: UIViewController {
     }
     
     @objc func addTapped() {
-        print("Ouww")
+        presentor.
     }
     
     @objc func buttonTapped() {

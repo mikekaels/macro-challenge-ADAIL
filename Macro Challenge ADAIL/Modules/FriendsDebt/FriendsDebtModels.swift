@@ -12,20 +12,24 @@
 
 import UIKit
 
-enum FriendsDebt
-{
-  // MARK: Use cases
-  
-  enum Something
-  {
-    struct Request
-    {
-    }
-    struct Response
-    {
-    }
-    struct ViewModel
-    {
-    }
-  }
+struct Debt {
+    let userId: String
+    let friendsId: String
+    let total: Int
+}
+
+struct DebtHistory {
+    let DebtId: String
+    let userId: String
+    let friendsId: String
+    let totalDebt: Int
+    let date: Date
+}
+
+struct PaidHistory {
+    let DebtId: String
+    let userId: String
+    let friendsId: String
+    let totalpaid: Int
+    let date: Date
 }

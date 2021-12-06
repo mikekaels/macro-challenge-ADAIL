@@ -232,6 +232,7 @@ class FriendsDebtVC: UIViewController {
         scrollViewContainer.spacing = 20
     }
     
+    
 }
 
 extension FriendsDebtVC: FriendsDebtPresenterToViewProtocol {
