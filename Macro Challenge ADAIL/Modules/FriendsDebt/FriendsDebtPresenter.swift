@@ -6,7 +6,10 @@
 //  Copyright (c) 2021 ___ORGANIZATIONNAME___. All rights reserved.
 //
 
+import Foundation
+
 class FriendsDebtPresenter: FriendsDebtViewToPresenterProtocol {
+    
     var view: FriendsDebtPresenterToViewProtocol?
     var router: FriendsDebtPresenterToRouterProtocol?
     var interactor: FriendsDebtPresenterToInteractorProtocol?
@@ -15,5 +18,4 @@ class FriendsDebtPresenter: FriendsDebtViewToPresenterProtocol {
 }
 
 extension FriendsDebtPresenter: FriendsDebtInteractorToPresenterProtocol {
-
 }

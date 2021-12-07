@@ -14,6 +14,8 @@ class ListsVC: UIViewController {
     var bills: [Any] = [Any]()
     var state: String?
     var upcoming: [Expanses] = [Expanses]()
+    var friendsDebt: [Debt] = [Debt]()
+    var friendsData: [User] = [User]()
     
     let totalLabel: UILabel = UILabel()
         .configure { v in
@@ -48,8 +50,8 @@ class ListsVC: UIViewController {
         view.backgroundColor = .secondarySystemBackground
         title = "Lists"
         // Do any additional setup after loading the view.
-        
         setupViews()
+        calculateTotal()
         
         switch state {
         case "UpcomingBills":
@@ -66,8 +68,7 @@ class ListsVC: UIViewController {
     
     func setupViews() {
         view.addSubview(tableView)
-        
-        
+
         switch state {
         case "FriendsDebt", "MyDebt":
             view.addSubview(totalLabel)
@@ -97,6 +98,16 @@ class ListsVC: UIViewController {
     func fetchUpcoming() {
         presentor?.fetchUpcoming()
     }
+    
+    func calculateTotal() {
+        var newTotal = 0
+        for user in friendsDebt {
+            newTotal += user.total
+        }
+        DispatchQueue.main.async {
+            self.amountLabel.text = String(newTotal).currencyFormatting()
+        }
+    }
 }
 
 extension ListsVC: ListsPresenterToViewProtocol {
@@ -106,8 +117,6 @@ extension ListsVC: ListsPresenterToViewProtocol {
             self.tableView.reloadData()
         }
     }
-    
-    
 }
 
 extension ListsVC: UITableViewDelegate, UITableViewDataSource {
@@ -116,7 +125,7 @@ extension ListsVC: UITableViewDelegate, UITableViewDataSource {
         case "UpcomingBills":
             return upcoming.count
         case "FriendsDebt":
-            return 0
+            return friendsDebt.count
         default:
             return 0
         }
@@ -137,6 +146,13 @@ extension ListsVC: UITableViewDelegate, UITableViewDataSource {
             return cell
         case "FriendsDebt":
             let cell = tableView.dequeueReusableCell(withIdentifier: "FriendsDebtCell", for: indexPath) as! FriendsDebtTableViewCell
+            
+            let data = friendsDebt[indexPath.row]
+            let user = friendsData[indexPath.row]
+            
+            cell.itemLabel.text = user.name
+            cell.priceLabel.text = String(data.total).currencyFormatting()
+            
             cell.backgroundColor = .clear
             cell.selectionStyle = .none
             return cell

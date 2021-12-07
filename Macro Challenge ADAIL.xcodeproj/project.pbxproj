@@ -50,7 +50,6 @@
 		419A86E82747F02C00FEA99B /* ShowQRVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419A86E22747F02C00FEA99B /* ShowQRVC.swift */; };
 		41A6AFE42749A33900BE254B /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41A6AFE32749A33900BE254B /* CloudKit.framework */; };
 		41C3761A273E1FF000BA01FF /* OnBoardingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C37619273E1FF000BA01FF /* OnBoardingCollectionViewCell.swift */; };
-		41E6E10727423BBB00527CAA /* MemberCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E6E10627423BBB00527CAA /* MemberCollectionView.swift */; };
 		41E6E10927423BE300527CAA /* MemberCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E6E10827423BE300527CAA /* MemberCollectionViewCell.swift */; };
 		41E6E10B27423C8900527CAA /* ProfileVCEmptyState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E6E10A27423C8900527CAA /* ProfileVCEmptyState.swift */; };
 		9BEE11FEFC4F12C2AF48B7B3 /* libPods-Macro Challenge ADAIL.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F59F2B2B77366C48A7D0270 /* libPods-Macro Challenge ADAIL.a */; };
@@ -188,7 +187,6 @@
 		419A86E22747F02C00FEA99B /* ShowQRVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowQRVC.swift; sourceTree = "<group>"; };
 		41A6AFE32749A33900BE254B /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		41C37619273E1FF000BA01FF /* OnBoardingCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingCollectionViewCell.swift; sourceTree = "<group>"; };
-		41E6E10627423BBB00527CAA /* MemberCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberCollectionView.swift; sourceTree = "<group>"; };
 		41E6E10827423BE300527CAA /* MemberCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberCollectionViewCell.swift; sourceTree = "<group>"; };
 		41E6E10A27423C8900527CAA /* ProfileVCEmptyState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVCEmptyState.swift; sourceTree = "<group>"; };
 		5F59F2B2B77366C48A7D0270 /* libPods-Macro Challenge ADAIL.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Macro Challenge ADAIL.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -340,7 +338,6 @@
 			isa = PBXGroup;
 			children = (
 				41E6E10A27423C8900527CAA /* ProfileVCEmptyState.swift */,
-				41E6E10627423BBB00527CAA /* MemberCollectionView.swift */,
 				41E6E10827423BE300527CAA /* MemberCollectionViewCell.swift */,
 			);
 			path = Views;
@@ -840,7 +837,6 @@
 				BD2675CD273D5EF6004F7856 /* RemindMeAtVC.swift in Sources */,
 				BD6EA539274A3FFB00EF89B5 /* FriendsDebtRouter.swift in Sources */,
 				BDD3F9F52723031800B2AF7F /* HomeProtocol.swift in Sources */,
-				41E6E10727423BBB00527CAA /* MemberCollectionView.swift in Sources */,
 				BD41E72B274B3123001EA88F /* IconsModels.swift in Sources */,
 				BD2675CF273D5F06004F7856 /* RemindMeAtProtocol.swift in Sources */,
 				BD84243727296D5700B922DC /* SignUpPresenter.swift in Sources */,

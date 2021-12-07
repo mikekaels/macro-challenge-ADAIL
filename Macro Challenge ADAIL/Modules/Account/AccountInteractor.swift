@@ -14,7 +14,7 @@ class AccountInteractor: AccountPresenterToInteractorProtocol {
 extension AccountInteractor {
     func fetchUser() {
         let id = Core().getID()
-        CloudKitHelper.fetchOneUser(id: id) { user in
+        CloudKitHelper.fetchUserByRecordID(id: id) { user in
             self.presenter?.didFetchUser(user: user)
         }
     }

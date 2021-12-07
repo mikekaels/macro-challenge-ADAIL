@@ -124,8 +124,6 @@ class HomeVC: UIViewController {
         let UserName = UserDefaults.standard.object(forKey: "name") as? String
         self.greetingLabel.text = "Hello \(UserName ?? "User")"
 
-        
-        
         self.title = Constants().tab1Title
         self.view.backgroundColor = .secondarySystemBackground
         profileContainer.widthAnchor.constraint(equalToConstant: 50).isActive = true
@@ -160,6 +158,7 @@ class HomeVC: UIViewController {
     
     func fetchData() {
         presentor?.fetchUpcomingBills()
+        presentor?.fetchFriendsDebt(userId: Core().getID())
     }
     
     func setupScrollView() {
@@ -189,6 +188,20 @@ class HomeVC: UIViewController {
 }
 
 extension HomeVC: HomePresenterToViewProtocol {
+    func didFetchFriendsData(users: [User]) {
+
+        self.friendsOweCardView.friendsData = users
+        DispatchQueue.main.async {
+            self.friendsOweCardView.tableView.reloadData()
+        }
+    }
+    
+    func didFetchFriendsDebt(debts: [Debt]) {
+        self.friendsOweCardView.friendsDebt = debts
+        let IDs = debts.map { $0.friendId }
+        presentor?.fetchFriendsData(users: IDs)
+    }
+    
     func didFetchUpcomingBills(data: [Expanses]) {
         self.upcomingCardView.upcomingBills = data
         DispatchQueue.main.async {

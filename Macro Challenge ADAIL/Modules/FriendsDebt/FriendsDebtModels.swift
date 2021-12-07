@@ -11,21 +11,3 @@
 //
 
 import UIKit
-
-enum FriendsDebt
-{
-  // MARK: Use cases
-  
-  enum Something
-  {
-    struct Request
-    {
-    }
-    struct Response
-    {
-    }
-    struct ViewModel
-    {
-    }
-  }
-}

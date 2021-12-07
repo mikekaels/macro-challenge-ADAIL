@@ -13,10 +13,8 @@ class ProfileVC: UIViewController {
     var presentor: ProfileViewToPresenterProtocol?
     public var delegate: ProfileDelegate!
     
-    private let signInButton = ASAuthorizationAppleIDButton()
-    
     var group: Group?
-    var groupMember: [GroupUser]?
+    var members: [User] = [User]()
     
     private var memberCollectionView: UICollectionView?
     
@@ -101,7 +99,7 @@ class ProfileVC: UIViewController {
     
     let card3: UIView = {
         let view = UIView()
-        view.backgroundColor = .white
+        view.backgroundColor = .clear
         view.layer.cornerRadius = 20
         return view
     }()
@@ -126,42 +124,32 @@ class ProfileVC: UIViewController {
         return btn
     }()
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
-        self.navigationController?.navigationBar.prefersLargeTitles = true
-        
-        if Core.shared.getGroupID() != "" {
-            setupView()
-        } else {
-            setupEmptyView()
-        }
-        print("This is groupId : \(Core.shared.getGroupID())")
-    }
-
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = Constants().tab3Title
         self.view.backgroundColor = .secondarySystemBackground
-        
+        setupViews()
+        fetchGroup()
+//        if Core.shared.getGroupID() != "" {
+//
+//        } else {
+//            setupEmptyView()
+//        }
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        self.navigationController?.navigationBar.prefersLargeTitles = true
+    }
+
+    
     
     func fetchGroup() {
         presentor?.fetchGroup()
     }
     
-    func setupView() {
+    func setupViews() {
         emptyView.removeFromSuperview()
-        
-        fetchGroup()
-
-//        DispatchQueue.main.asyncAfter(deadline: .now()+1) {
-//            let name = UserDefaults.standard.string(forKey: "groupName")
-//            let address = UserDefaults.standard.string(forKey: "groupAddress")
-//            let description = UserDefaults.standard.string(forKey: "groupDescription")
-//            self.nameLabel.text = name
-//            self.addressLabel.text = address
-//            self.descriptionLabel.text = description
-//        }
         
         self.view.addSubview(scrollView)
         
@@ -258,7 +246,7 @@ class ProfileVC: UIViewController {
     func setCard3() {
         view.addSubview(card3)
         card3.translatesAutoresizingMaskIntoConstraints = false
-        card3.topAnchor.constraint(equalTo: card2.bottomAnchor, constant: 15).isActive = true
+        card3.topAnchor.constraint(equalTo: card2.bottomAnchor, constant: 0).isActive = true
         card3.leadingAnchor.constraint(equalTo: card2.leadingAnchor).isActive = true
         card3.trailingAnchor.constraint(equalTo: card2.trailingAnchor).isActive = true
         card3.heightAnchor.constraint(equalToConstant: 300).isActive = true
@@ -269,10 +257,11 @@ class ProfileVC: UIViewController {
     func setMemberCollectionView() {
         
         let layout = UICollectionViewFlowLayout()
-        layout.itemSize = CGSize(width: 100, height: 83)
+        layout.itemSize = CGSize(width: 100, height: 100)
         layout.sectionInset = UIEdgeInsets(top: 10, left: 0, bottom: 10, right: 0)
 //        layout.scrollDirection = .horizontal
         memberCollectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        memberCollectionView?.backgroundColor = .clear
         
         guard let memberCollectionView = memberCollectionView else {
             return
@@ -322,13 +311,29 @@ class ProfileVC: UIViewController {
     @objc func leaveTap() {
         presentor?.router?.leaveGroup(from: self)
     }
+    
+    func fetchUsers() {
+        presentor?.fetchUsers(IDs: group!.users)
+    }
 }
 
 extension ProfileVC: ProfilePresenterToViewProtocol {
+    func didFetchUsers(users: [User]) {
+        print("USERS: ",users)
+        self.members = users
+        
+        DispatchQueue.main.async {
+            self.memberCollectionView?.reloadData()
+        }
+    }
+    
     func didFetchGroup(group: Group){
+        print("GROUP: ",group)
         self.group = group
-        print("HERE: ",self.group)
-        DispatchQueue.main.asyncAfter(deadline: .now()+1) {
+        print("TOTAL USERS: ",group.users)
+        fetchUsers()
+        
+        DispatchQueue.main.async {
             self.nameLabel.text = group.name
             self.addressLabel.text = group.address
             self.descriptionLabel.text = group.description
@@ -347,39 +352,29 @@ extension ProfileVC: SignUpDelegate {
     
 }
 
-extension ProfileVC: ASAuthorizationControllerDelegate {
-    func authorizationController(controller: ASAuthorizationController, didCompleteWithError error: Error) {
-        print("FAILED")
-    }
-    
-    func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
-        switch authorization.credential {
-        case let credentials as ASAuthorizationAppleIDCredential:
-            
-            if let firstname = credentials.fullName?.givenName {
-                print(firstname)
-            }
-            
-            if let lastname = credentials.fullName?.familyName {
-                print(lastname)
-            }
-            
-            if let email = credentials.email {
-                print(email)
-            }
-            
-            let user = credentials.user
-            print(user)
-            
-            break
-        default:
-            break
+
+extension ProfileVC: UICollectionViewDataSource, UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        if let users = group?.users {
+            return users.count
+        } else {
+            return 0
         }
     }
-}
-
-extension ProfileVC: ASAuthorizationControllerPresentationContextProviding {
-    func presentationAnchor(for controller: ASAuthorizationController) -> ASPresentationAnchor {
-        return view.window!
+    
+    func getCollection() -> [GroupUser]{
+        if let members = UserDefaults.standard.value(forKey: "groupMembers") as? Data {
+            let array = try? PropertyListDecoder().decode(Array<GroupUser>.self, from: members)
+            return array!
+        }
+        return [GroupUser(id: "", name: "")]
+    }
+    
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MemberCollectionViewCell.identifier, for: indexPath) as! MemberCollectionViewCell
+        let user = members[indexPath.row]
+        cell.nameLabel.text = user.name
+        return cell
     }
 }

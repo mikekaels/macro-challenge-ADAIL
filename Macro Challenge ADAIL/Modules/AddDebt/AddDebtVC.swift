@@ -11,7 +11,9 @@ class AddDebtVC: UIViewController {
     var presentor: AddDebtViewToPresenterProtocol?
     public var delegate: AddDebtDelegate!
     
-    var persons: [String] = ["Yudha", "Mike", "Juli", "Idris"]
+    var persons: [User] = [User]()
+    var selectedPerson: String?
+    
     let screenWidth = UIScreen.main.bounds.width - 10
     let screenHeight = UIScreen.main.bounds.height / 2
     
@@ -115,40 +117,14 @@ class AddDebtVC: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .secondarySystemBackground
         // Do any additional setup after loading the view.
+        
+        fetchUsers()
+        
         view.addSubview(personTextField)
         personTextField.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20).isActive = true
         personTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30).isActive = true
         personTextField.heightAnchor.constraint(equalToConstant: 40).isActive = true
         personTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30).isActive = true
-        
-        let remindmeTexfieldItems = UIMenu(title: "Remind me", options: .displayInline, children: [
-            UIAction(title: "Yudha", image: nil, handler: { _ in
-                self.personTextField.text = "Yudha"
-            }),
-            UIAction(title: "Mike", image: nil, handler: { _ in
-                self.personTextField.text = "Mike"
-            }),
-            UIAction(title: "Juli", image: UIImage(systemName: "nil"), handler: { _ in
-                self.personTextField.text = "Juli"
-            }),
-            UIAction(title: "Idris", image: UIImage(systemName: "nil"), handler: { _ in
-                self.personTextField.text = "Idris"
-            })
-        ])
-        
-        personTextField.rightView = UIButton()
-            .configure { b in
-                b.setTitleColor(.green, for: .normal)
-                
-                b.setImage(UIImage(systemName: "chevron.down"), for: .normal)
-
-                b.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
-                
-                b.showsMenuAsPrimaryAction = true
-                b.menu = remindmeTexfieldItems
-                b.translatesAutoresizingMaskIntoConstraints = false
-                b.widthAnchor.constraint(equalToConstant: 50).isActive = true
-            }
         
         view.addSubview(amountTextField)
         amountTextField.topAnchor.constraint(equalTo: personTextField.bottomAnchor, constant: 10).isActive = true
@@ -189,7 +165,20 @@ class AddDebtVC: UIViewController {
     }
     
     @objc func addTapped() {
-        print("Ouww")
+        
+        let user = Core().getID()
+        
+        guard let id = selectedPerson else {
+            return
+        }
+        
+        guard let total = amountTextField.text else {
+            return
+        }
+        
+        let date = paymentDate.date
+        
+        presentor?.addDebt(userId: user, friendId: id, totalDebt: Int(total) ?? 0, date: date)
     }
     
     @objc func buttonTapped() {
@@ -220,22 +209,63 @@ class AddDebtVC: UIViewController {
         alert.addAction(UIAlertAction(title: "Select", style: .default , handler: { UIAlertAction in
             self.selectedPersonRow = pickerView.selectedRow(inComponent: 0)
             let selectedPerson = Array(self.persons)[self.selectedPersonRow]
-            self.personTextField.text = selectedPerson
+            self.personTextField.text = selectedPerson.name
         }))
         
         self.present(alert, animated: true, completion: nil)
     }
-
+    
+    func fetchUsers() {
+        presentor?.fetchUsers(groupId: Core().getGroupID())
+    }
 }
 
 extension AddDebtVC: AddDebtPresenterToViewProtocol {
+    func didCreateDebt(debt: DebtHistory) {
+        DispatchQueue.main.async {
+            self.presentor?._dismiss(from: self)
+        }
+    }
+    
+    func didFetchUsers(users: [User]) {
+        self.persons = users
+        
+        DispatchQueue.main.async {
+            print("USERS",users)
+            
+            var actions: [UIAction] = [UIAction]()
+            
+            self.persons.forEach { user in
+                actions.append(UIAction(title: user.name, image: nil, handler: { _ in
+                    self.personTextField.text = user.name
+                    self.selectedPerson = user.id
+                }))
+            }
+            
+            let remindmeTexfieldItems = UIMenu(title: "Friends", options: .displayInline, children: actions)
+            
+            self.personTextField.rightView = UIButton()
+                .configure { b in
+                    b.setTitleColor(.green, for: .normal)
+                    
+                    b.setImage(UIImage(systemName: "chevron.down"), for: .normal)
+
+                    b.addTarget(self, action: #selector(self.buttonTapped), for: .touchUpInside)
+                    
+                    b.showsMenuAsPrimaryAction = true
+                    b.menu = remindmeTexfieldItems
+                    b.translatesAutoresizingMaskIntoConstraints = false
+                    b.widthAnchor.constraint(equalToConstant: 50).isActive = true
+                }
+        }
+    }
     
 }
 
 extension AddDebtVC: UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
     func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
         let label = UILabel(frame: CGRect(x: 0, y: 0, width: screenWidth, height: 30))
-        label.text = Array(persons)[row]
+        label.text = persons[row].name
         label.sizeToFit()
         return label
     }
