@@ -16,8 +16,8 @@ class CloudKitHelper {
     private static let identifier: String = "iCloud.cofi-one"
     
     enum recordType: String {
-        case Debt = "Debt"
-        case DebtHistory = "DebtHistory"
+        case DebtType = "Debt"
+        case DebtHistoryType = "DebtHistory"
     }
     
     enum error: Error {
@@ -480,7 +480,7 @@ class CloudKitHelper {
     
     static func createDebt(userId: String, friendId: String, total: Int, completion: @escaping(Result<CKRecord, Error>) -> ()) {
         let database = CKContainer(identifier: CloudKitHelper.identifier).publicCloudDatabase
-        let record = CKRecord(recordType: recordType.Debt.rawValue)
+        let record = CKRecord(recordType: recordType.DebtType.rawValue)
         
         record.setValue(userId,forKey: "userId")
         record.setValue(friendId, forKey: "friendId")
@@ -523,7 +523,7 @@ class CloudKitHelper {
     }
     
     static func createDebtHistory(userId: String, friendId: String, total: Int, date: Date, completion: @escaping(Result<DebtHistory, Error>) -> ()) {
-        let record = CKRecord(recordType: recordType.DebtHistory.rawValue)
+        let record = CKRecord(recordType: recordType.DebtHistoryType.rawValue)
         
         record.setValue(userId,forKey: "userId")
         record.setValue(friendId, forKey: "friendId")

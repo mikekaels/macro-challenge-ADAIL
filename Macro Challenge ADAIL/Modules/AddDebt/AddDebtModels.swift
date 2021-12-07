@@ -10,22 +10,5 @@
 //  see http://clean-swift.com
 //
 
-import UIKit
+import Foundation
 
-enum AddDebt
-{
-  // MARK: Use cases
-  
-  enum Something
-  {
-    struct Request
-    {
-    }
-    struct Response
-    {
-    }
-    struct ViewModel
-    {
-    }
-  }
-}
