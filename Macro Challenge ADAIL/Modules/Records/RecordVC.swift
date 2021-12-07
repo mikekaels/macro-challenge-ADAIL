@@ -10,6 +10,9 @@ import UIKit
 class RecordVC: UIViewController {
     var presentor: RecordViewToPresenterProtocol?
     
+    var dateSections: [String] = [String]()
+    var filteredRecords: [[Expanses]] = [[Expanses]]()
+    
     let textLabel: UILabel = {
         let label = UILabel()
         label.text = Constants().tab2Title
@@ -61,6 +64,7 @@ class RecordVC: UIViewController {
     }
     
     func fetchRecords() {
+        print("FETCHING...")
         presentor?.fetchRecords()
     }
     
@@ -68,40 +72,67 @@ class RecordVC: UIViewController {
 
 extension RecordVC: RecordPresenterToViewProtocol {
     func didFetchRecords(expanses: [Expanses]) {
-        print("EXPANSES: ",expanses)
         self.records = expanses
+        var records: [Expanses] = []
+        var dates: [String] = []
+        var recordings: [[Expanses]] = []
+        
+        expanses.forEach { record in
+            let exist = dates.contains(record.paymentDate.toString())
+            if !exist {
+                dates.append(record.paymentDate.toString())
+            }
+        }
+        
+        dates.forEach { date in
+            expanses.forEach { record in
+                let recordDate = record.paymentDate.toString()
+                
+                if recordDate == date {
+                    records.append(record)
+                }
+            }
+            
+            recordings.append(records)
+            records.removeAll()
+        }
+        self.dateSections = dates
+        self.filteredRecords = recordings
+        
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
     }
 }
 
 extension RecordVC: UITableViewDelegate, UITableViewDataSource {
     
-//    func numberOfSections(in tableView: UITableView) -> Int {
-//        return 2
-//    }
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return filteredRecords.count
+    }
 //
-//    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-//        switch section {
-//             case 0: return "2 Oktober 2021"
-//             case 1: return "28 September 2021"
-//             default: return nil
-//        }
-//    }
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return dateSections[section]
+    }
 //
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return records.count
+        switch section {
+            case section:
+                return filteredRecords[section].count
+            default:
+                return 0
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "recordCell", for: indexPath) as! RecordsTableViewCell
-        
-        let record = records[indexPath.row]
-        
+        let record = filteredRecords[indexPath.section][indexPath.row]
         cell.image.image = UIImage(systemName: record.icon)
         cell.titleLabel.text = record.transactionName
         cell.priceLabel.text = String(record.totalTransaction).currencyFormatting()
-        
         cell.layer.borderWidth = 0
         cell.selectionStyle = .none
+        
         return cell
     }
     
