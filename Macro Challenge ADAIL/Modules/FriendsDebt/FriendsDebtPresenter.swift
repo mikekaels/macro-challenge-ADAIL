@@ -18,7 +18,4 @@ class FriendsDebtPresenter: FriendsDebtViewToPresenterProtocol {
 }
 
 extension FriendsDebtPresenter: FriendsDebtInteractorToPresenterProtocol {
-    func addDebt(userId: String, friendsId: String, totalDebt: Int, date: Date) {
-        interactor?.addDebt(userId: userId, friendsId: friendsId, totalDebt: totalDebt, date: date)
-    }
 }

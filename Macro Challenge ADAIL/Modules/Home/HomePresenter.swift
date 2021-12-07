@@ -19,14 +19,25 @@ class HomePresenter: HomeViewToPresenterProtocol {
     func goToAccount(from: HomeVC) {
         router?.goToAccount(from: from)
     }
-    
     func fetchUpcomingBills() {
         interactor?.fetchUpcomingBills()
+    }
+    func fetchFriendsDebt(userId: String) {
+        interactor?.fetchFriendsDebt(userId: userId)
+    }
+    func fetchFriendsData(users: [String]) {
+        interactor?.fetchFriendsData(users: users)
     }
 }
 
 extension HomePresenter: HomeInteractorToPresenterProtocol {
+    func didFetchFriendsData(users: [User]) {
+        view?.didFetchFriendsData(users: users)
+    }
     func didFetchUpcomingBills(data: [Expanses]) {
         view?.didFetchUpcomingBills(data: data)
+    }
+    func didFetchFriendsDebt(debts: [Debt]) {
+        view?.didFetchFriendsDebt(debts: debts)
     }
 }

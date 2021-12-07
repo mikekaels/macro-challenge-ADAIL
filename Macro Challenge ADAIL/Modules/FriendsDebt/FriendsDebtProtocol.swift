@@ -15,12 +15,6 @@ protocol FriendsDebtViewToPresenterProtocol: AnyObject {
     var view: FriendsDebtPresenterToViewProtocol? { get set }
     var interactor: FriendsDebtPresenterToInteractorProtocol? { get set }
     var router: FriendsDebtPresenterToRouterProtocol? { get set }
-    
-    func addDebt(userId: String,
-                 friendsId: String,
-                 totalDebt: Int,
-                 date: Date
-    )
 }
 
 protocol FriendsDebtPresenterToRouterProtocol: AnyObject {
@@ -37,10 +31,5 @@ protocol FriendsDebtInteractorToPresenterProtocol: AnyObject {
 
 protocol FriendsDebtPresenterToInteractorProtocol: AnyObject {
     var presenter: FriendsDebtInteractorToPresenterProtocol? { get set }
-    func addDebt(userId: String,
-                 friendsId: String,
-                 totalDebt: Int,
-                 date: Date
-    )
 
 }
