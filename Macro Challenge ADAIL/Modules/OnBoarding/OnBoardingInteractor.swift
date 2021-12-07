@@ -22,9 +22,15 @@ extension OnBoardingInteractor {
     }
 
     func fetchUser(id: String) {
-        CloudKitHelper.fetchOneUser(id: id) { result in
+        CloudKitHelper.fetchUserByRecordID(id: id){ result in
             self.presenter?.didFetchUser(user: result)
             Core.shared.signIn(id: result.id, name: result.name, email: result.email)
         }
+    }
+    
+    func fetchGroup(groupId: String) {
+        CloudKitHelper.fetchGroup(id: groupId, completion: { group in
+            self.presenter?.didFetchGroup(group: group)
+        })
     }
 }

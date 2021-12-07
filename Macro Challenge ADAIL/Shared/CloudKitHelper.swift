@@ -194,54 +194,6 @@ class CloudKitHelper {
         database.add(operation)
     }
     
-    static func fetchOneUser(id: String, completion: @escaping (User) -> ()) {
-        
-        let database = CKContainer(identifier: CloudKitHelper.identifier).publicCloudDatabase
-        
-        let predicate = NSPredicate(value: true)
-        
-        let query = CKQuery(recordType: "User", predicate: predicate)
-        
-        let operation = CKQueryOperation(query: query)
-        
-        operation.desiredKeys = ["name", "email", "phone", "bankName", "accountNumber", "group"]
-        
-        
-        operation.recordFetchedBlock = { record in
-            DispatchQueue.main.async {
-                let id = record.recordID.recordName
-                
-                guard let name = record["name"] as? String else {
-                    return
-                }
-                
-                guard let email = record["email"] as? String else {
-                    return
-                }
-                
-                guard let phone = record["phone"] as? Int else {
-                    return
-                }
-                guard let bankName = record["bankName"] as? String else {
-                    return
-                }
-                
-                guard let accountNumber = record["accountNumber"] as? Int else {
-                    return
-                }
-                
-                guard let group = record["group"] as? String else {
-                    return
-                }
-                
-                completion(User(id: id, name: name, email: email, phone: phone , bankName: bankName, accountNumber: accountNumber, group: group))
-                //                Core.shared.signIn(id: id, name: name, email: email)
-            }
-        }
-        
-        database.add(operation)
-    }
-    
     static func fetchUserByRecordID(id: String, completion: @escaping (User) -> ()) {
         let database = CKContainer(identifier: CloudKitHelper.identifier).publicCloudDatabase
         
@@ -413,7 +365,7 @@ class CloudKitHelper {
     static func fetchListUsers(users: [String]){
         var listUsers:[GroupUser] = []
         for i in users {
-            fetchOneUser(id: i) { record in
+            fetchUserByRecordID(id: i) { record in
                 listUsers.append(GroupUser(id: record.id, name: record.name))
                 print(listUsers)
             }
@@ -630,7 +582,10 @@ class CloudKitHelper {
                 guard let group = record["group"] as? String else {
                     return
                 }
-                users.append(User(id: id, name: name, email: email, phone: phone , bankName: bankName, accountNumber: accountNumber, group: group))
+                
+                if id != Core().getID() {
+                    users.append(User(id: id, name: name, email: email, phone: phone , bankName: bankName, accountNumber: accountNumber, group: group))
+                }
             }
         }
         

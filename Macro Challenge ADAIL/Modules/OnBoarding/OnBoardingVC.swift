@@ -158,20 +158,21 @@ class OnBoardingVC: UIViewController {
 }
 
 extension OnBoardingVC: OnBoardingPresenterToViewProtocol {
-    func didFetchUser(user: User) {
-        Core.shared.signIn(id: user.id, name: user.name, email: user.email)
+    func didFetchGroup(group: Group) {
+        Core.shared.groupIn(id: group.id, name: group.name, address: group.address, description: group.description, users: group.users)
         DispatchQueue.main.async {
             self.presentor?.goToDashboard(from: self)
         }
-        
+    }
+    
+    func didFetchUser(user: User) {
+        Core.shared.signIn(id: user.id, name: user.name, email: user.email)
+        presentor?.fetchGroup(groupId: user.group)
     }
     
     func didSaveUser(user: User) {
         Core.shared.signIn(id: user.id, name: user.name, email: user.email)
-        DispatchQueue.main.async {
-            self.presentor?.goToDashboard(from: self)
-        }
-        
+        presentor?.fetchGroup(groupId: user.group)
     }
     
 }
@@ -228,8 +229,10 @@ extension OnBoardingVC: ASAuthorizationControllerDelegate {
             
             let user = credentials.user
             if emailUser == "" {
+                print("USER: ",user)
                 presentor?.fetchUser(id: user)
             } else {
+                print("NAME: ",nameUser)
                 presentor?.saveUser(id: user, name: nameUser, email: emailUser)
             }
             break

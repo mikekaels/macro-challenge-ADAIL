@@ -218,7 +218,6 @@ class AddDebtVC: UIViewController {
     func fetchUsers() {
         presentor?.fetchUsers(groupId: Core().getGroupID())
     }
-
 }
 
 extension AddDebtVC: AddDebtPresenterToViewProtocol {

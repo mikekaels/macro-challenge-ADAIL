@@ -166,6 +166,8 @@ class CardView: UIView {
             let vc = ListsRouter().createModule()
             vc.title = "Friends Debt List"
             vc.state = "FriendsDebt"
+            vc.friendsDebt = self.friendsDebt
+            vc.friendsData = self.friendsData
             parentViewController?.navigationController?.pushViewController(vc, animated: true)
         default:
             break

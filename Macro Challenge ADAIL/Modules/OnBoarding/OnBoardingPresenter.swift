@@ -23,6 +23,10 @@ class OnBoardingPresenter: OnBoardingViewToPresenterProtocol {
         interactor?.fetchUser(id: id)
     }
     
+    func fetchGroup(groupId: String) {
+        interactor?.fetchGroup(groupId: groupId)
+    }
+    
     func goToDashboard(from: OnBoardingVC) {
         router?.goToDashboard(from: from)
     }
@@ -36,5 +40,9 @@ extension OnBoardingPresenter: OnBoardingInteractorToPresenterProtocol {
     
     func didSaveUser(user: User) {
         view?.didSaveUser(user: user)
+    }
+    
+    func didFetchGroup(group: Group) {
+        view?.didFetchGroup(group: group)
     }
 }
