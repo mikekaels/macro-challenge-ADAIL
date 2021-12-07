@@ -6,6 +6,8 @@
 //
 
 import CloudKit
+import SwiftUI
+import simd
 
 class CloudKitHelper {
     
@@ -13,9 +15,21 @@ class CloudKitHelper {
     
     private static let identifier: String = "iCloud.cofi-one"
     
+    enum recordType: String {
+        case Debt = "Debt"
+        case DebtHistory = "DebtHistory"
+    }
+    
+    enum error: Error {
+        case noData
+        case error
+    }
+    
+    private static let database = CKContainer(identifier: CloudKitHelper.identifier).publicCloudDatabase
+    
+    
     static func hello() {
         print("Hello World")
-        
     }
     
     static func createUser(id: String, name: String, email: String, completion: @escaping (User) -> ()) {
@@ -62,6 +76,7 @@ class CloudKitHelper {
         record.setValue(expanses.note, forKey: "note")
         record.setValue(expanses.isRepeat, forKey: "isRepeat")
         record.setValue(expanses.isPaid, forKey: "isPaid")
+        
         database.save(record) { (savedRecord, error) in
             
             if error == nil {
@@ -94,7 +109,7 @@ class CloudKitHelper {
         var results: [Expanses] = []
         
         operation.recordFetchedBlock = { (records) in
-//            results.append(record)
+            //            results.append(record)
             guard let groupID = records["groupID"] as? String else { return }
             guard let userId = records["groupID"] as? String else { return }
             guard let icon = records["icon"] as? String else { return }
@@ -105,7 +120,7 @@ class CloudKitHelper {
             guard let isRepeat = records["isRepeat"] as? Int else { return }
             guard let note = records["note"] as? String else { return }
             guard let isPaid = records["isPaid"] as? Bool else { return }
-
+            
             
             let expanses = Expanses(groupID: groupID, userId: userId, icon: icon, transactionName: transactionName, totalTransaction: totalTransaction, paymentDate: paymentDate, remindTime: remindAt(rawValue: remindTime)!, isRepeat: isRepeat == 1 ? true : false, note: note, isPaid: isPaid)
             
@@ -148,7 +163,7 @@ class CloudKitHelper {
         var results: [Expanses] = []
         
         operation.recordFetchedBlock = { (records) in
-//            results.append(record)
+            //            results.append(record)
             guard let groupID = records["groupID"] as? String else { return }
             guard let userId = records["groupID"] as? String else { return }
             guard let icon = records["icon"] as? String else { return }
@@ -159,7 +174,7 @@ class CloudKitHelper {
             guard let isRepeat = records["isRepeat"] as? Int else { return }
             guard let note = records["note"] as? String else { return }
             guard let isPaid = records["isPaid"] as? Bool else { return }
-
+            
             
             let expanses = Expanses(groupID: groupID, userId: userId, icon: icon, transactionName: transactionName, totalTransaction: totalTransaction, paymentDate: paymentDate, remindTime: remindAt(rawValue: remindTime)!, isRepeat: isRepeat == 1 ? true : false, note: note, isPaid: isPaid)
             
@@ -276,80 +291,44 @@ class CloudKitHelper {
     static func fetchUsersByID(IDs: [String], completion: @escaping ([User]) -> ()) {
         let database = CKContainer(identifier: CloudKitHelper.identifier).publicCloudDatabase
         
-//        let predicate = NSPredicate(format: "%k IN %@", "record_name", IDs)
-        
         let recordIDs = IDs.map { CKRecord.ID(recordName: $0) }
-        
-//        let query = CKQuery(recordType: "User", predicate: predicate)
-        
-//        let operation = CKQueryOperation(query: query)
-        
+        print("RECORD IDs: ",recordIDs)
         let operation = CKFetchRecordsOperation(recordIDs: recordIDs)
+        var users: [User] = []
         
         operation.desiredKeys = ["name", "email", "phone", "bankName", "accountNumber", "group"]
         
-//        operation.recordFetchedBlock = { record in
-//            DispatchQueue.main.async {
-//                let id = record.recordID.recordName
-//
-//                guard let name = record["name"] as? String else {
-//                    return
-//                }
-//
-//                guard let email = record["email"] as? String else {
-//                    return
-//                }
-//
-//                guard let phone = record["phone"] as? Int else {
-//                    return
-//                }
-//                guard let bankName = record["bankName"] as? String else {
-//                    return
-//                }
-//
-//                guard let accountNumber = record["accountNumber"] as? Int else {
-//                    return
-//                }
-//
-//                guard let group = record["group"] as? String else {
-//                    return
-//                }
-//                completion(User(id: id, name: name, email: email, phone: phone , bankName: bankName, accountNumber: accountNumber, group: group))
-//            }
-//        }
-        
         operation.fetchRecordsCompletionBlock = { (ckRecords, error) in
-            print(ckRecords)
+            
             DispatchQueue.main.async {
-                var users: [User] = []
-                ckRecords!.mapValues { (record) in
+                
+                ckRecords?.mapValues { (record) in
                     let id = record.recordID.recordName
-    
+                    
                     guard let name = record["name"] as? String else {
                         return
                     }
-    
+                    
                     guard let email = record["email"] as? String else {
                         return
                     }
-    
+                    
                     guard let phone = record["phone"] as? Int else {
                         return
                     }
                     guard let bankName = record["bankName"] as? String else {
                         return
                     }
-    
+                    
                     guard let accountNumber = record["accountNumber"] as? Int else {
                         return
                     }
-    
                     guard let group = record["group"] as? String else {
                         return
                     }
+                    
                     users.append(User(id: id, name: name, email: email, phone: phone , bankName: bankName, accountNumber: accountNumber, group: group))
                 }
-                
                 completion(users)
             }
         }
@@ -458,8 +437,280 @@ class CloudKitHelper {
         database.add(updateOperation)
     }
     
+    static func addDebt(userId: String, friendId: String, totalDebt: Int, date: Date, completion: @escaping (Result<DebtHistory, Error>) -> ()) {
+        
+        fetchDebt(userId: userId, friendId: friendId) { result in
+            switch result {
+            case .success(let debt):
+                
+                createDebtHistory(userId: userId, friendId: friendId, total: totalDebt, date: date) { result in
+                    
+                    switch result {
+                    case .success(let data):
+                        updateDebt(userId: data.userId, friendId: data.friendId, total: data.totalDebt)
+                        completion(.success(DebtHistory(DebtId: data.DebtId, userId: data.userId, friendId: data.friendId, totalDebt: data.totalDebt, date: data.date)))
+                    case .failure(let err):
+                        print("ERR1: ",err)
+                        completion(.failure(err))
+                    }
+                }
+                
+            case .failure(let err):
+                if err == error.noData {
+                    createDebt(userId: userId, friendId: friendId, total: totalDebt) { result in
+                        switch result {
+                        case .success(let data):
+                            createDebtHistory(userId: userId, friendId: friendId, total: totalDebt, date: date) { result in
+                                switch result {
+                                case .success(let data):
+                                    updateDebt(userId: data.userId, friendId: data.friendId, total: data.totalDebt)
+                                    completion(.success(DebtHistory(DebtId: data.DebtId, userId: data.userId, friendId: data.friendId, totalDebt: data.totalDebt, date: data.date)))
+                                case .failure(let err):
+                                    completion(.failure(err))
+                                }
+                            }
+                        case .failure(let err):
+                            print(err)
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    static func createDebt(userId: String, friendId: String, total: Int, completion: @escaping(Result<CKRecord, Error>) -> ()) {
+        let database = CKContainer(identifier: CloudKitHelper.identifier).publicCloudDatabase
+        let record = CKRecord(recordType: recordType.Debt.rawValue)
+        
+        record.setValue(userId,forKey: "userId")
+        record.setValue(friendId, forKey: "friendId")
+        record.setValue(total,forKey: "total")
+        
+        database.save(record) { (savedRecord, error) in
+            
+            if error == nil {
+                completion(.success(savedRecord!))
+            } else {
+                completion(.failure(error!))
+            }
+        }
+    }
+    
+    static func updateDebt(userId: String, friendId: String, total: Int) {
+        print("UPDATE DEBT....")
+        fetchDebt(userId: userId, friendId: friendId) { result in
+            switch result {
+            case .success(let data):
+                print(data)
+                let newTotal = data.total + total
+                
+                let recordId = CKRecord.ID(recordName: data.id)
+                
+                let record = CKRecord(recordType: "Debt", recordID: recordId)
+                
+                record.setValue(newTotal, forKey: "total")
+                
+                let updateOperation = CKModifyRecordsOperation(recordsToSave: [record])
+                
+                updateOperation.savePolicy = .allKeys
+                
+                CloudKitHelper.database.add(updateOperation)
+                
+            case .failure(let err):
+                print(err)
+            }
+        }
+    }
+    
+    static func createDebtHistory(userId: String, friendId: String, total: Int, date: Date, completion: @escaping(Result<DebtHistory, Error>) -> ()) {
+        let record = CKRecord(recordType: recordType.DebtHistory.rawValue)
+        
+        record.setValue(userId,forKey: "userId")
+        record.setValue(friendId, forKey: "friendId")
+        record.setValue(total,forKey: "total")
+        record.setValue(date, forKey: "date")
+        
+        CloudKitHelper.database.save(record) { (savedRecord, error) in
+            
+            if error == nil {
+                let debtId = savedRecord!.recordID.recordName
+                guard let userId = savedRecord!["userId"] as? String else {
+                    return
+                }
+                guard let friendId = savedRecord!["friendId"] as? String else {
+                    return
+                }
+                guard let date = savedRecord!["date"] as? Date else {
+                    return
+                }
+                guard let total = savedRecord!["total"] as? Int else {
+                    return
+                }
+                completion(.success(DebtHistory(DebtId: debtId, userId: userId, friendId: friendId, totalDebt: total, date: date)))
+            } else {
+                completion(.failure(error!))
+            }
+        }
+    }
+    
+    static func fetchDebt(userId: String, friendId: String, completion: @escaping ((Result<Debt, error>)) -> ()) {
+        
+        let pred1 = NSPredicate(format: "userId == %@", userId)
+        
+        let pred2 = NSPredicate(format: "friendId == %@", friendId)
+        
+        let predicate = NSCompoundPredicate(andPredicateWithSubpredicates: [pred1, pred2])
+        
+        let query = CKQuery(recordType: "Debt", predicate: predicate)
+        
+        let operation = CKQueryOperation(query: query)
+        
+        var debt: Debt?
+        
+        operation.recordFetchedBlock = { (records) in
+            let id = records.recordID.recordName
+            guard let userId = records["userId"] as? String else { return }
+            guard let friendId = records["friendId"] as? String else { return }
+            guard let total = records["total"] as? Int else { return }
+            
+            debt = Debt(userId: userId, friendId: friendId, total: total, id: id)
+        }
+        
+        operation.queryCompletionBlock = { _, err in
+            DispatchQueue.main.async {
+                if let error = err {
+                    print(error.localizedDescription)
+                    completion(.failure(.noData))
+                } else {
+                    if debt != nil {
+                        completion(.success(debt!))
+                    } else {
+                        completion(.failure(.noData))
+                    }
+                }
+            }
+        }
+        
+        CloudKitHelper.database.add(operation)
+    }
+    
+    static func fetchUsersByGroupId(groupId: String, completion: @escaping(Result<[User], error>) -> ()) {
+        let pred1 = NSPredicate(format: "group == %@", groupId)
+        
+        let predicate = NSCompoundPredicate(andPredicateWithSubpredicates: [pred1])
+        
+        let query = CKQuery(recordType: "User", predicate: predicate)
+        
+        let operation = CKQueryOperation(query: query)
+        
+        var users: [User] = [User]()
+        
+        operation.recordFetchedBlock = { (record) in
+            DispatchQueue.main.async {
+                
+                let id = record.recordID.recordName
+                
+                guard let name = record["name"] as? String else {
+                    return
+                }
+                
+                guard let email = record["email"] as? String else {
+                    return
+                }
+                guard let phone = record["phone"] as? Int else {
+                    return
+                }
+                guard let bankName = record["bankName"] as? String else {
+                    return
+                }
+                guard let accountNumber = record["accountNumber"] as? Int else {
+                    return
+                }
+                
+                guard let group = record["group"] as? String else {
+                    return
+                }
+                users.append(User(id: id, name: name, email: email, phone: phone , bankName: bankName, accountNumber: accountNumber, group: group))
+            }
+        }
+        
+        operation.queryCompletionBlock = { _, err in
+            DispatchQueue.main.async {
+                if let error = err {
+                    print(error.localizedDescription)
+                    completion(.failure(.noData))
+                } else {
+                    completion(.success(users))
+                }
+            }
+        }
+        
+        CloudKitHelper.database.add(operation)
+    }
+    
+    static func fetchAllDebts(userId: String, completion: @escaping ([Debt]) -> ()) {
+        let groupID = Core().getGroupID()
+        
+        let database = CKContainer(identifier: CloudKitHelper.identifier).publicCloudDatabase
+        
+        let pred1 = NSPredicate(format: "userId == %@", userId)
+        
+        let predicate = NSCompoundPredicate(andPredicateWithSubpredicates: [pred1])
+        
+        let query = CKQuery(recordType: "Debt", predicate: predicate)
+        
+//        let sort = NSSortDescriptor(key: "modifiedTimestamp", ascending: false)
+//        query.sortDescriptors = [sort]
+//
+        let operation = CKQueryOperation(query: query)
+        
+        var results: [Debt] = []
+        
+        operation.recordFetchedBlock = { (record) in
+            let id = record.recordID.recordName
+            guard let userId = record["userId"] as? String else { return }
+            guard let friendId = record["friendId"] as? String else { return }
+            guard let total = record["total"] as? Int else { return }
+            let debt = Debt(userId: userId, friendId: friendId, total: total, id: id)
+            results.append(debt)
+        }
+        
+        operation.queryCompletionBlock = { _, err in
+            DispatchQueue.main.async {
+                if let error = err {
+                    print(error)
+                } else {
+                    completion(results)
+                }
+            }
+        }
+        
+        database.add(operation)
+    }
 }
 
+struct Debt: Equatable {
+    let userId: String
+    let friendId: String
+    let total: Int
+    let id: String
+}
+
+struct DebtHistory {
+    let DebtId: String
+    let userId: String
+    let friendId: String
+    let totalDebt: Int
+    let date: Date
+}
+
+struct PaidHistory {
+    let DebtId: String
+    let userId: String
+    let friendId: String
+    let totalpaid: Int
+    let date: Date
+}
 
 struct User {
     let id: String
@@ -483,3 +734,4 @@ struct GroupUser: Codable {
     let id: String
     let name: String
 }
+

@@ -33,4 +33,8 @@ public class AddDebtRouter: AddDebtPresenterToRouterProtocol{
         
         return view
     }
+    
+    func _dismiss(from: AddDebtVC) {
+        from.navigationController?.popViewController(animated: true)
+    }
 }

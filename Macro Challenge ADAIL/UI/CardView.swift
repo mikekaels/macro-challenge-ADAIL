@@ -18,6 +18,8 @@ class CardView: UIView {
     var card: CardState
     
     var upcomingBills: [Expanses] = [Expanses]()
+    var friendsDebt: [Debt] = [Debt]()
+    var friendsData: [User] = [User]()
     
     let upcomingDesc: UILabel = UILabel()
         .configure { v in
@@ -175,8 +177,8 @@ extension CardView: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if card == .upcomingBills && upcomingBills.count <= 3 {
             return upcomingBills.count
-        } else if card == .friendsDebt {
-            return 3
+        } else if card == .friendsDebt && friendsDebt.count <= 3 {
+            return friendsDebt.count
         } else {
             return 3
         }
@@ -197,6 +199,13 @@ extension CardView: UITableViewDelegate, UITableViewDataSource {
             return cell
         } else if card == .friendsDebt {
             let cell = tableView.dequeueReusableCell(withIdentifier: "FriendsDebtCell", for: indexPath) as! FriendsDebtTableViewCell
+            
+            let data = friendsData[indexPath.row]
+            let debt = friendsDebt[indexPath.row]
+//            
+            cell.itemLabel.text = data.name
+            cell.priceLabel.text = String(debt.total).currencyFormatting()
+            
             cell.backgroundColor = .clear
             cell.selectionStyle = .none
             cell.parent = HomeVC()

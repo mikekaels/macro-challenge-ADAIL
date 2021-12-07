@@ -14,4 +14,16 @@ class HomeInteractor: HomePresenterToInteractorProtocol {
             self.presenter?.didFetchUpcomingBills(data: result)
         }
     }
+    
+    func fetchFriendsDebt(userId: String) {
+        CloudKitHelper.fetchAllDebts(userId: userId) { result in
+            self.presenter?.didFetchFriendsDebt(debts: result)
+        }
+    }
+    
+    func fetchFriendsData(users: [String]) {
+        CloudKitHelper.fetchUsersByID(IDs: users) { users in
+            self.presenter?.didFetchFriendsData(users: users)
+        }
+    }
 }

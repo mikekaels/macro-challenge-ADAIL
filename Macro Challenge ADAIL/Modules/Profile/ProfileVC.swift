@@ -319,7 +319,7 @@ class ProfileVC: UIViewController {
 
 extension ProfileVC: ProfilePresenterToViewProtocol {
     func didFetchUsers(users: [User]) {
-        print(users)
+        print("USERS: ",users)
         self.members = users
         
         DispatchQueue.main.async {
@@ -330,7 +330,7 @@ extension ProfileVC: ProfilePresenterToViewProtocol {
     func didFetchGroup(group: Group){
         print("GROUP: ",group)
         self.group = group
-        
+        print("TOTAL USERS: ",group.users)
         fetchUsers()
         
         DispatchQueue.main.async {
