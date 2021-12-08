@@ -15,6 +15,10 @@ protocol FriendsDebtViewToPresenterProtocol: AnyObject {
     var view: FriendsDebtPresenterToViewProtocol? { get set }
     var interactor: FriendsDebtPresenterToInteractorProtocol? { get set }
     var router: FriendsDebtPresenterToRouterProtocol? { get set }
+    
+    func fetchUser(id: String)
+    func fetchDebt(userId: String, friendId: String)
+    func fetchHistoryDebt(userId: String, friendId: String)
 }
 
 protocol FriendsDebtPresenterToRouterProtocol: AnyObject {
@@ -22,14 +26,20 @@ protocol FriendsDebtPresenterToRouterProtocol: AnyObject {
 }
 
 protocol FriendsDebtPresenterToViewProtocol: AnyObject {
-
+    func didFetchUser(user: User)
+    func didFetchDebt(debt: Debt)
+    func didFetchHistoryDebt(historyDebt: [DebtHistory])
 }
 
 protocol FriendsDebtInteractorToPresenterProtocol: AnyObject {
-
+    func didFetchUser(user: User)
+    func didFetchDebt(debt: Debt)
+    func didFetchHistoryDebt(historyDebt: [DebtHistory])
 }
 
 protocol FriendsDebtPresenterToInteractorProtocol: AnyObject {
     var presenter: FriendsDebtInteractorToPresenterProtocol? { get set }
-
+    func fetchUser(id: String)
+    func fetchDebt(userId: String, friendId: String)
+    func fetchHistoryDebt(userId: String, friendId: String)
 }

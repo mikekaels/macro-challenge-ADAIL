@@ -400,7 +400,7 @@ class CloudKitHelper {
                     switch result {
                     case .success(let data):
                         updateDebt(userId: data.userId, friendId: data.friendId, total: data.totalDebt)
-                        completion(.success(DebtHistory(DebtId: data.DebtId, userId: data.userId, friendId: data.friendId, totalDebt: data.totalDebt, date: data.date)))
+                        completion(.success(DebtHistory(id: data.id, userId: data.userId, friendId: data.friendId, totalDebt: data.totalDebt, date: data.date)))
                     case .failure(let err):
                         print("ERR1: ",err)
                         completion(.failure(err))
@@ -416,7 +416,7 @@ class CloudKitHelper {
                                 switch result {
                                 case .success(let data):
                                     updateDebt(userId: data.userId, friendId: data.friendId, total: data.totalDebt)
-                                    completion(.success(DebtHistory(DebtId: data.DebtId, userId: data.userId, friendId: data.friendId, totalDebt: data.totalDebt, date: data.date)))
+                                    completion(.success(DebtHistory(id: data.id, userId: data.userId, friendId: data.friendId, totalDebt: data.totalDebt, date: data.date)))
                                 case .failure(let err):
                                     completion(.failure(err))
                                 }
@@ -498,7 +498,7 @@ class CloudKitHelper {
                 guard let total = savedRecord!["total"] as? Int else {
                     return
                 }
-                completion(.success(DebtHistory(DebtId: debtId, userId: userId, friendId: friendId, totalDebt: total, date: date)))
+                completion(.success(DebtHistory(id: debtId, userId: userId, friendId: friendId, totalDebt: total, date: date)))
             } else {
                 completion(.failure(error!))
             }
@@ -642,6 +642,48 @@ class CloudKitHelper {
         
         database.add(operation)
     }
+    
+    static func fetchHistoryDebt(userId: String, friendId: String,completion: @escaping ([DebtHistory]) -> ()) {
+        let pred1 = NSPredicate(format: "userId == %@", userId)
+        
+        let pred2 = NSPredicate(format: "friendId == %@", friendId)
+        
+        let predicate = NSCompoundPredicate(andPredicateWithSubpredicates: [pred1, pred2])
+        
+        let query = CKQuery(recordType: "DebtHistory", predicate: predicate)
+        
+        let sort = NSSortDescriptor(key: "creationDate", ascending: false)
+        query.sortDescriptors = [sort]
+        
+        let operation = CKQueryOperation(query: query)
+        
+        var results: [DebtHistory] = []
+        
+        operation.recordFetchedBlock = { (records) in
+            let id = records.recordID.recordName
+            guard let userId = records["userId"] as? String else { return }
+            guard let friendId = records["friendId"] as? String else { return }
+            guard let totalDebt = records["total"] as? Int else { return }
+            guard let date = records["date"] as? Date else { return }
+            
+            
+            let debtHistory = DebtHistory(id: id, userId: userId, friendId: friendId, totalDebt: totalDebt, date: date)
+            results.append(debtHistory)
+        }
+        
+        operation.queryCompletionBlock = { _, err in
+            DispatchQueue.main.async {
+                if let error = err {
+                    print(error)
+                } else {
+                    completion(results)
+                }
+            }
+        }
+        
+        CloudKitHelper.database.add(operation)
+    }
+    
 }
 
 struct Debt: Equatable {
@@ -652,7 +694,7 @@ struct Debt: Equatable {
 }
 
 struct DebtHistory {
-    let DebtId: String
+    let id: String
     let userId: String
     let friendId: String
     let totalDebt: Int
@@ -660,7 +702,7 @@ struct DebtHistory {
 }
 
 struct PaidHistory {
-    let DebtId: String
+    let id: String
     let userId: String
     let friendId: String
     let totalpaid: Int

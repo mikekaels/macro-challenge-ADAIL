@@ -9,7 +9,31 @@
 import Foundation
 
 class FriendsDebtInteractor: FriendsDebtPresenterToInteractorProtocol {
+   
+    
     var presenter: FriendsDebtInteractorToPresenterProtocol?
 }
 extension FriendsDebtInteractor {
+    func fetchUser(id: String) {
+        CloudKitHelper.fetchUserByRecordID(id: id) { user in
+            self.presenter?.didFetchUser(user: user)
+        }
+    }
+    
+    func fetchDebt(userId: String, friendId: String) {
+        CloudKitHelper.fetchDebt(userId: userId, friendId: friendId) { result in
+            switch result {
+            case .success(let debt):
+                self.presenter?.didFetchDebt(debt: debt)
+            case .failure(let err):
+                print(err)
+            }
+        }
+    }
+    
+    func fetchHistoryDebt(userId: String, friendId: String) {
+        CloudKitHelper.fetchHistoryDebt(userId: userId, friendId: friendId) { debtHistory in
+            self.presenter?.didFetchHistoryDebt(historyDebt: debtHistory)
+        }
+    }
 }

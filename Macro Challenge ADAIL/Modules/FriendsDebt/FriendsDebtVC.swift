@@ -10,6 +10,11 @@ import UIKit
 class FriendsDebtVC: UIViewController {
     var presentor: FriendsDebtViewToPresenterProtocol?
     public var delegate: FriendsDebtDelegate!
+    var friendId: String?
+    
+    var userData: User?
+    var debt: Debt?
+    var historyDebt: [DebtHistory] = [DebtHistory]()
     
     let scrollView: UIScrollView = {
         let s = UIScrollView()
@@ -141,6 +146,7 @@ class FriendsDebtVC: UIViewController {
         view.backgroundColor = .secondarySystemBackground
         // Do any additional setup after loading the view.
         setupViews()
+        fetchData()
         tableView.delegate = self
         tableView.dataSource = self
     }
@@ -232,10 +238,29 @@ class FriendsDebtVC: UIViewController {
         scrollViewContainer.spacing = 20
     }
     
+    func fetchData() {
+        presentor?.fetchUser(id: self.friendId!)
+        presentor?.fetchDebt(userId: Core().getID(), friendId: self.friendId!)
+        presentor?.fetchHistoryDebt(userId: Core().getID(), friendId: self.friendId!)
+    }
     
 }
 
 extension FriendsDebtVC: FriendsDebtPresenterToViewProtocol {
+    func didFetchDebt(debt: Debt) {
+        self.debt = debt
+    }
+    
+    func didFetchHistoryDebt(historyDebt: [DebtHistory]) {
+        self.historyDebt = historyDebt
+    }
+    
+    func didFetchUser(user: User) {
+        self.userData = user
+        DispatchQueue.main.async {
+            self.title = user.name
+        }
+    }
     
 }
 

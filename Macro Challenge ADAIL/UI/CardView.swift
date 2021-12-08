@@ -223,6 +223,16 @@ extension CardView: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        parentViewController?.navigationController?.pushViewController(self.cellTo!, animated: true)
+        
+        if card == .friendsDebt {
+            let vc = FriendsDebtRouter().createModule()
+            vc.friendId = friendsDebt[indexPath.row].friendId
+            
+            parentViewController?.navigationController?.pushViewController(vc, animated: true)
+        } else {
+            parentViewController?.navigationController?.pushViewController(self.cellTo!, animated: true)
+        }
+        
+        
     }
 }
