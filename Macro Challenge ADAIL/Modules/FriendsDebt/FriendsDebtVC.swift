@@ -14,7 +14,8 @@ class FriendsDebtVC: UIViewController {
     
     var userData: User?
     var debt: Debt?
-    var historyDebt: [DebtHistory] = [DebtHistory]()
+    var debtHistory: [DebtHistory] = [DebtHistory]()
+    var paidHistory: [PaidHistory] = [PaidHistory]()
     
     let scrollView: UIScrollView = {
         let s = UIScrollView()
@@ -44,16 +45,16 @@ class FriendsDebtVC: UIViewController {
             v.text = "35.000"
             v.backgroundColor = .white
             v.layer.cornerRadius = 13
-            
+            v.isUserInteractionEnabled = false
             let view = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 0)).configure { v in
-                v.widthAnchor.constraint(equalToConstant: 40).isActive = true
+                v.widthAnchor.constraint(equalToConstant: 10).isActive = true
                 v.heightAnchor.constraint(equalToConstant: v.frame.height).isActive = true
                 v.translatesAutoresizingMaskIntoConstraints = false
             }
             
             let rp = UILabel()
                 .configure { l in
-                    l.text = "Rp"
+                    l.text = ""
                     l.textColor = .systemGray3
                     l.center = view.center
                     l.translatesAutoresizingMaskIntoConstraints = false
@@ -95,6 +96,8 @@ class FriendsDebtVC: UIViewController {
             v.backgroundColor = .white
             v.layer.cornerRadius = 10
             
+            v.keyboardType = .numberPad
+            
             let view = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 0)).configure { v in
                 v.widthAnchor.constraint(equalToConstant: 15).isActive = true
                 v.heightAnchor.constraint(equalToConstant: v.frame.height).isActive = true
@@ -128,6 +131,8 @@ class FriendsDebtVC: UIViewController {
             v.heightAnchor.constraint(equalToConstant: 30).isActive = true
             v.widthAnchor.constraint(equalToConstant: 100).isActive = true
             v.translatesAutoresizingMaskIntoConstraints = false
+            
+            v.addTarget(self, action: #selector(submitTapped), for: .touchUpInside)
         }
     
     let tableView: UITableView = UITableView()
@@ -146,9 +151,13 @@ class FriendsDebtVC: UIViewController {
         view.backgroundColor = .secondarySystemBackground
         // Do any additional setup after loading the view.
         setupViews()
-        fetchData()
         tableView.delegate = self
         tableView.dataSource = self
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        fetchData()
     }
     
     func setupViews() {
@@ -207,16 +216,6 @@ class FriendsDebtVC: UIViewController {
                 v.distribution = .fill
             })
         )
-        
-        //        scrollViewContainer.addArrangedSubview(UIView().configure(completion: { v in
-        //            v.addSubview(tableView)
-        //            tableView.backgroundColor = .blue
-        //            v.backgroundColor = .red
-        //            v.translatesAutoresizingMaskIntoConstraints = false
-        //            v.heightAnchor.constraint(equalToConstant: 200).isActive = true
-        //
-        //        }))
-        
         scrollViewContainer.addArrangedSubview(tableView)
         tableView.heightAnchor.constraint(equalToConstant: 500).isActive = true
     }
@@ -242,26 +241,58 @@ class FriendsDebtVC: UIViewController {
         presentor?.fetchUser(id: self.friendId!)
         presentor?.fetchDebt(userId: Core().getID(), friendId: self.friendId!)
         presentor?.fetchHistoryDebt(userId: Core().getID(), friendId: self.friendId!)
+        presentor?.fetchPaidHistory(userId: Core().getID(), friendId: self.friendId!)
     }
     
+    @objc func submitTapped() {
+        
+        guard let total = Int(totalAmountInstallPaymentTextField.text!) else {
+            return
+        }
+        
+        let date = paymentDate.date
+        presentor?.installPayment(userId: Core().getID(), friendId: friendId!, total: total, date: date)
+    }
 }
 
 extension FriendsDebtVC: FriendsDebtPresenterToViewProtocol {
-    func didFetchDebt(debt: Debt) {
-        self.debt = debt
-    }
-    
-    func didFetchHistoryDebt(historyDebt: [DebtHistory]) {
-        self.historyDebt = historyDebt
-    }
-    
     func didFetchUser(user: User) {
         self.userData = user
+        
         DispatchQueue.main.async {
             self.title = user.name
         }
     }
     
+    func didFetchDebt(debt: Debt) {
+        self.debt = debt
+        
+        DispatchQueue.main.async {
+            self.totalTextfield.text = String(debt.total).currencyFormatting()
+        }
+    }
+    
+    func didFetchHistoryDebt(historyDebt: [DebtHistory]) {
+        self.debtHistory = historyDebt
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
+    }
+    
+    func didFetchPaidHistory(paidHistory: [PaidHistory]) {
+        self.paidHistory = paidHistory
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
+    }
+    
+    func didInstallPayment(paidHistories: [PaidHistory]) {
+        self.paidHistory = paidHistories
+        DispatchQueue.main.async {
+            print(paidHistories)
+            self.tableView.reloadData()
+        }
+    }
 }
 
 extension FriendsDebtVC: UITableViewDelegate, UITableViewDataSource {
@@ -282,39 +313,58 @@ extension FriendsDebtVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4
+        switch section {
+        case 0:
+            if debtHistory.count < 3{
+                return debtHistory.count
+            } else {
+                return 3
+            }
+        case 1:
+            if paidHistory.count < 3 {
+                return paidHistory.count
+            } else {
+                return 3
+            }
+        default:
+            return 0
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.row == 0 {
-            let cell = UITableViewCell(style: .default, reuseIdentifier: "seeMore")
-            cell.textLabel?.text = "See More"
-            cell.textLabel?.textAlignment = .right
-            cell.textLabel?.textColor = .systemBlue
-            cell.backgroundColor = .clear
-            cell.selectionStyle = .none
-            return cell
-        } else {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! CardViewTableViewCell
-            cell.textLabel?.text = "CardView Cell \(indexPath.row)"
-            cell.backgroundColor = .clear
-            cell.selectionStyle = .none
-            cell.parent = FriendsDebtVC()
-            return cell
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! CardViewTableViewCell
+        
+        if indexPath.section == 0 && debtHistory.count != 0 {
+            let data = debtHistory[indexPath.row]
+
+            cell.itemLabel.text = "Add debt"
+            cell.dateLabel.text = data.date.toString()
+            cell.priceLabel.text = String(data.totalDebt).currencyFormatting()
+        } else if indexPath.section == 1 && paidHistory.count != 0 {
+            let data = paidHistory[indexPath.row]
+
+            cell.itemLabel.text = "Paid"
+            cell.dateLabel.text = data.date.toString()
+            cell.priceLabel.text = String(data.totalPaid).currencyFormatting()
         }
+
+        cell.backgroundColor = .clear
+        cell.selectionStyle = .none
+        cell.parent = FriendsDebtVC()
+        return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath.row {
-        case 0:
-            return 20
+            //        case 0:
+            //            return 20
         default:
             return 55
         }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
         tableView.deselectRow(at: indexPath, animated: true)
     }
 }

@@ -129,7 +129,7 @@ class ProfileVC: UIViewController {
         self.title = Constants().tab3Title
         self.view.backgroundColor = .secondarySystemBackground
         setupViews()
-        fetchGroup()
+        
 //        if Core.shared.getGroupID() != "" {
 //
 //        } else {
@@ -140,6 +140,7 @@ class ProfileVC: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         self.navigationController?.navigationBar.prefersLargeTitles = true
+        fetchGroup()
     }
 
     

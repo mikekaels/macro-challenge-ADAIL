@@ -25,6 +25,9 @@ class HomePresenter: HomeViewToPresenterProtocol {
     func fetchFriendsDebt(userId: String) {
         interactor?.fetchFriendsDebt(userId: userId)
     }
+    func fetchOweToFriend(userId: String) {
+        interactor?.fetchOweToFriend(userId: userId)
+    }
     func fetchFriendsData(users: [String]) {
         interactor?.fetchFriendsData(users: users)
     }
@@ -36,6 +39,9 @@ extension HomePresenter: HomeInteractorToPresenterProtocol {
     }
     func didFetchUpcomingBills(data: [Expanses]) {
         view?.didFetchUpcomingBills(data: data)
+    }
+    func didFetchOweToFriend(debts: [Debt]) {
+        view?.didFetchOweToFriend(debts: debts)
     }
     func didFetchFriendsDebt(debts: [Debt]) {
         view?.didFetchFriendsDebt(debts: debts)

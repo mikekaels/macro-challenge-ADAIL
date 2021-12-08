@@ -105,17 +105,17 @@ class HomeVC: UIViewController {
     
     let upcomingCardView: CardView = CardView(to: ExpansesRouter().createModule(), for: .upcomingBills)
         .configure { v in
-            v.image.image = Asset.Images.cards1.image
+//            v.image.image = Asset.Images.cards1.image
         }
     
     let friendsOweCardView: CardView = CardView(to: FriendsDebtRouter().createModule(), for: .friendsDebt)
         .configure { v in
-            v.image.image = Asset.Images.cards2.image
+//            v.image.image = Asset.Images.cards2.image
         }
 
-    let myOweCardView: CardView = CardView(to: FriendsDebtRouter().createModule(), for: .friendsDebt)
+    let myOweCardView: CardView = CardView(to: FriendsDebtRouter().createModule(), for: .oweToFriend)
         .configure { v in
-            v.image.image = Asset.Images.cards3.image
+//            v.image.image = Asset.Images.cards3.image
             v.createExpanseButton.isHidden = true
         }
     
@@ -157,8 +157,10 @@ class HomeVC: UIViewController {
     }
     
     func fetchData() {
+        let userId = Core().getID()
         presentor?.fetchUpcomingBills()
-        presentor?.fetchFriendsDebt(userId: Core().getID())
+        presentor?.fetchOweToFriend(userId: userId)
+        presentor?.fetchFriendsDebt(userId: userId)
     }
     
     func setupScrollView() {
@@ -170,14 +172,12 @@ class HomeVC: UIViewController {
         scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         scrollView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
         scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-        //        scrollViewContainer.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor).isActive = true
-        //        scrollViewContainer.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor).isActive = true
+
         scrollViewContainer.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 50).isActive = true
         scrollViewContainer.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor).isActive = true
         // Important!
         scrollViewContainer.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor).isActive = true
         scrollViewContainer.widthAnchor.constraint(equalTo: scrollView.widthAnchor, multiplier: 0.90).isActive = true
-        //        scrollViewContainer.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: -50).isActive = true
         scrollViewContainer.spacing = 20
     }
     
@@ -188,11 +188,20 @@ class HomeVC: UIViewController {
 }
 
 extension HomeVC: HomePresenterToViewProtocol {
+    func didFetchUpcomingBills(data: [Expanses]) {
+        self.upcomingCardView.upcomingBills = data
+        DispatchQueue.main.async {
+            self.upcomingCardView.tableView.reloadData()
+        }
+    }
+    
     func didFetchFriendsData(users: [User]) {
-
         self.friendsOweCardView.friendsData = users
+        self.myOweCardView.friendsData = users
+        
         DispatchQueue.main.async {
             self.friendsOweCardView.tableView.reloadData()
+            self.myOweCardView.tableView.reloadData()
         }
     }
     
@@ -202,12 +211,13 @@ extension HomeVC: HomePresenterToViewProtocol {
         presentor?.fetchFriendsData(users: IDs)
     }
     
-    func didFetchUpcomingBills(data: [Expanses]) {
-        self.upcomingCardView.upcomingBills = data
+    func didFetchOweToFriend(debts: [Debt]) {
+        self.myOweCardView.oweToFriend = debts
         DispatchQueue.main.async {
-            self.upcomingCardView.tableView.reloadData()
+//            self.myOweCardView.tableView.reloadData()
         }
     }
+    
     
     @objc func goToNewExpenses(_ sender : Any) {
         print("Go To New Expenses")

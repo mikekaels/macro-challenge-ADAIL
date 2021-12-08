@@ -10,6 +10,7 @@ import UIKit
 enum CardState {
     case upcomingBills
     case friendsDebt
+    case oweToFriend
 }
 
 class CardView: UIView {
@@ -18,8 +19,11 @@ class CardView: UIView {
     var card: CardState
     
     var upcomingBills: [Expanses] = [Expanses]()
+    
     var friendsDebt: [Debt] = [Debt]()
     var friendsData: [User] = [User]()
+    
+    var oweToFriend: [Debt] = [Debt]()
     
     let upcomingDesc: UILabel = UILabel()
         .configure { v in
@@ -33,7 +37,7 @@ class CardView: UIView {
     
     let image: UIImageView = UIImageView()
         .configure(completion: { i in
-            i.image = Asset.Images.cards1.image
+//            i.image = Asset.Images.cards1.image
             i.widthAnchor.constraint(equalToConstant: 100).isActive = true
             i.heightAnchor.constraint(equalToConstant: 90).isActive = true
             i.translatesAutoresizingMaskIntoConstraints = false
@@ -76,7 +80,7 @@ class CardView: UIView {
         self.card = card
         super.init(frame: .zero)
         setupView()
-        
+
         switch card {
         case .upcomingBills:
             createExpanseButton.setTitle("Create expanses", for: .normal)
@@ -88,18 +92,17 @@ class CardView: UIView {
         default:
             break
         }
-        
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
     func setupView() {
         tableView.delegate = self
         tableView.dataSource = self
         layer.cornerRadius = 15
-        backgroundColor = .clear
+        backgroundColor = .systemGray5
         layer.masksToBounds = true
         translatesAutoresizingMaskIntoConstraints = false
         
@@ -136,6 +139,7 @@ class CardView: UIView {
         
         button.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10).isActive = true
         button.rightAnchor.constraint(equalTo: rightAnchor, constant: -25).isActive = true
+    
     }
     
     @objc func mainButtonPressed() {
@@ -169,6 +173,13 @@ class CardView: UIView {
             vc.friendsDebt = self.friendsDebt
             vc.friendsData = self.friendsData
             parentViewController?.navigationController?.pushViewController(vc, animated: true)
+        case .oweToFriend:
+            let vc = ListsRouter().createModule()
+            vc.title = "Owe to friend List"
+            vc.state = "OweToFriend"
+            vc.friendsDebt = self.oweToFriend
+            vc.friendsData = self.friendsData
+            parentViewController?.navigationController?.pushViewController(vc, animated: true)
         default:
             break
         }
@@ -181,12 +192,15 @@ extension CardView: UITableViewDelegate, UITableViewDataSource {
             return upcomingBills.count
         } else if card == .friendsDebt && friendsDebt.count <= 3 {
             return friendsDebt.count
+        } else if card == .oweToFriend && oweToFriend.count <= 3 {
+            return oweToFriend.count
         } else {
             return 3
         }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         if card == .upcomingBills {
             let cell = tableView.dequeueReusableCell(withIdentifier: "UpcomingBillsCell", for: indexPath) as! CardViewTableViewCell
             let data = upcomingBills[indexPath.row]
@@ -202,11 +216,22 @@ extension CardView: UITableViewDelegate, UITableViewDataSource {
         } else if card == .friendsDebt {
             let cell = tableView.dequeueReusableCell(withIdentifier: "FriendsDebtCell", for: indexPath) as! FriendsDebtTableViewCell
             
-            let data = friendsData[indexPath.row]
-            let debt = friendsDebt[indexPath.row]
-//            
-            cell.itemLabel.text = data.name
-            cell.priceLabel.text = String(debt.total).currencyFormatting()
+            let filtered = friendsData.filter { $0.id.contains(friendsDebt[indexPath.row].friendId) }
+            
+            cell.itemLabel.text = filtered[0].name
+            cell.priceLabel.text = String(self.friendsDebt[indexPath.row].total).currencyFormatting()
+            
+            cell.backgroundColor = .clear
+            cell.selectionStyle = .none
+            cell.parent = HomeVC()
+            return cell
+        } else if card == .oweToFriend {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "FriendsDebtCell", for: indexPath) as! FriendsDebtTableViewCell
+            
+            let filtered = friendsData.filter { $0.id.contains(oweToFriend[indexPath.row].userId) }
+
+            cell.itemLabel.text = filtered[0].name
+            cell.priceLabel.text = String(self.oweToFriend[indexPath.row].total).currencyFormatting()
             
             cell.backgroundColor = .clear
             cell.selectionStyle = .none

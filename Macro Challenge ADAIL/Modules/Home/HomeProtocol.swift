@@ -15,6 +15,7 @@ protocol HomeViewToPresenterProtocol: AnyObject {
     func goToAccount(from: HomeVC)
     func fetchUpcomingBills()
     func fetchFriendsDebt(userId: String)
+    func fetchOweToFriend(userId: String)
     func fetchFriendsData(users: [String])
 }
 
@@ -26,12 +27,14 @@ protocol HomePresenterToRouterProtocol: AnyObject {
 protocol HomePresenterToViewProtocol: AnyObject {
     func didFetchUpcomingBills(data: [Expanses])
     func didFetchFriendsDebt(debts: [Debt])
+    func didFetchOweToFriend(debts: [Debt])
     func didFetchFriendsData(users: [User])
 }
 
 protocol HomeInteractorToPresenterProtocol: AnyObject {
     func didFetchUpcomingBills(data: [Expanses])
     func didFetchFriendsDebt(debts: [Debt])
+    func didFetchOweToFriend(debts: [Debt])
     func didFetchFriendsData(users: [User])
 }
 
@@ -40,6 +43,7 @@ protocol HomePresenterToInteractorProtocol: AnyObject {
     var presenter: HomeInteractorToPresenterProtocol? { get set }
     func fetchUpcomingBills()
     func fetchFriendsDebt(userId: String)
+    func fetchOweToFriend(userId: String)
     func fetchFriendsData(users: [String])
 }
 

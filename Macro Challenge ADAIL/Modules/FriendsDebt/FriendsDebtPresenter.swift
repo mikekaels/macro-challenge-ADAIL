@@ -10,7 +10,6 @@ import Foundation
 
 class FriendsDebtPresenter: FriendsDebtViewToPresenterProtocol {
     
-    
     var view: FriendsDebtPresenterToViewProtocol?
     var router: FriendsDebtPresenterToRouterProtocol?
     var interactor: FriendsDebtPresenterToInteractorProtocol?
@@ -27,6 +26,14 @@ class FriendsDebtPresenter: FriendsDebtViewToPresenterProtocol {
         interactor?.fetchHistoryDebt(userId: userId, friendId: friendId)
     }
     
+    func fetchPaidHistory(userId: String, friendId: String) {
+        interactor?.fetchPaidHistory(userId: userId, friendId: friendId)
+    }
+    
+    func installPayment(userId: String, friendId: String, total: Int, date: Date) {
+        interactor?.installPayment(userId: userId, friendId: friendId, total: total, date: date)
+    }
+    
 }
 
 extension FriendsDebtPresenter: FriendsDebtInteractorToPresenterProtocol {
@@ -40,5 +47,13 @@ extension FriendsDebtPresenter: FriendsDebtInteractorToPresenterProtocol {
     
     func didFetchHistoryDebt(historyDebt: [DebtHistory]) {
         view?.didFetchHistoryDebt(historyDebt: historyDebt)
+    }
+    
+    func didFetchPaidHistory(paidHistory: [PaidHistory]) {
+        view?.didFetchPaidHistory(paidHistory: paidHistory)
+    }
+    
+    func didInstallPayment(paidHistories: [PaidHistory]) {
+        view?.didInstallPayment(paidHistories: paidHistories)
     }
 }

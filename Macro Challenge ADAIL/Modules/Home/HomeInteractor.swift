@@ -21,6 +21,12 @@ class HomeInteractor: HomePresenterToInteractorProtocol {
         }
     }
     
+    func fetchOweToFriend(userId: String) {
+        CloudKitHelper.fetchAllOweToFriend(userId: userId) { result in
+            self.presenter?.didFetchOweToFriend(debts: result)
+        }
+    }
+    
     func fetchFriendsData(users: [String]) {
         CloudKitHelper.fetchUsersByID(IDs: users) { users in
             self.presenter?.didFetchFriendsData(users: users)
