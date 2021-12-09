@@ -261,7 +261,7 @@
 		BD84244C2729C0C400B922DC /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/Localizable.strings; sourceTree = "<group>"; };
 		BD8424502729D1B400B922DC /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		BDA71D23272C575600EEF4C6 /* Macro Challenge ADAIL.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Macro Challenge ADAIL.entitlements"; sourceTree = "<group>"; };
-		BDD3F9D32722FD2A00B2AF7F /* Macro Challenge ADAIL.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Macro Challenge ADAIL.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BDD3F9D32722FD2A00B2AF7F /* CoFi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoFi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDD3F9D62722FD2A00B2AF7F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BDD3F9D82722FD2A00B2AF7F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		BDD3F9DA2722FD2A00B2AF7F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -628,7 +628,7 @@
 		BDD3F9D42722FD2A00B2AF7F /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				BDD3F9D32722FD2A00B2AF7F /* Macro Challenge ADAIL.app */,
+				BDD3F9D32722FD2A00B2AF7F /* CoFi.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -719,9 +719,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		BDD3F9D22722FD2A00B2AF7F /* Macro Challenge ADAIL */ = {
+		BDD3F9D22722FD2A00B2AF7F /* CoFi */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = BDD3F9E72722FD2B00B2AF7F /* Build configuration list for PBXNativeTarget "Macro Challenge ADAIL" */;
+			buildConfigurationList = BDD3F9E72722FD2B00B2AF7F /* Build configuration list for PBXNativeTarget "CoFi" */;
 			buildPhases = (
 				B77EC8538B9267163AD4F452 /* [CP] Check Pods Manifest.lock */,
 				BDD3F9CF2722FD2A00B2AF7F /* Sources */,
@@ -733,9 +733,9 @@
 			);
 			dependencies = (
 			);
-			name = "Macro Challenge ADAIL";
+			name = CoFi;
 			productName = "Macro Challenge ADAIL";
-			productReference = BDD3F9D32722FD2A00B2AF7F /* Macro Challenge ADAIL.app */;
+			productReference = BDD3F9D32722FD2A00B2AF7F /* CoFi.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -767,7 +767,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				BDD3F9D22722FD2A00B2AF7F /* Macro Challenge ADAIL */,
+				BDD3F9D22722FD2A00B2AF7F /* CoFi */,
 			);
 		};
 /* End PBXProject section */
@@ -1180,7 +1180,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		BDD3F9E72722FD2B00B2AF7F /* Build configuration list for PBXNativeTarget "Macro Challenge ADAIL" */ = {
+		BDD3F9E72722FD2B00B2AF7F /* Build configuration list for PBXNativeTarget "CoFi" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				BDD3F9E82722FD2B00B2AF7F /* Debug */,

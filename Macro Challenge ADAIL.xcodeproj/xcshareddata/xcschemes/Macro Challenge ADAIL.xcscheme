@@ -16,7 +16,7 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "BDD3F9D22722FD2A00B2AF7F"
                BuildableName = "Macro Challenge ADAIL.app"
-               BlueprintName = "Macro Challenge ADAIL"
+               BlueprintName = "CoFi"
                ReferencedContainer = "container:Macro Challenge ADAIL.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -47,7 +47,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "BDD3F9D22722FD2A00B2AF7F"
             BuildableName = "Macro Challenge ADAIL.app"
-            BlueprintName = "Macro Challenge ADAIL"
+            BlueprintName = "CoFi"
             ReferencedContainer = "container:Macro Challenge ADAIL.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -64,7 +64,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "BDD3F9D22722FD2A00B2AF7F"
             BuildableName = "Macro Challenge ADAIL.app"
-            BlueprintName = "Macro Challenge ADAIL"
+            BlueprintName = "CoFi"
             ReferencedContainer = "container:Macro Challenge ADAIL.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

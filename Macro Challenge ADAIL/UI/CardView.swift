@@ -257,7 +257,5 @@ extension CardView: UITableViewDelegate, UITableViewDataSource {
         } else {
             parentViewController?.navigationController?.pushViewController(self.cellTo!, animated: true)
         }
-        
-        
     }
 }
